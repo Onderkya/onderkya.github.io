@@ -1,8 +1,8 @@
 /* ==========================================================
    ONDERA STUDIO: düzenlenecek tek yer
    Fiyatlar (ABD doları, başlangıç fiyatı) ve iletişim bilgileri.
-   Sayfadaki bütün fiyatlar ve WhatsApp/e-posta bağlantıları
-   buradan doldurulur. Rakamı değiştirip kaydetmeniz yeterli.
+   Sayfadaki bütün fiyatlar, WhatsApp ve e-posta bağlantıları
+   altı dilde buradan doldurulur. Rakamı değiştirip kaydetmeniz yeterli.
    ========================================================== */
 window.ONDERA = {
   phone: "905340679661",            // wa.me biçimi: ülke kodu, boşluksuz, + yok

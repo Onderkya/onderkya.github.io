@@ -3,809 +3,713 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Ondera Studio | Kepenk iner, vitrininiz açık kalır: Antalya'da işletme siteleri</title>
-  <meta name="description" content="Siz kapatınca da çalışan siteler: müşteri fiyatlarınızı Türkçe, İngilizce ya da Rusça görür, gece bile WhatsApp'tan sipariş verir ya da randevu alır. Antalya'daki işletmeler için; taslak aynı gün, site ilk gün yayında.">
-  <meta name="theme-color" content="#0E2230">
+  <title>Ondera Studio | Güneş batar, vitrininiz açık kalır</title>
+  <meta name="description" content="Antalya'daki işletmeler için müşterinin dilinde siteler, QR menüler ve online randevu. Dükkân kapanınca da sipariş ve randevu gelir. Ücretsiz taslak aynı gün, site ilk gün yayında.">
+  <meta name="theme-color" content="#E6F6FB">
   <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
-
-  <!-- Yayına alırken og:image ve og:url'yi tam adrese çevirin (ör. https://ondera.studio/img/og.png) -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Ondera Studio">
-  <meta property="og:title" content="Ondera Studio | Sabah kapıyı açtığınızda siparişler sizi beklesin">
-  <meta property="og:description" content="Antalya'daki işletmeler için TR/EN/RU siteler, QR menüler ve online randevu. Ücretsiz taslak aynı gün, site ilk gün yayında. Kurucuyla doğrudan konuşursunuz.">
+  <meta property="og:title" content="Ondera Studio | Güneş batar, vitrininiz açık kalır">
+  <meta property="og:description" content="Müşteriniz hangi dilde ararsa orada olun: fiyatlarınız görünür, gece bile WhatsApp'tan sipariş ve randevu gelir. Taslak aynı gün, site ilk gün yayında.">
   <meta property="og:image" content="https://onderkya.github.io/img/og.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
   <meta property="og:locale" content="tr_TR">
-  <meta property="og:locale:alternate" content="en_US">
-  <meta property="og:locale:alternate" content="ru_RU">
   <meta name="twitter:card" content="summary_large_image">
-
+  <link rel="alternate" hreflang="tr" href="?lang=tr">
+  <link rel="alternate" hreflang="en" href="?lang=en">
+  <link rel="alternate" hreflang="ru" href="?lang=ru">
+  <link rel="alternate" hreflang="kk" href="?lang=kk">
+  <link rel="alternate" hreflang="uz-Latn" href="?lang=uz">
+  <link rel="alternate" hreflang="ky" href="?lang=ky">
+  <link rel="alternate" hreflang="x-default" href="./">
   <script>
-    /* Dil, ilk boyamadan önce seçilir: ?lang= > kayıtlı seçim > tarayıcı dili */
-    (function () {
-      var d = document.documentElement, L = ["tr", "en", "ru"], l = null;
-      d.className = "js";
-      try { l = new URLSearchParams(location.search).get("lang"); } catch (e) {}
-      if (L.indexOf(l) < 0) { try { l = localStorage.getItem("ondera-lang"); } catch (e) {} }
-      if (L.indexOf(l) < 0) {
-        l = "en";
-        var n = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || ""];
-        for (var i = 0; i < n.length; i++) {
-          var p = String(n[i]).toLowerCase().split("-")[0];
-          if (p === "tr") { l = "tr"; break; }
-          if (p === "ru" || p === "uk" || p === "kk" || p === "be") { l = "ru"; break; }
-        }
-      }
-      window.__ONDERA_LANG = l;
-      d.lang = l;
-      if (l !== "tr") d.className += " i18n-wait";
-    })();
+  /* Dil seçimi: ?lang= > elle seçilen (localStorage) > tarayıcı dili > EN */
+  (function () {
+    var L = ["tr", "en", "ru", "kk", "uz", "ky"], l = null, d = document.documentElement;
+    try { var q = (new URLSearchParams(location.search).get("lang") || "").toLowerCase(); if (L.indexOf(q) > -1) l = q; } catch (e) {}
+    if (!l) { try { var s = localStorage.getItem("ondera-lang"); if (L.indexOf(s) > -1) l = s; } catch (e) {} }
+    if (!l) {
+      var n = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || ""];
+      var map = { kk: "kk", uz: "uz", ky: "ky", ru: "ru", uk: "ru", be: "ru", tr: "tr", en: "en" };
+      for (var i = 0; i < n.length && !l; i++) l = map[String(n[i]).toLowerCase().split(/[-_]/)[0]] || null;
+      if (!l) l = "en";
+    }
+    window.ONDERA_LANG = l;
+    d.lang = l;
+    if (l !== "tr") {
+      d.className += " i18n-wait";
+      var sc = document.createElement("script");
+      sc.src = "js/i18n/" + l + ".js"; sc.setAttribute("data-dict", l);
+      document.head.appendChild(sc);
+      setTimeout(function () { d.classList.remove("i18n-wait"); }, 3000);
+    }
+  })();
   </script>
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Onest:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geologica:wght@700;800&family=Montserrat+Alternates:wght@700;800&family=Nunito:wght@400;600;700;800;900&display=swap">
+  <!-- Özbekçe oʻ / gʻ işaretleri (U+02BB, U+02BC) için yalnız bu iki glifi içeren küçük Inter alt kümesi: Nunito'da bu işaret çok geniş duruyor -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&text=%CA%BB%CA%BC&display=swap">
   <link rel="stylesheet" href="css/style.css">
-  <script defer src="js/config.js"></script>
-  <script defer src="js/i18n.js"></script>
-  <script defer src="js/main.js"></script>
+  <script src="js/config.js" defer></script>
+  <script src="js/main.js" defer></script>
 </head>
 <body>
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <symbol id="i-mark" viewBox="0 0 32 32">
-    <circle cx="16" cy="16" r="14.5" fill="none" stroke="currentColor" stroke-width="1.6"/>
-    <path d="M5.6 19.4 11 13.2l3.2 3.2 4.9-6.2 7.3 9.2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/>
-    <path d="M8.2 22.6h15.6M11.4 25.6h9.2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
-  </symbol>
-  <symbol id="i-wa" viewBox="0 0 24 24">
-    <path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/>
-  </symbol>
-  <symbol id="i-tick" viewBox="0 0 16 16">
-    <path d="m3.2 8.4 3 3 6.6-6.8" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
-  </symbol>
-  <symbol id="i-mail" viewBox="0 0 24 24">
-    <rect x="3" y="5.5" width="18" height="13" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/>
-    <path d="m4 7 8 6 8-6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
-  </symbol>
-  <symbol id="i-pin" viewBox="0 0 24 24">
-    <path d="M12 21s-6.5-6.1-6.5-11a6.5 6.5 0 0 1 13 0c0 4.9-6.5 11-6.5 11Z" fill="none" stroke="currentColor" stroke-width="1.6"/>
-    <circle cx="12" cy="10" r="2.3" fill="none" stroke="currentColor" stroke-width="1.6"/>
-  </symbol>
-  <symbol id="i-bolt" viewBox="0 0 24 24">
-    <path d="M13.2 2.8 5.6 13.4h5.6l-1 7.8 7.6-10.6h-5.6Z" fill="currentColor"/>
-  </symbol>
-  <symbol id="i-moon" viewBox="0 0 24 24">
-    <path d="M19.5 14.5A8 8 0 0 1 9.5 4.5a8 8 0 1 0 10 10Z" fill="currentColor"/>
-  </symbol>
-  <symbol id="i-flower" viewBox="0 0 40 40">
-    <g fill="currentColor">
-      <path d="M20 19c-4-2-7-7-5-12 4 0 7 5 5 12Z"/>
-      <path d="M21 20c2-4 7-7 12-5 0 4-5 7-12 5Z"/>
-      <path d="M19.5 21c-1 4.5-5 8.5-10.5 7.5 0-4 4.5-7.5 10.5-7.5Z"/>
-    </g>
-    <circle cx="20" cy="20" r="2.2" fill="#F6E7A8"/>
-  </symbol>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></symbol>
+  <symbol id="i-flower" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="8" r="2.4"/><path d="M12 5.6c0-2 1.2-3.1 2.6-3.1 0 1.6-1 2.8-2.6 3.1ZM12 5.6c0-2-1.2-3.1-2.6-3.1 0 1.6 1 2.8 2.6 3.1ZM14.4 8c2 0 3.1 1.2 3.1 2.6-1.6 0-2.8-1-3.1-2.6ZM9.6 8c-2 0-3.1 1.2-3.1 2.6 1.6 0 2.8-1 3.1-2.6ZM12 10.4V21M12 16c-2.6 0-4.2-1.4-4.6-3.6 2.4 0 4.2 1.2 4.6 3.6ZM12 18c2.6 0 4.2-1.4 4.6-3.6-2.4 0-4.2 1.2-4.6 3.6Z"/></g></symbol>
+  <symbol id="i-scissors" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="6" cy="17.5" r="3"/><circle cx="18" cy="17.5" r="3"/><path d="M8.2 15.4 18.5 3M15.8 15.4 5.5 3"/></g></symbol>
+  <symbol id="i-spark" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M11 3c.6 4.4 2.6 6.4 7 7-4.4.6-6.4 2.6-7 7-.6-4.4-2.6-6.4-7-7 4.4-.6 6.4-2.6 7-7Z"/><path d="M18.5 15.5c.3 1.9 1.1 2.7 3 3-1.9.3-2.7 1.1-3 3-.3-1.9-1.1-2.7-3-3 1.9-.3 2.7-1.1 3-3Z"/></g></symbol>
+  <symbol id="i-lotus" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19c-2.6-1.8-3.8-4.2-3.8-7.2 0-2.2 1.3-4.6 3.8-6.8 2.5 2.2 3.8 4.6 3.8 6.8 0 3-1.2 5.4-3.8 7.2Z"/><path d="M8.6 9.6C6.4 9.4 4.4 10 2.5 11.4c.6 4.4 4.4 7.6 9.5 7.6 5.1 0 8.9-3.2 9.5-7.6-1.9-1.4-3.9-2-6.1-1.8"/><path d="M4 21.5h16"/></g></symbol>
+  <symbol id="i-cup" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9h13v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V9ZM17 10.5h1.5a2.5 2.5 0 0 1 0 5H16.5M8 2.8c-.8 1 .8 2-.1 3.2M12 2.8c-.8 1 .8 2-.1 3.2"/><path d="M3 21.5h15"/></g></symbol>
+  <symbol id="i-cake" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V13a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8M2.5 21h19M4 15.5c1.3 1.2 2.7 1.2 4 0s2.7-1.2 4 0 2.7 1.2 4 0 2.7-1.2 4 0M12 11V7.5M12 5.5c-.9-.7-.9-1.8 0-3 .9 1.2.9 2.3 0 3Z"/></g></symbol>
+  <symbol id="i-cross" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M9 3h6v6h6v6h-6v6H9v-6H3V9h6Z"/></symbol>
+  <symbol id="i-bed" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 19V5M2.5 15h19v4M21.5 15v-3a3 3 0 0 0-3-3H11v6"/><circle cx="6.5" cy="11" r="2"/></g></symbol>
+  <symbol id="i-hanger" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 6.5a2 2 0 1 1 2.7 1.9c-.5.2-.7.6-.7 1.1v1"/><path d="M12 10.5 3 17a1.3 1.3 0 0 0 .8 2.4h16.4A1.3 1.3 0 0 0 21 17Z"/></g></symbol>
+  <symbol id="i-tooth" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M7.5 3C5 3 3.5 5 3.5 7.6c0 2.6 1.3 4 1.8 6.6.5 2.7.9 6.8 2.7 6.8 1.9 0 1.6-5.2 4-5.2s2.1 5.2 4 5.2c1.8 0 2.2-4.1 2.7-6.8.5-2.6 1.8-4 1.8-6.6C20.5 5 19 3 16.5 3 14.6 3 13.6 4 12 4s-2.6-1-4.5-1Z"/></symbol>
+  <symbol id="i-dumbbell" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M8 12h8M5 8.5v7M8 6.5v11M16 6.5v11M19 8.5v7M2.5 12H5M19 12h2.5"/></g></symbol>
+  <symbol id="i-house" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11 12 3.5 21 11M5.5 9v11.5h13V9"/><path d="M10 20.5v-6h4v6"/></g></symbol>
+  <symbol id="i-wrench" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M14.7 6.3a4.5 4.5 0 0 0 5.8 5.8L13 19.6a2.1 2.1 0 0 1-3-3l7.5-7.4M14.7 6.3a4.5 4.5 0 0 1 5.6-3.5l-2.8 2.8.4 2.4 2.4.4 2.8-2.8M10 16.6 4 22.6"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6.5C10 5 7.3 4.5 3 4.5v14c4.3 0 7 .5 9 2 2-1.5 4.7-2 9-2v-14c-4.3 0-7 .5-9 2ZM12 6.5v14"/></g></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5.5 5.5"/></g></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5Z"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M4 5h16v11H9l-5 4Z"/></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.7 5.6 3.7 9s-1.2 6.4-3.7 9c-2.5-2.6-3.7-5.6-3.7-9S9.5 5.6 12 3Z"/></g></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4.5 6v5.5c0 4.6 3.1 8.2 7.5 9.5 4.4-1.3 7.5-4.9 7.5-9.5V6Z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></g></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="13" r="5"/><path d="M12 3v2M4.2 6.2l1.4 1.4M19.8 6.2l-1.4 1.4M2 13h2M20 13h2M3 21h18"/></g></symbol>
+  <symbol id="i-eye" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></g></symbol>
+  <symbol id="i-person" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c.8-4 4-6.5 8-6.5s7.2 2.5 8 6.5"/></g></symbol>
+  <symbol id="i-key" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="15" r="5"/><path d="m11.5 11.5 9-9M17 6l3 3M14.5 8.5l2 2"/></g></symbol>
+  <symbol id="i-care" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12a8 8 0 1 1-2.3-5.7M20 4v4.5h-4.5"/><path d="m8.5 12.5 2.5 2.5 4.5-5"/></g></symbol>
+  <symbol id="i-check" viewBox="0 0 16 16"><path d="m3.2 8.4 3 3 6.6-6.8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-x" viewBox="0 0 16 16"><path d="m4 4 8 8M12 4l-8 8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></symbol>
+  <symbol id="i-pause" viewBox="0 0 24 24"><path d="M8 5h3v14H8zM13 5h3v14h-3z" fill="currentColor"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7Z" fill="currentColor"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></symbol>
+  <symbol id="i-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6 8.5 7 8.5-7"/></g></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></g></symbol>
+  <symbol id="i-bouquet" viewBox="0 0 64 64"><path d="M24 40 32 62l8-22Z" fill="#2E7D55"/><circle cx="24" cy="24" r="9" fill="#E0457B"/><circle cx="40" cy="22" r="9" fill="#C42F66"/><circle cx="32" cy="14" r="8" fill="#F27BA3"/><circle cx="32" cy="30" r="9" fill="#E0457B"/><circle cx="20" cy="36" r="6" fill="#3E9466"/><circle cx="44" cy="36" r="6" fill="#3E9466"/></symbol>
+  <symbol id="i-logo" viewBox="0 0 32 32"><circle cx="16" cy="13" r="7" fill="#FFAE00"/><path d="M2 21h28" stroke="#075E7C" stroke-width="3" stroke-linecap="round"/><path d="M6 26h20" stroke="#075E7C" stroke-width="3" stroke-linecap="round" opacity=".55"/></symbol>
 </svg>
 
-<a class="skip" href="#main" data-i18n="skip">İçeriğe geç</a>
+<a class="skip" href="#ana" data-i18n="skip">İçeriğe geç</a>
 
 <header class="top" id="top">
-  <div class="wrap top-in">
-    <a class="brand" href="#main" aria-label="Ondera Studio">
-      <svg class="brand-mark" aria-hidden="true"><use href="#i-mark"/></svg>
-      <span class="brand-word">Ondera <span>Studio</span></span>
+  <div class="top-in">
+    <a class="brand" href="#ana" data-i18n-aria="brand.home" aria-label="Ondera Studio ana sayfa">
+      <svg class="brand-mark" aria-hidden="true"><use href="#i-logo"/></svg><span>Ondera</span>
     </a>
-
-    <nav class="nav" aria-label="Sayfa bölümleri" data-i18n-aria="nav.label">
-      <a href="#neden" data-i18n="nav.why">Neden Ondera</a>
-      <a href="#hizmetler" data-i18n="nav.services">Hizmetler</a>
-      <a href="#ornekler" data-i18n="nav.work">Örnekler</a>
-      <a href="#bakim" data-i18n="nav.care">Bakım</a>
-      <a href="#sss" data-i18n="nav.faq">SSS</a>
-    </nav>
-
-    <div class="top-actions">
-      <div class="lang" role="group" aria-label="Dil / Language / Язык">
-        <button type="button" data-lang="tr" aria-pressed="true" lang="tr" title="Türkçe">TR</button>
-        <button type="button" data-lang="en" aria-pressed="false" lang="en" title="English">EN</button>
-        <button type="button" data-lang="ru" aria-pressed="false" lang="ru" title="Русский">RU</button>
-      </div>
-      <a class="btn btn-gold btn-sm top-cta js-wa" href="https://wa.me/905340679661" rel="noopener">
-        <svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg>
-        <span data-i18n="cta.waShort">WhatsApp'tan yazın</span>
-      </a>
-      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mnav" aria-label="Menüyü aç" data-i18n-aria="nav.open">
-        <span></span><span></span>
-      </button>
-    </div>
-  </div>
-
-  <div class="mnav" id="mnav" hidden>
-    <nav class="wrap" aria-label="Sayfa bölümleri" data-i18n-aria="nav.label">
+    <nav class="nav" data-i18n-aria="nav.label" aria-label="Ana menü">
       <a href="#hayal" data-i18n="nav.day">Hayal edin</a>
       <a href="#neden" data-i18n="nav.why">Neden Ondera</a>
-      <a href="#hizmetler" data-i18n="nav.services">Hizmetler</a>
+      <a href="#paketler" data-i18n="nav.services">Paketler</a>
       <a href="#ornekler" data-i18n="nav.work">Örnekler</a>
-      <a href="#bakim" data-i18n="nav.care">Bakım</a>
+      <a href="#sss" data-i18n="nav.faq">SSS</a>
+    </nav>
+    <div class="top-tools">
+      <div class="lang" data-lang-menu>
+        <button class="lang-btn" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="lang-list" data-i18n-aria="lang.label" aria-label="Dil seçin">
+          <svg aria-hidden="true"><use href="#i-globe"/></svg><span class="lang-cur">TR</span><svg class="chev" aria-hidden="true"><use href="#i-down"/></svg>
+        </button>
+        <ul class="lang-list" id="lang-list" hidden>
+          <li><button type="button" data-lang="tr" lang="tr"><b>TR</b> Türkçe</button></li>
+          <li><button type="button" data-lang="en" lang="en"><b>EN</b> English</button></li>
+          <li><button type="button" data-lang="ru" lang="ru"><b>RU</b> Русский</button></li>
+          <li><button type="button" data-lang="kk" lang="kk"><b>KK</b> Қазақша</button></li>
+          <li><button type="button" data-lang="uz" lang="uz"><b>UZ</b> Oʻzbekcha</button></li>
+          <li><button type="button" data-lang="ky" lang="ky"><b>KY</b> Кыргызча</button></li>
+        </ul>
+      </div>
+      <a class="top-cta js-wa" href="https://wa.me/905340679661" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg><span data-i18n="cta.waShort">Yazın</span></a>
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="m-menu" data-i18n-aria="nav.open" aria-label="Menüyü açın"><svg aria-hidden="true"><use href="#i-menu"/></svg></button>
+    </div>
+  </div>
+  <div class="m-menu" id="m-menu" hidden>
+    <nav data-i18n-aria="nav.label" aria-label="Ana menü">
+      <a href="#hayal" data-i18n="nav.day">Hayal edin</a>
+      <a href="#kazanc" data-i18n="nav.gain">Kazancınız</a>
+      <a href="#neden" data-i18n="nav.why">Neden Ondera</a>
+      <a href="#sektorler" data-i18n="nav.who">Sektörler</a>
+      <a href="#paketler" data-i18n="nav.services">Paketler</a>
+      <a href="#ornekler" data-i18n="nav.work">Örnekler</a>
       <a href="#kurucu" data-i18n="nav.founder">Kurucu</a>
       <a href="#sss" data-i18n="nav.faq">SSS</a>
       <a href="#iletisim" data-i18n="nav.contact">İletişim</a>
-      <div class="mnav-foot">
-        <div class="lang lang-lg" role="group" aria-label="Dil / Language / Язык">
-          <button type="button" data-lang="tr" aria-pressed="true" lang="tr">Türkçe</button>
-          <button type="button" data-lang="en" aria-pressed="false" lang="en">English</button>
-          <button type="button" data-lang="ru" aria-pressed="false" lang="ru">Русский</button>
-        </div>
-        <a class="btn btn-gold js-wa" href="https://wa.me/905340679661" rel="noopener">
-          <svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg>
-          <span data-i18n="cta.wa">WhatsApp'tan yazın</span>
-        </a>
-      </div>
     </nav>
+    <p class="m-lang-h" data-i18n="lang.title">Dil</p>
+    <div class="m-langs">
+      <button type="button" data-lang="tr" lang="tr" aria-label="Türkçe">TR</button>
+      <button type="button" data-lang="en" lang="en" aria-label="English">EN</button>
+      <button type="button" data-lang="ru" lang="ru" aria-label="Русский">RU</button>
+      <button type="button" data-lang="kk" lang="kk" aria-label="Қазақша">KK</button>
+      <button type="button" data-lang="uz" lang="uz" aria-label="Oʻzbekcha">UZ</button>
+      <button type="button" data-lang="ky" lang="ky" aria-label="Кыргызча">KY</button>
+    </div>
+    <a class="btn btn-full js-wa" href="https://wa.me/905340679661" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg><span data-i18n="cta.wa">WhatsApp'tan yazın</span></a>
   </div>
 </header>
 
-<main id="main">
+<main id="ana">
 
-<!-- ================= HERO ================= -->
-<section class="hero" aria-labelledby="h-title">
-  <svg class="horizon" viewBox="0 0 1440 260" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
-    <path class="ridge ridge-far" d="M0 150 70 128l60 14 80-40 50 22 70-46 60 30 40-18 90 52 70-26 60 20 90-58 60 34 80-12 70 30 90-40 70 28 70-10 80 34 60-12 120 24V260H0Z"/>
-    <path class="ridge ridge-line" d="M0 172 90 140l70 18 90-46 60 26 80-54 70 36 50-20 100 58 80-30 70 22 100-64 70 38 90-14 80 34 100-44 80 30 160 46"/>
-    <path class="sea-line" d="M0 204h1440"/>
-    <path class="sea-line s2" d="M180 224h1080"/>
-    <path class="sea-line s3" d="M420 242h600"/>
-  </svg>
-
-  <div class="wrap hero-in">
-    <div class="hero-text">
-      <p class="hero-kicker" data-i18n="hero.kicker">Kepenk iner, vitrininiz açık kalır.</p>
-      <h1 id="h-title" data-i18n="hero.h1">Sabah kapıyı açtığınızda siparişler sizi beklesin.</h1>
-      <p class="hero-lead" data-i18n="hero.lead">Siz kepengi indirince de siteniz çalışır: müşteri fiyatlarınızı kendi dilinde görür, gece bile WhatsApp'tan sipariş verir ya da randevu alır.</p>
-      <div class="cta-row">
-        <a class="btn btn-gold btn-lg js-wa" href="https://wa.me/905340679661" rel="noopener">
-          <svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg>
-          <span data-i18n="cta.wa">WhatsApp'tan yazın</span>
-        </a>
-        <a class="btn btn-line-light btn-lg js-wa" data-msg="msg.draft" href="https://wa.me/905340679661" rel="noopener" data-i18n="cta.draft">Ücretsiz taslak isteyin</a>
+  <!-- 1. KAHRAMAN: gün batımında Antalya + gece sipariş alan site -->
+  <section class="hero" aria-labelledby="h-title">
+    <div class="hero-copy">
+      <h1 id="h-title" class="display" data-i18n="hero.h1">Güneş batar, vitrininiz açık kalır.</h1>
+      <p class="lead" data-i18n="hero.lead">Dükkânı kapattığınızda siteniz çalışmaya devam eder: müşteri fiyatlarınızı kendi dilinde görür, gece bile WhatsApp'tan sipariş verir ya da randevu alır. Sabah iş sizi bekler.</p>
+      <div class="actions">
+        <a class="btn js-wa" data-msg="msg.draft" href="https://wa.me/905340679661" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg><span data-i18n="cta.draft">Ücretsiz taslak isteyin</span></a>
+        <a class="link" href="#once-sonra" data-i18n="hero.seeBA">Önce ve sonrayı görün</a>
       </div>
-      <p class="speed"><svg class="speed-ico" aria-hidden="true"><use href="#i-bolt"/></svg><span data-i18n="speed">Taslak aynı gün, site ilk gün yayında.</span></p>
-      <ul class="hero-facts">
-        <li data-i18n="hero.f2">Türkçe, İngilizce, Rusça</li>
-        <li data-i18n="hero.f3">Ücretsiz taslak: beğenmezseniz ödemezsiniz</li>
-        <li data-i18n="hero.f4">Kurucuyla doğrudan konuşursunuz</li>
+      <ul class="facts">
+        <li><svg aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="hero.f1">Taslak aynı gün</span></li>
+        <li><svg aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="hero.f2">Site ilk gün yayında</span></li>
+        <li><svg aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="hero.f3">Beğenmezseniz ödemezsiniz</span></li>
+        <li><svg aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="hero.f4">Kurucuyla doğrudan</span></li>
       </ul>
     </div>
 
-    <div class="hero-visual" role="img" aria-label="Örnek konsept: dükkân kapalıyken gece 23:47'de telefona iki WhatsApp siparişi geliyor, biri Rusça." data-i18n-aria="hero.visual">
-      <div class="phone phone-hero">
-        <div class="screen night">
-          <svg class="night-b nb2" aria-hidden="true"><use href="#i-flower"/></svg>
-          <svg class="night-moon" aria-hidden="true"><use href="#i-moon"/></svg>
-          <p class="ls-time">23:47</p>
-          <p class="ls-shop"><i></i><span data-i18n="hero.closed">Begonvil kapalı, 09:00'da açılır</span></p>
-          <div class="notes">
-            <div class="note n1">
-              <p class="note-head"><svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg><span>WhatsApp</span><span class="note-t" data-i18n="hero.now">şimdi</span></p>
-              <strong data-i18n="hero.n1who">Ayşe</strong>
-              <p class="note-txt" data-i18n="hero.n1">Yarın 10:00'a bir begonvil buketi ayırabilir misiniz?</p>
-            </div>
-            <div class="note n2">
-              <p class="note-head"><svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg><span>WhatsApp</span><span class="note-t" data-i18n="hero.now">şimdi</span></p>
-              <strong data-i18n="hero.n2who">Марина</strong>
-              <p class="note-txt" data-i18n="hero.n2">Здравствуйте! Можно белые розы с доставкой в Лару на завтра?</p>
-            </div>
+    <div class="stage" id="stage" data-scene="day">
+      <div class="world">
+        <svg class="scene" viewBox="0 0 600 560" preserveAspectRatio="xMinYMax slice" role="img" aria-labelledby="scene-t">
+          <title id="scene-t" data-i18n="scene.title">Antalya'da begonvilli bir dükkân; güneş denize batıyor, vitrin ışığı ve tabela yanık kalıyor.</title>
+          <defs>
+            <linearGradient id="g-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8FD6EE"/><stop offset="1" stop-color="#FFE7C2"/></linearGradient>
+            <linearGradient id="g-dusk" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1C1645"/><stop offset=".5" stop-color="#7A2F6E"/><stop offset=".82" stop-color="#E0697A"/><stop offset="1" stop-color="#FF9F5A"/></linearGradient>
+            <linearGradient id="g-sea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0E86A8"/><stop offset="1" stop-color="#075E7C"/></linearGradient>
+            <radialGradient id="g-glow" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#FFD27A" stop-opacity=".85"/><stop offset="1" stop-color="#FFD27A" stop-opacity="0"/></radialGradient>
+            <clipPath id="c-sky"><rect width="600" height="332"/></clipPath>
+          </defs>
+          <rect width="600" height="560" fill="url(#g-sky)"/>
+          <rect class="dusk" width="600" height="560" fill="url(#g-dusk)"/>
+          <g class="stars" fill="#FFF6DA"><circle cx="300" cy="40" r="1.6"/><circle cx="380" cy="80" r="1.2"/><circle cx="452" cy="36" r="1.8"/><circle cx="520" cy="96" r="1.3"/><circle cx="560" cy="30" r="1.5"/><circle cx="250" cy="96" r="1.2"/><circle cx="410" cy="140" r="1.1"/><circle cx="586" cy="150" r="1.2"/></g>
+          <g clip-path="url(#c-sky)"><circle class="sun" cx="112" cy="64" r="34" fill="#FFAE00"/></g>
+          <path class="mount mount-back" d="M190 332 L238 284 L262 296 L300 258 L336 288 L372 266 L414 300 L452 272 L500 304 L548 280 L600 300 L600 332 Z" fill="#8AA3C2"/>
+          <path class="mount" d="M220 332 L262 304 L290 316 L326 290 L360 312 L398 296 L440 320 L486 300 L530 322 L572 308 L600 318 L600 332 Z" fill="#5F7FA6"/>
+          <rect y="330" width="600" height="86" fill="url(#g-sea)"/>
+          <g class="glints" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round" opacity=".7"><path d="M440 352h30M462 366h20M420 382h26M500 374h22M380 398h18"/></g>
+          <g class="moonpath" stroke="#FFD58A" stroke-width="2.6" stroke-linecap="round"><path d="M450 352h40M458 366h26M440 382h34M462 398h18"/></g>
+          <rect y="414" width="600" height="146" fill="#F1D7B0"/>
+          <path d="M0 456h600M0 506h600" stroke="#E2C292" stroke-width="2"/>
+          <!-- begonvilli duvar -->
+          <rect x="0" y="118" width="178" height="442" fill="#FBF3E6"/>
+          <rect x="0" y="118" width="178" height="8" fill="#EADBC4"/>
+          <rect class="veil" width="600" height="560" fill="#140C33"/>
+          <g class="win">
+            <rect x="16" y="300" width="132" height="116" rx="10" fill="#CDEFF8" stroke="#2B1430" stroke-width="3"/>
+            <rect class="win-light" x="16" y="300" width="132" height="116" rx="10" fill="#FFCF73"/>
+            <path d="M32 416v-26q12-16 24 0v26ZM68 416v-34q14-18 28 0v34ZM108 416v-22q10-14 20 0v22Z" fill="#2C7A4B"/>
+            <circle cx="44" cy="382" r="9" fill="#D42A7A"/><circle cx="82" cy="374" r="11" fill="#FFAE00"/><circle cx="118" cy="386" r="8" fill="#E5559A"/>
+          </g>
+          <path d="M8 284h148l-10 20H18Z" fill="#B8125F"/>
+          <path d="M28 284l-4 20M52 284l-2 20M76 284v20M100 284l2 20M124 284l4 20" stroke="#FFFFFF" stroke-width="7"/>
+          <path d="M8 284h148" stroke="#2B1430" stroke-width="3"/>
+          <rect class="glow" x="-30" y="250" width="230" height="220" fill="url(#g-glow)"/>
+          <g class="bougain"><circle cx="58" cy="126" r="6.4" fill="#1F5E39"/><circle cx="5" cy="129" r="5.8" fill="#1F5E39"/><circle cx="103" cy="116" r="6.7" fill="#1F5E39"/><circle cx="97" cy="120" r="6.3" fill="#3E9460"/><circle cx="-2" cy="115" r="5.9" fill="#3E9460"/><circle cx="9" cy="119" r="8.5" fill="#2C7A4B"/><circle cx="79" cy="120" r="6.2" fill="#2C7A4B"/><circle cx="37" cy="114" r="5.6" fill="#3E9460"/><circle cx="122" cy="129" r="5.2" fill="#2C7A4B"/><circle cx="73" cy="114" r="6.3" fill="#3E9460"/><circle cx="195" cy="135" r="6.0" fill="#3E9460"/><circle cx="51" cy="123" r="9.3" fill="#2C7A4B"/><circle cx="20" cy="124" r="8.0" fill="#3E9460"/><circle cx="161" cy="123" r="8.5" fill="#3E9460"/><circle cx="28" cy="107" r="6.8" fill="#1F5E39"/><circle cx="68" cy="112" r="8.2" fill="#1F5E39"/><circle cx="105" cy="121" r="5.7" fill="#3E9460"/><circle cx="33" cy="119" r="7.8" fill="#2C7A4B"/><circle cx="133" cy="111" r="5.2" fill="#3E9460"/><circle cx="113" cy="121" r="9.0" fill="#3E9460"/><circle cx="85" cy="113" r="6.9" fill="#3E9460"/><circle cx="137" cy="133" r="8.7" fill="#2C7A4B"/><circle cx="41" cy="108" r="9.1" fill="#3E9460"/><circle cx="174" cy="113" r="7.6" fill="#2C7A4B"/><circle cx="143" cy="112" r="8.7" fill="#3E9460"/><circle cx="15" cy="142" r="8.6" fill="#3E9460"/><circle cx="78" cy="118" r="8.1" fill="#3E9460"/><circle cx="93" cy="113" r="7.9" fill="#2C7A4B"/><circle cx="-2" cy="110" r="5.1" fill="#2C7A4B"/><circle cx="110" cy="105" r="7.9" fill="#2C7A4B"/><circle cx="174" cy="113" r="6.7" fill="#1F5E39"/><circle cx="115" cy="131" r="7.5" fill="#3E9460"/><circle cx="112" cy="101" r="5.1" fill="#3E9460"/><circle cx="188" cy="123" r="8.1" fill="#1F5E39"/><circle cx="90" cy="116" r="6.2" fill="#1F5E39"/><circle cx="137" cy="115" r="8.6" fill="#3E9460"/><circle cx="126" cy="135" r="9.2" fill="#3E9460"/><circle cx="50" cy="117" r="5.4" fill="#3E9460"/><circle cx="71" cy="117" r="5.3" fill="#3E9460"/><circle cx="87" cy="116" r="7.1" fill="#2C7A4B"/><circle cx="25" cy="120" r="8.8" fill="#2C7A4B"/><circle cx="151" cy="120" r="8.3" fill="#2C7A4B"/><circle cx="17" cy="118" r="6.0" fill="#3E9460"/><circle cx="173" cy="127" r="9.4" fill="#1F5E39"/><circle cx="7" cy="107" r="8.8" fill="#2C7A4B"/><circle cx="176" cy="122" r="7.2" fill="#3E9460"/><circle cx="162" cy="123" r="6.3" fill="#2C7A4B"/><circle cx="77" cy="113" r="7.8" fill="#3E9460"/><circle cx="65" cy="135" r="5.9" fill="#3E9460"/><circle cx="22" cy="103" r="5.7" fill="#1F5E39"/><circle cx="27" cy="119" r="7.9" fill="#3E9460"/><circle cx="92" cy="125" r="6.4" fill="#3E9460"/><circle cx="114" cy="118" r="5.6" fill="#1F5E39"/><circle cx="78" cy="119" r="5.3" fill="#1F5E39"/><circle cx="68" cy="98" r="9.4" fill="#2C7A4B"/><circle cx="135" cy="109" r="8.1" fill="#3E9460"/><circle cx="98" cy="108" r="7.2" fill="#3E9460"/><circle cx="1" cy="109" r="7.3" fill="#1F5E39"/><circle cx="179" cy="121" r="7.1" fill="#2C7A4B"/><circle cx="158" cy="100" r="9.5" fill="#3E9460"/><circle cx="72" cy="115" r="5.9" fill="#2C7A4B"/><circle cx="123" cy="120" r="9.2" fill="#2C7A4B"/><circle cx="3" cy="124" r="6.3" fill="#2C7A4B"/><circle cx="24" cy="121" r="8.7" fill="#1F5E39"/><circle cx="61" cy="118" r="9.5" fill="#1F5E39"/><circle cx="22" cy="118" r="5.9" fill="#2C7A4B"/><circle cx="11" cy="117" r="5.3" fill="#2C7A4B"/><circle cx="174" cy="120" r="5.6" fill="#3E9460"/><circle cx="119" cy="122" r="6.2" fill="#1F5E39"/><circle cx="63" cy="124" r="5.6" fill="#3E9460"/><circle cx="66" cy="131" r="7.3" fill="#2C7A4B"/><circle cx="199" cy="130" r="8.2" fill="#2C7A4B"/><circle cx="88" cy="114" r="7.2" fill="#1F5E39"/><circle cx="11" cy="118" r="6.8" fill="#2C7A4B"/><circle cx="62" cy="116" r="5.0" fill="#1F5E39"/><circle cx="24" cy="135" r="8.1" fill="#1F5E39"/><circle cx="-5" cy="129" r="6.4" fill="#2C7A4B"/><circle cx="21" cy="115" r="6.9" fill="#1F5E39"/><circle cx="104" cy="129" r="6.4" fill="#1F5E39"/><circle cx="195" cy="120" r="5.0" fill="#1F5E39"/><circle cx="171" cy="116" r="8.8" fill="#2C7A4B"/><circle cx="67" cy="111" r="9.2" fill="#2C7A4B"/><circle cx="25" cy="120" r="8.2" fill="#3E9460"/><circle cx="154" cy="107" r="6.3" fill="#1F5E39"/><circle cx="59" cy="121" r="5.3" fill="#1F5E39"/><circle cx="197" cy="134" r="9.5" fill="#3E9460"/><circle cx="169" cy="124" r="5.3" fill="#1F5E39"/><circle cx="145" cy="102" r="8.4" fill="#2C7A4B"/><circle cx="38" cy="110" r="6.3" fill="#2C7A4B"/><circle cx="-4" cy="117" r="8.8" fill="#1F5E39"/><circle cx="-4" cy="117" r="7.9" fill="#2C7A4B"/><circle cx="135" cy="125" r="6.1" fill="#1F5E39"/><circle cx="191" cy="98" r="7.0" fill="#1F5E39"/><circle cx="197" cy="125" r="5.9" fill="#1F5E39"/><circle cx="191" cy="114" r="8.5" fill="#1F5E39"/><circle cx="38" cy="123" r="9.0" fill="#3E9460"/><circle cx="31" cy="122" r="6.8" fill="#3E9460"/><circle cx="179" cy="130" r="7.5" fill="#3E9460"/><circle cx="166" cy="105" r="5.4" fill="#3E9460"/><circle cx="158" cy="120" r="6.8" fill="#3E9460"/><circle cx="8" cy="107" r="8.4" fill="#3E9460"/><circle cx="154" cy="101" r="8.9" fill="#1F5E39"/><circle cx="148" cy="112" r="5.2" fill="#3E9460"/><circle cx="156" cy="119" r="5.6" fill="#1F5E39"/><circle cx="60" cy="126" r="6.9" fill="#1F5E39"/><circle cx="73" cy="95" r="6.3" fill="#3E9460"/><circle cx="74" cy="132" r="8.3" fill="#3E9460"/><circle cx="26" cy="113" r="6.2" fill="#3E9460"/><circle cx="17" cy="129" r="6.1" fill="#1F5E39"/><circle cx="159" cy="134" r="7.5" fill="#1F5E39"/><circle cx="21" cy="130" r="5.5" fill="#3E9460"/><circle cx="128" cy="96" r="5.7" fill="#2C7A4B"/><circle cx="64" cy="113" r="7.3" fill="#1F5E39"/><circle cx="-7" cy="117" r="7.5" fill="#1F5E39"/><circle cx="194" cy="112" r="9.1" fill="#1F5E39"/><circle cx="186" cy="109" r="6.9" fill="#3E9460"/><circle cx="81" cy="130" r="5.9" fill="#2C7A4B"/><circle cx="34" cy="106" r="5.8" fill="#3E9460"/><circle cx="43" cy="116" r="5.4" fill="#2C7A4B"/><circle cx="113" cy="124" r="6.7" fill="#3E9460"/><circle cx="171" cy="185" r="5.9" fill="#2C7A4B"/><circle cx="177" cy="374" r="8.4" fill="#1F5E39"/><circle cx="164" cy="213" r="6.7" fill="#3E9460"/><circle cx="178" cy="372" r="7.4" fill="#1F5E39"/><circle cx="185" cy="232" r="6.2" fill="#2C7A4B"/><circle cx="171" cy="264" r="7.2" fill="#3E9460"/><circle cx="185" cy="262" r="9.4" fill="#2C7A4B"/><circle cx="177" cy="163" r="8.1" fill="#3E9460"/><circle cx="178" cy="111" r="7.8" fill="#2C7A4B"/><circle cx="171" cy="247" r="5.4" fill="#2C7A4B"/><circle cx="171" cy="320" r="6.7" fill="#3E9460"/><circle cx="173" cy="260" r="7.0" fill="#1F5E39"/><circle cx="177" cy="271" r="8.8" fill="#2C7A4B"/><circle cx="172" cy="272" r="5.6" fill="#1F5E39"/><circle cx="173" cy="182" r="8.2" fill="#1F5E39"/><circle cx="190" cy="257" r="9.4" fill="#1F5E39"/><circle cx="177" cy="273" r="5.0" fill="#1F5E39"/><circle cx="156" cy="239" r="9.2" fill="#3E9460"/><circle cx="167" cy="288" r="8.8" fill="#1F5E39"/><circle cx="176" cy="311" r="6.1" fill="#2C7A4B"/><circle cx="166" cy="241" r="6.0" fill="#2C7A4B"/><circle cx="175" cy="383" r="7.4" fill="#3E9460"/><circle cx="187" cy="313" r="5.5" fill="#3E9460"/><circle cx="158" cy="185" r="8.2" fill="#1F5E39"/><circle cx="190" cy="272" r="5.4" fill="#2C7A4B"/><circle cx="168" cy="150" r="5.0" fill="#2C7A4B"/><circle cx="172" cy="145" r="6.0" fill="#2C7A4B"/><circle cx="178" cy="180" r="7.9" fill="#1F5E39"/><circle cx="165" cy="131" r="9.3" fill="#3E9460"/><circle cx="169" cy="370" r="6.1" fill="#3E9460"/><circle cx="172" cy="155" r="7.0" fill="#2C7A4B"/><circle cx="159" cy="151" r="5.4" fill="#1F5E39"/><circle cx="179" cy="366" r="7.4" fill="#3E9460"/><circle cx="175" cy="386" r="5.9" fill="#1F5E39"/><circle cx="148" cy="225" r="6.0" fill="#3E9460"/><circle cx="177" cy="351" r="5.0" fill="#3E9460"/><circle cx="163" cy="157" r="6.4" fill="#1F5E39"/><circle cx="181" cy="208" r="6.3" fill="#1F5E39"/><circle cx="168" cy="167" r="7.9" fill="#2C7A4B"/><circle cx="195" cy="116" r="7.1" fill="#2C7A4B"/><circle cx="175" cy="271" r="7.5" fill="#2C7A4B"/><circle cx="177" cy="206" r="9.3" fill="#3E9460"/><circle cx="173" cy="291" r="7.9" fill="#2C7A4B"/><circle cx="176" cy="396" r="5.1" fill="#1F5E39"/><circle cx="179" cy="339" r="9.0" fill="#3E9460"/><circle cx="175" cy="187" r="6.9" fill="#1F5E39"/><circle cx="178" cy="121" r="6.0" fill="#1F5E39"/><circle cx="167" cy="148" r="9.2" fill="#2C7A4B"/><circle cx="190" cy="232" r="7.2" fill="#3E9460"/><circle cx="166" cy="185" r="6.5" fill="#1F5E39"/><circle cx="189" cy="153" r="6.6" fill="#1F5E39"/><circle cx="172" cy="313" r="5.9" fill="#1F5E39"/><circle cx="194" cy="136" r="8.3" fill="#3E9460"/><circle cx="181" cy="233" r="5.3" fill="#1F5E39"/><circle cx="192" cy="131" r="9.4" fill="#1F5E39"/><circle cx="173" cy="342" r="8.4" fill="#2C7A4B"/><circle cx="179" cy="134" r="6.0" fill="#2C7A4B"/><circle cx="175" cy="360" r="6.2" fill="#1F5E39"/><circle cx="170" cy="242" r="5.5" fill="#3E9460"/><circle cx="181" cy="379" r="7.2" fill="#2C7A4B"/><circle cx="185" cy="188" r="9.0" fill="#1F5E39"/><circle cx="186" cy="179" r="6.9" fill="#3E9460"/><circle cx="178" cy="142" r="5.3" fill="#3E9460"/><circle cx="179" cy="169" r="5.7" fill="#1F5E39"/><circle cx="170" cy="200" r="5.2" fill="#2C7A4B"/><circle cx="193" cy="194" r="9.4" fill="#2C7A4B"/><circle cx="179" cy="255" r="6.9" fill="#3E9460"/><circle cx="187" cy="115" r="5.3" fill="#1F5E39"/><circle cx="193" cy="183" r="7.0" fill="#3E9460"/><circle cx="177" cy="270" r="9.0" fill="#3E9460"/><circle cx="150" cy="165" r="5.5" fill="#2C7A4B"/><circle cx="180" cy="141" r="9.2" fill="#1F5E39"/><circle cx="170" cy="347" r="5.9" fill="#3E9460"/><circle cx="178" cy="352" r="9.2" fill="#3E9460"/><circle cx="162" cy="224" r="7.1" fill="#1F5E39"/><circle cx="176" cy="395" r="8.0" fill="#1F5E39"/><circle cx="184" cy="209" r="8.8" fill="#1F5E39"/><circle cx="166" cy="294" r="7.0" fill="#2C7A4B"/><circle cx="174" cy="227" r="5.0" fill="#1F5E39"/><circle cx="179" cy="148" r="5.4" fill="#1F5E39"/><circle cx="175" cy="131" r="9.3" fill="#2C7A4B"/><circle cx="167" cy="157" r="7.5" fill="#2C7A4B"/><circle cx="190" cy="135" r="6.7" fill="#1F5E39"/><circle cx="165" cy="304" r="8.7" fill="#1F5E39"/><circle cx="176" cy="192" r="5.4" fill="#3E9460"/><circle cx="183" cy="243" r="7.1" fill="#1F5E39"/><circle cx="167" cy="156" r="7.4" fill="#1F5E39"/><circle cx="177" cy="389" r="5.9" fill="#1F5E39"/><circle cx="173" cy="392" r="8.3" fill="#1F5E39"/><circle cx="175" cy="390" r="5.1" fill="#1F5E39"/><circle cx="29" cy="116" r="4.9" fill="#D42A7A"/><circle cx="174" cy="387" r="3.5" fill="#B8125F"/><circle cx="181" cy="265" r="5.3" fill="#B8125F"/><circle cx="187" cy="213" r="4.3" fill="#D42A7A"/><circle cx="152" cy="117" r="3.7" fill="#9E0F52"/><circle cx="196" cy="130" r="3.3" fill="#9E0F52"/><circle cx="33" cy="117" r="4.7" fill="#B8125F"/><circle cx="121" cy="126" r="6.2" fill="#D42A7A"/><circle cx="42" cy="111" r="5.4" fill="#D42A7A"/><circle cx="104" cy="115" r="5.5" fill="#D42A7A"/><circle cx="70" cy="110" r="4.3" fill="#E5559A"/><circle cx="21" cy="114" r="3.4" fill="#E5559A"/><circle cx="21" cy="108" r="4.5" fill="#B8125F"/><circle cx="176" cy="135" r="3.5" fill="#9E0F52"/><circle cx="171" cy="132" r="4.2" fill="#B8125F"/><circle cx="173" cy="349" r="4.7" fill="#E5559A"/><circle cx="164" cy="124" r="5.6" fill="#B8125F"/><circle cx="188" cy="102" r="3.1" fill="#9E0F52"/><circle cx="61" cy="125" r="5.0" fill="#E5559A"/><circle cx="202" cy="136" r="5.6" fill="#B8125F"/><circle cx="183" cy="213" r="5.0" fill="#B8125F"/><circle cx="55" cy="119" r="3.7" fill="#9E0F52"/><circle cx="179" cy="115" r="4.1" fill="#B8125F"/><circle cx="176" cy="171" r="5.9" fill="#E5559A"/><circle cx="183" cy="138" r="5.2" fill="#D42A7A"/><circle cx="62" cy="113" r="4.8" fill="#D42A7A"/><circle cx="68" cy="128" r="3.8" fill="#9E0F52"/><circle cx="-3" cy="128" r="4.4" fill="#E5559A"/><circle cx="52" cy="131" r="4.5" fill="#9E0F52"/><circle cx="182" cy="369" r="4.5" fill="#B8125F"/><circle cx="177" cy="290" r="3.2" fill="#D42A7A"/><circle cx="175" cy="390" r="4.4" fill="#E5559A"/><circle cx="74" cy="116" r="6.0" fill="#D42A7A"/><circle cx="161" cy="100" r="3.2" fill="#9E0F52"/><circle cx="95" cy="116" r="3.1" fill="#E5559A"/><circle cx="183" cy="377" r="5.6" fill="#B8125F"/><circle cx="109" cy="129" r="3.9" fill="#B8125F"/><circle cx="169" cy="108" r="3.7" fill="#D42A7A"/><circle cx="63" cy="115" r="4.0" fill="#D42A7A"/><circle cx="26" cy="129" r="3.8" fill="#9E0F52"/><circle cx="181" cy="259" r="4.6" fill="#D42A7A"/><circle cx="187" cy="119" r="4.3" fill="#D42A7A"/><circle cx="180" cy="168" r="3.5" fill="#D42A7A"/><circle cx="157" cy="123" r="5.0" fill="#D42A7A"/><circle cx="108" cy="115" r="4.7" fill="#E5559A"/><circle cx="18" cy="115" r="5.7" fill="#D42A7A"/><circle cx="68" cy="123" r="4.8" fill="#D42A7A"/><circle cx="160" cy="219" r="3.7" fill="#E5559A"/><circle cx="70" cy="115" r="4.0" fill="#D42A7A"/><circle cx="156" cy="110" r="3.7" fill="#D42A7A"/><circle cx="172" cy="200" r="4.6" fill="#E5559A"/><circle cx="30" cy="103" r="5.1" fill="#E5559A"/><circle cx="165" cy="348" r="4.0" fill="#D42A7A"/><circle cx="185" cy="187" r="4.0" fill="#B8125F"/><circle cx="82" cy="115" r="4.5" fill="#B8125F"/><circle cx="168" cy="264" r="5.3" fill="#9E0F52"/><circle cx="22" cy="120" r="5.8" fill="#D42A7A"/><circle cx="7" cy="105" r="3.0" fill="#D42A7A"/><circle cx="26" cy="121" r="4.9" fill="#9E0F52"/><circle cx="172" cy="395" r="3.1" fill="#E5559A"/><circle cx="59" cy="122" r="3.2" fill="#E5559A"/><circle cx="164" cy="242" r="6.0" fill="#B8125F"/><circle cx="189" cy="135" r="5.1" fill="#9E0F52"/><circle cx="181" cy="368" r="4.0" fill="#D42A7A"/><circle cx="177" cy="389" r="5.3" fill="#9E0F52"/><circle cx="178" cy="305" r="5.7" fill="#9E0F52"/><circle cx="168" cy="394" r="3.6" fill="#E5559A"/><circle cx="148" cy="122" r="3.4" fill="#D42A7A"/><circle cx="162" cy="131" r="4.8" fill="#9E0F52"/><circle cx="80" cy="123" r="6.1" fill="#D42A7A"/><circle cx="135" cy="117" r="3.7" fill="#E5559A"/><circle cx="183" cy="120" r="5.7" fill="#B8125F"/><circle cx="142" cy="136" r="4.0" fill="#9E0F52"/><circle cx="76" cy="116" r="5.9" fill="#9E0F52"/><circle cx="143" cy="112" r="3.0" fill="#E5559A"/><circle cx="25" cy="116" r="4.8" fill="#D42A7A"/><circle cx="170" cy="146" r="4.9" fill="#B8125F"/><circle cx="190" cy="106" r="3.3" fill="#B8125F"/><circle cx="5" cy="103" r="3.1" fill="#E5559A"/><circle cx="188" cy="196" r="3.1" fill="#E5559A"/><circle cx="92" cy="111" r="4.9" fill="#D42A7A"/><circle cx="71" cy="137" r="4.7" fill="#E5559A"/><circle cx="173" cy="170" r="5.3" fill="#9E0F52"/><circle cx="191" cy="116" r="3.4" fill="#E5559A"/><circle cx="182" cy="276" r="5.4" fill="#E5559A"/><circle cx="182" cy="354" r="3.9" fill="#E5559A"/><circle cx="169" cy="116" r="5.1" fill="#D42A7A"/><circle cx="35" cy="122" r="3.1" fill="#D42A7A"/><circle cx="124" cy="117" r="5.4" fill="#D42A7A"/><circle cx="20" cy="131" r="4.5" fill="#D42A7A"/><circle cx="159" cy="114" r="4.3" fill="#9E0F52"/><circle cx="150" cy="160" r="4.5" fill="#E5559A"/><circle cx="180" cy="127" r="5.8" fill="#E5559A"/><circle cx="180" cy="145" r="4.4" fill="#B8125F"/><circle cx="178" cy="236" r="3.2" fill="#D42A7A"/><circle cx="173" cy="182" r="5.5" fill="#B8125F"/><circle cx="55" cy="118" r="6.1" fill="#D42A7A"/><circle cx="-6" cy="112" r="5.6" fill="#B8125F"/><circle cx="137" cy="111" r="5.0" fill="#E5559A"/><circle cx="88" cy="120" r="4.8" fill="#E5559A"/><circle cx="172" cy="246" r="4.3" fill="#9E0F52"/><circle cx="82" cy="115" r="4.4" fill="#E5559A"/><circle cx="110" cy="99" r="4.4" fill="#B8125F"/><circle cx="189" cy="118" r="3.7" fill="#9E0F52"/><circle cx="186" cy="234" r="5.2" fill="#E5559A"/><circle cx="13" cy="140" r="3.5" fill="#9E0F52"/><circle cx="100" cy="111" r="3.5" fill="#9E0F52"/><circle cx="117" cy="128" r="3.7" fill="#D42A7A"/><circle cx="173" cy="118" r="3.8" fill="#B8125F"/><circle cx="145" cy="115" r="5.6" fill="#B8125F"/><circle cx="174" cy="151" r="5.3" fill="#D42A7A"/><circle cx="109" cy="119" r="3.6" fill="#E5559A"/><circle cx="122" cy="137" r="3.6" fill="#B8125F"/><circle cx="68" cy="120" r="5.3" fill="#9E0F52"/><circle cx="187" cy="253" r="5.9" fill="#D42A7A"/><circle cx="183" cy="311" r="3.1" fill="#9E0F52"/><circle cx="182" cy="179" r="3.7" fill="#D42A7A"/><circle cx="175" cy="382" r="4.9" fill="#9E0F52"/><circle cx="165" cy="261" r="5.7" fill="#9E0F52"/><circle cx="167" cy="159" r="5.1" fill="#B8125F"/><circle cx="174" cy="315" r="4.5" fill="#D42A7A"/><circle cx="164" cy="290" r="5.9" fill="#B8125F"/><circle cx="114" cy="107" r="5.0" fill="#D42A7A"/><circle cx="162" cy="185" r="3.1" fill="#9E0F52"/><circle cx="21" cy="126" r="5.8" fill="#D42A7A"/><circle cx="189" cy="231" r="4.6" fill="#E5559A"/><circle cx="165" cy="321" r="3.5" fill="#B8125F"/><circle cx="-2" cy="110" r="4.8" fill="#B8125F"/><circle cx="164" cy="123" r="5.0" fill="#D42A7A"/><circle cx="186" cy="178" r="6.0" fill="#B8125F"/><circle cx="183" cy="202" r="4.6" fill="#E5559A"/><circle cx="148" cy="104" r="5.0" fill="#D42A7A"/><circle cx="-1" cy="108" r="3.0" fill="#9E0F52"/><circle cx="176" cy="187" r="5.2" fill="#D42A7A"/><circle cx="4" cy="117" r="4.3" fill="#B8125F"/><circle cx="70" cy="119" r="4.5" fill="#B8125F"/><circle cx="100" cy="132" r="5.6" fill="#B8125F"/><circle cx="81" cy="130" r="3.7" fill="#B8125F"/><circle cx="173" cy="362" r="5.6" fill="#9E0F52"/><circle cx="163" cy="210" r="4.8" fill="#B8125F"/><circle cx="183" cy="255" r="5.5" fill="#B8125F"/><circle cx="71" cy="113" r="3.8" fill="#9E0F52"/><circle cx="180" cy="142" r="5.6" fill="#D42A7A"/><circle cx="173" cy="229" r="4.0" fill="#9E0F52"/><circle cx="40" cy="110" r="5.1" fill="#D42A7A"/><circle cx="174" cy="336" r="4.2" fill="#E5559A"/><circle cx="77" cy="100" r="5.5" fill="#B8125F"/><circle cx="167" cy="293" r="4.9" fill="#E5559A"/><circle cx="-0" cy="118" r="3.9" fill="#E5559A"/><circle cx="18" cy="122" r="3.6" fill="#9E0F52"/><circle cx="214" cy="191" r="3.1" fill="#D42A7A"/><circle cx="202" cy="391" r="2.7" fill="#E5559A"/><circle cx="237" cy="391" r="2.9" fill="#B8125F"/><circle cx="204" cy="337" r="2.6" fill="#D42A7A"/><circle cx="249" cy="331" r="2.1" fill="#E5559A"/><circle cx="209" cy="213" r="2.2" fill="#B8125F"/><circle cx="229" cy="281" r="3.1" fill="#D42A7A"/></g>
+          <g class="sign"><path d="M36 150v16M102 150v16" stroke="#2B1430" stroke-width="2"/><rect x="10" y="164" width="118" height="34" rx="17" fill="#2B1430"/><text id="sign-text" x="69" y="186.5" text-anchor="middle" fill="#FFFFFF" font-family="Nunito, sans-serif" font-weight="900" font-size="14" letter-spacing=".6">AÇIK</text></g>
+        </svg>
+      </div>
+
+      <!-- Dizüstü: geniş ekranda -->
+      <div class="laptop" aria-hidden="true">
+        <div class="lp-screen">
+          <div class="site-wide lw-tr" lang="tr">
+            <div class="s-bar"><b>Lale Çiçek</b><span class="s-langs"><i class="on">TR</i><i>EN</i><i>RU</i></span></div>
+            <div class="s-hero"><div><p class="s-h">Aynı gün teslim buketler</p><p class="s-p">Antalya içi, 09:00–21:00</p><span class="s-btn">WhatsApp'tan sipariş</span></div><svg><use href="#i-bouquet"/></svg></div>
+            <div class="s-grid"><span><svg><use href="#i-bouquet"/></svg>Kırmızı güller<b>₺1.450</b></span><span><svg><use href="#i-bouquet"/></svg>Mevsim buketi<b>₺950</b></span><span><svg><use href="#i-bouquet"/></svg>Kutuda çiçek<b>₺1.200</b></span></div>
           </div>
-          <p class="ls-morning"><svg class="ico" aria-hidden="true"><use href="#i-bolt"/></svg><span data-i18n="hero.morning">09:00: kapıyı açıyorsunuz, iki sipariş hazır.</span></p>
+          <div class="site-wide lw-ru" lang="ru">
+            <div class="s-bar"><b>Lale Çiçek</b><span class="s-langs"><i>TR</i><i>EN</i><i class="on">RU</i></span></div>
+            <div class="s-hero"><div><p class="s-h">Букеты с доставкой в день заказа</p><p class="s-p">По Анталье, 09:00–21:00</p><span class="s-btn">Заказать в WhatsApp</span></div><svg><use href="#i-bouquet"/></svg></div>
+            <div class="s-grid"><span><svg><use href="#i-bouquet"/></svg>Красные розы<b>1 450 ₺</b></span><span><svg><use href="#i-bouquet"/></svg>Сезонный букет<b>950 ₺</b></span><span><svg><use href="#i-bouquet"/></svg>Цветы в коробке<b>1 200 ₺</b></span></div>
+          </div>
+        </div>
+        <div class="lp-base"></div>
+      </div>
+
+      <!-- Telefon -->
+      <div class="phone">
+        <div class="ph-notch" aria-hidden="true"></div>
+        <div class="ph-screen">
+          <div class="scr scr-day" lang="tr" aria-hidden="true">
+            <div class="m-bar"><b>Lale Çiçek</b><span class="s-langs"><i class="on">TR</i><i>EN</i><i>RU</i></span></div>
+            <div class="m-hero"><svg><use href="#i-bouquet"/></svg><p class="s-h">Aynı gün teslim buketler</p></div>
+            <div class="m-item"><svg><use href="#i-bouquet"/></svg><span>Kırmızı güller</span><b>₺1.450</b></div>
+            <div class="m-item"><svg><use href="#i-bouquet"/></svg><span>Mevsim buketi</span><b>₺950</b></div>
+            <span class="m-cta"><svg><use href="#i-wa"/></svg>WhatsApp'tan sipariş</span>
+          </div>
+          <div class="scr scr-ru" lang="ru" aria-hidden="true">
+            <div class="m-bar"><b>Lale Çiçek</b><span class="s-langs"><i>TR</i><i>EN</i><i class="on">RU</i></span></div>
+            <div class="m-hero"><svg><use href="#i-bouquet"/></svg><p class="s-h">Букеты с доставкой в день заказа</p></div>
+            <div class="m-item"><svg><use href="#i-bouquet"/></svg><span>Красные розы</span><b>1 450 ₺</b></div>
+            <div class="m-item"><svg><use href="#i-bouquet"/></svg><span>Сезонный букет</span><b>950 ₺</b></div>
+            <span class="m-cta"><svg><use href="#i-wa"/></svg>Заказать в WhatsApp</span>
+          </div>
+          <div class="scr scr-night" aria-hidden="true">
+            <p class="lock-date" data-i18n="demo.date">Cumartesi, 7 Mart</p>
+            <p class="lock-time">23:41</p>
+            <p class="lock-pill" data-i18n="demo.pill">Dükkân kapalı, site açık</p>
+            <ul class="notes">
+              <li lang="ru"><span class="n-top"><svg><use href="#i-wa"/></svg>WhatsApp · Анна</span>Здравствуйте! Можно 25 роз на 8 Марта к 9 утра?</li>
+              <li lang="tr"><span class="n-top"><svg><use href="#i-wa"/></svg>WhatsApp · Mehmet</span>Merhaba, yarın sabah bir mevsim buketi alabilir miyim?</li>
+              <li lang="kk"><span class="n-top"><svg><use href="#i-wa"/></svg>WhatsApp · Айгерім</span>Сәлеметсіз бе! Ертеңге букет бар ма?</li>
+            </ul>
+            <p class="lock-sum" data-i18n="demo.sum">Sabah açtığınızda: 3 yeni mesaj</p>
+          </div>
         </div>
       </div>
-      <span class="concept-tag concept-tag-hero" data-i18n="concept">Örnek konsept</span>
     </div>
-  </div>
-</section>
 
-<!-- ================= IMAGINE: ONE DAY, BEFORE / AFTER ================= -->
-<section class="sec sec-paper sec-day" id="hayal" aria-labelledby="d-h">
-  <div class="wrap">
-    <div class="sec-head" data-reveal>
-      <h2 id="d-h" data-i18n="day.h">Bir gününüzü hayal edin</h2>
+    <div class="stage-foot">
+      <div class="controls">
+        <div class="tabs" role="group" data-i18n-aria="demo.label" aria-label="Demo sahnesi">
+          <button type="button" data-go="day" aria-pressed="true"><svg aria-hidden="true"><use href="#i-sun"/></svg><span data-i18n="demo.day">Gündüz</span></button>
+          <button type="button" data-go="ru" aria-pressed="false"><span data-i18n="demo.ru">Rusça</span></button>
+          <button type="button" data-go="night" aria-pressed="false"><svg aria-hidden="true"><use href="#i-moon"/></svg><span data-i18n="demo.night">Gece 23:41</span></button>
+        </div>
+        <button class="pause" id="pause" type="button" data-i18n-aria="demo.pause" aria-label="Demoyu durdurun"><svg aria-hidden="true"><use href="#i-pause"/></svg></button>
+      </div>
+      <p class="concept" data-i18n="demo.concept">Örnek konsept: "Lale Çiçek" hayalî bir dükkân, mesajlar temsilidir.</p>
+      <p class="sr-only" aria-live="polite" id="scene-say"></p>
+    </div>
+  </section>
+
+  <!-- 2. DİLLER: altı dilde merhaba -->
+  <section class="hello" aria-labelledby="l-title">
+    <div class="wrap">
+      <h2 id="l-title" class="display h2" data-i18n="hello.h">Müşteriniz hangi dilde ararsa, orada olun.</h2>
+      <p class="sec-lead" data-i18n="hello.p">Antalya'ya her dilden müşteri gelir. Sitenizi Türkçe, İngilizce ve Rusça hazırlarız; Orta Asya'dan gelen birçok müşteri Rusça da okur, isterseniz Kazakça, Özbekçe ya da Kırgızca da eklenir. Fiyatı kendi dilinde gören güvenir, yazar, gelir.</p>
+      <ul class="deck">
+        <li class="card c-mag" lang="tr"><span class="word">Merhaba</span><span class="lang-n">Türkçe</span></li>
+        <li class="card c-sea" lang="ru"><span class="word">Здравствуйте</span><span class="lang-n">Русский</span></li>
+        <li class="card c-cit" lang="en"><span class="word">Hello</span><span class="lang-n">English</span></li>
+        <li class="card c-leaf" lang="kk"><span class="word">Сәлеметсіз бе</span><span class="lang-n">Қазақша</span></li>
+        <li class="card c-white" lang="uz"><span class="word">Assalomu alaykum</span><span class="lang-n">Oʻzbekcha</span></li>
+        <li class="card c-ink" lang="ky"><span class="word">Саламатсызбы</span><span class="lang-n">Кыргызча</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 3. ÖNCE / SONRA -->
+  <section class="ba" id="once-sonra" aria-labelledby="b-title">
+    <div class="wrap">
+      <h2 id="b-title" class="display h2" data-i18n="ba.h">Aynı dükkân, bir gün arayla.</h2>
+      <p class="sec-lead" data-i18n="ba.lead">Sürgüyü çekin: solda bugün müşterinin gördüğü, sağda yarın göreceği.</p>
+      <div class="ba-frame" id="ba" style="--x:50%">
+        <div class="pane before" aria-hidden="true">
+          <span class="pane-tag" data-i18n="ba.before">Önce</span>
+          <div class="ig">
+            <div class="ig-head"><span class="ig-ava"></span><div><b>lalecicek</b><p data-i18n="ba.dm">Fiyat için DM atın</p><p class="dead">linktr.ee/… <em data-i18n="ba.dead">sayfa bulunamadı</em></p></div></div>
+            <div class="ig-grid"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+            <div class="ig-c" lang="ru"><b>guest_ru</b> Сколько стоит?</div>
+            <div class="ig-c" lang="tr"><b>misafir</b> Fiyat nedir?</div>
+            <div class="ig-c" lang="en"><b>tourist</b> Are you open now?</div>
+            <p class="ig-none" data-i18n="ba.none">Cevap yok</p>
+          </div>
+        </div>
+        <div class="pane after" aria-hidden="true">
+          <span class="pane-tag" data-i18n="ba.after">Sonra</span>
+          <div class="af" lang="ru">
+            <div class="m-bar"><b>Lale Çiçek</b><span class="s-langs"><i>TR</i><i>EN</i><i class="on">RU</i></span></div>
+            <p class="af-open">Открыто сегодня 09:00–21:00</p>
+            <div class="m-item"><svg><use href="#i-bouquet"/></svg><span>Красные розы</span><b>1 450 ₺</b></div>
+            <div class="m-item"><svg><use href="#i-bouquet"/></svg><span>Сезонный букет</span><b>950 ₺</b></div>
+            <div class="m-item"><svg><use href="#i-bouquet"/></svg><span>Цветы в коробке</span><b>1 200 ₺</b></div>
+            <span class="m-cta"><svg><use href="#i-wa"/></svg>Заказать в WhatsApp</span>
+          </div>
+        </div>
+        <div class="ba-line" aria-hidden="true"><span></span></div>
+        <input id="ba-range" class="ba-range" type="range" min="0" max="100" value="50" data-i18n-aria="ba.label" aria-label="Önce ve sonra karşılaştırması: sürgüyü kaydırın">
+      </div>
+      <p class="ba-note" data-i18n="ba.note">Örnek konsept: işletme adı ve fiyatlar temsilidir.</p>
+    </div>
+  </section>
+
+  <!-- 4. BİR GÜNÜNÜZÜ HAYAL EDİN -->
+  <section class="day" id="hayal" aria-labelledby="d-title">
+    <div class="wrap">
+      <h2 id="d-title" class="display h2" data-i18n="day.h">Bir gününüzü hayal edin</h2>
       <p class="sec-lead" data-i18n="day.lead">Aynı dükkân, aynı emek. Tek fark: müşteri sizi bulabiliyor ve istediği saatte, kendi dilinde yazabiliyor.</p>
-    </div>
-    <div class="day-cols" aria-hidden="true">
-      <span></span><span data-i18n="day.before">Bugün</span><span data-i18n="day.after">Ondera ile</span>
-    </div>
-    <ol class="day" data-reveal>
-      <li class="day-row">
-        <time class="day-time">08:30</time>
-        <p class="day-b"><span class="day-k" data-i18n="day.before">Bugün</span> <span data-i18n="day.1.b">Kepengi açıyorsunuz. Gece gelen mesajlar cevapsız kalmış; o müşteriler çoktan başka yerden almış.</span></p>
-        <p class="day-a"><span class="day-k" data-i18n="day.after">Ondera ile</span> <span data-i18n="day.1.a">Kepengi açıyorsunuz. Gece gelen siparişler WhatsApp'ta sizi bekliyor; tek yapmanız gereken onaylamak.</span></p>
-      </li>
-      <li class="day-row">
-        <time class="day-time">11:00</time>
-        <p class="day-b"><span class="day-k" data-i18n="day.before">Bugün</span> <span data-i18n="day.2.b">Elinizde müşteri varken telefon çalıyor, açamıyorsunuz. Arayan bir daha aramıyor.</span></p>
-        <p class="day-a"><span class="day-k" data-i18n="day.after">Ondera ile</span> <span data-i18n="day.2.a">Müşteri boş saati sitenizden görüp kendisi yazmış. Siz işinize bakıyorsunuz, gün doluyor.</span></p>
-      </li>
-      <li class="day-row">
-        <time class="day-time">14:00</time>
-        <p class="day-b"><span class="day-k" data-i18n="day.before">Bugün</span> <span data-i18n="day.3.b">Instagram'da aynı soru yine geliyor: “Fiyat ne, kaça kadar açıksınız?”</span></p>
-        <p class="day-a"><span class="day-k" data-i18n="day.after">Ondera ile</span> <span data-i18n="day.3.a">Fiyat, saat ve adres sitede yazılı. Gelen mesaj artık “Yarın 15:00'e yer var mı?”</span></p>
-      </li>
-      <li class="day-row">
-        <time class="day-time">19:30</time>
-        <p class="day-b"><span class="day-k" data-i18n="day.before">Bugün</span> <span data-i18n="day.4.b">Bir turist kapıdaki menüye bakıyor, anlamıyor ve yandaki dükkâna giriyor.</span></p>
-        <p class="day-a"><span class="day-k" data-i18n="day.after">Ondera ile</span> <span data-i18n="day.4.a">Turist masadaki karekodu okutuyor, menüyü kendi dilinde okuyup rahatça sipariş veriyor.</span></p>
-      </li>
-      <li class="day-row">
-        <time class="day-time">23:47</time>
-        <p class="day-b"><span class="day-k" data-i18n="day.before">Bugün</span> <span data-i18n="day.5.b">Biri Google'da “цветы Анталья” diye arıyor. Karşısına siz değil, rakibiniz çıkıyor.</span></p>
-        <p class="day-a"><span class="day-k" data-i18n="day.after">Ondera ile</span> <span data-i18n="day.5.a">Aynı kişi Rusça sayfanızı buluyor, fiyatı görüyor ve WhatsApp'tan yazıyor. Sabah sizi bekliyor.</span></p>
-      </li>
-    </ol>
-    <div class="day-foot" data-reveal>
-      <p class="day-quote" data-i18n="day.quote">Müşteri beklemez: fiyatı göremeyen ya da cevap alamayan, bir dakika içinde yandaki rakibe geçer. Sitesiz geçen her gün, rakibe giden müşteri demek.</p>
-      <div class="day-cta">
-        <a class="btn btn-ink js-wa" data-msg="msg.draft" href="https://wa.me/905340679661" rel="noopener" data-i18n="cta.draft">Ücretsiz taslak isteyin</a>
-        <p class="speed speed-light"><svg class="speed-ico" aria-hidden="true"><use href="#i-bolt"/></svg><span data-i18n="speed">Taslak aynı gün, site ilk gün yayında.</span></p>
+      <ol class="hours">
+        <li>
+          <time>09:00</time>
+          <div class="pair">
+            <p class="was"><span class="tag-was"><svg aria-hidden="true"><use href="#i-x"/></svg><span data-i18n="day.before">Bugün</span></span><span data-i18n="day.1.b">Kepengi açıyorsunuz. Gece gelen mesajlar cevapsız kalmış; o müşteriler çoktan başka yerden almış.</span></p>
+            <p class="now"><span class="tag-now"><svg aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="day.after">Ondera ile</span></span><span data-i18n="day.1.a">Kepengi açıyorsunuz. Gece gelen siparişler WhatsApp'ta sizi bekliyor; tek yapmanız gereken onaylamak.</span></p>
+          </div>
+        </li>
+        <li>
+          <time>11:30</time>
+          <div class="pair">
+            <p class="was"><span class="tag-was"><svg aria-hidden="true"><use href="#i-x"/></svg><span data-i18n="day.before">Bugün</span></span><span data-i18n="day.2.b">Elinizde müşteri varken telefon çalıyor, açamıyorsunuz. Arayan bir daha aramıyor.</span></p>
+            <p class="now"><span class="tag-now"><svg aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="day.after">Ondera ile</span></span><span data-i18n="day.2.a">Müşteri boş saati sitenizden görüp kendisi yazmış. Siz işinize bakıyorsunuz, gün doluyor.</span></p>
+          </div>
+        </li>
+        <li>
+          <time>14:00</time>
+          <div class="pair">
+            <p class="was"><span class="tag-was"><svg aria-hidden="true"><use href="#i-x"/></svg><span data-i18n="day.before">Bugün</span></span><span data-i18n="day.3.b">Instagram'da aynı soru yine geliyor: “Fiyat ne, kaça kadar açıksınız?”</span></p>
+            <p class="now"><span class="tag-now"><svg aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="day.after">Ondera ile</span></span><span data-i18n="day.3.a">Fiyat, saat ve adres sitede yazılı. Gelen mesaj artık “Yarın 15:00'e yer var mı?”</span></p>
+          </div>
+        </li>
+        <li>
+          <time>19:30</time>
+          <div class="pair">
+            <p class="was"><span class="tag-was"><svg aria-hidden="true"><use href="#i-x"/></svg><span data-i18n="day.before">Bugün</span></span><span data-i18n="day.4.b">Bir turist kapıdaki menüye bakıyor, anlamıyor ve yandaki dükkâna giriyor.</span></p>
+            <p class="now"><span class="tag-now"><svg aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="day.after">Ondera ile</span></span><span data-i18n="day.4.a">Turist masadaki karekodu okutuyor, menüyü kendi dilinde okuyup rahatça sipariş veriyor.</span></p>
+          </div>
+        </li>
+        <li>
+          <time>23:40</time>
+          <div class="pair">
+            <p class="was"><span class="tag-was"><svg aria-hidden="true"><use href="#i-x"/></svg><span data-i18n="day.before">Bugün</span></span><span data-i18n="day.5.b">Biri Google'da “цветы Анталья” diye arıyor. Karşısına siz değil, rakibiniz çıkıyor.</span></p>
+            <p class="now"><span class="tag-now"><svg aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="day.after">Ondera ile</span></span><span data-i18n="day.5.a">Aynı kişi Rusça sayfanızı buluyor, fiyatı görüyor ve WhatsApp'tan yazıyor. Sabah sizi bekliyor.</span></p>
+          </div>
+        </li>
+      </ol>
+      <div class="band">
+        <p class="band-q" data-i18n="day.quote">Müşteri beklemez: fiyatı göremeyen ya da cevap alamayan, bir dakika içinde yandaki rakibe geçer. Sitesiz geçen her gün, rakibe giden müşteri demek.</p>
+        <div class="band-act">
+          <a class="btn btn-dark js-wa" data-msg="msg.draft" href="https://wa.me/905340679661" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg><span data-i18n="cta.draft">Ücretsiz taslak isteyin</span></a>
+          <p class="speed" data-i18n="speed">Taslak aynı gün, site ilk gün yayında.</p>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ================= WHAT YOU GAIN ================= -->
-<section class="sec sec-cream sec-gain" id="kazanc" aria-labelledby="g-h">
-  <div class="wrap">
-    <div class="sec-head" data-reveal>
-      <h2 id="g-h" data-i18n="gain.h">Ne kazanırsınız?</h2>
-      <p class="sec-lead" data-i18n="gain.lead">Site bir masraf kalemi değil; müşterinin size ulaştığı kapı. Somut olarak:</p>
+  <!-- 5. KAZANÇ -->
+  <section class="gain" id="kazanc" aria-labelledby="g-title">
+    <div class="wrap gain-grid">
+      <div class="gain-head">
+        <h2 id="g-title" class="display h2" data-i18n="gain.h">Ne kazanırsınız?</h2>
+        <p class="sec-lead" data-i18n="gain.lead">Site bir masraf kalemi değil; müşterinin size ulaştığı kapı. Somut olarak:</p>
+      </div>
+      <ul class="gains">
+        <li><span class="g-ico g-mag"><svg aria-hidden="true"><use href="#i-search"/></svg></span><div><h3 data-i18n="gain.1.t">Arayan müşteri sizi bulur</h3><p data-i18n="gain.1.d">“Yakınımdaki kuaför” ya da “цветы Анталья” diye arayan, fiyatınızı ve fotoğraflarınızı görüp sizi seçer.</p></div></li>
+        <li><span class="g-ico g-ink"><svg aria-hidden="true"><use href="#i-moon"/></svg></span><div><h3 data-i18n="gain.2.t">Kapalıyken de sipariş ve randevu</h3><p data-i18n="gain.2.d">Müşteri gece tek dokunuşla WhatsApp'tan yazar ya da randevu alır; sabah iş hazırdır.</p></div></li>
+        <li><span class="g-ico g-cit"><svg aria-hidden="true"><use href="#i-chat"/></svg></span><div><h3 data-i18n="gain.3.t">Daha az tekrar eden soru</h3><p data-i18n="gain.3.d">Fiyat, saat ve adres sitede yazılı. Telefon ve DM yükü azalır, müşteri daha hızlı karar verir.</p></div></li>
+        <li><span class="g-ico g-sea"><svg aria-hidden="true"><use href="#i-globe"/></svg></span><div><h3 data-i18n="gain.4.t">Yabancı müşteri kendi dilinde</h3><p data-i18n="gain.4.d">Rusça ya da İngilizce sayfayı gören turist ve yerleşik yabancı, ne alacağını anlar, güvenir ve gelir.</p></div></li>
+        <li><span class="g-ico g-leaf"><svg aria-hidden="true"><use href="#i-shield"/></svg></span><div><h3 data-i18n="gain.5.t">Instagram'dan fazla güven</h3><p data-i18n="gain.5.d">Google'dan tıklanınca açılan şık bir site, yalnızca Instagram hesabından daha kurumsal görünür; fiyat pazarlığı azalır.</p></div></li>
+      </ul>
     </div>
-    <ul class="gains" data-reveal>
-      <li>
-        <svg class="gain-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6"/><path d="m15 15 5.5 5.5"/></svg>
-        <h3 data-i18n="gain.1.t">Arayan müşteri sizi bulur</h3>
-        <p data-i18n="gain.1.d">“Yakınımdaki kuaför” ya da “цветы Анталья” diye arayan, fiyatınızı ve fotoğraflarınızı görüp sizi seçer.</p>
-      </li>
-      <li>
-        <svg class="gain-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M19.5 14.5A8 8 0 0 1 9.5 4.5a8 8 0 1 0 10 10Z"/></svg>
-        <h3 data-i18n="gain.2.t">Kapalıyken de sipariş ve randevu</h3>
-        <p data-i18n="gain.2.d">Müşteri gece tek dokunuşla WhatsApp'tan yazar ya da randevu alır; sabah iş hazırdır.</p>
-      </li>
-      <li>
-        <svg class="gain-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5h16v10H9l-4.5 3.5v-3.5H4Z"/><path d="M8.5 10.5h7"/></svg>
-        <h3 data-i18n="gain.3.t">Daha az tekrar eden soru</h3>
-        <p data-i18n="gain.3.d">Fiyat, saat ve adres sitede yazılı. Telefon ve DM yükü azalır, müşteri daha hızlı karar verir.</p>
-      </li>
-      <li>
-        <svg class="gain-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c2.4 2.4 3.5 5.2 3.5 8.5s-1.1 6.1-3.5 8.5c-2.4-2.4-3.5-5.2-3.5-8.5s1.1-6.1 3.5-8.5Z"/></svg>
-        <h3 data-i18n="gain.4.t">Yabancı müşteri kendi dilinde</h3>
-        <p data-i18n="gain.4.d">Rusça ya da İngilizce sayfayı gören turist ve yerleşik yabancı, ne alacağını anlar, güvenir ve gelir.</p>
-      </li>
-      <li>
-        <svg class="gain-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5 19 6v5.5c0 4.3-3 7.6-7 9-4-1.4-7-4.7-7-9V6Z"/><path d="m9 12 2.2 2.2L15.5 10"/></svg>
-        <h3 data-i18n="gain.5.t">Instagram'dan fazla güven</h3>
-        <p data-i18n="gain.5.d">Google'dan tıklanınca açılan şık bir site, yalnızca Instagram hesabından daha kurumsal görünür; fiyat pazarlığı azalır.</p>
-      </li>
-    </ul>
-  </div>
-</section>
+  </section>
 
-<!-- ================= WHO WE BUILD FOR ================= -->
-<section class="sec sec-sand sec-who" id="kimler" aria-labelledby="w-h">
-  <div class="wrap">
-    <div class="sec-head" data-reveal>
-      <h2 id="w-h" data-i18n="who.h">Kimler için çalışıyoruz?</h2>
-      <p class="sec-lead" data-i18n="who.lead">Antalya'daki küçük ve orta ölçekli işletmeler için. Her sektörün ihtiyacı farklı; siteyi buna göre kurarız.</p>
-    </div>
-    <ul class="who" data-reveal>
-      <li class="who-card">
-        <svg class="who-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21v-8m0 0c-3 0-5-2-5-6l2.5 1.5L12 5l2.5 3.5L17 7c0 4-2 6-5 6Zm0 4.5c-1.6-1.8-3.6-2.2-5.2-1.2 1.2 1.9 3.3 2.3 5.2 1.2Z"/></svg>
-        <h3 data-i18n="who.1.t">Çiçekçiler</h3>
-        <p data-i18n="who.1.d">Online katalog ve WhatsApp'tan sipariş.</p>
-        <p class="pay" data-i18n="who.1.pay">Başlangıç $99, yani bir iki buket. Bakım ayda $15, bir buketten az.</p>
-      </li>
-      <li class="who-card">
-        <svg class="who-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="7" r="2.6"/><circle cx="6" cy="17" r="2.6"/><path d="M8.2 8.4 20 17M8.2 15.6 20 7"/></svg>
-        <h3 data-i18n="who.2.t">Kuaförler ve berberler</h3>
-        <p data-i18n="who.2.d">Fiyat listesi ve online randevu.</p>
-        <p class="pay" data-i18n="who.2.pay">Bakım ayda $15, bir saç kesiminden az; ayda bir yeni müşteri kendini öder.</p>
-      </li>
-      <li class="who-card">
-        <svg class="who-ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="10" y="3" width="4" height="5" rx="1"/><rect x="7.5" y="8" width="9" height="13" rx="2.5"/><path d="M10.5 12.5v4"/></svg>
-        <h3 data-i18n="who.3.t">Güzellik merkezleri ve nail stüdyoları</h3>
-        <p data-i18n="who.3.d">Hizmetler, fotoğraflar ve randevu tek sayfada.</p>
-        <p class="pay" data-i18n="who.3.pay">Bakım ayda $15, bir manikürden az.</p>
-      </li>
-      <li class="who-card">
-        <svg class="who-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19c-4.2 0-8-2.1-9-6 3.3 0 6.6 1.3 9 6Zm0 0c4.2 0 8-2.1 9-6-3.3 0-6.6 1.3-9 6Zm0 0c-2.2-3.3-2.2-8.7 0-12.5 2.2 3.8 2.2 9.2 0 12.5Z"/></svg>
-        <h3 data-i18n="who.4.t">Spa ve masaj</h3>
-        <p data-i18n="who.4.d">Paketler ve fiyatlar misafirlerinizin dilinde.</p>
-        <p class="pay" data-i18n="who.4.pay">Tek bir masaj seansı birkaç aylık bakımı karşılar.</p>
-      </li>
-      <li class="who-card">
-        <svg class="who-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h12v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5Zm12 1h1.5a2.5 2.5 0 0 1 0 5H16M8 3.5c-.9.9.9 1.6 0 2.5m4-2.5c-.9.9.9 1.6 0 2.5M3 21.5h14"/></svg>
-        <h3 data-i18n="who.5.t">Restoranlar ve kafeler</h3>
-        <p data-i18n="who.5.d">TR/EN/RU QR menü, fiyatlar her an güncel.</p>
-        <p class="pay" data-i18n="who.5.pay">QR menü başlangıç $49: birkaç masanın hesabı kadar.</p>
-      </li>
-      <li class="who-card">
-        <svg class="who-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20.5h16M5.5 20.5v-7h13v7M5.5 16.4c2.1 1.4 3.2 1.4 4.3 0s2.2-1.4 4.4 0 3.2 1.4 4.3 0M12 13.5V10m0-3.2c-1.1-1-.1-2.4 0-3.6 1.1 1 1.1 2.6 0 3.6Z"/></svg>
-        <h3 data-i18n="who.6.t">Fırınlar ve pastaneler</h3>
-        <p data-i18n="who.6.d">Pasta siparişi ve günün taze ürünleri.</p>
-        <p class="pay" data-i18n="who.6.pay">Birkaç pasta siparişi siteyi öder.</p>
-      </li>
-      <li class="who-card who-extra">
-        <svg class="who-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M9.5 4h5v5.5H20v5h-5.5V20h-5v-5.5H4v-5h5.5Z"/></svg>
-        <h3 data-i18n="who.7.t">Eczaneler</h3>
-        <p data-i18n="who.7.d">Çalışma ve nöbet saatleri, tek dokunuşla yol tarifi.</p>
-        <p class="pay" data-i18n="who.7.pay">Sizi bulan birkaç yabancı müşteri yeter.</p>
-      </li>
-      <li class="who-card who-extra">
-        <svg class="who-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 19.5V6m0 8.5h18v5M3 11.5h5.5a2 2 0 0 1 2 2v1m0-3H18a3 3 0 0 1 3 3"/><circle cx="6" cy="9" r="1.4"/></svg>
-        <h3 data-i18n="who.8.t">Oteller ve pansiyonlar</h3>
-        <p data-i18n="who.8.d">Odalar, fotoğraflar ve komisyonsuz doğrudan rezervasyon talebi.</p>
-        <p class="pay" data-i18n="who.8.pay">Birkaç komisyonsuz doğrudan rezervasyon siteyi öder.</p>
-      </li>
-      <li class="who-card who-extra">
-        <svg class="who-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 8.6V8c0-1.3 2-1.8 2-3a2 2 0 1 0-4 0m2 3.6-8.6 6.6a1 1 0 0 0 .6 1.8h16a1 1 0 0 0 .6-1.8Z"/></svg>
-        <h3 data-i18n="who.9.t">Butikler ve giyim mağazaları</h3>
-        <p data-i18n="who.9.d">Yeni gelenler ve WhatsApp'tan stok sorusu.</p>
-        <p class="pay" data-i18n="who.9.pay">Ayda bir ek satış bakımı fazlasıyla karşılar.</p>
-      </li>
-      <li class="who-card who-extra">
-        <svg class="who-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6c-2-1.8-7-2-7 3 0 3 1 4.2 1.5 7S7.9 21 9 21s1.4-5 3-5 1.9 5 3 5 2-2 2.5-5S19 12 19 9c0-5-5-4.8-7-3Z"/></svg>
-        <h3 data-i18n="who.10.t">Diş ve estetik klinikleri</h3>
-        <p data-i18n="who.10.d">Güven veren bir tanıtım, yabancı hastalar için çok dilli sayfalar.</p>
-        <p class="pay" data-i18n="who.10.pay">Tek bir yeni hasta aylarca bakımı karşılar.</p>
-      </li>
-      <li class="who-card who-extra">
-        <svg class="who-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 7.5v9m-3-6.5v4m14-6.5v9m3-6.5v4M6.5 12h11"/></svg>
-        <h3 data-i18n="who.11.t">Spor salonları ve eğitmenler</h3>
-        <p data-i18n="who.11.d">Ders programı, üyelik fiyatları ve deneme dersi talebi.</p>
-        <p class="pay" data-i18n="who.11.pay">Tek bir yeni üyelik birkaç aylık bakımı karşılar.</p>
-      </li>
-      <li class="who-card who-extra">
-        <svg class="who-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 11.5 12 4.5l8.5 7M6 9.5v10.5h12V9.5M10 20v-5h4v5"/></svg>
-        <h3 data-i18n="who.12.t">Emlakçılar</h3>
-        <p data-i18n="who.12.d">Fotoğraflı ilan sayfaları ve hızlı iletişim.</p>
-        <p class="pay" data-i18n="who.12.pay">Tek bir kiralama ya da komisyon fazlasıyla yeter.</p>
-      </li>
-      <li class="who-card who-extra">
-        <svg class="who-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 4.2a4.6 4.6 0 0 0-4.4 6L4 16.3a2.4 2.4 0 0 0 3.4 3.4l6.1-6.1a4.6 4.6 0 0 0 6-4.4l-2.8 2.1-2.6-.6-.6-2.6Z"/></svg>
-        <h3 data-i18n="who.13.t">Oto servis ve tamirciler</h3>
-        <p data-i18n="who.13.d">Hizmetler, konum ve arızanın fotoğrafını WhatsApp'tan gönderme.</p>
-        <p class="pay" data-i18n="who.13.pay">Ayda bir yeni iş bakımı karşılar.</p>
-      </li>
-      <li class="who-card who-extra">
-        <svg class="who-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="m2 9.5 10-5 10 5-10 5Zm4 2v4.8c2.7 2.3 9.3 2.3 12 0v-4.8M22 9.5v5"/></svg>
-        <h3 data-i18n="who.14.t">Kurslar ve özel ders</h3>
-        <p data-i18n="who.14.d">Program, ücretler ve kayıt formu.</p>
-        <p class="pay" data-i18n="who.14.pay">Tek bir yeni öğrenci aylarca bakımı karşılar.</p>
-      </li>
-      <li class="who-toggle-li"><button class="who-toggle" type="button" aria-expanded="false" data-i18n="who.showAll">Diğer 8 sektörü de gösterin</button></li>
-      <li class="who-card who-more">
-        <h3 data-i18n="who.more.t">İşletmeniz listede yok mu?</h3>
-        <p data-i18n="who.more.d">Yazın, işinize uygun bir site birlikte düşünelim.</p>
-        <a class="who-link js-wa" href="https://wa.me/905340679661" rel="noopener" data-i18n="cta.wa">WhatsApp'tan yazın</a>
-      </li>
-    </ul>
-  </div>
-</section>
-
-<!-- ================= WHY ONDERA ================= -->
-<section class="sec sec-ink sec-why" id="neden" aria-labelledby="y-h">
-  <div class="wrap">
-    <div class="sec-head" data-reveal>
-      <h2 id="y-h" data-i18n="why.h">Neden Ondera?</h2>
+  <!-- 6. NEDEN ONDERA -->
+  <section class="why" id="neden" aria-labelledby="y-title">
+    <div class="wrap">
+      <h2 id="y-title" class="display h2" data-i18n="why.h">Neden Ondera?</h2>
       <p class="sec-lead" data-i18n="why.lead">Büyük ajans süreci yok. Amaç tek: vitrininizin ışığını bir an önce yakmak.</p>
-    </div>
-    <ul class="why" data-reveal>
-      <li class="why-item why-lead">
-        <h3 data-i18n="why.1.t">İlk gün yayında</h3>
-        <p data-i18n="why.1.d">Bugün kaçan müşteri yarın gelmez. Taslak aynı gün hazır; bilgileriniz hazırsa tek sayfa siteniz ilk gün yayında.</p>
-      </li>
-      <li class="why-item">
-        <h3 data-i18n="why.2.t">Önce görün, sonra karar verin</h3>
-        <p data-i18n="why.2.d">Ücretsiz taslağı kendi telefonunuzda görürsünüz. Beğenmezseniz hiçbir şey ödemezsiniz, hiçbir yükümlülük yok.</p>
-      </li>
-      <li class="why-item">
-        <h3 data-i18n="why.3.t">Müşterinizin dilinde</h3>
-        <p data-i18n="why.3.d">Türkçe, İngilizce ve Rusça. Çevirileri biz hazırlarız; yemek ve hizmet adlarını turistin anlayacağı biçimde yazar, yayından önce sizinle kontrol ederiz.</p>
-      </li>
-      <li class="why-item">
-        <h3 data-i18n="why.4.t">Kurucuyla doğrudan</h3>
-        <p data-i18n="why.4.d">Mesajınızı Önder okur, sitenizi Önder yapar. Arada satış temsilcisi ya da çağrı merkezi yok.</p>
-      </li>
-      <li class="why-item">
-        <h3 data-i18n="why.5.t">Net fiyat, sizin dosyalarınız</h3>
-        <p data-i18n="why.5.d">Fiyat işe başlamadan yazılı netleşir; sonradan sürpriz yok. Alan adı sizin adınıza kaydedilir, dosyalar sizindir.</p>
-      </li>
-      <li class="why-item">
-        <h3 data-i18n="why.6.t">Bakım, tek bir hizmetten ucuz</h3>
-        <p data-i18n="why.6.d">Temel bakım ayda $15: çoğu işletmede bir saç kesiminden ya da bir buketten az. Fiyat ve fotoğraf değişikliklerini biz yaparız.</p>
-      </li>
-    </ul>
-    <div class="flow" data-reveal>
-      <p class="flow-h" data-i18n="flow.h">İlk mesajdan yayına</p>
-      <ol class="flow-list">
-        <li><span class="flow-n" aria-hidden="true">1</span><span data-i18n="flow.1">Ücretsiz inceleme</span></li>
-        <li><span class="flow-n" aria-hidden="true">2</span><span data-i18n="flow.2">Aynı gün taslak ve net fiyat</span></li>
-        <li><span class="flow-n" aria-hidden="true">3</span><span data-i18n="flow.3">İlk gün yayında</span></li>
-        <li><span class="flow-n" aria-hidden="true">4</span><span data-i18n="flow.4">Bakım: güncel ve açık</span></li>
+      <ul class="reasons">
+        <li><svg aria-hidden="true"><use href="#i-sun"/></svg><h3 data-i18n="why.1.t">İlk gün yayında</h3><p data-i18n="why.1.d">Bugün kaçan müşteri yarın gelmez. Taslak aynı gün hazır; bilgileriniz hazırsa tek sayfa siteniz ilk gün yayında.</p></li>
+        <li><svg aria-hidden="true"><use href="#i-eye"/></svg><h3 data-i18n="why.2.t">Önce görün, sonra karar verin</h3><p data-i18n="why.2.d">Ücretsiz taslağı kendi telefonunuzda görürsünüz. Beğenmezseniz hiçbir şey ödemezsiniz, hiçbir yükümlülük yok.</p></li>
+        <li><svg aria-hidden="true"><use href="#i-globe"/></svg><h3 data-i18n="why.3.t">Müşterinizin dilinde</h3><p data-i18n="why.3.d">Türkçe, İngilizce ve Rusça. Çevirileri biz hazırlarız; yemek ve hizmet adlarını turistin anlayacağı biçimde yazar, yayından önce sizinle kontrol ederiz.</p></li>
+        <li><svg aria-hidden="true"><use href="#i-person"/></svg><h3 data-i18n="why.4.t">Kurucuyla doğrudan</h3><p data-i18n="why.4.d">Mesajınızı Önder okur, sitenizi Önder yapar. Arada satış temsilcisi ya da çağrı merkezi yok.</p></li>
+        <li><svg aria-hidden="true"><use href="#i-key"/></svg><h3 data-i18n="why.5.t">Net fiyat, sizin dosyalarınız</h3><p data-i18n="why.5.d">Fiyat işe başlamadan yazılı netleşir; sonradan sürpriz yok. Alan adı sizin adınıza kaydedilir, dosyalar sizindir.</p></li>
+        <li><svg aria-hidden="true"><use href="#i-care"/></svg><h3 data-i18n="why.6.t">Bakım, tek bir hizmetten ucuz</h3><p data-i18n="why.6.d">Temel bakım ayda $15: çoğu işletmede bir saç kesiminden ya da bir buketten az. Fiyat ve fotoğraf değişikliklerini biz yaparız.</p></li>
+      </ul>
+      <h3 class="flow-h" data-i18n="flow.h">İlk mesajdan yayına</h3>
+      <ol class="flow">
+        <li><span class="t" data-i18n="flow.1.t">Sabah</span><b data-i18n="flow.1.b">WhatsApp'tan yazarsınız</b><p data-i18n="flow.1.d">İşletmenizin adı ve Instagram hesabınız yeter.</p></li>
+        <li><span class="t" data-i18n="flow.2.t">Aynı gün</span><b data-i18n="flow.2.b">Ücretsiz taslağı görürsünüz</b><p data-i18n="flow.2.d">Net fiyatla birlikte. Beğenmezseniz hiçbir yükümlülük yok.</p></li>
+        <li><span class="t" data-i18n="flow.3.t">İlk gün</span><b data-i18n="flow.3.b">Siteniz yayında</b><p data-i18n="flow.3.d">Alan adı sizin adınıza; dosyalar sizin.</p></li>
+        <li><span class="t" data-i18n="flow.4.t">Sonrası</span><b data-i18n="flow.4.b">Bakımla güncel ve açık</b><p data-i18n="flow.4.d">İsterseniz fiyat ve fotoğraf değişikliklerini biz yaparız.</p></li>
       </ol>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ================= SERVICES / PACKAGES =================
-     Fiyatlar js/config.js dosyasından doldurulur. Buradaki rakamlar yalnızca JavaScript kapalıyken görünür. -->
-<section class="sec sec-cream" id="hizmetler" aria-labelledby="s-h">
-  <div class="wrap">
-    <div class="sec-head" data-reveal>
-      <h2 id="s-h" data-i18n="pkg.h">Paketler ve başlangıç fiyatları</h2>
+  <!-- 7. SEKTÖRLER -->
+  <section class="who" id="sektorler" aria-labelledby="w-title">
+    <div class="wrap">
+      <h2 id="w-title" class="display h2" data-i18n="who.h">Sizin dükkânınız için ne değişir?</h2>
+      <p class="sec-lead" data-i18n="who.lead">Antalya'daki küçük ve orta ölçekli işletmeler için. Her sektörün ihtiyacı farklı; siteyi buna göre kurarız.</p>
+      <ul class="tiles" id="tiles">
+        <li class="tile t-mag"><svg aria-hidden="true"><use href="#i-flower"/></svg><h3 data-i18n="who.1.t">Çiçekçiler</h3><p data-i18n="who.1.d">Online katalog ve WhatsApp'tan sipariş. 8 Mart ve Sevgililer Günü'nde DM'ler yetişmese de sipariş kaçmaz.</p><p class="pay" data-i18n="who.1.pay">Başlangıç $99, yani bir iki buket. Bakım ayda $15, bir buketten az.</p></li>
+        <li class="tile t-sea"><svg aria-hidden="true"><use href="#i-scissors"/></svg><h3 data-i18n="who.2.t">Kuaförler ve berberler</h3><p data-i18n="who.2.d">Fiyat listesi ve online randevu. Müşteri boş saati gece kendisi seçer.</p><p class="pay" data-i18n="who.2.pay">Bakım ayda $15, bir saç kesiminden az; ayda bir yeni müşteri kendini öder.</p></li>
+        <li class="tile t-cit"><svg aria-hidden="true"><use href="#i-cup"/></svg><h3 data-i18n="who.5.t">Restoranlar ve kafeler</h3><p data-i18n="who.5.d">TR/EN/RU QR menü, fiyatlar her an güncel. Turist menüyü kendi dilinde okur, rahat sipariş verir.</p><p class="pay" data-i18n="who.5.pay">QR menü başlangıç $49: birkaç masanın hesabı kadar.</p></li>
+        <li class="tile t-leaf"><svg aria-hidden="true"><use href="#i-spark"/></svg><h3 data-i18n="who.3.t">Güzellik merkezleri ve nail stüdyoları</h3><p data-i18n="who.3.d">Hizmetler, fotoğraflar ve randevu tek sayfada; Instagram'da kaybolan fiyatlar görünür olur.</p><p class="pay" data-i18n="who.3.pay">Bakım ayda $15, bir manikürden az.</p></li>
+        <li class="tile t-mag"><svg aria-hidden="true"><use href="#i-cake"/></svg><h3 data-i18n="who.6.t">Fırınlar ve pastaneler</h3><p data-i18n="who.6.d">Pasta siparişi ve günün taze ürünleri; DM'lerde karışan siparişler tek yerde toplanır.</p><p class="pay" data-i18n="who.6.pay">Birkaç pasta siparişi siteyi öder.</p></li>
+        <li class="tile t-sea"><svg aria-hidden="true"><use href="#i-cross"/></svg><h3 data-i18n="who.7.t">Eczaneler</h3><p data-i18n="who.7.d">Çalışma ve nöbet saatleri, tek dokunuşla yol tarifi. “Pharmacy near me” diye arayan sizi bulur.</p><p class="pay" data-i18n="who.7.pay">Sizi bulan birkaç yabancı müşteri yeter.</p></li>
+        <li class="tile t-cit extra"><svg aria-hidden="true"><use href="#i-lotus"/></svg><h3 data-i18n="who.4.t">Spa ve masaj</h3><p data-i18n="who.4.d">Paketler ve fiyatlar misafirlerinizin dilinde; otel misafiri bulur ve yer ayırtır.</p><p class="pay" data-i18n="who.4.pay">Tek bir masaj seansı birkaç aylık bakımı karşılar.</p></li>
+        <li class="tile t-leaf extra"><svg aria-hidden="true"><use href="#i-bed"/></svg><h3 data-i18n="who.8.t">Oteller ve pansiyonlar</h3><p data-i18n="who.8.d">Odalar, fotoğraflar ve komisyonsuz doğrudan rezervasyon talebi.</p><p class="pay" data-i18n="who.8.pay">Birkaç komisyonsuz doğrudan rezervasyon siteyi öder.</p></li>
+        <li class="tile t-mag extra"><svg aria-hidden="true"><use href="#i-hanger"/></svg><h3 data-i18n="who.9.t">Butikler ve giyim mağazaları</h3><p data-i18n="who.9.d">Yeni gelenler ve WhatsApp'tan stok sorusu.</p><p class="pay" data-i18n="who.9.pay">Ayda bir ek satış bakımı fazlasıyla karşılar.</p></li>
+        <li class="tile t-sea extra"><svg aria-hidden="true"><use href="#i-tooth"/></svg><h3 data-i18n="who.10.t">Diş ve estetik klinikleri</h3><p data-i18n="who.10.d">Güven veren bir tanıtım, yabancı hastalar için çok dilli sayfalar.</p><p class="pay" data-i18n="who.10.pay">Tek bir yeni hasta aylarca bakımı karşılar.</p></li>
+        <li class="tile t-cit extra"><svg aria-hidden="true"><use href="#i-dumbbell"/></svg><h3 data-i18n="who.11.t">Spor salonları ve eğitmenler</h3><p data-i18n="who.11.d">Ders programı, üyelik fiyatları ve deneme dersi talebi.</p><p class="pay" data-i18n="who.11.pay">Tek bir yeni üyelik birkaç aylık bakımı karşılar.</p></li>
+        <li class="tile t-leaf extra"><svg aria-hidden="true"><use href="#i-house"/></svg><h3 data-i18n="who.12.t">Emlakçılar</h3><p data-i18n="who.12.d">Fotoğraflı ilan sayfaları ve hızlı iletişim; Rusça bilen alıcı ilanı kendi dilinde okur.</p><p class="pay" data-i18n="who.12.pay">Tek bir kiralama ya da komisyon fazlasıyla yeter.</p></li>
+        <li class="tile t-mag extra"><svg aria-hidden="true"><use href="#i-wrench"/></svg><h3 data-i18n="who.13.t">Oto servis ve tamirciler</h3><p data-i18n="who.13.d">Hizmetler, konum ve arızanın fotoğrafını WhatsApp'tan gönderme.</p><p class="pay" data-i18n="who.13.pay">Ayda bir yeni iş bakımı karşılar.</p></li>
+        <li class="tile t-sea extra"><svg aria-hidden="true"><use href="#i-book"/></svg><h3 data-i18n="who.14.t">Kurslar ve özel ders</h3><p data-i18n="who.14.d">Program, ücretler ve kayıt formu.</p><p class="pay" data-i18n="who.14.pay">Tek bir yeni öğrenci aylarca bakımı karşılar.</p></li>
+      </ul>
+      <div class="more-wrap"><button class="more-btn" type="button" aria-expanded="false" aria-controls="tiles" data-i18n="who.showAll">Diğer 8 sektörü de gösterin</button></div>
+      <div class="not-listed">
+        <div><h3 data-i18n="who.more.t">İşletmeniz listede yok mu?</h3><p data-i18n="who.more.d">Yazın, işinize uygun bir site birlikte düşünelim.</p></div>
+        <a class="btn js-wa" href="https://wa.me/905340679661" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg><span data-i18n="cta.wa">WhatsApp'tan yazın</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. PAKETLER + BAKIM -->
+  <section class="pricing" id="paketler" aria-labelledby="p-title">
+    <div class="wrap">
+      <h2 id="p-title" class="display h2" data-i18n="pkg.h">Paketler ve başlangıç fiyatları</h2>
       <p class="sec-lead" data-i18n="pkg.lead">Fiyatlar ABD doları cinsinden başlangıç fiyatlarıdır. Kesin fiyatı işe başlamadan yazılı olarak netleştiririz; sonradan sürpriz yok.</p>
-      <p class="speed speed-light"><svg class="speed-ico" aria-hidden="true"><use href="#i-bolt"/></svg><span data-i18n="speed">Taslak aynı gün, site ilk gün yayında.</span></p>
-    </div>
+      <div class="plans">
+        <article class="plan plan-main">
+          <p class="flag" data-i18n="pkg.site.flag">İlk gün yayında</p>
+          <h3 data-i18n="pkg.site.t">Tek sayfa işletme sitesi</h3>
+          <p class="for" data-i18n="pkg.site.for">Kuaför, kafe, çiçekçi, dükkân: her işletmenin vitrini.</p>
+          <p class="price"><span class="from" data-i18n="from">başlangıç</span><b data-price="site.first">$99</b></p>
+          <p class="std"><span data-i18n="std">Standart fiyat</span> <s data-price="site.std">$159</s>; <span data-i18n="firstNote">ilk 5 işletmeye özel</span></p>
+          <ul class="ticks">
+            <li data-i18n="pkg.site.1">Her telefonda kusursuz görünüm</li>
+            <li data-i18n="pkg.site.2">WhatsApp ve arama düğmeleri</li>
+            <li data-i18n="pkg.site.3">Google Haritalar konumu</li>
+            <li data-i18n="pkg.site.4">Hizmetler ve fiyat listesi</li>
+            <li data-i18n="pkg.site.5">Fotoğraf galerisi</li>
+            <li data-i18n="pkg.site.6">1 dil (ek dil eklenebilir)</li>
+          </ul>
+          <p class="plan-pay" data-i18n="pkg.site.pay">Birkaç yeni müşteri kendini öder. Bugün kaçan müşteri yarın gelmez; bu yüzden ilk gün yayında.</p>
+          <a class="btn btn-full js-wa" data-pkg="pkg.site.t" href="https://wa.me/905340679661" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg><span data-i18n="pkg.ask">Bu paketi sorun</span></a>
+        </article>
+        <article class="plan">
+          <h3 data-i18n="pkg.menu.t">QR menü (TR/EN/RU)</h3>
+          <p class="for" data-i18n="pkg.menu.for">Kafe, restoran ve barlar için masadaki karekoddan açılan menü.</p>
+          <p class="price"><span class="from" data-i18n="from">başlangıç</span><b data-price="menu.first">$49</b></p>
+          <p class="std"><span data-i18n="std">Standart fiyat</span> <s data-price="menu.std">$69</s>; <span data-i18n="firstNote">ilk 5 işletmeye özel</span></p>
+          <ul class="ticks">
+            <li data-i18n="pkg.menu.1">Türkçe, İngilizce ve Rusça menü</li>
+            <li data-i18n="pkg.menu.2">Masalar için QR kodlar</li>
+            <li data-i18n="pkg.menu.3">Kolay fiyat güncelleme</li>
+            <li data-i18n="pkg.menu.4">Kategoriler ve ürün fotoğrafları</li>
+          </ul>
+          <p class="plan-pay" data-i18n="pkg.menu.pay">Menüyü anlayan turist rahat sipariş verir; birkaç masanın hesabı kendini öder.</p>
+          <a class="btn btn-ghost btn-full js-wa" data-pkg="pkg.menu.t" href="https://wa.me/905340679661" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg><span data-i18n="pkg.ask">Bu paketi sorun</span></a>
+        </article>
+        <article class="plan">
+          <h3 data-i18n="pkg.book.t">Online randevulu site</h3>
+          <p class="for" data-i18n="pkg.book.for">Kuaför, güzellik merkezi ve klinikler için.</p>
+          <p class="price"><span class="from" data-i18n="from">başlangıç</span><b data-price="book.first">$159</b></p>
+          <p class="std"><span data-i18n="std">Standart fiyat</span> <s data-price="book.std">$249</s>; <span data-i18n="firstNote">ilk 5 işletmeye özel</span></p>
+          <ul class="ticks">
+            <li data-i18n="pkg.book.1">Tek sayfa sitedeki her şey</li>
+            <li data-i18n="pkg.book.2">Randevu formu ya da WhatsApp'tan randevu</li>
+            <li data-i18n="pkg.book.3">Müşteriye randevu hatırlatması</li>
+            <li data-i18n="pkg.book.4">Çalışma saatleri ve hizmet süreleri</li>
+          </ul>
+          <p class="plan-pay" data-i18n="pkg.book.pay">Birkaç boş saat dolunca kendini öder; randevular gece de gelir.</p>
+          <a class="btn btn-ghost btn-full js-wa" data-pkg="pkg.book.t" href="https://wa.me/905340679661" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg><span data-i18n="pkg.ask">Bu paketi sorun</span></a>
+        </article>
+      </div>
+      <div class="notes-row">
+        <p><b data-i18n="dom.t">Alan adı ve barındırma</b> <span data-i18n="dom.d">Ücretini siz ödersiniz; sizin adınıza kaydedilir, üstüne kâr eklenmez.</span></p>
+        <p data-i18n="tl.note">Türkiye'deki işletmelere teklif ve fatura TL olarak verilir.</p>
+      </div>
 
-    <div class="packages" data-reveal>
-      <article class="pkg pkg-feature">
-        <p class="pkg-flag" data-i18n="pkg.site.flag">İlk gün yayında</p>
-        <h3 data-i18n="pkg.site.t">Tek sayfa işletme sitesi</h3>
-        <p class="pkg-for" data-i18n="pkg.site.for">Kuaför, kafe, çiçekçi, dükkân: her işletmenin vitrini.</p>
-        <p class="pay pay-pkg" data-i18n="pkg.site.pay">Birkaç yeni müşteri kendini öder. Bugün kaçan müşteri yarın gelmez; bu yüzden ilk gün yayında.</p>
-        <div class="price">
-          <span class="price-from" data-i18n="from">başlangıç</span>
-          <span class="price-now" data-price="site.first">$99</span>
-          <span class="price-std"><span data-i18n="std">Standart fiyat</span> <s data-price="site.std">$159</s></span>
-          <span class="price-note" data-i18n="firstNote">İlk 5 işletmeye özel</span>
+      <div class="care" id="bakim">
+        <div class="care-head">
+          <h2 class="display h3" data-i18n="care.h">Aylık bakım planları</h2>
+          <p data-i18n="care.lead">Siteniz yayına girdikten sonra güncel, yedekli ve açık kalır. Aylık ödenir; istediğiniz zaman bırakabilirsiniz.</p>
+          <p class="care-pay" data-i18n="care.pay">Temel bakım ayda $15: bir saç kesiminden az. Ayda bir yeni müşteri kendini öder.</p>
         </div>
-        <ul class="ticks">
-          <li><svg aria-hidden="true"><use href="#i-tick"/></svg><span data-i18n="pkg.site.1">Her telefonda kusursuz görünüm</span></li>
-          <li><svg aria-hidden="true"><use href="#i-tick"/></svg><span data-i18n="pkg.site.2">WhatsApp ve arama düğmeleri</span></li>
-          <li><svg aria-hidden="true"><use href="#i-tick"/></svg><span data-i18n="pkg.site.3">Google Haritalar konumu</span></li>
-          <li><svg aria-hidden="true"><use href="#i-tick"/></svg><span data-i18n="pkg.site.4">Hizmetler ve fiyat listesi</span></li>
-          <li><svg aria-hidden="true"><use href="#i-tick"/></svg><span data-i18n="pkg.site.5">Fotoğraf galerisi</span></li>
-          <li><svg aria-hidden="true"><use href="#i-tick"/></svg><span data-i18n="pkg.site.6">1 dil (ek dil eklenebilir)</span></li>
-        </ul>
-        <a class="btn btn-gold js-wa" data-pkg="pkg.site.t" href="https://wa.me/905340679661" rel="noopener" data-i18n="pkg.ask">Bu paketi sorun</a>
-      </article>
-
-      <article class="pkg">
-        <h3 data-i18n="pkg.menu.t">QR menü (TR/EN/RU)</h3>
-        <p class="pkg-for" data-i18n="pkg.menu.for">Kafe, restoran ve barlar için masadaki karekoddan açılan menü.</p>
-        <p class="pay pay-pkg" data-i18n="pkg.menu.pay">Menüyü anlayan turist rahat sipariş verir; birkaç masanın hesabı kendini öder.</p>
-        <div class="price">
-          <span class="price-from" data-i18n="from">başlangıç</span>
-          <span class="price-now" data-price="menu.first">$49</span>
-          <span class="price-std"><span data-i18n="std">Standart fiyat</span> <s data-price="menu.std">$69</s></span>
-          <span class="price-note" data-i18n="firstNote">İlk 5 işletmeye özel</span>
+        <div class="care-plans">
+          <article class="cp">
+            <h3 data-i18n="care.basic.t">Temel</h3>
+            <p class="cp-price"><b data-price="care.basic">$15</b><span data-i18n="perMonth">/ay</span></p>
+            <ul class="ticks">
+              <li data-i18n="care.basic.1">Güncellemeler</li>
+              <li data-i18n="care.basic.2">Küçük değişiklikler</li>
+              <li data-i18n="care.basic.3">Düzenli yedekleme</li>
+              <li data-i18n="care.basic.4">Sitenin açık olduğunun takibi</li>
+            </ul>
+            <a class="cp-ask js-wa" data-pkg="care.basic.name" href="https://wa.me/905340679661" rel="noopener" data-i18n="care.ask">Bu planı sorun</a>
+          </article>
+          <article class="cp cp-mid">
+            <h3 data-i18n="care.std.t">Standart</h3>
+            <p class="cp-price"><b data-price="care.standard">$25</b><span data-i18n="perMonth">/ay</span></p>
+            <ul class="ticks">
+              <li data-i18n="care.std.0">Temel plandaki her şey</li>
+              <li data-i18n="care.std.1">Sınırsız menü ve fiyat değişikliği</li>
+              <li data-i18n="care.std.2">Ayda 2 Google İşletme gönderisi</li>
+              <li data-i18n="care.std.3">Aylık rapor</li>
+            </ul>
+            <a class="cp-ask js-wa" data-pkg="care.std.name" href="https://wa.me/905340679661" rel="noopener" data-i18n="care.ask">Bu planı sorun</a>
+          </article>
+          <article class="cp">
+            <h3 data-i18n="care.plus.t">Plus</h3>
+            <p class="cp-price"><b data-price="care.plus">$45</b><span data-i18n="perMonth">/ay</span></p>
+            <ul class="ticks">
+              <li data-i18n="care.plus.0">Standart plandaki her şey</li>
+              <li data-i18n="care.plus.1">Randevu sisteminin bakımı</li>
+              <li data-i18n="care.plus.2">3 dilde güncelleme</li>
+              <li data-i18n="care.plus.3">Aynı gün öncelikli destek</li>
+            </ul>
+            <a class="cp-ask js-wa" data-pkg="care.plus.name" href="https://wa.me/905340679661" rel="noopener" data-i18n="care.ask">Bu planı sorun</a>
+          </article>
         </div>
-        <ul class="ticks">
-          <li><svg aria-hidden="true"><use href="#i-tick"/></svg><span data-i18n="pkg.menu.1">Türkçe, İngilizce ve Rusça menü</span></li>
-          <li><svg aria-hidden="true"><use href="#i-tick"/></svg><span data-i18n="pkg.menu.2">Masalar için QR kodlar</span></li>
-          <li><svg aria-hidden="true"><use href="#i-tick"/></svg><span data-i18n="pkg.menu.3">Kolay fiyat güncelleme</span></li>
-          <li><svg aria-hidden="true"><use href="#i-tick"/></svg><span data-i18n="pkg.menu.4">Kategoriler ve ürün fotoğrafları</span></li>
-        </ul>
-        <a class="btn btn-ink js-wa" data-pkg="pkg.menu.t" href="https://wa.me/905340679661" rel="noopener" data-i18n="pkg.ask">Bu paketi sorun</a>
-      </article>
+        <p class="fine" data-i18n="care.fine">Alan adı ve barındırma ücretleri bakım planına dahil değildir; sizin adınıza kaydedilir ve kârsız, maliyetine yansıtılır.</p>
+      </div>
 
-      <article class="pkg">
-        <h3 data-i18n="pkg.book.t">Online randevulu site</h3>
-        <p class="pkg-for" data-i18n="pkg.book.for">Kuaför, güzellik merkezi ve klinikler için.</p>
-        <p class="pay pay-pkg" data-i18n="pkg.book.pay">Birkaç boş saat dolunca kendini öder; randevular gece de gelir.</p>
-        <div class="price">
-          <span class="price-from" data-i18n="from">başlangıç</span>
-          <span class="price-now" data-price="book.first">$159</span>
-          <span class="price-std"><span data-i18n="std">Standart fiyat</span> <s data-price="book.std">$249</s></span>
-          <span class="price-note" data-i18n="firstNote">İlk 5 işletmeye özel</span>
+      <div class="big">
+        <div>
+          <h3 data-i18n="big.h">Daha büyük bir işletme mi yönetiyorsunuz?</h3>
+          <p data-i18n="big.lead">Şirketler için yıllardır geliştirilen türden iş uygulamalarını sizin iş akışınıza göre kurarız. İhtiyacınızı dinler, kapsamı ve fiyatı yazılı bir teklifle netleştiririz.</p>
+          <ul class="big-list">
+            <li data-i18n="big.1">Size özel web uygulamaları</li>
+            <li data-i18n="big.2">Müşteri ve bayi portalları</li>
+            <li data-i18n="big.3">Raporlama panelleri</li>
+            <li data-i18n="big.4">Tekrarlayan işler için otomasyon</li>
+            <li data-i18n="big.5">WhatsApp ve yapay zekâ asistanı kurulumu</li>
+            <li data-i18n="big.6">Menü ve katalog tasarımı</li>
+          </ul>
         </div>
-        <ul class="ticks">
-          <li><svg aria-hidden="true"><use href="#i-tick"/></svg><span data-i18n="pkg.book.1">Tek sayfa sitedeki her şey</span></li>
-          <li><svg aria-hidden="true"><use href="#i-tick"/></svg><span data-i18n="pkg.book.2">Randevu formu ya da WhatsApp'tan randevu</span></li>
-          <li><svg aria-hidden="true"><use href="#i-tick"/></svg><span data-i18n="pkg.book.3">Müşteriye randevu hatırlatması</span></li>
-          <li><svg aria-hidden="true"><use href="#i-tick"/></svg><span data-i18n="pkg.book.4">Çalışma saatleri ve hizmet süreleri</span></li>
-        </ul>
-        <a class="btn btn-ink js-wa" data-pkg="pkg.book.t" href="https://wa.me/905340679661" rel="noopener" data-i18n="pkg.ask">Bu paketi sorun</a>
-      </article>
-    </div>
-
-    <div class="fine" data-reveal>
-      <p><strong data-i18n="dom.t">Alan adı ve barındırma</strong> <span data-i18n="dom.d">Ücretini siz ödersiniz; sizin adınıza kaydedilir, üstüne kâr eklenmez.</span></p>
-      <p data-i18n="tl.note">Türkiye'deki işletmelere teklif ve fatura TL olarak verilir.</p>
-    </div>
-
-    <div class="bigbiz" data-reveal>
-      <div class="bigbiz-text">
-        <h3 class="bigbiz-h" data-i18n="big.h">Daha büyük bir işletme mi yönetiyorsunuz?</h3>
-        <p data-i18n="big.lead">Şirketler için yıllardır geliştirilen türden iş uygulamalarını sizin iş akışınıza göre kurarız. İhtiyacınızı dinler, kapsamı ve fiyatı yazılı bir teklifle netleştiririz.</p>
-        <div class="cta-row">
-          <a class="btn btn-gold js-wa" data-msg="msg.quote" href="https://wa.me/905340679661" rel="noopener" data-i18n="big.cta">Teklif alın</a>
-          <a class="btn btn-line-light js-mail" data-subject="msg.quoteSubject" data-body="msg.quoteBody" href="mailto:onderkya35@gmail.com" data-i18n="big.mail">E-postayla yazın</a>
+        <div class="big-act">
+          <a class="btn btn-dark js-wa" data-msg="msg.quote" href="https://wa.me/905340679661" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg><span data-i18n="big.cta">Teklif alın</span></a>
+          <a class="link js-mail" data-subject="msg.quoteSubject" data-body="msg.quoteBody" href="mailto:onderkya35@gmail.com"><svg aria-hidden="true"><use href="#i-mail"/></svg><span data-i18n="big.mail">E-postayla yazın</span></a>
         </div>
       </div>
-      <ul class="bigbiz-list">
-        <li data-i18n="big.1">Size özel web uygulamaları</li>
-        <li data-i18n="big.2">Müşteri ve bayi portalları</li>
-        <li data-i18n="big.3">Raporlama panelleri</li>
-        <li data-i18n="big.4">Tekrarlayan işler için otomasyon</li>
-        <li data-i18n="big.5">WhatsApp ve yapay zekâ asistanı kurulumu</li>
-        <li data-i18n="big.6">Menü ve katalog tasarımı</li>
-      </ul>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ================= CONCEPT WORK ================= -->
-<section class="sec sec-ink" id="ornekler" aria-labelledby="o-h">
-  <div class="wrap">
-    <div class="sec-head" data-reveal>
-      <h2 id="o-h" data-i18n="work.h">Örnek konseptler</h2>
+  <!-- 9. ÖRNEK KONSEPTLER -->
+  <section class="work" id="ornekler" aria-labelledby="o-title">
+    <div class="wrap">
+      <h2 id="o-title" class="display h2" data-i18n="work.h">Örnek konseptler</h2>
       <p class="sec-lead" data-i18n="work.lead">Bunlar gerçek müşteri işleri değil. Neler yapabileceğimizi göstermek için hazırladığımız örnek tasarımlar; işletme adları uydurmadır.</p>
-    </div>
-
-    <div class="work" data-reveal>
-      <figure class="work-item">
-        <div class="phone">
-          <div class="screen fl">
-            <div class="fl-bar"><span class="fl-name">Begonvil</span><span class="fl-sub" data-i18n="m.fl.sub">Çiçek Atölyesi</span></div>
-            <div class="fl-hero">
-              <svg class="fl-b b1" aria-hidden="true"><use href="#i-flower"/></svg>
-              <svg class="fl-b b2" aria-hidden="true"><use href="#i-flower"/></svg>
-              <svg class="fl-b b3" aria-hidden="true"><use href="#i-flower"/></svg>
-              <p class="fl-h" data-i18n="m.fl.h">Antalya içi aynı gün teslim</p>
-            </div>
-            <div class="fl-list">
-              <div class="fl-item"><i class="sw sw1"></i><span data-i18n="m.fl.i1">Begonvil buketi</span><b>₺850</b></div>
-              <div class="fl-item"><i class="sw sw2"></i><span data-i18n="m.fl.i2">Beyaz güller</span><b>₺1.200</b></div>
-              <div class="fl-item"><i class="sw sw3"></i><span data-i18n="m.fl.i3">Mevsim çiçekleri</span><b>₺650</b></div>
-            </div>
-            <div class="fl-cta"><svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg><span data-i18n="m.fl.cta">WhatsApp'tan sipariş</span></div>
+      <ul class="mocks">
+        <li class="mock">
+          <div class="mini mini-fl" aria-hidden="true">
+            <div class="mini-bar"><b>Begonvil</b><span data-i18n="m.fl.sub">Çiçek Atölyesi</span></div>
+            <div class="mini-hero fl"><svg><use href="#i-bouquet"/></svg><p data-i18n="m.fl.h">Antalya içi aynı gün teslim</p></div>
+            <div class="mini-row"><span data-i18n="m.fl.i1">Begonvil buketi</span><b>₺1.250</b></div>
+            <div class="mini-row"><span data-i18n="m.fl.i2">Beyaz güller</span><b>₺1.400</b></div>
+            <div class="mini-row"><span data-i18n="m.fl.i3">Mevsim çiçekleri</span><b>₺900</b></div>
+            <span class="mini-cta"><svg><use href="#i-wa"/></svg><span data-i18n="m.fl.cta">WhatsApp'tan sipariş</span></span>
           </div>
-        </div>
-        <figcaption>
-          <span class="concept-tag" data-i18n="concept">Örnek konsept</span>
-          <strong data-i18n="work.1.t">Çiçekçi sitesi</strong>
-          <span data-i18n="work.1.d">Buketler, fiyatlar ve WhatsApp'tan tek dokunuşla sipariş.</span>
-        </figcaption>
-      </figure>
-
-      <figure class="work-item">
-        <div class="phone">
-          <div class="screen sa">
-            <div class="sa-top">
-              <span class="sa-name" data-i18n="m.sa.name">Kaleiçi Saç Atölyesi</span>
-              <span class="sa-open"><i></i><span data-i18n="m.sa.open">Bugün açık, 09:00–20:00</span></span>
-            </div>
-            <div class="sa-art" aria-hidden="true"><span></span><span></span><span></span></div>
-            <ul class="sa-list">
-              <li><span data-i18n="m.sa.i1">Kesim ve fön</span><b>₺600</b></li>
-              <li><span data-i18n="m.sa.i2">Saç boyama</span><b>₺1.500</b></li>
-              <li><span data-i18n="m.sa.i3">Gelin saçı</span><b>₺2.500</b></li>
-            </ul>
-            <div class="sa-cta" data-i18n="m.sa.cta">Randevu al</div>
-            <div class="sa-map" aria-hidden="true"><svg class="ico"><use href="#i-pin"/></svg><span data-i18n="m.sa.map">Kaleiçi, Muratpaşa</span></div>
+          <p class="concept-tag" data-i18n="concept">Örnek konsept</p>
+          <h3 data-i18n="work.1.t">Çiçekçi sitesi</h3>
+          <p data-i18n="work.1.d">Buketler, fiyatlar ve WhatsApp'tan tek dokunuşla sipariş.</p>
+        </li>
+        <li class="mock">
+          <div class="mini mini-sa" aria-hidden="true">
+            <div class="mini-bar"><b data-i18n="m.sa.name">Kaleiçi Saç Atölyesi</b></div>
+            <p class="mini-open" data-i18n="m.sa.open">Bugün açık, 09:00–20:00</p>
+            <div class="mini-row"><span data-i18n="m.sa.i1">Kesim ve fön</span><b>₺600</b></div>
+            <div class="mini-row"><span data-i18n="m.sa.i2">Saç boyama</span><b>₺1.800</b></div>
+            <div class="mini-row"><span data-i18n="m.sa.i3">Gelin saçı</span><b>₺3.500</b></div>
+            <div class="mini-slots"><i>10:00</i><i class="on">11:30</i><i>15:00</i><i>17:30</i></div>
+            <span class="mini-cta sa"><span data-i18n="m.sa.cta">Randevu al</span></span>
+            <p class="mini-map"><svg><use href="#i-pin"/></svg><span data-i18n="m.sa.map">Kaleiçi, Muratpaşa</span></p>
           </div>
-        </div>
-        <figcaption>
-          <span class="concept-tag" data-i18n="concept">Örnek konsept</span>
-          <strong data-i18n="work.2.t">Kuaför sitesi</strong>
-          <span data-i18n="work.2.d">Hizmet ve fiyat listesi, online randevu, haritada konum.</span>
-        </figcaption>
-      </figure>
-
-      <figure class="work-item">
-        <div class="phone">
-          <div class="screen qr">
-            <div class="qr-top">
-              <span class="qr-name">Portakal Bahçe</span>
-              <span class="qr-sub" data-menu-t="sub">Menü · Masa 7</span>
-            </div>
-            <div class="qr-tabs" role="group" aria-label="Menü dili / Menu language / Язык меню">
+          <p class="concept-tag" data-i18n="concept">Örnek konsept</p>
+          <h3 data-i18n="work.2.t">Kuaför sitesi</h3>
+          <p data-i18n="work.2.d">Hizmet ve fiyat listesi, online randevu, haritada konum.</p>
+        </li>
+        <li class="mock">
+          <div class="mini mini-qr">
+            <div class="mini-bar"><b>Deniz Kafe</b><span data-menu-t="sub">Menü · Masa 7</span></div>
+            <div class="qr-tabs" role="group" data-i18n-aria="work.3.tabs" aria-label="Menü dili">
               <button type="button" data-menu-lang="tr" aria-pressed="true">TR</button>
               <button type="button" data-menu-lang="en" aria-pressed="false">EN</button>
               <button type="button" data-menu-lang="ru" aria-pressed="false">RU</button>
             </div>
-            <div class="qr-body">
-              <p class="qr-cat" data-menu-t="cat1">Kahvaltı</p>
-              <div class="qr-item"><span data-menu-t="i1">Menemen</span><b>₺220</b></div>
-              <div class="qr-item"><span data-menu-t="i2">Serpme kahvaltı (2 kişilik)</span><b>₺900</b></div>
-              <p class="qr-cat" data-menu-t="cat2">İçecekler</p>
-              <div class="qr-item"><span data-menu-t="i3">Türk kahvesi</span><b>₺90</b></div>
-              <div class="qr-item"><span data-menu-t="i4">Taze portakal suyu</span><b>₺120</b></div>
-            </div>
+            <p class="qr-cat" data-menu-t="cat1">Kahvaltı</p>
+            <div class="mini-row"><span data-menu-t="i1">Menemen</span><b>₺280</b></div>
+            <div class="mini-row"><span data-menu-t="i2">Serpme kahvaltı (2 kişilik)</span><b>₺950</b></div>
+            <p class="qr-cat" data-menu-t="cat2">İçecekler</p>
+            <div class="mini-row"><span data-menu-t="i3">Türk kahvesi</span><b>₺120</b></div>
+            <div class="mini-row"><span data-menu-t="i4">Taze portakal suyu</span><b>₺140</b></div>
           </div>
-        </div>
-        <figcaption>
-          <span class="concept-tag" data-i18n="concept">Örnek konsept</span>
-          <strong data-i18n="work.3.t">Kafe QR menüsü</strong>
-          <span data-i18n="work.3.d">Masadaki karekoddan açılır. Denemek için TR / EN / RU'ya dokunun.</span>
-        </figcaption>
-      </figure>
-    </div>
-  </div>
-</section>
-
-<!-- ================= CARE PLANS ================= -->
-<section class="sec sec-cream" id="bakim" aria-labelledby="c-h">
-  <div class="wrap">
-    <div class="sec-head" data-reveal>
-      <h2 id="c-h" data-i18n="care.h">Aylık bakım planları</h2>
-      <p class="sec-lead" data-i18n="care.lead">Siteniz yayına girdikten sonra güncel, yedekli ve açık kalır. Aylık ödenir; istediğiniz zaman bırakabilirsiniz.</p>
-      <p class="pay pay-care" data-i18n="care.pay">Temel bakım ayda $15: bir saç kesiminden az. Ayda bir yeni müşteri kendini öder.</p>
-    </div>
-
-    <div class="plans" data-reveal>
-      <article class="plan">
-        <h3 data-i18n="care.basic.t">Temel</h3>
-        <p class="plan-price"><span data-price="care.basic">$15</span><span class="per" data-i18n="perMonth">/ay</span></p>
-        <ul class="ticks">
-          <li><svg aria-hidden="true"><use href="#i-tick"/></svg><span data-i18n="care.basic.1">Güncellemeler</span></li>
-          <li><svg aria-hidden="true"><use href="#i-tick"/></svg><span data-i18n="care.basic.2">Küçük değişiklikler</span></li>
-          <li><svg aria-hidden="true"><use href="#i-tick"/></svg><span data-i18n="care.basic.3">Düzenli yedekleme</span></li>
-          <li><svg aria-hidden="true"><use href="#i-tick"/></svg><span data-i18n="care.basic.4">Sitenin açık olduğunun takibi</span></li>
-        </ul>
-        <a class="plan-link js-wa" data-pkg="care.basic.name" href="https://wa.me/905340679661" rel="noopener" data-i18n="care.ask">Bu planı sorun</a>
-      </article>
-
-      <article class="plan plan-mid">
-        <h3 data-i18n="care.std.t">Standart</h3>
-        <p class="plan-price"><span data-price="care.standard">$25</span><span class="per" data-i18n="perMonth">/ay</span></p>
-        <ul class="ticks">
-          <li><svg aria-hidden="true"><use href="#i-tick"/></svg><span data-i18n="care.std.0">Temel plandaki her şey</span></li>
-          <li><svg aria-hidden="true"><use href="#i-tick"/></svg><span data-i18n="care.std.1">Sınırsız menü ve fiyat değişikliği</span></li>
-          <li><svg aria-hidden="true"><use href="#i-tick"/></svg><span data-i18n="care.std.2">Ayda 2 Google İşletme gönderisi</span></li>
-          <li><svg aria-hidden="true"><use href="#i-tick"/></svg><span data-i18n="care.std.3">Aylık rapor</span></li>
-        </ul>
-        <a class="plan-link js-wa" data-pkg="care.std.name" href="https://wa.me/905340679661" rel="noopener" data-i18n="care.ask">Bu planı sorun</a>
-      </article>
-
-      <article class="plan">
-        <h3 data-i18n="care.plus.t">Plus</h3>
-        <p class="plan-price"><span data-price="care.plus">$45</span><span class="per" data-i18n="perMonth">/ay</span></p>
-        <ul class="ticks">
-          <li><svg aria-hidden="true"><use href="#i-tick"/></svg><span data-i18n="care.plus.0">Standart plandaki her şey</span></li>
-          <li><svg aria-hidden="true"><use href="#i-tick"/></svg><span data-i18n="care.plus.1">Randevu sisteminin bakımı</span></li>
-          <li><svg aria-hidden="true"><use href="#i-tick"/></svg><span data-i18n="care.plus.2">3 dilde güncelleme</span></li>
-          <li><svg aria-hidden="true"><use href="#i-tick"/></svg><span data-i18n="care.plus.3">Aynı gün öncelikli destek</span></li>
-        </ul>
-        <a class="plan-link js-wa" data-pkg="care.plus.name" href="https://wa.me/905340679661" rel="noopener" data-i18n="care.ask">Bu planı sorun</a>
-      </article>
-    </div>
-
-    <p class="fine fine-c" data-reveal><span data-i18n="care.fine">Alan adı ve barındırma ücretleri bakım planına dahil değildir; sizin adınıza kaydedilir ve kârsız, maliyetine yansıtılır.</span> <span data-i18n="tl.note">Türkiye'deki işletmelere teklif ve fatura TL olarak verilir.</span></p>
-  </div>
-</section>
-
-<!-- ================= FOUNDER ================= -->
-<section class="sec sec-sand" id="kurucu" aria-labelledby="f-h">
-  <div class="wrap founder" data-reveal>
-    <figure class="founder-photo">
-      <div class="arch">
-        <img src="img/onder.jpg" width="460" height="460" loading="lazy" decoding="async" alt="Ondera Studio'nun kurucusu Önder" data-i18n-alt="founder.alt">
-      </div>
-      <figcaption>
-        <strong data-i18n="founder.name">Önder</strong>
-        <span data-i18n="founder.role">Kurucu, Ondera Studio</span>
-      </figcaption>
-    </figure>
-    <div class="founder-text">
-      <h2 id="f-h" data-i18n="founder.h">Siteyi yapan kişiyle doğrudan konuşursunuz</h2>
-      <p class="founder-lead" data-i18n="founder.p1">Merhaba, ben Önder. Yazılım mühendisiyim; 4 yılı aşkın süredir şirketler için iş uygulamaları, müşteri portalları ve yönetim panelleri geliştiriyorum.</p>
-      <p data-i18n="founder.p2">Ondera Studio'yu, küçük işletmeler de hızlı ve güzel bir siteye kolayca sahip olabilsin diye kurdum. Arada satış temsilcisi ya da çağrı merkezi yok: mesajınızı ben okurum, sitenizi ben hazırlarım.</p>
-      <ul class="founder-points">
-        <li data-i18n="founder.b1">Kurumsal yazılım deneyimi, küçük işletme fiyatıyla</li>
-        <li data-i18n="founder.b2">Mesajlara aynı gün dönüş</li>
-        <li data-i18n="founder.b3">Alan adınız ve dosyalarınız her zaman sizin</li>
+          <p class="concept-tag" data-i18n="concept">Örnek konsept</p>
+          <h3 data-i18n="work.3.t">Kafe QR menüsü</h3>
+          <p data-i18n="work.3.d">Masadaki karekoddan açılır. Denemek için TR / EN / RU'ya dokunun.</p>
+        </li>
       </ul>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ================= FIRST CLIENTS OFFER ================= -->
-<section class="sec sec-cream sec-tight" aria-labelledby="x-h">
-  <div class="wrap">
-    <div class="offer" data-reveal>
-      <div class="offer-text">
-        <h2 id="x-h" data-i18n="offer.h">İlk müşterilere özel</h2>
+  <!-- 10. KURUCU -->
+  <section class="founder" id="kurucu" aria-labelledby="f-title">
+    <div class="wrap founder-grid">
+      <figure class="f-photo">
+        <img src="img/onder.jpg" width="460" height="460" loading="lazy" decoding="async" data-i18n-alt="founder.alt" alt="Ondera Studio kurucusu Önder'in portresi">
+        <figcaption><b data-i18n="founder.name">Önder</b><span data-i18n="founder.role">Kurucu, Ondera Studio</span></figcaption>
+      </figure>
+      <div>
+        <h2 id="f-title" class="display h2" data-i18n="founder.h">Siteyi yapan kişiyle doğrudan konuşursunuz</h2>
+        <p data-i18n="founder.p1">Merhaba, ben Önder. Yazılım mühendisiyim; 4 yılı aşkın süredir şirketler için iş uygulamaları, müşteri portalları ve yönetim panelleri geliştiriyorum.</p>
+        <p data-i18n="founder.p2">Ondera Studio'yu, küçük işletmeler de hızlı ve güzel bir siteye kolayca sahip olabilsin diye kurdum. Arada satış temsilcisi ya da çağrı merkezi yok: mesajınızı ben okurum, sitenizi ben hazırlarım.</p>
+        <ul class="ticks f-list">
+          <li data-i18n="founder.b1">Kurumsal yazılım deneyimi, küçük işletme fiyatıyla</li>
+          <li data-i18n="founder.b2">Mesajlara aynı gün dönüş</li>
+          <li data-i18n="founder.b3">Alan adınız ve dosyalarınız her zaman sizin</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 11. İLK 5 -->
+  <section class="offer" aria-labelledby="x-title">
+    <div class="wrap offer-grid">
+      <div>
+        <h2 id="x-title" class="display h2" data-i18n="offer.h">İlk müşterilere özel</h2>
         <p data-i18n="offer.d">İlk 5 işletme indirimli fiyattan yararlanır. Karşılığında tek ricamız, iş bittiğinde deneyiminiz hakkında dürüst bir yorum yazmanız.</p>
       </div>
-      <dl class="offer-prices">
-        <div><dt data-i18n="pkg.site.t">Tek sayfa işletme sitesi</dt><dd><span data-price="site.first">$99</span> <s data-price="site.std">$159</s></dd></div>
-        <div><dt data-i18n="pkg.menu.t">QR menü (TR/EN/RU)</dt><dd><span data-price="menu.first">$49</span> <s data-price="menu.std">$69</s></dd></div>
-        <div><dt data-i18n="pkg.book.t">Online randevulu site</dt><dd><span data-price="book.first">$159</span> <s data-price="book.std">$249</s></dd></div>
-      </dl>
-      <a class="btn btn-ink btn-lg js-wa" data-msg="msg.offer" href="https://wa.me/905340679661" rel="noopener" data-i18n="offer.cta">Yerinizi ayırtın</a>
-    </div>
-  </div>
-</section>
-
-<!-- ================= FAQ ================= -->
-<section class="sec sec-cream" id="sss" aria-labelledby="q-h">
-  <div class="wrap faq-wrap">
-    <div class="sec-head" data-reveal>
-      <h2 id="q-h" data-i18n="faq.h">Sık sorulan sorular</h2>
-    </div>
-    <div class="faq" data-reveal>
-      <details>
-        <summary data-i18n="faq.1.q">Siteniz gerçekten ilk gün mü yayında olur?</summary>
-        <p data-i18n="faq.1.a">Tek sayfalık işletme sitesinde evet: fotoğraflarınız, hizmetleriniz ve iletişim bilgileriniz hazırsa onay verdiğiniz gün yayına alırız. Randevulu siteler ve özel projeler için süreyi teklifte yazarız.</p>
-      </details>
-      <details>
-        <summary data-i18n="faq.2.q">Fiyatlar neden dolar olarak yazıyor?</summary>
-        <p data-i18n="faq.2.a">Sitemizi yabancı işletme sahipleri de okuduğu için başlangıç fiyatlarını dolarla gösteriyoruz. Türkiye'deki işletmelere teklif ve fatura TL olarak verilir.</p>
-      </details>
-      <details>
-        <summary data-i18n="faq.3.q">Alan adım yok. Gerekli mi?</summary>
-        <p data-i18n="faq.3.a">Şart değil ama öneririz. Yoksa sizin adınıza kaydederiz; yıllık ücret üstüne hiçbir şey eklenmeden size yansıtılır.</p>
-      </details>
-      <details>
-        <summary data-i18n="faq.4.q">Fiyatları kendim güncelleyebilir miyim?</summary>
-        <p data-i18n="faq.4.a">Evet. İsterseniz telefondan düzenleyebileceğiniz basit bir fiyat listesi kurarız. Ya da WhatsApp'tan yazarsınız, bakım planınız kapsamında biz değiştiririz.</p>
-      </details>
-      <details>
-        <summary data-i18n="faq.5.q">Bakımı bırakırsam ne olur?</summary>
-        <p data-i18n="faq.5.a">Bakım aylıktır, istediğiniz zaman bırakabilirsiniz. Sitenizin bütün dosyalarını size teslim ederiz; alan adı zaten sizin adınızadır.</p>
-      </details>
-      <details>
-        <summary data-i18n="faq.6.q">İngilizce ve Rusça metinleri kim hazırlıyor?</summary>
-        <p data-i18n="faq.6.a">Çevirileri biz hazırlar, yayından önce sizinle birlikte kontrol ederiz. Yemek ve hizmet adlarını turistin anlayacağı biçimde kısa açıklamalarla yazarız.</p>
-      </details>
-    </div>
-  </div>
-</section>
-
-<!-- ================= CONTACT ================= -->
-<section class="sec sec-ink contact" id="iletisim" aria-labelledby="k-h">
-  <div class="wrap contact-in" data-reveal>
-    <div>
-      <h2 id="k-h" data-i18n="contact.h">Bir mesaj yeterli.</h2>
-      <p class="sec-lead" data-i18n="contact.lead">İşletmenizin adını ve varsa sitenizi ya da Instagram hesabınızı gönderin. Durumunuza ücretsiz bakıp size neye ihtiyacınız olduğunu dürüstçe söyleyelim.</p>
-      <div class="cta-row">
-        <a class="btn btn-gold btn-lg js-wa" href="https://wa.me/905340679661" rel="noopener">
-          <svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg>
-          <span data-i18n="cta.wa">WhatsApp'tan yazın</span>
-        </a>
-        <a class="btn btn-line-light btn-lg js-wa" data-msg="msg.review" href="https://wa.me/905340679661" rel="noopener" data-i18n="cta.review">Ücretsiz site incelemesi</a>
+      <div class="offer-box">
+        <table class="offer-t">
+          <caption class="sr-only" data-i18n="offer.cap">İlk 5 işletme fiyatları ve standart fiyatlar</caption>
+          <tbody>
+            <tr><th scope="row" data-i18n="pkg.site.t">Tek sayfa işletme sitesi</th><td><s data-price="site.std">$159</s> <b data-price="site.first">$99</b></td></tr>
+            <tr><th scope="row" data-i18n="pkg.menu.t">QR menü (TR/EN/RU)</th><td><s data-price="menu.std">$69</s> <b data-price="menu.first">$49</b></td></tr>
+            <tr><th scope="row" data-i18n="pkg.book.t">Online randevulu site</th><td><s data-price="book.std">$249</s> <b data-price="book.first">$159</b></td></tr>
+          </tbody>
+        </table>
+        <a class="btn btn-dark btn-full js-wa" data-msg="msg.offer" href="https://wa.me/905340679661" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg><span data-i18n="offer.cta">Yerinizi ayırtın</span></a>
       </div>
-      <p class="speed"><svg class="speed-ico" aria-hidden="true"><use href="#i-bolt"/></svg><span data-i18n="speed">Taslak aynı gün, site ilk gün yayında.</span></p>
     </div>
-    <ul class="contact-list">
-      <li>
-        <svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg>
-        <span class="c-k">WhatsApp</span>
-        <a class="js-wa js-phone" href="https://wa.me/905340679661" rel="noopener">+90 534 067 96 61</a>
-      </li>
-      <li>
-        <svg class="ico" aria-hidden="true"><use href="#i-mail"/></svg>
-        <span class="c-k" data-i18n="contact.email">E-posta</span>
-        <a class="js-mail js-email" data-subject="msg.mailSubject" data-body="msg.mailBody" href="mailto:onderkya35@gmail.com">onderkya35@gmail.com</a>
-      </li>
-      <li>
-        <svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg>
-        <span class="c-k" data-i18n="contact.place">Konum</span>
-        <span data-i18n="contact.placeV">Antalya, Türkiye</span>
-      </li>
-    </ul>
-  </div>
-</section>
+  </section>
 
+  <!-- 12. SSS -->
+  <section class="faq" id="sss" aria-labelledby="q-title">
+    <div class="wrap faq-grid">
+      <h2 id="q-title" class="display h2" data-i18n="faq.h">Sık sorulan sorular</h2>
+      <div class="qs">
+        <details><summary data-i18n="faq.1.q">Siteniz gerçekten ilk gün mü yayında olur?</summary><p data-i18n="faq.1.a">Tek sayfalık işletme sitesinde evet: fotoğraflarınız, hizmetleriniz ve iletişim bilgileriniz hazırsa onay verdiğiniz gün yayına alırız. Randevulu siteler ve özel projeler için süreyi teklifte yazarız.</p></details>
+        <details><summary data-i18n="faq.2.q">Fiyatlar neden dolar olarak yazıyor?</summary><p data-i18n="faq.2.a">Sitemizi yabancı işletme sahipleri de okuduğu için başlangıç fiyatlarını dolarla gösteriyoruz. Türkiye'deki işletmelere teklif ve fatura TL olarak verilir.</p></details>
+        <details><summary data-i18n="faq.3.q">Alan adım yok. Gerekli mi?</summary><p data-i18n="faq.3.a">Şart değil ama öneririz. Yoksa sizin adınıza kaydederiz; yıllık ücret üstüne hiçbir şey eklenmeden size yansıtılır.</p></details>
+        <details><summary data-i18n="faq.4.q">Fiyatları kendim güncelleyebilir miyim?</summary><p data-i18n="faq.4.a">Evet. İsterseniz telefondan düzenleyebileceğiniz basit bir fiyat listesi kurarız. Ya da WhatsApp'tan yazarsınız, bakım planınız kapsamında biz değiştiririz.</p></details>
+        <details><summary data-i18n="faq.5.q">Bakımı bırakırsam ne olur?</summary><p data-i18n="faq.5.a">Bakım aylıktır, istediğiniz zaman bırakabilirsiniz. Sitenizin bütün dosyalarını size teslim ederiz; alan adı zaten sizin adınızadır.</p></details>
+        <details><summary data-i18n="faq.6.q">İngilizce ve Rusça metinleri kim hazırlıyor?</summary><p data-i18n="faq.6.a">Çevirileri biz hazırlar, yayından önce sizinle birlikte kontrol ederiz. Yemek ve hizmet adlarını turistin anlayacağı biçimde kısa açıklamalarla yazarız.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- 13. İLETİŞİM -->
+  <section class="contact" id="iletisim" aria-labelledby="k-title">
+    <div class="wrap contact-in">
+      <h2 id="k-title" class="display h2" data-i18n="contact.h">Bir mesaj yeterli.</h2>
+      <p class="sec-lead" data-i18n="contact.lead">İşletmenizin adını ve varsa sitenizi ya da Instagram hesabınızı gönderin. Durumunuza ücretsiz bakıp size neye ihtiyacınız olduğunu dürüstçe söyleyelim.</p>
+      <div class="actions">
+        <a class="btn js-wa" href="https://wa.me/905340679661" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg><span data-i18n="cta.wa">WhatsApp'tan yazın</span></a>
+        <a class="btn btn-light js-wa" data-msg="msg.review" href="https://wa.me/905340679661" rel="noopener"><span data-i18n="cta.review">Ücretsiz site incelemesi</span></a>
+      </div>
+      <p class="speed" data-i18n="speed">Taslak aynı gün, site ilk gün yayında.</p>
+      <dl class="c-list">
+        <div><dt><svg aria-hidden="true"><use href="#i-wa"/></svg><span>WhatsApp</span></dt><dd><a class="js-wa js-phone" href="https://wa.me/905340679661" rel="noopener">+90 534 067 96 61</a></dd></div>
+        <div><dt><svg aria-hidden="true"><use href="#i-mail"/></svg><span data-i18n="contact.email">E-posta</span></dt><dd><a class="js-mail js-email" href="mailto:onderkya35@gmail.com">onderkya35@gmail.com</a></dd></div>
+        <div><dt><svg aria-hidden="true"><use href="#i-pin"/></svg><span data-i18n="contact.place">Konum</span></dt><dd data-i18n="contact.placeV">Antalya, Türkiye</dd></div>
+      </dl>
+    </div>
+    <svg class="horizon" viewBox="0 0 1440 160" preserveAspectRatio="none" aria-hidden="true"><path d="M0 120 L160 70 L240 94 L360 40 L470 86 L560 58 L700 100 L820 62 L940 92 L1060 50 L1190 88 L1300 64 L1440 96 L1440 160 L0 160 Z" fill="#3A2350"/><path d="M0 136h1440v24H0Z" fill="#075E7C"/></svg>
+  </section>
 </main>
 
 <footer class="foot">
   <div class="wrap foot-in">
-    <a class="brand brand-foot" href="#main" aria-label="Ondera Studio">
-      <svg class="brand-mark" aria-hidden="true"><use href="#i-mark"/></svg>
-      <span class="brand-word">Ondera <span>Studio</span></span>
-    </a>
+    <a class="brand brand-foot" href="#ana" data-i18n-aria="brand.home" aria-label="Ondera Studio ana sayfa"><svg class="brand-mark" aria-hidden="true"><use href="#i-logo"/></svg><span>Ondera</span></a>
     <p data-i18n="foot.tag">Antalya'nın işletmeleri için web siteleri ve dijital menüler</p>
     <p class="foot-c" data-i18n="foot.c">© 2026 Ondera Studio, Antalya</p>
   </div>
 </footer>
 
-<a class="float-wa js-wa" href="https://wa.me/905340679661" rel="noopener" aria-label="WhatsApp'tan yazın" data-i18n-aria="cta.wa">
-  <svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg>
-  <span data-i18n="float">Yazın</span>
-</a>
-
+<a class="float-wa js-wa" href="https://wa.me/905340679661" rel="noopener" data-i18n-aria="cta.wa" aria-label="WhatsApp'tan yazın"><svg aria-hidden="true"><use href="#i-wa"/></svg><span data-i18n="float">Yazın</span></a>
 </body>
 </html>
