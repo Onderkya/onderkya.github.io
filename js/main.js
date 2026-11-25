@@ -136,6 +136,17 @@
     b.addEventListener("click", function () { setMenuLang(b.getAttribute("data-menu-lang")); });
   });
 
+  /* 5b. Sector list on phones: first six, the rest on request */
+  var whoBtn = document.querySelector(".who-toggle");
+  if (whoBtn) whoBtn.addEventListener("click", function () {
+    var list = document.querySelector(".who");
+    list.classList.add("open");
+    whoBtn.setAttribute("aria-expanded", "true");
+    whoBtn.parentNode.hidden = true;
+    var first = list.querySelector(".who-extra h3");
+    if (first) { first.setAttribute("tabindex", "-1"); first.focus({ preventScroll: true }); }
+  });
+
   /* 6. Mobile menu */
   var menuBtn = document.querySelector(".menu-btn");
   var mnav = document.getElementById("mnav");
