@@ -1,55 +1,18 @@
-/* Ondera Studio: dil, demo, önce/sonra sürgüsü, menüler. Bağımlılık yok. */
+/* Dil, marka adı, demo, önce/sonra sürgüsü, menüler. Bağımlılık yok. */
 (function () {
   "use strict";
   var root = document.documentElement;
-  var CFG = window.ONDERA || {};
+  var CFG = window.SITE || {};
   var DICT = window.I18N || (window.I18N = {});
   var LANGS = ["tr", "en", "ru", "kk", "uz", "ky"];
-  var LOCALE = { tr: "tr-TR", en: "en-US", ru: "ru-RU", kk: "kk-KZ", uz: "uz-Latn-UZ", ky: "ky-KG" };
+  var LOCALE = { tr: "tr-TR", en: "en-US", ru: "ru-RU", kk: "ru-RU", uz: "ru-RU", ky: "ru-RU" }; /* yalnız sayı biçimi: kk/uz/ky yerel verisi her tarayıcıda yok, binlik boşluk aynı */
   var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var current = "tr";
   root.classList.add("js");
 
-  /* ---------- 1. Türkçe kaynak metin sayfanın kendisidir ---------- */
-  var TR_EXTRA = {
-    "who.1.pay": "Başlangıç {site.first}, yani bir iki buket. Bakım ayda {care.basic}, bir buketten az.",
-    "who.2.pay": "Bakım ayda {care.basic}, bir saç kesiminden az; ayda bir yeni müşteri kendini öder.",
-    "who.3.pay": "Bakım ayda {care.basic}, bir manikürden az.",
-    "who.5.pay": "QR menü başlangıç {menu.first}: birkaç masanın hesabı kadar.",
-    "care.pay": "Temel bakım ayda {care.basic}: bir saç kesiminden az. Ayda bir yeni müşteri kendini öder.",
-    "why.6.d": "Temel bakım ayda {care.basic}: çoğu işletmede bir saç kesiminden ya da bir buketten az. Fiyat ve fotoğraf değişikliklerini biz yaparız.",
-    "who.showLess": "Daha az gösterin",
-    "nav.close": "Menüyü kapatın",
-    "demo.play": "Demoyu oynatın",
-    "demo.say.day": "Gündüz: örnek çiçekçi sitesi Türkçe açık.",
-    "demo.say.ru": "Aynı site Rusça.",
-    "demo.say.night": "Gece 23:41: dükkân kapalı, site açık; WhatsApp mesajları geliyor.",
-    "meta.ogLocale": "tr_TR",
-    "care.basic.name": "Temel bakım planı",
-    "care.std.name": "Standart bakım planı",
-    "care.plus.name": "Plus bakım planı",
-    "msg.wa": "Merhaba Önder, Ondera Studio'nun sitesinden yazıyorum. İşletmem için web sitesi hakkında bilgi almak istiyorum.",
-    "msg.draft": "Merhaba Önder, işletmem için ücretsiz taslak istiyorum.\n\nİşletme adı:\nSektör:\nMevcut site / Instagram bağlantısı (varsa):",
-    "msg.review": "Merhaba Önder, işletmem için ücretsiz site incelemesi rica ediyorum.\n\nİşletme adı:\nMevcut site / Instagram / Google Haritalar bağlantısı:",
-    "msg.pkg": "Merhaba Önder, “{pkg}” hakkında bilgi almak istiyorum.",
-    "msg.offer": "Merhaba Önder, ilk 5 işletmeye özel fiyattan yararlanmak istiyorum. İşletmem:",
-    "msg.quote": "Merhaba Önder, işletmem için özel bir proje hakkında teklif almak istiyorum. Kısaca ihtiyacımız:",
-    "msg.quoteSubject": "Teklif talebi – Ondera Studio",
-    "msg.quoteBody": "Merhaba Önder,\n\nŞirket:\nİhtiyacımız:\nYetkili kişi ve telefon:\n\nTeşekkürler.",
-    "msg.mailSubject": "Web sitesi hakkında – Ondera Studio",
-    "msg.mailBody": "Merhaba Önder,\n\nİşletme adı:\nMevcut site / Instagram bağlantısı:\nNe istiyoruz:\n\nTeşekkürler."
-  };
-  var tr = DICT.tr = DICT.tr || {};
-  function grab(attr, read) {
-    document.querySelectorAll("[" + attr + "]").forEach(function (el) {
-      var k = el.getAttribute(attr);
-      if (!(k in tr)) tr[k] = read(el);
-    });
-  }
-  grab("data-i18n", function (el) { return el.textContent.trim(); });
-  grab("data-i18n-alt", function (el) { return el.getAttribute("alt"); });
-  grab("data-i18n-aria", function (el) { return el.getAttribute("aria-label"); });
-  Object.keys(TR_EXTRA).forEach(function (k) { tr[k] = TR_EXTRA[k]; });
+  /* ---------- 1. Marka ve sayfa meta bilgileri (metinler js/i18n/*.js içinde) ---------- */
+  var BRAND = CFG.brand || { name: "", short: "" };
+  document.querySelectorAll("[data-brand]").forEach(function (el) { el.textContent = BRAND[el.getAttribute("data-brand")] || BRAND.name; });
 
   var META = {
     title: "title",
@@ -58,12 +21,7 @@
     ogDesc: 'meta[property="og:description"]',
     ogLocale: 'meta[property="og:locale"]'
   };
-  Object.keys(META).forEach(function (k) {
-    var el = document.querySelector(META[k]);
-    META[k] = el;
-    var key = "meta." + k;
-    if (el && !(key in tr)) tr[key] = k === "title" ? document.title : el.getAttribute("content");
-  });
+  Object.keys(META).forEach(function (k) { META[k] = document.querySelector(META[k]); });
 
   /* ---------- 2. Fiyatlar js/config.js'ten ---------- */
   function priceOf(path) {
@@ -77,13 +35,23 @@
     try { s = new Intl.NumberFormat(LOCALE[current], { maximumFractionDigits: 0 }).format(n); } catch (e) { s = String(n); }
     return current === "tr" || current === "en" ? "$" + s : s + " $";
   }
+  function fmtTry(n) {
+    /* Örnek fiyatlar: TR/EN ₺1.450 / ₺1,450; diğerleri 1 450 ₺ */
+    var s;
+    try { s = new Intl.NumberFormat(LOCALE[current], { maximumFractionDigits: 0 }).format(n); } catch (e) { s = String(n); }
+    return current === "tr" || current === "en" ? "₺" + s : s + "\u00a0₺";
+  }
   function t(key) {
     var d = DICT[current] || {};
-    var s = key in d ? d[key] : (DICT.en && key in DICT.en) ? DICT.en[key] : key in tr ? tr[key] : "";
-    return String(s).replace(/\{([a-z]+\.[a-z]+)\}/g, function (m, path) {
-      var v = priceOf(path);
-      return v === null ? m : fmt(v);
-    });
+    var s = key in d ? d[key] : (DICT.en && key in DICT.en) ? DICT.en[key] : null;
+    if (s === null) return null;
+    return String(s)
+      .replace(/\{brand\}/g, BRAND.name)
+      .replace(/\{try:(\d+)\}/g, function (m, n) { return fmtTry(+n); })
+      .replace(/\{([a-z]+\.[a-z]+)\}/g, function (m, path) {
+        var v = priceOf(path);
+        return v === null ? m : fmt(v);
+      });
   }
 
   /* ---------- 3. WhatsApp ve e-posta bağlantıları o anki dilde ---------- */
@@ -92,13 +60,13 @@
   function updateLinks() {
     document.querySelectorAll(".js-wa").forEach(function (a) {
       var pkg = a.getAttribute("data-pkg");
-      var text = pkg ? t("msg.pkg").replace("{pkg}", t(pkg)) : t(a.getAttribute("data-msg") || "msg.wa");
+      var text = pkg ? (t("msg.pkg") || "{pkg}").replace("{pkg}", t(pkg) || "") : t(a.getAttribute("data-msg") || "msg.wa") || "";
       a.href = "https://wa.me/" + PHONE + "?text=" + encodeURIComponent(text);
       a.target = "_blank";
     });
     document.querySelectorAll(".js-mail").forEach(function (a) {
-      var s = t(a.getAttribute("data-subject") || "msg.mailSubject");
-      var b = t(a.getAttribute("data-body") || "msg.mailBody");
+      var s = t(a.getAttribute("data-subject") || "msg.mailSubject") || "";
+      var b = t(a.getAttribute("data-body") || "msg.mailBody") || "";
       a.href = "mailto:" + EMAIL + "?subject=" + encodeURIComponent(s) + "&body=" + encodeURIComponent(b);
     });
     document.querySelectorAll(".js-phone").forEach(function (el) { if (CFG.phoneDisplay) el.textContent = CFG.phoneDisplay; });
@@ -107,7 +75,7 @@
 
   /* ---------- 4. Dil dosyasını yükle ve uygula ---------- */
   function loadDict(lang, cb) {
-    if (lang === "tr" || DICT[lang]) return cb();
+    if (DICT[lang]) return cb();
     var s = document.querySelector('script[data-dict="' + lang + '"]');
     var done = false;
     function fin() { if (!done) { done = true; cb(); } }
@@ -122,21 +90,27 @@
     if (DICT[lang]) fin();
   }
 
-  var SIGN = { tr: "AÇIK", en: "OPEN", ru: "ОТКРЫТО", kk: "АШЫҚ", uz: "OCHIQ", ky: "АЧЫК" };
-  var SIGN_ORDER = ["tr", "en", "ru", "kk", "uz", "ky"];
-  var signEl = document.getElementById("sign-text");
-  var signIdx = 0;
+  function each(attr, fn) {
+    document.querySelectorAll("[" + attr + "]").forEach(function (el) {
+      var v = t(el.getAttribute(attr));
+      if (v !== null) fn(el, v);
+    });
+  }
 
   function apply(lang) {
     if (LANGS.indexOf(lang) < 0) lang = "en";
     current = lang;
     root.lang = lang;
-    document.querySelectorAll("[data-i18n]").forEach(function (el) { el.textContent = t(el.getAttribute("data-i18n")); });
-    document.querySelectorAll("[data-i18n-alt]").forEach(function (el) { el.setAttribute("alt", t(el.getAttribute("data-i18n-alt"))); });
-    document.querySelectorAll("[data-i18n-aria]").forEach(function (el) { el.setAttribute("aria-label", t(el.getAttribute("data-i18n-aria"))); });
-    document.title = t("meta.title");
+    each("data-i18n", function (el, v) { el.textContent = v; });
+    each("data-i18n-alt", function (el, v) { el.setAttribute("alt", v); });
+    each("data-i18n-aria", function (el, v) { el.setAttribute("aria-label", v); });
+    each("data-i18n-lang", function (el, v) { el.lang = v; });
+    document.querySelectorAll("[data-lc]").forEach(function (el) { el.textContent = lang.toUpperCase(); });
+    document.querySelectorAll("[data-try]").forEach(function (el) { el.textContent = fmtTry(+el.getAttribute("data-try")); });
+    document.title = t("meta.title") || BRAND.name;
     ["desc", "ogTitle", "ogDesc", "ogLocale"].forEach(function (k) {
-      if (META[k]) META[k].setAttribute("content", t("meta." + k));
+      var v = t("meta." + k);
+      if (META[k] && v !== null) META[k].setAttribute("content", v);
     });
     document.querySelectorAll("[data-lang]").forEach(function (b) {
       var on = b.getAttribute("data-lang") === lang;
@@ -148,21 +122,22 @@
     if (mb) mb.setAttribute("aria-label", t(mb.getAttribute("aria-expanded") === "true" ? "nav.close" : "nav.open"));
     if (pauseBtn) pauseBtn.setAttribute("aria-label", t(playing ? "demo.pause" : "demo.play"));
     if (moreBtn && moreBtn.getAttribute("aria-expanded") === "true") moreBtn.textContent = t("who.showLess");
-    if (live && stage) live.textContent = t("demo.say." + stage.dataset.scene);
-    if (signEl) { signIdx = SIGN_ORDER.indexOf(lang); signEl.textContent = SIGN[lang]; }
+    if (live) live.textContent = "";
     document.querySelectorAll("[data-price]").forEach(function (el) {
       var v = priceOf(el.getAttribute("data-price"));
       if (v !== null) el.textContent = fmt(v);
     });
     updateLinks();
-    setMenuLang(lang === "tr" || lang === "en" ? lang : lang === "uz" ? "en" : "ru");
     root.classList.remove("i18n-wait");
   }
 
+  var wanted = null;
   function choose(lang) {
+    wanted = lang;
     loadDict(lang, function () {
+      if (wanted !== lang) return; /* hızlı art arda seçimde son dil geçerli */
       apply(lang);
-      try { localStorage.setItem("ondera-lang", lang); } catch (e) {}
+      try { localStorage.setItem("site-lang", lang); } catch (e) {}
       try {
         var u = new URL(location.href);
         if (u.searchParams.has("lang")) { u.searchParams.set("lang", lang); history.replaceState(null, "", u); }
@@ -231,56 +206,206 @@
     menu.querySelectorAll("a").forEach(function (a) { a.addEventListener("click", function () { closeMenu(false); }); });
   }
 
-  /* ---------- 7. Kahraman demosu: gündüz → Rusça → gece ---------- */
+  /* ---------- 7. Kahraman: 14 işletme, 14 sohbet sahnesi ----------
+     Adım türleri: c müşteri · f yabancı müşteri (özgün + çeviri) · p fotoğraflı müşteri · a asistan ·
+     o sahibin onay kartı · r sahibe iletilen özel istek · n sahibe bildirim · s ara not (sözlük anahtarı) */
+  var SCENES = [
+    { k: "fl", icon: "flower",   c: "#B8125F", time: "23:41", night: true, s: ["c1", "a2", "c3", "o4", "a5"] },
+    { k: "hr", icon: "scissors", c: "#075E7C", time: "12:20", s: ["c1", "a2", "c3", "o4", "a5"] },
+    { k: "sp", icon: "lotus",    c: "#23683F", time: "21:05", night: true, s: ["f1", "a3", "s:ow.l", "o4", "a5"] },
+    { k: "gy", icon: "dumbbell", c: "#25205A", time: "18:10", s: ["c1", "a2", "c3", "o4", "a5"] },
+    { k: "vt", icon: "paw",      c: "#8A5A00", time: "10:15", s: ["a1", "c2", "a3", "o4", "a5"] },
+    { k: "ph", icon: "phone",    c: "#075E7C", time: "16:40", s: ["c1", "a2", "o3", "a4", "c5"] },
+    { k: "tl", icon: "needle",   c: "#C42F66", time: "22:30", night: true, s: ["c1", "a2", "c3", "o4", "a5"] },
+    { k: "ld", icon: "washer",   c: "#075E7C", time: "20:50", night: true, s: ["c1", "a2", "o3", "a4", "s:ow.2d", "a5"] },
+    { k: "sh", icon: "shoe",     c: "#23683F", time: "14:05", s: ["p1", "a2", "o3", "a4", "c5"] },
+    { k: "bt", icon: "hanger",   c: "#B8125F", time: "15:30", s: ["c1", "a2", "c3", "n4", "s:ow.2d", "a5"] },
+    { k: "bc", icon: "meat",     c: "#7E0C41", time: "21:40", night: true, s: ["c1", "a2", "c3", "o4", "a5"] },
+    { k: "fu", icon: "sofa",     c: "#8A5A00", time: "19:20", s: ["p1", "a2", "r3", "a4", "c5"] },
+    { k: "cp", icon: "saw",      c: "#23683F", time: "11:50", s: ["c1", "a2", "p3", "o4", "a5"] },
+    { k: "mk", icon: "jar",      c: "#8A5A00", time: "22:15", night: true, s: ["c1", "a2", "c3", "o4", "a5"] }
+  ];
   var stage = document.getElementById("stage");
+  var log = document.getElementById("log");
   var live = document.getElementById("scene-say");
   var pauseBtn = document.getElementById("pause");
-  var playing = !reduce;
-  var timer = 0, signTimer = 0;
-  var tabs = document.querySelectorAll("[data-go]");
-  var ORDER = ["day", "ru", "night"];
-  var HOLD = { day: 3200, ru: 3000, night: 7000 };
+  var chipsEl = document.getElementById("chips");
+  var chipBtns = document.querySelectorAll("#chips [data-biz]");
+  var SVGNS = "http://www.w3.org/2000/svg";
+  var playing = !reduce, cur = 0, running = false, inView = true, ready = false;
+  var timers = [];
 
-  function show(name) {
-    stage.dataset.scene = name;
-    tabs.forEach(function (b) { b.setAttribute("aria-pressed", String(b.dataset.go === name)); });
-    if (live) live.textContent = t("demo.say." + name);
+  function later(fn, ms) { timers.push(setTimeout(fn, ms)); }
+  function stopTimers() { timers.forEach(clearTimeout); timers = []; }
+  function icon(id) {
+    var s = document.createElementNS(SVGNS, "svg"), u = document.createElementNS(SVGNS, "use");
+    s.setAttribute("aria-hidden", "true");
+    u.setAttribute("href", "#i-" + id);
+    s.appendChild(u);
+    return s;
   }
-  function next() {
-    clearTimeout(timer);
-    if (!playing) return;
-    timer = setTimeout(function () {
-      show(ORDER[(ORDER.indexOf(stage.dataset.scene) + 1) % ORDER.length]);
-      next();
-    }, HOLD[stage.dataset.scene]);
+  function text(key, tag, cls) {
+    var el = document.createElement(tag || "span");
+    if (cls) el.className = cls;
+    el.setAttribute("data-i18n", key);
+    el.textContent = t(key) || "";
+    return el;
   }
-  function cycleSign() {
-    clearInterval(signTimer);
-    if (!playing || !signEl) return;
-    signTimer = setInterval(function () {
-      signIdx = (signIdx + 1) % SIGN_ORDER.length;
-      signEl.textContent = SIGN[SIGN_ORDER[signIdx]];
-    }, 1500);
+  function setKey(el, key) { if (el) { el.setAttribute("data-i18n", key); var v = t(key); if (v !== null) el.textContent = v; } }
+  function setIcon(el, id) { if (el) el.querySelector("use").setAttribute("href", "#i-" + id); }
+  function message(sc, step, done) {
+    var type = step.charAt(0), el = document.createElement("div"), key = "h." + sc.k + "." + step.slice(1);
+    el.className = "m m-" + type;
+    if (type === "s") { el.appendChild(text(step.slice(2))); return el; }
+    if (type === "o" || type === "r" || type === "n") {
+      var h = document.createElement("b");
+      h.appendChild(icon("bell"));
+      h.appendChild(text(type === "o" ? "ow.o" : type === "r" ? "ow.f" : "r.n"));
+      el.appendChild(h);
+      el.appendChild(text(key));
+      if (type !== "n") {
+        var b = document.createElement("i");
+        b.className = "okb";
+        b.appendChild(text(type === "o" ? (done ? "ow.d" : "ow.a") : (done ? "ow.rd" : "ow.r")));
+        el.appendChild(b);
+        if (done) el.className += " done";
+      }
+      return el;
+    }
+    if (type === "f") {
+      var o = text(key, "span", "m-orig");
+      o.setAttribute("data-foreign", "");
+      o.setAttribute("data-i18n-lang", "d.ol");
+      o.lang = t("d.ol") || "";
+      el.appendChild(o);
+      el.appendChild(text("d.tl", "b", "m-tl"));
+      el.appendChild(text("h." + sc.k + "." + (+step.slice(1) + 1)));
+      return el;
+    }
+    if (type === "p") {
+      var ph = document.createElement("span");
+      ph.className = "m-photo";
+      ph.appendChild(icon(sc.k === "cp" ? "img" : sc.icon));
+      ph.appendChild(text("ow.photo"));
+      el.appendChild(ph);
+    }
+    el.appendChild(text(key));
+    if (type === "a") el.appendChild(icon("ticks"));
+    return el;
+  }
+  function finish(card) {
+    if (!card || card.classList.contains("done")) return;
+    card.classList.add("done");
+    setKey(card.querySelector(".okb span"), card.classList.contains("m-o") ? "ow.d" : "ow.rd");
+  }
+  /* Arka plan: yeni yer 400 ms'de eskisinin üstüne açılır; telefonda bant, geniş ekranda sütun düzeni */
+  var world = document.getElementById("world");
+  var wide = window.matchMedia("(min-width:600px)");
+  function backdrop(sc, now) {
+    if (!world || !window.buildScene) return;
+    var el = window.buildScene(sc.k, !!sc.night, wide.matches ? "P" : "B"), old = [].slice.call(world.children);
+    if (old.length && !now && !reduce) el.classList.add("fade");
+    world.appendChild(el);
+    setTimeout(function () { old.forEach(function (o) { o.remove(); }); }, old.length && !now && !reduce ? 450 : 0);
+  }
+  if (wide.addEventListener) wide.addEventListener("change", function () { if (ready) backdrop(SCENES[cur], true); });
+  function dress(sc) {
+    stage.dataset.biz = sc.k;
+    stage.style.setProperty("--aw", sc.c);
+    stage.classList.toggle("is-night", !!sc.night);
+    backdrop(sc);
+    setIcon(document.getElementById("shop-i"), sc.icon);
+    setIcon(document.getElementById("ph-ava"), sc.icon);
+    ["shop-n", "ph-n"].forEach(function (id) { setKey(document.getElementById(id), "b." + sc.k); });
+    setKey(document.getElementById("sign-text"), sc.night ? "demo.night" : "d.sign");
+    setKey(document.getElementById("cap"), "cap." + sc.k);
+    document.getElementById("ph-time").textContent = sc.time;
+    chipBtns.forEach(function (b) {
+      var on = b.getAttribute("data-biz") === sc.k;
+      b.setAttribute("aria-pressed", String(on));
+      if (on && chipsEl.scrollWidth > chipsEl.clientWidth + 2) {
+        var x = b.offsetLeft - (chipsEl.clientWidth - b.offsetWidth) / 2;
+        if (chipsEl.scrollTo) chipsEl.scrollTo({ left: Math.max(0, x), behavior: reduce ? "auto" : "smooth" });
+      }
+    });
+  }
+  function finishScene() {
+    stopTimers();
+    running = false;
+    var sc = SCENES[cur];
+    log.textContent = "";
+    sc.s.forEach(function (st) { log.appendChild(message(sc, st, true)); });
+  }
+  function advance() {
+    if (playing && inView && !document.hidden) later(function () { playScene((cur + 1) % SCENES.length, true); }, 2200);
+  }
+  function playScene(i, animate) {
+    stopTimers();
+    cur = i;
+    var sc = SCENES[i];
+    if (stage.dataset.biz !== sc.k || !world || !world.firstChild) dress(sc);
+    if (!animate || reduce) { finishScene(); return; }
+    running = true;
+    log.textContent = "";
+    var n = 0;
+    (function step() {
+      if (n >= sc.s.length) { running = false; advance(); return; }
+      var st = sc.s[n++], type = st.charAt(0), talk = "cafp".indexOf(type) > -1, dots;
+      function put() {
+        if (dots) dots.remove();
+        var el = message(sc, st, false), hold = Math.max(750, Math.min(1700, 450 + el.textContent.length * 19));
+        el.classList.add("in");
+        log.appendChild(el);
+        if (type === "o" || type === "r") { later(function () { finish(el); }, hold); hold += 600; }
+        later(step, hold);
+      }
+      if (!talk) { later(put, 250); return; }
+      dots = document.createElement("div");
+      dots.className = "m typing m-" + (type === "a" ? "a" : "c");
+      dots.setAttribute("aria-hidden", "true");
+      dots.innerHTML = "<i></i><i></i><i></i>";
+      log.appendChild(dots);
+      later(put, 480);
+    })();
   }
   function setPlaying(on) {
     playing = on;
     if (pauseBtn) {
-      pauseBtn.setAttribute("aria-label", t(on ? "demo.pause" : "demo.play"));
+      var v = t(on ? "demo.pause" : "demo.play");
+      if (v) pauseBtn.setAttribute("aria-label", v);
       pauseBtn.querySelector("use").setAttribute("href", on ? "#i-pause" : "#i-play");
-      pauseBtn.setAttribute("aria-pressed", String(!on));
     }
-    if (on) { next(); cycleSign(); }
-    else { clearTimeout(timer); clearInterval(signTimer); if (signEl) signEl.textContent = SIGN[current]; }
   }
   if (stage) {
-    tabs.forEach(function (b) {
-      b.addEventListener("click", function () { show(b.dataset.go); setPlaying(false); });
+    chipBtns.forEach(function (b, i) {
+      b.addEventListener("click", function () {
+        setPlaying(!reduce); /* dokunduktan sonra da otomatik geçiş sürer; durdurma düğmesi ayrı */
+        /* yanan düğmeye yeniden dokunmak sohbeti sona atlar */
+        if (i === cur && b.getAttribute("aria-pressed") === "true" && running) { finishScene(); advance(); }
+        else playScene(i, true);
+        if (live) live.textContent = t("b." + SCENES[i].k) + ". " + t("cap." + SCENES[i].k);
+      });
     });
-    if (pauseBtn) pauseBtn.addEventListener("click", function () { setPlaying(!playing); });
+    if (pauseBtn) pauseBtn.addEventListener("click", function () {
+      setPlaying(!playing);
+      if (!playing) finishScene();
+      else playScene((cur + 1) % SCENES.length, true);
+    });
     document.addEventListener("visibilitychange", function () {
-      if (document.hidden) { clearTimeout(timer); clearInterval(signTimer); }
-      else if (playing) { next(); cycleSign(); }
+      if (document.hidden) finishScene();
+      else if (playing && ready) playScene(cur, true);
     });
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver(function (es) {
+        var was = inView;
+        inView = es[es.length - 1].isIntersecting;
+        /* sahne görünürken yüzen WhatsApp düğmesi sohbeti kapatmasın */
+        root.classList.toggle("stage-in", inView);
+        if (!ready) return;
+        if (was && !inView) finishScene();
+        if (!was && inView && playing) playScene(cur, true);
+      }, { threshold: 0.05 }).observe(stage);
+    }
   }
 
   /* ---------- 8. Önce / sonra sürgüsü (dokunma, fare, klavye) ---------- */
@@ -310,7 +435,7 @@
     });
   }
 
-  /* ---------- 9. Sektörler: telefonda ilk altı, gerisi istek üzerine ---------- */
+  /* ---------- 9. Sektörler: ilk altı, gerisi istek üzerine ---------- */
   var moreBtn = document.querySelector(".more-btn");
   var tilesEl = document.getElementById("tiles");
   if (moreBtn && tilesEl) {
@@ -320,39 +445,16 @@
       moreBtn.setAttribute("aria-expanded", String(open));
       moreBtn.textContent = t(open ? "who.showLess" : "who.showAll");
       if (open) {
-        var first = tilesEl.querySelector(".extra h3");
-        if (first) { first.setAttribute("tabindex", "-1"); first.focus({ preventScroll: false }); }
+        var first = tilesEl.querySelector(".extra summary");
+        if (first) first.focus();
       }
     });
   }
 
-  /* ---------- 10. Örnek kafe menüsü: kendi TR / EN / RU düğmeleri ---------- */
-  var MENU = {
-    tr: { sub: "Menü · Masa 7", cat1: "Kahvaltı", cat2: "İçecekler", i1: "Menemen", i2: "Serpme kahvaltı (2 kişilik)", i3: "Türk kahvesi", i4: "Taze portakal suyu" },
-    en: { sub: "Menu · Table 7", cat1: "Breakfast", cat2: "Drinks", i1: "Menemen (Turkish eggs)", i2: "Turkish breakfast spread (for 2)", i3: "Turkish coffee", i4: "Fresh orange juice" },
-    ru: { sub: "Меню · Стол 7", cat1: "Завтрак", cat2: "Напитки", i1: "Менемен (яичница с томатами)", i2: "Турецкий завтрак (на двоих)", i3: "Турецкий кофе", i4: "Свежевыжатый апельсиновый сок" }
-  };
-  function setMenuLang(lang) {
-    var m = MENU[lang] || MENU.tr;
-    document.querySelectorAll("[data-menu-t]").forEach(function (el) {
-      el.textContent = m[el.getAttribute("data-menu-t")];
-      el.setAttribute("lang", lang);
-    });
-    document.querySelectorAll("[data-menu-lang]").forEach(function (b) {
-      b.setAttribute("aria-pressed", String(b.getAttribute("data-menu-lang") === lang));
-    });
-  }
-  document.querySelectorAll("[data-menu-lang]").forEach(function (b) {
-    b.addEventListener("click", function () { setMenuLang(b.getAttribute("data-menu-lang")); });
-  });
-
-  /* ---------- 11. Başlat ---------- */
-  var start = window.ONDERA_LANG || "tr";
-  if (stage) {
-    if (reduce) show("night"); else show("day");
-  }
+  /* ---------- 10. Başlat ---------- */
+  var start = window.SITE_LANG || "tr";
   loadDict(start, function () {
     apply(start);
-    if (stage) setPlaying(!reduce);
+    if (stage) { ready = true; setPlaying(!reduce); playScene(0, !reduce); }
   });
 })();
