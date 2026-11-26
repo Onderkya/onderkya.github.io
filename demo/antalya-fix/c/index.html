@@ -2357,7 +2357,7 @@ const Y_MARK = '<svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="
 function ratingTile(src) {
   const g = src === "g";
   return '<a class="rt" href="' + (g ? G_LIST : Y_LIST) + '" target="_blank" rel="noopener">' +
-    '<span class="src"><span class="mk">' + (g ? G_MARK : Y_MARK) + '</span><span>' + esc(t(g ? "map_g" : "rt_y_lbl")) + '</span></span>' +
+    '<span class="src"><span class="mk">' + (g ? G_MARK : Y_MARK) + '</span><span>' + (g ? "Google" : "Yandex") + '</span></span>' +
     '<b class="score num">' + dec(g ? "4.9" : "5.0") + '</b><span class="stars" aria-hidden="true">' + stars(5) + '</span>' +
     '<span class="cnt">' + esc(t(g ? "rt_g_cnt" : "rt_y_cnt")) + '</span></a>';
 }
