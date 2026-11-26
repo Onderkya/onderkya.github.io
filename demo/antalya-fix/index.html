@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow"><title>Antalya Fix · 3 demo</title>
+<style>
+body{margin:0;background:#0b1220;color:#e8eef7;font:15px/1.4 system-ui,-apple-system,sans-serif}
+header{padding:14px 20px;display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+header b{font-size:17px}
+select,button{font:inherit;background:#16213a;color:#e8eef7;border:1px solid #2b3a5c;border-radius:10px;padding:8px 12px;min-height:40px}
+.row{display:flex;gap:28px;padding:8px 20px 40px;overflow-x:auto}
+figure{margin:0;flex:0 0 auto}
+figcaption{margin:0 0 8px;font-weight:700}
+figcaption a{color:#7dd3fc;font-weight:400;margin-left:8px}
+iframe{width:390px;height:844px;border:0;border-radius:36px;background:#fff;box-shadow:0 0 0 10px #1e293b,0 20px 60px #0008}
+</style></head><body>
+<header><b>Antalya Fix · 3 demo (telefon boyutu 390×844)</b>
+<label>Dil <select id="lang"><option>tr</option><option>ru</option><option>en</option><option>kk</option><option>uz</option></select></label>
+<button id="re">Yenile</button></header>
+<div class="row">
+<figure><figcaption>A · koyu premium <a href="a/" target="_blank">tam ekran ↗</a></figcaption><iframe data-d="a"></iframe></figure>
+<figure><figcaption>B · sade, talep özeti <a href="b/" target="_blank">tam ekran ↗</a></figcaption><iframe data-d="b"></iframe></figure>
+<figure><figcaption>C · uygulama gibi <a href="c/" target="_blank">tam ekran ↗</a></figcaption><iframe data-d="c"></iframe></figure>
+</div>
+<script>
+const s=document.getElementById('lang');
+function load(){document.querySelectorAll('iframe').forEach(f=>f.src=f.dataset.d+'/index.html?lang='+s.value+'&t='+Date.now())}
+s.onchange=load;document.getElementById('re').onclick=load;load();
+</script></body></html>

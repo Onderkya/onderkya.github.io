@@ -1,0 +1,2455 @@
+<!doctype html>
+<html lang="tr" translate="yes">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#060B12">
+<meta name="color-scheme" content="dark">
+<title>Antalya Fix · TerraCity’de telefon tamiri</title>
+<meta name="description" content="TerraCity AVM kat −2’de telefon, tablet ve bilgisayar tamiri; sıfır ve 2. el telefon. Her gün 10:00–22:00.">
+<link rel="icon" href="logo.jpg">
+<link rel="preload" as="image" href="../media/terracity-loop-m.jpg" media="(max-width:899px)" fetchpriority="high">
+<link rel="preload" as="image" href="../media/terracity-loop.jpg" media="(min-width:900px)" fetchpriority="high">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&family=Unbounded:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#060B12; --bg-2:#08111B; --surface:#0C1723; --surface-2:#11202F; --surface-3:#172B3E;
+  --line:rgba(150,205,235,.13); --line-2:rgba(150,205,235,.26);
+  --ice:#ECF6FA; --mist:#A6BBCB; --dim:#8AA1B3;
+  --cyan:#46E0F0; --on-cyan:#03222A; --cyan-ink:#7DEBF6;
+  --gold:#FFD27A; --ok:#5BE3A1; --warn:#F2C46A; --stop:#F59384;
+  --tg:#1A74A6;
+  --sel-bg:#ECF6FA; --sel-fg:#071019; --hdr:rgba(6,11,18,.9); --demo-bg:#03070C; --trust-bg:linear-gradient(180deg,#11202F,#0C1723);
+  --bubble-bg:#0F3A40; --bubble-fg:#E4FBFD; --map-bg:#09121B; --faint:#3A5166; --ph:#7B93A6; --cyan-h:#7AEBF6; --mark-bg:#ECF6FA; --mark-fg:#0B1A26; --glow:rgba(70,224,240,.12);
+  --f-d:"Unbounded","Onest",system-ui,sans-serif;
+  --f-b:"Onest",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --r-xl:26px; --r-lg:20px; --r-md:16px;
+  --ease:cubic-bezier(.16,1,.3,1);
+  --bar:64px;
+  color-scheme:dark;
+}
+:root[data-theme="light"]{
+  --bg:#F3F6F8; --bg-2:#FFFFFF; --surface:#FFFFFF; --surface-2:#EDF2F5; --surface-3:#DFE8EE;
+  --line:rgba(11,26,38,.12); --line-2:rgba(11,26,38,.24);
+  --ice:#0B1A26; --mist:#465B6C; --dim:#4F6476;
+  --cyan:#087F8F; --on-cyan:#FFFFFF; --cyan-ink:#06707E; --cyan-h:#066A76;
+  --gold:#B7791F; --ok:#127A50; --warn:#8A5A00; --stop:#B4321F;
+  --sel-bg:#0B1A26; --sel-fg:#FFFFFF; --hdr:rgba(243,246,248,.92); --demo-bg:#E4EBF0; --trust-bg:linear-gradient(180deg,#FFFFFF,#F4F8FA);
+  --bubble-bg:#DDF4F6; --bubble-fg:#0B2A2E; --map-bg:#E6EDF2; --faint:#B5C3CE; --ph:#6A7F90; --mark-bg:#0B1A26; --mark-fg:#FFFFFF; --glow:rgba(8,127,143,.10);
+  color-scheme:light;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:72px;background:var(--bg);scrollbar-color:var(--surface-3) var(--bg)}
+body{margin:0;background:var(--bg);color:var(--ice);font:400 16px/1.55 var(--f-b);-webkit-font-smoothing:antialiased;overflow-x:hidden;
+  padding-bottom:calc(var(--bar) + env(safe-area-inset-bottom));-webkit-tap-highlight-color:rgba(70,224,240,.18);touch-action:manipulation}
+@media (min-width:900px){body{padding-bottom:0}}
+::selection{background:var(--cyan);color:var(--on-cyan)}
+img,video,svg{display:block;max-width:100%}
+img{height:auto}
+a{color:inherit;text-underline-offset:.2em;text-decoration-thickness:1px}
+button,input{font:inherit;color:inherit}
+button{cursor:pointer}
+h1,h2,h3,p{margin:0}
+h1,h2,h3{text-wrap:balance}
+p{text-wrap:pretty}
+:focus-visible{outline:2px solid var(--cyan);outline-offset:3px;border-radius:10px}
+.sr{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.skip{position:absolute;left:12px;top:-60px;z-index:100;background:var(--sel-bg);color:var(--bg);padding:10px 14px;border-radius:12px;font-weight:600}
+.skip:focus{top:10px}
+.wrap{width:min(100% - 32px,1160px);margin-inline:auto}
+.ic{width:22px;height:22px;flex:none;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.ic.fill{fill:currentColor;stroke:none}
+.num{font-variant-numeric:tabular-nums}
+.ex{color:var(--mist);font-weight:500}
+
+.demobar{background:var(--demo-bg);border-bottom:1px solid var(--line);color:var(--mist);font-size:14px;line-height:1.3;padding:4px 0;text-align:center}
+
+/* header */
+.top{position:sticky;top:0;z-index:40;background:var(--hdr);backdrop-filter:saturate(1.4) blur(14px);-webkit-backdrop-filter:saturate(1.4) blur(14px);border-bottom:1px solid var(--line)}
+.top-in{display:flex;align-items:center;justify-content:space-between;gap:6px;height:52px}
+.brand{display:flex;align-items:center;gap:8px;text-decoration:none;min-width:0;min-height:44px}
+.brand img{width:32px;height:32px;border-radius:9px;border:1px solid var(--line-2)}
+.wm{font:600 13px/1 var(--f-d);letter-spacing:.04em;white-space:nowrap}
+.wm .x{display:inline-block;color:var(--cyan);font-weight:700;transform:skewX(-16deg)}
+.top-r{display:flex;align-items:center;gap:4px}
+.status{display:inline-flex;align-items:center;gap:6px;height:34px;padding:0 10px 0 9px;border-radius:999px;border:1px solid var(--line-2);font-size:14px;white-space:nowrap}
+.status b{font-weight:600}
+.status .sub{color:var(--mist);display:none}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--ok);animation:ping 2.4s var(--ease) infinite}
+.status[data-state="soon"] .dot{background:var(--warn);animation:none}
+.status[data-state="closed"] .dot{background:var(--stop);animation:none}
+@keyframes ping{0%{box-shadow:0 0 0 0 rgba(91,227,161,.45)}70%,100%{box-shadow:0 0 0 7px rgba(91,227,161,0)}}
+@media (min-width:560px){.status .sub{display:inline}}
+.icon-btn{display:inline-flex;align-items:center;justify-content:center;gap:5px;min-width:44px;height:44px;padding:0 8px;border-radius:14px;border:1px solid transparent;background:transparent;text-decoration:none;color:var(--ice);transition:background-color .2s,border-color .2s}
+.icon-btn:hover{background:var(--surface-2);border-color:var(--line)}
+.lang{position:relative}
+.lang-btn{border-color:var(--line-2);font-weight:600;font-size:14px}
+.lang-btn .ic{width:18px;height:18px}
+.lang-menu{position:absolute;right:0;top:calc(100% + 8px);margin:0;padding:6px;list-style:none;min-width:200px;background:var(--surface-2);border:1px solid var(--line-2);border-radius:18px;box-shadow:0 18px 50px -12px rgba(0,0,0,.7);transform-origin:top right;animation:pop .22s var(--ease)}
+@keyframes pop{from{opacity:0;transform:scale(.96) translateY(-4px)}}
+.lang-menu button{width:100%;display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:46px;padding:0 14px;border:0;border-radius:12px;background:transparent;text-align:left;font-size:15.5px}
+.lang-menu button:hover{background:var(--surface-3)}
+.lang-menu button span{color:var(--mist);font-size:14px}
+.lang-menu button[aria-current="true"]{background:rgba(70,224,240,.1)}
+.top .wa-top{display:none}
+@media (min-width:900px){.top .wa-top{display:inline-flex}}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:50px;padding:0 20px;border-radius:var(--r-md);border:1px solid transparent;font:600 16px/1.15 var(--f-b);text-decoration:none;text-align:center;transition:background-color .2s,border-color .2s,transform .15s}
+.btn:active{transform:scale(.98)}
+.btn-p{background:var(--cyan);color:var(--on-cyan)}
+.btn-p:hover{background:var(--cyan-h)}
+.btn-g{background:rgba(236,246,250,.03);border-color:var(--line-2);color:var(--ice)}
+.btn-g:hover{background:var(--surface-2);border-color:rgba(150,205,235,.42)}
+.btn-tg{background:var(--tg);color:#fff}
+.btn-tg:hover{background:#1E82BA}
+.btn-sm{min-height:44px;padding:0 14px;font-size:15px;border-radius:14px}
+.btn-block{width:100%}
+.btn .ic{width:20px;height:20px}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.pair .btn{padding:0 10px;font-size:15px}
+
+/* sections */
+.sec{padding:52px 0}
+.sec + .sec{border-top:1px solid var(--line)}
+.h2{font:600 clamp(23px,6.2vw,40px)/1.15 var(--f-d);letter-spacing:-.02em}
+.lede{color:var(--mist);font-size:16px;margin-top:10px;max-width:40em}
+.note{font-size:14px;color:var(--mist);line-height:1.5}
+
+/* hero */
+.hero{position:relative;padding:10px 0 26px;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:-30% -40% auto auto;width:520px;height:520px;background:radial-gradient(closest-side,var(--glow),transparent);pointer-events:none}
+.hero-in{position:relative}
+.loc{display:flex;align-items:center;gap:10px;text-decoration:none;width:fit-content;max-width:100%}
+.loc .pin{flex:none;width:36px;height:36px;border-radius:11px;display:grid;place-items:center;background:rgba(70,224,240,.12);color:var(--cyan)}
+.loc .pin .ic{width:20px;height:20px}
+.loc b{display:block;font-weight:700;font-size:15px;line-height:1.25}
+.loc span{display:block;color:var(--mist);font-size:14px;line-height:1.3}
+.hero h1{font:600 clamp(25px,6.9vw,58px)/1.06 var(--f-d);letter-spacing:-.03em;margin:10px 0 6px;max-width:19ch}
+.hero .lead{color:var(--mist);font-size:15.5px;line-height:1.4;display:flex;align-items:center;gap:7px}
+.hero .lead .ic{width:18px;height:18px;color:var(--cyan)}
+/* trust card */
+.trust{display:flex;flex-direction:column;margin-top:12px;border:1px solid var(--line-2);border-radius:var(--r-lg);background:var(--trust-bg);overflow:hidden}
+.tr-row{display:flex;align-items:center;gap:12px;padding:8px 14px;text-decoration:none;color:var(--ice);transition:background-color .2s}
+a.tr-row:hover{background:rgba(236,246,250,.03)}
+.tr-g{order:1}.tr-y{order:2;border-top:1px solid var(--line)}
+.trust.yfirst .tr-y{order:1;border-top:0}.trust.yfirst .tr-g{order:2;border-top:1px solid var(--line)}
+.tr-meta{order:3;border-top:1px solid var(--line);padding:8px 14px 10px;display:grid;gap:3px}
+.mark{flex:none;width:24px;height:24px;border-radius:7px;display:grid;place-items:center;font:700 13px/1 var(--f-b);background:var(--mark-bg);color:var(--mark-fg)}
+.mark.y{background:#FC3F1D;color:#fff}
+.tr-big{font:700 44px/1 var(--f-d);letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+.tr-mid{font:700 28px/1 var(--f-d);letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.tr-txt{display:grid;gap:3px;min-width:0}
+.stars{display:flex;gap:2px;color:var(--gold)}
+.stars .ic{width:18px;height:18px}
+.tr-y .stars .ic{width:15px;height:15px}
+.tr-txt span{font-size:15px;color:var(--mist);line-height:1.25}
+.tr-row .chev{margin-left:auto;color:var(--mist);width:18px;height:18px}
+.tr-meta p{font-size:14px;color:var(--mist);display:flex;gap:7px;align-items:flex-start;line-height:1.35}
+.tr-meta p .ic{width:16px;height:16px;margin-top:2px;color:var(--cyan)}
+.tr-meta q{font-style:italic;color:var(--ice);quotes:"“" "”"}
+.journeys{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
+.jt{display:flex;align-items:center;gap:10px;min-height:58px;padding:8px 12px;border-radius:var(--r-md);border:1px solid var(--line);background:var(--surface);text-decoration:none;text-align:left;color:var(--ice);transition:border-color .2s,background-color .2s}
+.jt:hover{border-color:var(--line-2);background:var(--surface-2)}
+.jt .ji{flex:none;width:34px;height:34px;border-radius:10px;display:grid;place-items:center;background:var(--surface-3);color:var(--cyan)}
+.jt .ji .ic{width:19px;height:19px}
+.jt b{font:600 15px/1.2 var(--f-b)}
+.jt.primary{background:var(--cyan);border-color:var(--cyan);color:var(--on-cyan)}
+.jt.primary .ji{background:rgba(3,34,42,.12);color:var(--on-cyan)}
+.jt.primary:hover{background:var(--cyan-h)}
+@media (min-width:760px){.journeys{grid-template-columns:repeat(4,1fr)}.hero-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:end}.trust{margin-top:0}}
+
+/* store + timeline */
+.store{position:relative;margin:0;border-radius:var(--r-xl);overflow:hidden;border:1px solid var(--line);aspect-ratio:4/4.3}
+.store img{width:100%;height:100%;object-fit:cover;object-position:50% 38%}
+.store figcaption{position:absolute;left:0;right:0;bottom:0;padding:44px 16px 14px;background:linear-gradient(180deg,rgba(6,11,18,0),rgba(6,11,18,.92) 55%)}
+.store figcaption b{display:block;font:600 18px/1.25 var(--f-d)}
+.store figcaption span{display:flex;align-items:center;gap:6px;color:var(--ice);font-size:15px;margin-top:4px}
+.store figcaption .ic{width:16px;height:16px;color:var(--cyan)}
+.routes{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
+.routes .btn{padding:0 10px;font-size:15px}
+.timer{margin-top:12px;padding:14px 16px;border-radius:var(--r-lg);background:var(--surface-2);border:1px solid var(--line-2)}
+.tm-row{display:grid;grid-template-columns:auto 1fr auto;align-items:end;gap:10px}
+.tm-lbl{display:block;font-size:14px;color:var(--mist);line-height:1.3;margin-bottom:4px}
+.tm-time{display:block;font:600 24px/1 var(--f-d);font-variant-numeric:tabular-nums}
+.tm-b{text-align:right}.tm-b .tm-time{color:var(--cyan)}
+.tm-track{position:relative;align-self:center;text-align:center;padding-top:22px}
+.tm-track::before{content:"";position:absolute;left:0;right:0;top:11px;border-top:1.5px dashed rgba(150,205,235,.38)}
+.tm-dot{position:absolute;top:11px;left:6%;width:24px;height:24px;margin:-12px 0 0 -12px;border-radius:50%;background:var(--surface-3);border:1px solid var(--line-2);display:grid;place-items:center;color:var(--cyan);animation:walk 6s ease-in-out infinite}
+.tm-dot .ic{width:13px;height:13px}
+.tm-track small{font-size:14px;color:var(--mist)}
+@keyframes walk{0%{left:6%}50%{left:94%}100%{left:6%}}
+.tm-note{margin-top:10px;font-size:14px;color:var(--mist);display:flex;gap:8px;align-items:flex-start}
+.tm-note .ic{width:16px;height:16px;margin-top:2px;color:var(--cyan)}
+.timer.late .tm-row{display:none}
+@media (min-width:900px){.store-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start}.store{aspect-ratio:4/3}}
+
+/* proof */
+.proof{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:18px}
+.reel,.ba{position:relative;border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--line);aspect-ratio:4/5;background:#000}
+.reel video{width:100%;height:100%;object-fit:cover}
+.vbtn{position:absolute;right:8px;bottom:8px;width:44px;height:44px;border-radius:50%;border:1px solid rgba(236,246,250,.35);background:rgba(6,11,18,.62);display:grid;place-items:center;color:var(--ice)}
+.vbtn .ic{width:18px;height:18px}
+.ba{--pos:50%;user-select:none;-webkit-user-select:none}
+.ba img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ba .before{clip-path:inset(0 calc(100% - var(--pos)) 0 0)}
+.ba .line{position:absolute;top:0;bottom:0;left:var(--pos);width:2px;margin-left:-1px;background:var(--sel-bg);pointer-events:none}
+.ba .knob{position:absolute;top:50%;left:var(--pos);width:40px;height:40px;margin:-20px 0 0 -20px;border-radius:50%;background:var(--sel-bg);color:var(--bg);display:grid;place-items:center;box-shadow:0 8px 24px -6px rgba(0,0,0,.6);pointer-events:none}
+.ba .knob .ic{width:18px;height:18px}
+.ba .lab{position:absolute;top:8px;padding:3px 9px;border-radius:999px;background:rgba(6,11,18,.7);font-size:14px;font-weight:600;pointer-events:none}
+.ba .lab.l{left:8px}.ba .lab.r{right:8px}
+.ba input{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:ew-resize;touch-action:pan-y}
+.ba:focus-within{outline:2px solid var(--cyan);outline-offset:3px}
+.proof-cap{display:flex;justify-content:space-between;gap:10px;margin-top:8px;font-size:14px;color:var(--mist)}
+/* work cards */
+.scroller{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:16px;padding:4px 16px 12px;margin:18px -16px 0;scrollbar-width:thin;scrollbar-color:var(--surface-3) transparent;overscroll-behavior-x:contain}
+.scroller > *{scroll-snap-align:start;flex:none}
+.wc{width:min(82%,330px);display:flex;flex-direction:column;border-radius:var(--r-lg);border:1px solid var(--line);background:var(--surface);overflow:hidden}
+.wc .ph{position:relative;aspect-ratio:16/10;background:var(--surface-2)}
+.wc .ph img{width:100%;height:100%;object-fit:cover}
+.wc .t2h{position:absolute;left:10px;top:10px;padding:4px 10px;border-radius:999px;background:rgba(6,11,18,.75);font-size:14px;font-weight:600;color:var(--ice)}
+.wc .bd{display:flex;flex-direction:column;gap:10px;padding:14px 14px 16px;flex:1}
+.wc h3{font:600 17px/1.25 var(--f-d)}
+.wc .d{font-size:15px;color:var(--mist)}
+.wc blockquote{margin:0;padding:10px 12px;border-radius:12px;background:var(--bg-2);border:1px solid var(--line);font-size:15px;font-style:italic;line-height:1.45}
+.wc blockquote footer{font-style:normal;color:var(--mist);font-size:14px;margin-top:6px;display:flex;justify-content:space-between;gap:8px;align-items:center;flex-wrap:wrap}
+.wc .act{margin-top:auto;display:grid;grid-template-columns:1fr 50px;gap:8px}
+.wc .act .btn{min-height:46px;font-size:15px;padding:0 12px}
+.tgsq{min-width:50px;padding:0!important}
+.linkbtn{display:inline-flex;align-items:center;gap:6px;min-height:44px;color:var(--cyan-ink);font-weight:600;font-size:15px;text-decoration:none;background:none;border:0;padding:0}
+.rv-tg{min-height:44px;padding:0 12px;border-radius:12px;border:1px solid var(--line-2);background:transparent;color:var(--cyan-ink);font-size:14px;font-weight:600}
+.rv-tg:hover{background:var(--surface-2)}
+@media (min-width:1000px){.scroller{margin-inline:0;padding-inline:0}.wc{width:340px}.proof{max-width:760px}}
+
+/* reviews */
+.rvs .rv{width:min(84%,340px);display:flex;flex-direction:column;gap:10px;padding:16px;border-radius:var(--r-lg);border:1px solid var(--line);background:var(--surface);margin:0}
+.rv .stars .ic{width:16px;height:16px}
+.rv blockquote{margin:0;font-size:16px;line-height:1.5}
+.rv-f{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;margin-top:auto}
+.rv-who b{display:block;font-weight:600;font-size:15px}
+.rv-who span{display:block;color:var(--mist);font-size:14px}
+.rv-acts{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+
+/* act: journeys + forms */
+.seg{display:flex;gap:6px;overflow-x:auto;margin:18px -16px 0;padding:0 16px 4px;scrollbar-width:none}
+.seg::-webkit-scrollbar{display:none}
+.seg button{flex:none;min-height:46px;padding:0 16px;border-radius:999px;border:1px solid var(--line-2);background:transparent;color:var(--ice);font-weight:600;font-size:15px;display:inline-flex;align-items:center;gap:7px;white-space:nowrap}
+.seg button .ic{width:18px;height:18px;color:var(--cyan)}
+.seg button[aria-selected="true"]{background:var(--sel-bg);border-color:var(--sel-bg);color:var(--sel-fg)}
+.seg button[aria-selected="true"] .ic{color:var(--sel-fg)}
+.panel{margin-top:16px}
+.panel[hidden]{display:none}
+.panel > h3{font:600 19px/1.25 var(--f-d)}
+.panel > .note{margin-top:6px}
+.brands{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:14px}
+.tile{display:flex;align-items:center;gap:10px;min-height:54px;padding:0 12px;border-radius:var(--r-md);border:1px solid var(--line);background:var(--surface);text-align:left;font-weight:600;font-size:15px;color:var(--ice);transition:border-color .2s,background-color .2s}
+.tile:hover{border-color:var(--line-2);background:var(--surface-2)}
+.tile .ic{color:var(--cyan);width:19px;height:19px}
+.tile .chev{margin-left:auto;color:var(--mist);width:16px;height:16px}
+.tile[aria-pressed="true"]{border-color:var(--sel-bg);background:var(--surface-3)}
+@media (min-width:760px){.brands{grid-template-columns:repeat(4,1fr)}}
+.box{border:1px solid var(--line);border-radius:var(--r-lg);background:var(--surface);padding:16px}
+.box + .box{margin-top:10px}
+.box.q{background:transparent;border-style:dashed;border-color:var(--line-2)}
+.box h4{margin:0;font:600 17px/1.3 var(--f-b)}
+.box > p{color:var(--mist);margin-top:6px;font-size:15px}
+.box .pair,.box > .btn{margin-top:14px}
+/* chips + forms */
+.fs{border:0;margin:0;padding:0;min-width:0}
+.fs + .fs{margin-top:16px}
+.fs legend,.flabel{display:block;padding:0;margin-bottom:8px;font-weight:600;font-size:15px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{position:relative;display:inline-flex}
+button.chip{background:none;border:0;padding:0;color:inherit}
+.chip input{position:absolute;opacity:0;width:1px;height:1px;pointer-events:none}
+.chip span{display:inline-flex;align-items:center;gap:6px;min-height:44px;padding:0 15px;border-radius:999px;border:1px solid var(--line-2);background:rgba(236,246,250,.02);font-size:15px;cursor:pointer;transition:background-color .15s,border-color .15s;user-select:none}
+.chip span:hover{border-color:rgba(150,205,235,.45)}
+.chip input:checked + span{background:var(--sel-bg);border-color:var(--sel-bg);color:var(--sel-fg);font-weight:600}
+.chip input:focus-visible + span{outline:2px solid var(--cyan);outline-offset:2px}
+.field{width:100%;min-height:50px;padding:0 15px;border-radius:var(--r-md);border:1px solid var(--line-2);background:var(--bg-2);color:var(--ice);font-size:16px;caret-color:var(--cyan)}
+.field::placeholder{color:var(--ph)}
+.field:focus{outline:none;border-color:var(--cyan);box-shadow:0 0 0 3px rgba(70,224,240,.18)}
+.err{color:var(--stop);font-size:14px;margin-top:8px}
+.err:empty{display:none}
+.check{display:flex;align-items:center;gap:12px;min-height:46px;cursor:pointer;font-size:15px}
+.check input{width:22px;height:22px;accent-color:var(--cyan);flex:none;margin:0}
+.range-row{display:flex;align-items:center;gap:12px}
+.range-row input[type=range]{flex:1;accent-color:var(--cyan);height:44px}
+.range-row output{min-width:56px;text-align:right;font:600 17px var(--f-d);font-variant-numeric:tabular-nums}
+.range-row.off input,.range-row.off output{opacity:.35}
+/* sell */
+.offer{margin-top:14px;border-radius:var(--r-lg);padding:16px;background:var(--surface-2);border:1px solid rgba(70,224,240,.35)}
+.offer[hidden]{display:none}
+.offer b{display:block;font-weight:600;font-size:15px;color:var(--mist)}
+.offer .val{font:600 22px/1.25 var(--f-d);margin-top:6px;font-variant-numeric:tabular-nums}
+.offer .val .ex{font:500 22px/1.25 var(--f-b)}
+.offer p{color:var(--mist);font-size:14px;margin-top:8px}
+.thumbs{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.thumbs:empty{display:none}
+.thumbs > *{width:60px;height:60px;border-radius:10px;object-fit:cover;border:1px solid var(--line-2);background:var(--surface-3);display:grid;place-items:center;color:var(--mist);font-size:12px}
+.upl{position:relative;display:flex}
+.upl input{position:absolute;inset:0;opacity:0;width:100%;cursor:pointer}
+.upl:focus-within{outline:2px solid var(--cyan);outline-offset:3px;border-radius:var(--r-md)}
+.grid2{display:grid;gap:10px;margin-top:12px}
+.thanks{margin-top:12px;padding:14px;border-radius:14px;background:rgba(91,227,161,.1);border:1px solid rgba(91,227,161,.35);color:var(--ice);font-size:15px;display:flex;gap:10px}
+.thanks .ic{color:var(--ok)}
+.thanks[hidden]{display:none}
+.notif{margin-top:12px;border-radius:18px;border:1px solid var(--line-2);background:#EEF4F6;color:#0B1A26;padding:14px;box-shadow:0 20px 40px -20px rgba(0,0,0,.8)}
+.notif[hidden]{display:none}
+.notif .nh{display:flex;align-items:center;gap:10px}
+.notif .nh img{width:30px;height:30px;border-radius:8px}
+.notif .nh b{font-weight:700;font-size:15px}
+.notif .nh span{margin-left:auto;font-size:13px;color:#3E5466}
+.notif p{font-size:14.5px;margin-top:8px;line-height:1.45;color:#1C2E3C}
+.notif p strong{color:#0B1A26}
+.notif .pair{margin-top:12px}
+.notif .btn-g{border-color:#9FB2C1;color:#0B1A26;background:#fff}
+.notif .btn-p{background:#0A8FA0;color:#fff}
+.divider{display:flex;align-items:center;gap:10px;color:var(--mist);font-size:14px;margin:18px 0 10px}
+.divider::before,.divider::after{content:"";flex:1;border-top:1px solid var(--line)}
+/* buy */
+.tabs{display:inline-flex;padding:4px;border-radius:16px;background:var(--surface);border:1px solid var(--line);gap:4px;margin-top:14px}
+.tabs button{min-height:44px;padding:0 16px;border-radius:12px;border:0;background:transparent;color:var(--mist);font-weight:600;font-size:15px}
+.tabs button[aria-selected="true"]{background:var(--sel-bg);color:var(--sel-fg)}
+.pc{width:min(78%,290px);display:grid;grid-template-columns:62px 1fr;gap:12px;padding:14px;border-radius:var(--r-lg);border:1px solid var(--line);background:var(--surface)}
+.pc h3{font:600 16px/1.25 var(--f-b)}
+.phn{width:54px;height:104px;border-radius:14px;position:relative;background:linear-gradient(145deg,var(--c1),var(--c2));box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.16)}
+.phn::before{content:"";position:absolute;left:5px;top:5px;width:23px;height:23px;border-radius:7px;background:rgba(0,0,0,.18);box-shadow:inset 0 0 0 1px rgba(255,255,255,.14)}
+.phn::after{content:"";position:absolute;left:8px;top:8px;width:8px;height:8px;border-radius:50%;background:#0A0F14;box-shadow:10px 0 0 #0A0F14,0 10px 0 #0A0F14}
+.phn.and::before{width:14px;height:36px;border-radius:8px}
+.phn.and::after{box-shadow:0 12px 0 #0A0F14,0 24px 0 #0A0F14;left:8px;top:9px}
+.badges{display:flex;flex-wrap:wrap;gap:5px;margin-top:6px}
+.bdg{display:inline-flex;align-items:center;gap:4px;font-size:13.5px;font-weight:600;padding:3px 8px;border-radius:999px;background:rgba(91,227,161,.12);color:var(--ok)}
+.bdg .ic{width:13px;height:13px}
+.bdg.bat{background:var(--surface-3);color:var(--ice)}
+.pc .chips{margin-top:8px;gap:6px}
+.pc .chip span{padding:0 12px;font-size:14.5px}
+.pc .price{margin-top:8px;font-size:14px;color:var(--mist)}
+.pc .act{display:grid;grid-template-columns:1fr 46px;gap:6px;margin-top:10px;grid-column:1/-1}
+.pc .act .btn{min-height:46px;font-size:15px;padding:0 10px}
+.boxes{position:relative;margin:14px 0 0;border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--line);aspect-ratio:16/8}
+.boxes img{width:100%;height:100%;object-fit:cover;object-position:50% 14%}
+/* also */
+ul.also{list-style:none;margin:22px 0 0;padding:0;border-top:1px solid var(--line)}
+.also li{display:grid;grid-template-columns:40px 1fr;gap:12px;padding:12px 0;border-bottom:1px solid var(--line)}
+.also .pi{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:var(--surface-2);color:var(--cyan)}
+.also .pi .ic{width:19px;height:19px}
+.also b{font-weight:600;font-size:15.5px}
+.also p{color:var(--mist);font-size:14px;margin-top:2px}
+@media (min-width:760px){ul.also{display:grid;grid-template-columns:1fr 1fr;column-gap:32px}}
+/* parts */
+.ptabs{display:flex;gap:6px;margin-top:16px;padding:4px;border-radius:16px;background:var(--surface);border:1px solid var(--line)}
+.ptabs button{flex:1;min-height:44px;padding:0 6px;border-radius:12px;border:0;background:transparent;color:var(--mist);font-weight:600;font-size:14.5px;line-height:1.15}
+.ptabs button[aria-selected="true"]{background:var(--sel-bg);color:var(--sel-fg)}
+.tier{margin-top:10px;border:1px solid var(--line-2);border-radius:var(--r-lg);background:var(--surface);padding:16px}
+.tier p{color:var(--ice);font-size:15.5px}
+.meters{margin:14px 0 0;display:grid;gap:9px}
+.meter{display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:14.5px;color:var(--mist)}
+.segs{display:flex;gap:4px}
+.segs i{width:18px;height:7px;border-radius:4px;background:var(--surface-3)}
+.segs i.on{background:var(--cyan)}
+.lira{font-weight:700;letter-spacing:.08em;color:var(--ice)}
+.lira span{color:var(--faint)}
+.warr{display:flex;align-items:center;gap:8px;margin-top:14px;padding-top:12px;border-top:1px solid var(--line);font-weight:600;font-size:15px}
+.warr .ic{color:var(--cyan)}
+.prom{list-style:none;margin:18px 0 0;padding:0;display:grid;gap:14px}
+.prom li{display:grid;grid-template-columns:40px 1fr;gap:12px}
+.prom .pi{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:var(--surface-2);border:1px solid var(--line);color:var(--cyan)}
+.prom .pi .ic{width:19px;height:19px}
+.prom b{display:block;font-weight:600;font-size:16px}
+.prom p{color:var(--mist);font-size:14.5px;margin-top:2px}
+/* instagram */
+.igs{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:16px}
+.igs a{display:flex;flex-direction:column;gap:6px;text-decoration:none;color:var(--mist);font-size:13px;line-height:1.25}
+.igs .sq{position:relative;aspect-ratio:1;border-radius:12px;overflow:hidden;border:1px solid var(--line)}
+.igs .sq img{width:100%;height:100%;object-fit:cover}
+.igs .pl{position:absolute;right:5px;top:5px;width:22px;height:22px;border-radius:50%;background:rgba(6,11,18,.7);display:grid;place-items:center;color:#fff}
+.igs .pl .ic{width:11px;height:11px}
+.ig-foot{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:14px}
+.ig-foot .h{font-weight:700;margin-right:auto;display:inline-flex;align-items:center;gap:7px}
+/* find */
+.mapbox{border:1px solid var(--line);border-radius:var(--r-xl);overflow:hidden;background:var(--surface);margin-top:16px}
+.maptabs{display:flex;gap:4px;padding:6px;border-bottom:1px solid var(--line)}
+.maptabs button{flex:1;min-height:44px;border:0;border-radius:12px;background:transparent;color:var(--mist);font-weight:600;font-size:14.5px}
+.maptabs button[aria-selected="true"]{background:var(--surface-3);color:var(--ice)}
+.mappane{position:relative;height:260px;background:var(--map-bg);display:grid;place-items:center}
+.mappane::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,rgba(150,205,235,.05) 0 1px,transparent 1px 36px),repeating-linear-gradient(0deg,rgba(150,205,235,.05) 0 1px,transparent 1px 36px);pointer-events:none}
+.mappane iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.mappane .btn{position:relative}
+.info{margin:14px 0 0;display:grid}
+.info div{display:grid;grid-template-columns:110px 1fr;gap:12px;padding:10px 0;border-bottom:1px solid var(--line);font-size:15px}
+.info dt{color:var(--mist)}
+.info dd{margin:0}
+.info a{color:var(--cyan-ink)}
+.langs{margin-top:14px;font-size:14.5px;color:var(--mist)}
+.langs b{color:var(--ice);font-weight:600}
+@media (min-width:900px){.find{display:grid;grid-template-columns:1.2fr 1fr;gap:24px;align-items:start}.mappane{height:360px}}
+footer{padding:32px 0 26px;color:var(--mist);font-size:14px;border-top:1px solid var(--line)}
+.foot{display:grid;gap:10px}
+.foot-r{display:flex;flex-wrap:wrap;gap:6px 16px;align-items:center}
+.foot a{color:var(--ice)}
+.foot .ig-link{display:inline-flex;align-items:center;gap:7px;min-height:44px;font-weight:600;text-decoration:none}
+/* bottom bar */
+.mbar{position:fixed;left:0;right:0;bottom:0;z-index:45;display:grid;grid-template-columns:repeat(4,1fr);gap:6px;padding:6px 8px calc(6px + env(safe-area-inset-bottom));background:var(--hdr);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-top:1px solid var(--line)}
+.mbar a{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;height:52px;border-radius:14px;text-decoration:none;font-size:13px;font-weight:600;color:var(--ice);border:1px solid var(--line-2);background:rgba(236,246,250,.03);white-space:nowrap;min-width:0}
+.mbar a .ic{width:20px;height:20px}
+.mbar a.wa{background:var(--cyan);border-color:var(--cyan);color:var(--on-cyan)}
+.mbar a.tg{background:var(--tg);border-color:var(--tg);color:#fff}
+.mbar.tgfirst a.tg{order:-1}
+@media (min-width:900px){.mbar{display:none}}
+.totop{position:fixed;right:14px;bottom:calc(var(--bar) + 14px + env(safe-area-inset-bottom));z-index:44;width:48px;height:48px;border-radius:50%;border:1px solid var(--line-2);background:var(--surface-2);color:var(--ice);display:grid;place-items:center;box-shadow:0 10px 30px -10px rgba(0,0,0,.8);opacity:0;transform:translateY(10px);pointer-events:none;transition:opacity .25s,transform .25s}
+.totop.on{opacity:1;transform:none;pointer-events:auto}
+@media (min-width:900px){.totop{bottom:24px}}
+.toast{position:fixed;left:50%;bottom:calc(var(--bar) + 18px + env(safe-area-inset-bottom));z-index:60;transform:translate(-50%,20px);width:min(92vw,420px);padding:12px 16px;border-radius:14px;background:var(--sel-bg);color:var(--sel-fg);font-weight:600;font-size:15px;box-shadow:0 18px 40px -12px rgba(0,0,0,.8);opacity:0;pointer-events:none;transition:opacity .25s,transform .25s;display:flex;gap:10px;align-items:center}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+/* sheet */
+dialog.sheet{position:fixed;inset:auto 0 0 0;margin:0 auto;padding:0;width:100%;max-width:560px;max-height:min(92dvh,780px);border:0;background:transparent;color:var(--ice);overflow:visible}
+dialog.sheet::backdrop{background:rgba(2,5,9,.62);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px)}
+.sh{display:flex;flex-direction:column;max-height:min(92dvh,780px);background:var(--surface);border:1px solid var(--line-2);border-bottom:0;border-radius:var(--r-xl) var(--r-xl) 0 0;box-shadow:0 -30px 80px -20px rgba(0,0,0,.8);padding-bottom:env(safe-area-inset-bottom)}
+dialog.sheet[open] .sh{animation:up .42s var(--ease)}
+dialog.sheet.closing .sh{animation:down .26s cubic-bezier(.4,0,1,1) forwards}
+@keyframes up{from{transform:translateY(100%)}}
+@keyframes down{to{transform:translateY(100%)}}
+@media (min-width:760px){dialog.sheet{inset:0;margin:auto;max-width:540px;height:fit-content}.sh{border-radius:var(--r-xl);border-bottom:1px solid var(--line-2)}}
+.grab{padding:10px 0 2px;display:grid;place-items:center;touch-action:none;cursor:grab}
+.grab i{width:42px;height:5px;border-radius:3px;background:var(--line-2)}
+.sh-h{display:grid;grid-template-columns:44px 1fr 44px;align-items:center;gap:6px;padding:4px 10px 10px;touch-action:none}
+.sh-h .mid{text-align:center;min-width:0}
+.sh-h .stp{font-size:14px;color:var(--mist)}
+.sh-h h2{font:600 18px/1.25 var(--f-d);margin-top:2px}
+.sh-h .icon-btn[hidden]{visibility:hidden;display:inline-flex}
+.prog{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;padding:0 20px 14px}
+.prog i{height:3px;border-radius:2px;background:var(--surface-3)}
+.prog i.on{background:var(--cyan)}
+.sh-b{overflow-y:auto;overscroll-behavior:contain;padding:6px 20px 22px}
+.pane{animation:pin .32s var(--ease)}
+.pane.back{animation-name:pinb}
+@keyframes pin{from{opacity:0;transform:translateX(18px)}}
+@keyframes pinb{from{opacity:0;transform:translateX(-18px)}}
+.pgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.ptile{display:flex;flex-direction:column;align-items:flex-start;gap:8px;min-height:80px;padding:12px 14px;border-radius:var(--r-md);border:1px solid var(--line);background:var(--surface-2);text-align:left;font-weight:600;font-size:15px;color:var(--ice)}
+.ptile .ic{color:var(--cyan)}
+.ptile:hover{border-color:var(--line-2)}
+.sum{display:grid;margin:0 0 16px;border-radius:var(--r-md);border:1px solid var(--line);overflow:hidden}
+.sum div{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:8px 14px;font-size:15px}
+.sum div + div{border-top:1px solid var(--line)}
+.sum dt{color:var(--mist)}
+.sum dd{margin:0;display:flex;align-items:center;gap:8px;font-weight:600;text-align:right}
+.sum dd button{border:0;background:none;color:var(--cyan-ink);font-weight:600;font-size:14px;min-height:44px;padding:0 4px}
+.bubble{margin-top:8px;padding:12px 14px;border-radius:18px 18px 4px 18px;background:var(--bubble-bg);color:var(--bubble-fg);font-size:14.5px;line-height:1.5;white-space:pre-line;max-height:150px;overflow:auto}
+.bubble-l{font-size:14px;color:var(--mist);margin-top:14px}
+.sh-b .pair{margin-top:14px}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  .tm-dot{left:50%}
+}
+
+.store figcaption,.wc .t2h,.ba .lab,.vbtn,.igs .pl{color:#fff}
+.ba .line{background:#fff}.ba .knob{background:#fff;color:#0B1A26}
+/* round 2 additions */
+.rchip{display:inline-flex;align-items:center;gap:5px;height:36px;padding:0 10px;border-radius:999px;border:1px solid var(--line-2);text-decoration:none;font-size:14px;font-weight:600;white-space:nowrap;color:var(--ice)}
+.rchip .ic{width:15px;height:15px;color:var(--gold)}
+.rchip .n{color:var(--mist);font-weight:500}
+.rchip .ya{display:none;padding-left:6px;margin-left:2px;border-left:1px solid var(--line-2)}
+.rchip .ya i{font-style:normal;color:#FC3F1D;font-weight:700;margin-right:3px}
+.rchip.y .ya{display:inline}
+.hstat{display:inline-flex;align-items:center;gap:6px;height:36px;padding:0 10px;border-radius:999px;border:1px solid var(--line-2);font-size:14px;font-weight:600;white-space:nowrap}
+.brand .wm{display:none}
+@media (min-width:430px){.brand .wm{display:inline}}
+.loc b span{display:inline}
+.loc .open-line{display:inline-flex;align-items:center;gap:6px;margin-top:4px;padding:3px 10px 3px 8px;border-radius:999px;background:rgba(91,227,161,.12);border:1px solid rgba(91,227,161,.35);font-size:14px;font-weight:600;color:var(--ice)}
+.loc .open-line span{display:inline}
+.open-line .sub{color:var(--mist);font-weight:500}
+.open-line[data-state="soon"]{background:rgba(242,196,106,.12);border-color:rgba(242,196,106,.4)}
+.open-line[data-state="closed"]{background:rgba(245,147,132,.1);border-color:rgba(245,147,132,.4)}
+.open-line[data-state="soon"] .dot,.hstat[data-state="soon"] .dot{background:var(--warn);animation:none}
+.open-line[data-state="closed"] .dot,.hstat[data-state="closed"] .dot{background:var(--stop);animation:none}
+.loc b .nm{color:var(--cyan-ink)}
+.hero .lead{display:block}
+.chans{display:flex;gap:5px}
+.chans span{width:26px;height:26px;border-radius:8px;display:grid;place-items:center;background:var(--surface-3);color:var(--cyan)}
+.chans span .ic{width:15px;height:15px}
+.chans .w{color:#1FAA59}.chans .t{color:#229ED9}
+.cnav{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:4px}
+.cnav button{width:44px;height:44px;border-radius:50%;border:1px solid var(--line-2);background:var(--surface);color:var(--ice);display:grid;place-items:center}
+.cnav button:disabled{opacity:.35;cursor:default}
+.cnav .ic{width:20px;height:20px}
+.dots{display:flex;gap:6px;justify-content:center;flex:1}
+.dots i{width:7px;height:7px;border-radius:50%;background:var(--line-2);transition:background-color .2s,width .2s}
+.dots i.on{background:var(--cyan);width:18px;border-radius:4px}
+.rline{display:flex;align-items:center;gap:6px;flex-wrap:wrap;font-size:14px;color:var(--mist);margin-top:12px}
+.rline .ic{width:14px;height:14px;color:var(--gold)}
+.rv-head{display:flex;align-items:center;gap:14px;margin-top:16px;padding:14px 16px;border-radius:var(--r-lg);border:1px solid var(--line);background:var(--surface)}
+.rv-head .big{font:700 42px/1 var(--f-d);letter-spacing:-.04em}
+.rv-head .m{display:grid;gap:4px;font-size:15px;color:var(--mist)}
+.theme-btn .moon{display:none}
+:root[data-theme="light"] .theme-btn .sun{display:none}
+:root[data-theme="light"] .theme-btn .moon{display:block}
+
+.tr-tiles{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line)}
+.tr-tile{display:grid;gap:5px;align-content:start;padding:12px 14px;background:var(--surface);text-decoration:none;color:var(--ice);transition:background-color .2s}
+.trust .tr-tile{background:transparent}
+.trust .tr-tiles{background:transparent;border-bottom:1px solid var(--line)}
+.rv-trust .tr-tiles{border-bottom:0}
+.trust .tr-tile.y{border-left:1px solid var(--line)}
+.trust.yfirst .tr-tile.y{order:-1;border-left:0;border-right:1px solid var(--line)}
+.tr-tile:hover{background:rgba(127,160,185,.06)}
+.tr-sc{display:flex;align-items:center;gap:8px}
+.tr-num{font:700 40px/1 var(--f-d);letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+.tr-tile .stars .ic{width:16px;height:16px}
+.tr-l{font-size:14.5px;color:var(--mist);line-height:1.3}
+.rchip{gap:8px}
+.rchip .rc{display:inline-flex;align-items:center;gap:4px}
+.rchip .rc i{font-style:normal;width:18px;height:18px;border-radius:5px;display:grid;place-items:center;font-size:11px;font-weight:700;background:var(--mark-bg);color:var(--mark-fg)}
+.rchip .rc.y i{background:#FC3F1D;color:#fff}
+.rchip.y .rc.y{order:-1}
+.readpair .btn{gap:8px}
+.readpair .mark{width:22px;height:22px;font-size:12px}
+.rv-acts{display:grid;gap:8px;margin-top:8px}
+.rline .rp{display:inline-flex;align-items:center;gap:5px}
+.rline .rp b{color:var(--ice)}
+.rline .sep{opacity:.6}
+
+.store img,.boxes img,.wc .ph img,.igs .sq img{position:absolute;inset:0}
+.wc .ph,.boxes,.igs .sq{overflow:hidden}
+
+/* item 26 first screen */
+.demobar{padding:5px 0;line-height:18px}
+.demobar .d-full{display:none}
+@media (min-width:600px){.demobar .d-full{display:inline}.demobar .d-short{display:none}}
+.hero{padding:10px 0 14px}
+.hero .loc{display:inline-flex;align-items:center;gap:7px;min-height:32px;padding:0 12px 0 9px;border-radius:999px;border:1px solid var(--line-2);background:var(--surface);font-size:14px;font-weight:600;color:var(--ice)}
+.hero .loc .ic{width:16px;height:16px;color:var(--cyan)}
+.hero .loc .nm{color:var(--cyan-ink)}
+.hero h1{font:600 clamp(26px,6.9vw,56px)/1.12 var(--f-d);letter-spacing:-.03em;margin:10px 0 10px;max-width:20ch}
+.trust.compact{margin-top:0}
+.trust.compact .tr-tiles{border-bottom:0}
+.trust.compact .tr-tile{grid-template-columns:auto 1fr;align-items:center;column-gap:8px;row-gap:3px;padding:9px 12px}
+.trust.compact .tr-sc{grid-column:1}
+.trust.compact .stars{grid-column:2;justify-self:start}
+.trust.compact .stars .ic{width:13px;height:13px}
+.trust.compact .tr-l{grid-column:1/-1;font-size:14px}
+.trust.compact .tr-num{font-size:34px}
+.trust.compact .mark{width:22px;height:22px;font-size:12px}
+.hero .reel{aspect-ratio:auto;height:190px;margin-top:10px;border-radius:var(--r-lg)}
+.reel video{object-position:50% 45%}
+.rlbl{position:absolute;left:10px;top:10px;display:inline-flex;align-items:center;gap:6px;padding:5px 11px;border-radius:999px;background:rgba(6,11,18,.72);color:#fff;font-size:14px;font-weight:600}
+.rlbl .ic{width:15px;height:15px}
+.tlinks{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;column-gap:4px;min-height:44px;margin-top:4px;font-size:15px}
+.tlinks a{display:inline-flex;align-items:center;min-height:44px;padding:0 4px;color:var(--cyan-ink);font-weight:600;text-decoration:underline;text-decoration-color:rgba(125,235,246,.35);text-underline-offset:.25em}
+.tlinks span{color:var(--mist)}
+:root[data-theme="light"] .tlinks a{text-decoration-color:rgba(6,112,126,.35)}
+.swipe{padding-top:18px}
+.swipe .journeys{margin-top:0}
+.jt{min-height:64px}
+.h2s{font-size:clamp(21px,5.6vw,32px)}
+.swipe .ba{aspect-ratio:16/11}
+.swipe .ba img{object-position:50% 45%}
+.steps{list-style:none;margin:16px 0 0;padding:14px 16px;border-radius:var(--r-lg);background:var(--surface-2);border:1px solid var(--line-2);display:grid;gap:10px}
+.steps li{display:grid;grid-template-columns:30px 1fr;gap:10px;align-items:start;font-size:15.5px;font-weight:600;line-height:1.35}
+.steps .n{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:var(--cyan);color:var(--on-cyan);font-weight:700;font-size:14px}
+.steps .chans{margin-top:6px}
+@media (min-width:760px){.hero .reel{height:300px}.hero-grid{align-items:start}}
+.findopen{color:var(--ok);font-weight:600}
+.findopen[data-state="closed"]{color:var(--stop)}
+.hero .loc span{display:inline}
+.trust.compact .tr-tile{column-gap:6px;padding:9px 10px}
+.trust.compact .tr-sc{gap:6px}
+.trust.compact .tr-num{font-size:32px}
+.trust.compact .stars{gap:1px}
+.trust.compact .stars .ic{width:11px;height:11px}
+.mbar a{height:50px}
+.swipe{padding-bottom:22px}
+#reviews{padding-top:26px}
+#reviews .scroller{margin-top:12px}
+.swipe .ba{aspect-ratio:16/9}
+@media (max-width:599px){.proof-cap span+span{display:none}}
+.steps{margin-top:12px;padding:12px 14px;gap:8px}
+.steps li{font-size:15px}
+.steps li:last-child > span:last-child{display:flex;flex-wrap:wrap;align-items:center;column-gap:8px}
+.steps .chans{margin-top:4px}
+.swipe{padding-top:12px;padding-bottom:12px}
+.swipe .jt{min-height:56px}
+#reviews{padding-top:16px}
+.h2s{font:700 19px/1.25 var(--f-b);letter-spacing:-.01em}
+.swipe .ba{aspect-ratio:2/1}
+.proof-cap{margin-top:6px}
+.steps .chans{display:inline-flex;vertical-align:middle;margin:0 6px 0 0}
+.steps .chans span{width:22px;height:22px;border-radius:6px}
+.steps .chans span .ic{width:13px;height:13px}
+.steps li:last-child > span:last-child{display:block}
+.steps li.s2{grid-template-columns:30px 1fr auto;align-items:center}
+.tc-thumb{width:92px;height:56px;object-fit:cover;border-radius:10px;border:1px solid var(--line-2)}
+.tc{position:relative;margin:14px 0 0;border-radius:var(--r-xl);overflow:hidden;border:1px solid var(--line);aspect-ratio:1200/832}
+.tc img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.tc figcaption{position:absolute;left:0;right:0;bottom:0;padding:34px 16px 12px;background:linear-gradient(180deg,rgba(6,11,18,0),rgba(6,11,18,.85));color:#fff;font:600 16px/1.3 var(--f-d)}
+.credit{margin-top:6px;font-size:14px;color:var(--mist)}
+.credit a,.foot a[href*="wikimedia"]{color:var(--mist)}
+.tlinks{font-size:14.5px;column-gap:2px}
+.tlinks a{padding:0 3px}
+html:lang(kk) .hero h1,html:lang(uz-Latn) .hero h1{font-size:clamp(23px,6.1vw,52px);letter-spacing:-.035em}
+/* item 29: real TerraCity photo band */
+.hero{padding:0 0 12px}
+.band{position:relative;height:214px;overflow:hidden;background:#0B1520;isolation:isolate}
+.band-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:22% 42%;z-index:-2}
+.band::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(6,11,18,.35) 0%,rgba(6,11,18,.25) 30%,rgba(6,11,18,.82) 62%,rgba(6,11,18,.96) 100%)}
+.band-in{height:100%;display:flex;flex-direction:column;justify-content:space-between;padding:12px 0 12px}
+.band .loc{background:rgba(6,11,18,.62);border-color:rgba(255,255,255,.28);color:#fff;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.band .loc .nm{color:#7DEBF6}
+.band .loc .ic{color:#7DEBF6}
+.band h1{color:#fff;margin:0;text-shadow:0 2px 18px rgba(0,0,0,.45)}
+.hero .trust.compact{margin-top:10px}
+.hero .reel{margin-top:10px}
+@media (min-width:760px){.band{height:360px}.band-img{object-position:30% 40%}.band h1{max-width:18ch}}
+.band .loc span{color:#fff}
+.band .loc .nm{color:#7DEBF6}
+/* item 30: header fit */
+.top-r{gap:6px}
+.brand .wm{display:inline;font-size:12px;letter-spacing:.02em}
+.hstat{padding:0 9px 0 8px;gap:5px}
+.top .rchip{display:none}
+@media (min-width:640px){.top .rchip{display:inline-flex}}
+@media (max-width:340px){.brand .wm{display:none}}
+.band-in{justify-content:flex-start;gap:8px}
+.band-in h1{margin-top:auto}
+.band-top{display:flex;flex-wrap:wrap;gap:6px}
+.bstat{display:inline-flex;align-items:center;gap:7px;align-self:flex-start;min-height:30px;padding:0 11px 0 9px;border-radius:999px;background:rgba(6,11,18,.62);border:1px solid rgba(91,227,161,.55);color:#fff;font-size:14px;font-weight:600;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.bstat[data-state="soon"]{border-color:rgba(242,196,106,.6)}.bstat[data-state="soon"] .dot{background:#F2C46A;animation:none}
+.bstat[data-state="closed"]{border-color:rgba(245,147,132,.6)}.bstat[data-state="closed"] .dot{background:#F59384;animation:none}
+.band{height:232px}
+.credit a,.foot a{display:inline-flex;align-items:center;min-height:44px}
+/* fit fixes */
+.wm{padding-right:3px}
+.also li > div{min-width:0}
+@media (max-width:419px){.pair[data-send]{grid-template-columns:1fr}}
+.pair .btn{min-width:0}
+.band .loc{min-height:44px}
+.wc .t2h{display:inline-flex;align-items:center;min-height:44px;padding:0 12px;text-decoration:none}
+.info a{display:inline-flex;align-items:center;min-height:44px}
+.tlinks a{min-width:44px;justify-content:center}
+.band{height:240px}
+/* item 32 */
+.band-img{will-change:transform;animation:kb 14s ease-in-out infinite alternate;transform-origin:30% 45%}
+@keyframes kb{from{transform:scale(1) translate3d(0,0,0)}to{transform:scale(1.12) translate3d(-2.5%,-1.5%,0)}}
+@media (prefers-reduced-motion:reduce){.band-img{animation:none;transform:none}}
+.band{height:222px}
+.tr-tile{gap:6px;padding:12px 14px}
+.tr-src{display:flex;align-items:center;gap:7px;font-size:14px;font-weight:600;color:var(--mist);white-space:nowrap}
+.gmark,.ymark{width:20px;height:20px;flex:none}
+.tr-sc{display:flex;align-items:center;gap:8px;flex-wrap:nowrap}
+.tr-num{font-size:44px}
+.tr-tile .stars .ic{width:14px;height:14px}
+.tr-l{font-size:15px;color:var(--ice);font-weight:600;white-space:nowrap}
+.trust.compact .tr-tile{display:grid;grid-template-columns:1fr;row-gap:6px;padding:12px 14px}
+.trust.compact .tr-sc,.trust.compact .stars,.trust.compact .tr-l{grid-column:auto}
+.trust.compact .tr-num{font-size:44px}
+.trust.compact .stars .ic{width:13px;height:13px}
+.trust.compact .tr-l{font-size:15px}
+.trust.yfirst .tr-tile.y{order:-1}
+.tr-sc .stars{flex-direction:row}
+@media (max-width:374px){.tr-num,.trust.compact .tr-num{font-size:38px}.tr-tile .stars .ic,.trust.compact .stars .ic{width:12px;height:12px}}
+.chip[hidden]{display:none}
+/* items 32b fit, 33, 34 */
+.tr-sc{flex-wrap:wrap;row-gap:2px}
+.band{height:212px}
+.phint{display:flex;align-items:center;gap:6px;margin-top:8px;font-size:15px;font-weight:600;color:var(--ice)}
+.phint .pi2{width:24px;height:24px;border-radius:7px;display:grid;place-items:center;background:var(--surface-2);border:1px solid var(--line)}
+.phint .pi2 .ic{width:14px;height:14px}
+.phint .w{color:#1FAA59}.phint .t{color:#229ED9}
+.mbar a.wa,.mbar a.tg{font-weight:700}
+.dot{position:relative;animation:none!important;box-shadow:none}
+.dot::after{content:"";position:absolute;inset:0;border-radius:50%;background:inherit;animation:ring 1.8s ease-out infinite}
+@keyframes ring{from{transform:scale(1);opacity:.65}to{transform:scale(2.8);opacity:0}}
+[data-state="closed"] .dot{background:#8FA1B0!important}
+[data-state="closed"] .dot::after,[data-state="soon"] .dot::after{animation:none;opacity:0}
+@media (prefers-reduced-motion:reduce){.dot::after{animation:none;opacity:0}}
+.tr-tile{min-width:0}
+.tr-src{white-space:normal;line-height:1.2;min-width:0}
+.tr-src span{min-width:0;text-wrap:balance}
+@media (max-width:379px){.tr-tile,.trust.compact .tr-tile{padding:11px 10px}.gmark,.ymark{width:18px;height:18px}}
+/* desktop >= 900 */
+.wrap{width:min(100% - 32px,1120px)}
+@media (min-width:900px){
+  .band{height:380px}
+  .band h1{font-size:clamp(40px,4.2vw,56px);max-width:17ch}
+  .hero .reel{height:280px}
+  .hero-grid{gap:24px}
+  .swipe .wrap{display:grid;grid-template-columns:1.25fr 1fr;column-gap:32px;align-items:start}
+  .swipe .journeys{grid-column:1/-1}
+  .swipe #workH,.swipe .ba,.swipe .proof-cap{grid-column:1}
+  .swipe .steps{grid-column:2;grid-row:2/5;margin-top:20px}
+  .swipe .ba{aspect-ratio:16/10}
+  .rvs .rv{width:340px}
+  .pc{width:260px}
+}
+
+/* === final pass: video hero, calmer first screen, clean desktop === */
+.band{height:248px}
+.band-img{animation:none;transform:none;will-change:auto;object-position:50% 40%}
+.band-vid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 40%;z-index:-2;opacity:0;transition:opacity .6s var(--ease);pointer-events:none}
+.band-vid.on{opacity:1}
+.band::after{background:linear-gradient(180deg,rgba(6,11,18,.42) 0%,rgba(6,11,18,.08) 26%,rgba(6,11,18,.16) 42%,rgba(6,11,18,.86) 74%,var(--bg) 100%)}
+:root[data-theme="light"] .band::after{background:linear-gradient(180deg,rgba(6,11,18,.42) 0%,rgba(6,11,18,.08) 26%,rgba(6,11,18,.16) 42%,rgba(6,11,18,.84) 74%,rgba(6,11,18,.94) 100%)}
+.band h1{text-shadow:0 1px 2px rgba(0,0,0,.5),0 4px 24px rgba(0,0,0,.55)}
+.hero .trust.compact{margin-top:12px;box-shadow:0 18px 40px -24px rgba(0,0,0,.7)}
+.tr-tile .stars{color:var(--gold)}
+.tr-l{color:var(--mist)}
+.tr-l b,.tr-l{font-weight:600}
+.phint{margin-top:10px;color:var(--mist);font-weight:500}
+.hero .reel{box-shadow:0 18px 40px -24px rgba(0,0,0,.7)}
+html{scrollbar-width:thin}
+@media (min-width:900px){
+  .band{height:min(56vh,470px);min-height:400px}
+  .band-in{padding:20px 0 30px}
+  .band h1{font-size:clamp(40px,3.9vw,54px);line-height:1.08;max-width:16ch}
+  .hero{padding-bottom:28px}
+  .hero-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px;align-items:stretch;margin-top:-6px}
+  .hero-grid > div{display:flex;flex-direction:column;min-width:0}
+  .hero .trust.compact{margin-top:0;flex:1;display:grid}
+  .hero .trust.compact .tr-tiles{height:100%}
+  .hero .trust.compact .tr-tile{padding:22px 24px;align-content:center;row-gap:10px}
+  .hero .trust.compact .tr-num{font-size:64px}
+  .hero .trust.compact .stars .ic{width:18px;height:18px}
+  .hero .trust.compact .tr-l,.hero .tr-src{font-size:16px}
+  .phint{margin-top:14px;font-size:16px}
+  .hero .reel{margin-top:0;height:auto;flex:1;min-height:250px;max-height:290px}
+  .swipe{padding-top:4px}
+}
+.top .rchip{height:44px}
+</style>
+<script>try{if(localStorage.getItem('af_theme')==='light')document.documentElement.setAttribute('data-theme','light')}catch(e){}</script>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-wa" viewBox="0 0 24 24"><path d="M12 3.3a8.7 8.7 0 0 0-7.5 13.1L3.3 20.7l4.4-1.1A8.7 8.7 0 1 0 12 3.3z"/><path d="M9.1 8.3c.2-.4.4-.5.7-.5h.5c.2 0 .4.1.5.3l.7 1.7c.1.2 0 .5-.1.6l-.5.6c-.1.1-.1.3 0 .5a6.6 6.6 0 0 0 2.6 2.5c.2.1.4.1.5 0l.6-.6c.2-.2.4-.2.6-.1l1.6.8c.3.1.4.3.4.5v.4c0 .4-.2.7-.5.9-.6.3-1.3.5-2 .3-2.5-.6-4.6-2.8-5.2-5.3-.2-.6 0-1.2.4-1.6z" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="i-call" viewBox="0 0 24 24"><path d="M6.2 3.8h2.6l1.4 3.8-1.9 1.2a11 11 0 0 0 5 5l1.2-1.9 3.8 1.4v2.6a2 2 0 0 1-2.2 2A15.6 15.6 0 0 1 4.2 6a2 2 0 0 1 2-2.2z"/></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.6"/><path d="M3.6 12h16.8M12 3.4c2.4 2.5 3.6 5.4 3.6 8.6s-1.2 6.1-3.6 8.6c-2.4-2.5-3.6-5.4-3.6-8.6S9.6 5.9 12 3.4z"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-6.6-5.7-6.6-11.1a6.6 6.6 0 0 1 13.2 0C18.6 15.3 12 21 12 21z"/><circle cx="12" cy="9.8" r="2.4"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 2.8l2.8 5.8 6.3.8-4.6 4.4 1.2 6.3L12 17l-5.7 3.1 1.2-6.3L2.9 9.4l6.3-.8z"/></symbol>
+  <symbol id="i-chev" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></symbol>
+  <symbol id="i-back" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.2 4.2L19 7"/></symbol>
+  <symbol id="i-screen" viewBox="0 0 24 24"><rect x="6" y="2.6" width="12" height="18.8" rx="2.6"/><path d="M9.2 7.2l2.6 3-1.6 2.2 3.2 3.6"/></symbol>
+  <symbol id="i-battery" viewBox="0 0 24 24"><rect x="7" y="4.5" width="10" height="16" rx="2.2"/><path d="M10 2.6h4M12.7 8.4l-2.2 4h3l-2.1 4"/></symbol>
+  <symbol id="i-plug" viewBox="0 0 24 24"><path d="M9 3v4M15 3v4M7 7h10v3a5 5 0 0 1-10 0V7zM12 15v6"/></symbol>
+  <symbol id="i-backglass" viewBox="0 0 24 24"><rect x="6" y="2.6" width="12" height="18.8" rx="2.6"/><rect x="8.3" y="5" width="4.6" height="4.6" rx="1.3"/></symbol>
+  <symbol id="i-camera" viewBox="0 0 24 24"><path d="M4 8h3.2l1.6-2.6h6.4L16.8 8H20v11H4z"/><circle cx="12" cy="13.4" r="3.4"/></symbol>
+  <symbol id="i-drop" viewBox="0 0 24 24"><path d="M12 3.4s6 6.4 6 10.6a6 6 0 0 1-12 0C6 9.8 12 3.4 12 3.4z"/></symbol>
+  <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3.5l1.7 5.1 5.1 1.7-5.1 1.7L12 17.1l-1.7-5.1-5.1-1.7 5.1-1.7zM18.5 15.5l.8 2.2 2.2.8-2.2.8-.8 2.2-.8-2.2-2.2-.8 2.2-.8z"/></symbol>
+  <symbol id="i-swap" viewBox="0 0 24 24"><path d="M7 4v13M7 17l-3-3M7 17l3-3M17 20V7M17 7l-3 3M17 7l3 3"/></symbol>
+  <symbol id="i-dots" viewBox="0 0 24 24"><circle cx="6" cy="12" r="1.3"/><circle cx="12" cy="12" r="1.3"/><circle cx="18" cy="12" r="1.3"/></symbol>
+  <symbol id="i-wrench" viewBox="0 0 24 24"><path d="M14.7 4.2a4.7 4.7 0 0 0-4.3 6.5L4 17.1a2 2 0 0 0 2.9 2.9l6.4-6.4a4.7 4.7 0 0 0 6.5-4.3l-2.8 1.1-2.3-.6-.6-2.3z"/></symbol>
+  <symbol id="i-tag" viewBox="0 0 24 24"><path d="M3.5 12.2V4.4a.9.9 0 0 1 .9-.9h7.8l8.3 8.3a1.3 1.3 0 0 1 0 1.8l-6.3 6.3a1.3 1.3 0 0 1-1.8 0z"/><circle cx="8.2" cy="8.2" r="1.4"/></symbol>
+  <symbol id="i-cart" viewBox="0 0 24 24"><path d="M5 8h14l-1.2 11.4a1.8 1.8 0 0 1-1.8 1.6H8a1.8 1.8 0 0 1-1.8-1.6z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/></symbol>
+  <symbol id="i-laptop" viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="10" rx="1.6"/><path d="M3 18.5h18"/></symbol>
+  <symbol id="i-car" viewBox="0 0 24 24"><path d="M4 16.5v-4l2.2-5h11.6l2.2 5v4zM4 16.5V19M20 16.5V19M4 12.5h16"/><circle cx="7.6" cy="14.6" r=".6"/><circle cx="16.4" cy="14.6" r=".6"/></symbol>
+  <symbol id="i-watch" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M9.2 7.8L10 3h4l.8 4.8M9.2 16.2L10 21h4l.8-4.8M12 10v2l1.3 1"/></symbol>
+  <symbol id="i-case" viewBox="0 0 24 24"><rect x="5.5" y="2.6" width="13" height="18.8" rx="3.4"/><rect x="8" y="5" width="4.4" height="4.4" rx="1.2"/><path d="M5.5 13h-1.5"/></symbol>
+  <symbol id="i-doc" viewBox="0 0 24 24"><path d="M6 3h12v18l-2-1.4-2 1.4-2-1.4-2 1.4-2-1.4L6 21z"/><path d="M9 8h6M9 11.5h6M9 15h3.5"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l7 2.8v5.6c0 4.4-2.9 8-7 9.6-4.1-1.6-7-5.2-7-9.6V5.8z"/><path d="M9 12l2.2 2.2L15.2 10"/></symbol>
+  <symbol id="i-hand" viewBox="0 0 24 24"><path d="M8 12V5.6a1.4 1.4 0 0 1 2.8 0V11M10.8 10.6V4.4a1.4 1.4 0 0 1 2.8 0v6.2M13.6 10.8V5.6a1.4 1.4 0 0 1 2.8 0v7.6M8 12l-1.3-1.6a1.4 1.4 0 0 0-2.2 1.7L8 17a6 6 0 0 0 4.8 3.2h.6a5 5 0 0 0 5-5v-5a1.4 1.4 0 0 0-2.8 0"/></symbol>
+  <symbol id="i-bag" viewBox="0 0 24 24"><path d="M5.5 8h13l-1 12h-11z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/></symbol>
+  <symbol id="i-nav" viewBox="0 0 24 24"><path d="M3.5 10.8L20.5 3.5l-7.3 17-2-7.7z"/></symbol>
+  <symbol id="i-ig" viewBox="0 0 24 24"><rect x="3.6" y="3.6" width="16.8" height="16.8" rx="5"/><circle cx="12" cy="12" r="3.9"/><circle cx="17.1" cy="6.9" r=".6" fill="currentColor"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5.5v13l10.5-6.5z" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="i-pause" viewBox="0 0 24 24"><path d="M8 5.5h2.6v13H8zM13.4 5.5H16v13h-2.6z" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="i-drag" viewBox="0 0 24 24"><path d="M9 7l-5 5 5 5M15 7l5 5-5 5"/></symbol>
+  <symbol id="i-store" viewBox="0 0 24 24"><path d="M4 9.5L5.5 4h13L20 9.5M4 9.5h16M4 9.5a2.7 2.7 0 0 0 5.3 0 2.7 2.7 0 0 0 5.4 0 2.7 2.7 0 0 0 5.3 0M5.5 12v8h13v-8M10 20v-5h4v5"/></symbol>
+  <symbol id="i-box" viewBox="0 0 24 24"><path d="M4 7.5L12 4l8 3.5v9L12 20l-8-3.5z"/><path d="M4 7.5l8 3.5 8-3.5M12 11v9"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M4.5 5.5h15v10h-8.5L6.5 19v-3.5h-2z"/><path d="M8.5 9.5h7M8.5 12h4.5"/></symbol>
+  <symbol id="i-tg" viewBox="0 0 24 24"><path d="M21.2 4.3L2.9 11.4c-.8.3-.8 1.4 0 1.7l4.5 1.6 1.7 5.3c.2.7 1.1.9 1.6.4l2.5-2.3 4.6 3.4c.6.4 1.4.1 1.6-.6l3.2-14.7c.2-.8-.6-1.4-1.4-1z" fill="currentColor" stroke="none"/><path d="M7.6 14.6l9.6-6.4-7.4 7.6" fill="none" stroke="#fff" stroke-opacity=".55" stroke-width="1.2"/></symbol>
+  <symbol id="i-up" viewBox="0 0 24 24"><path d="M12 19V5M5.5 11.5L12 5l6.5 6.5"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.6A8 8 0 1 1 9.4 4a6.4 6.4 0 0 0 10.6 10.6z"/></symbol>
+  <symbol id="i-reply" viewBox="0 0 24 24"><path d="M9.5 8.5L4.5 13l5 4.5M4.8 13H14a5.5 5.5 0 0 1 5.5 5.5"/></symbol>
+</svg>
+
+<a class="skip" href="#main" data-i18n="skip">İçeriğe geç</a>
+<div class="demobar"><div class="wrap"><span class="d-full" data-i18n="demo">Demo · Onaz Studio tarafından Antalya Fix için hazırlanmıştır</span><span class="d-short" data-i18n="demo_m">Demo · Onaz Studio · Antalya Fix için</span></div></div>
+
+<header class="top">
+  <div class="wrap top-in">
+    <a class="brand" href="#top" id="logoTop" data-i18n-aria="a_top" aria-label="Yukarı çık">
+      <img src="logo.jpg" width="32" height="32" alt="Antalya Fix" fetchpriority="high">
+      <span class="wm" translate="no">ANTALYA FI<span class="x">X</span></span>
+    </a>
+    <div class="top-r">
+      <span class="hstat" id="hstat" data-state="open" role="img"><i class="dot" aria-hidden="true"></i><span id="hstatT">Açık</span></span>
+      <a class="rchip" id="rchip" href="#reviews" data-i18n-aria="a_rating" aria-label="Puanlar ve yorumlar"><span class="rc g"><i>G</i><b class="num" data-score="4.9">4,9</b></span><span class="rc y"><i>Я</i><b class="num" data-score="5.0">5,0</b></span></a>
+      <a class="btn btn-p btn-sm wa-top" id="waTop" href="https://wa.me/905441121911" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-wa"/></svg><span translate="no">WhatsApp</span></a>
+      <button class="icon-btn theme-btn" id="themeBtn" type="button" aria-label="Açık tema"><svg class="ic sun" aria-hidden="true"><use href="#i-sun"/></svg><svg class="ic moon" aria-hidden="true"><use href="#i-moon"/></svg></button>
+      <div class="lang">
+        <button class="icon-btn lang-btn" id="langBtn" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="langMenu" data-i18n-aria="a_lang" aria-label="Dil"><span id="langCode" translate="no">TR</span></button>
+        <ul class="lang-menu" id="langMenu" hidden></ul>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+<span id="top"></span>
+<!-- 1. FIRST SCREEN -->
+<section class="hero">
+  <div class="band">
+    <picture><source media="(min-width:900px)" srcset="../media/terracity-loop.jpg" width="1280" height="720"><img class="band-img" src="../media/terracity-loop-m.jpg" width="720" height="900" fetchpriority="high" decoding="async" alt="" data-i18n-alt="tc_alt"></picture>
+    <video class="band-vid" id="bandVid" muted loop playsinline preload="auto" disablepictureinpicture tabindex="-1" aria-hidden="true"></video>
+    <div class="wrap band-in">
+      <div class="band-top"><a class="loc" href="#find"><svg class="ic" aria-hidden="true"><use href="#i-pin"/></svg><span><span class="nm" translate="no">Antalya Fix</span> · <span data-i18n="hero_loc">TerraCity AVM · Kat −2</span></span></a>
+</div>
+      <span class="bstat" id="bstat" data-state="open" role="status"><i class="dot" aria-hidden="true"></i><span id="bstatT">Şu an açık · 22:00’ye kadar</span></span>
+      <h1 data-i18n="hero_h1">Siz keyifli vakit geçirirken telefonunuz hızlıca tamir olsun.</h1>
+    </div>
+  </div>
+  <div class="wrap hero-in hero-grid">
+    <div>
+      <div class="trust compact" id="trust"><div class="tr-tiles"><a class="tr-tile g" href="https://www.google.com/maps/search/?api=1&amp;query=Antalya+Fix+TerraCity" target="_blank" rel="noopener"><span class="tr-src"><svg class="gmark" viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9 3.5l6.7-6.7C35.6 2.4 30.2 0 24 0 14.6 0 6.6 5.4 2.7 13.3l7.8 6C12.4 13.6 17.7 9.5 24 9.5z"/><path fill="#4285F4" d="M46.1 24.5c0-1.6-.1-3.1-.4-4.5H24v9h12.4c-.5 2.9-2.2 5.3-4.6 6.9l7.5 5.8c4.4-4 6.8-10 6.8-17.2z"/><path fill="#FBBC05" d="M10.5 28.7A14.5 14.5 0 0 1 9.5 24c0-1.6.3-3.2.9-4.7l-7.8-6A24 24 0 0 0 0 24c0 3.9.9 7.5 2.6 10.7l7.9-6z"/><path fill="#34A853" d="M24 48c6.5 0 11.9-2.1 15.9-5.8l-7.5-5.8c-2.1 1.4-4.8 2.3-8.4 2.3-6.3 0-11.6-4.1-13.5-9.8l-7.9 6C6.6 42.6 14.6 48 24 48z"/></svg><span data-i18n="fd_tab_g">Google Haritalar</span></span><span class="tr-sc"><span class="tr-num" data-score="4.9">4,9</span><span class="stars" role="img" aria-label="5/5"><svg class="ic fill" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic fill" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic fill" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic fill" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic fill" aria-hidden="true"><use href="#i-star"/></svg></span></span><span class="tr-l" data-i18n="c_g">419 yorum</span></a><a class="tr-tile y" href="https://yandex.ru/maps/org/antalya_fix/157554788738/reviews/" target="_blank" rel="noopener"><span class="tr-src"><svg class="ymark" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="24" fill="#FC3F1D"/><path fill="#fff" d="M27.1 37.5h4.4V10.5h-6.4c-6.4 0-9.8 3.3-9.8 8.2 0 3.9 1.9 6.2 5.2 8.6l-5.8 10.2h4.8l6.4-11.4-2.2-1.5c-2.7-1.8-4-3.3-4-6.3 0-2.7 1.9-4.5 5.4-4.5h2z"/></svg><span data-i18n="fd_tab_y">Yandex Haritalar</span></span><span class="tr-sc"><span class="tr-num" data-score="5.0">5,0</span><span class="stars" role="img" aria-label="5/5"><svg class="ic fill" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic fill" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic fill" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic fill" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic fill" aria-hidden="true"><use href="#i-star"/></svg></span></span><span class="tr-l" data-i18n="c_y">33 puan</span></a></div></div>
+      <p class="phint"><span class="pi2 w"><svg class="ic" aria-hidden="true"><use href="#i-wa"/></svg></span><span class="pi2 t"><svg class="ic fill" aria-hidden="true"><use href="#i-tg"/></svg></span><span data-i18n="price_hint">Fiyat sor: WhatsApp ya da Telegram</span></p>
+    </div>
+    <div>
+      <div class="reel">
+        <video id="reel" muted loop playsinline autoplay preload="metadata" poster="../media/reel.jpg" width="720" height="900" data-i18n-aria="wk_video" aria-label="Tamir videosu"><source src="../media/reel.mp4" type="video/mp4"></video>
+        <span class="rlbl"><svg class="ic" aria-hidden="true"><use href="#i-ig"/></svg><span data-i18n="reel_lbl">Kendi tezgâhımızdan</span></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 2. FIRST SWIPE: journeys, before/after, 3 steps -->
+<section class="sec swipe" id="start" aria-labelledby="workH">
+  <div class="wrap">
+    <nav class="journeys" data-i18n-aria="a_journeys" aria-label="Ne yapmak istiyorsunuz?">
+      <button class="jt primary" type="button" data-open-sheet><span class="ji"><svg class="ic" aria-hidden="true"><use href="#i-wrench"/></svg></span><b data-i18n="j_fix">Telefonumu tamir ettir</b></button>
+      <a class="jt" href="#sell" data-panel-link="sell"><span class="ji"><svg class="ic" aria-hidden="true"><use href="#i-tag"/></svg></span><b data-i18n="j_sell">Telefonumu sat</b></a>
+      <a class="jt" href="#buy" data-panel-link="buy"><span class="ji"><svg class="ic" aria-hidden="true"><use href="#i-cart"/></svg></span><b data-i18n="j_buy">Telefon al</b></a>
+      <a class="jt" href="#pc" data-panel-link="pc"><span class="ji"><svg class="ic" aria-hidden="true"><use href="#i-laptop"/></svg></span><b data-i18n="j_pc">Bilgisayar ve veri</b></a>
+    </nav>
+
+    <h2 class="h2 h2s" id="workH" style="margin-top:20px" data-i18n="wk_title">Kendi tezgâhımızdan gerçek işler</h2>
+    <div class="ba" id="ba" style="margin-top:12px">
+      <img src="../media/after.jpg" width="900" height="1126" loading="lazy" decoding="async" alt="" data-i18n-alt="alt_after">
+      <img class="before" src="../media/before.jpg" width="900" height="1126" loading="lazy" decoding="async" alt="" data-i18n-alt="alt_before">
+      <span class="line"></span><span class="knob" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="#i-drag"/></svg></span>
+      <span class="lab l" data-i18n="wk_before" aria-hidden="true">Önce</span><span class="lab r" data-i18n="wk_after" aria-hidden="true">Sonra</span>
+      <input type="range" min="0" max="100" value="50" id="baRange" data-i18n-aria="wk_drag" aria-label="Kaydırarak karşılaştırın">
+    </div>
+    <p class="proof-cap"><span data-i18n="wk_ba_title">iPhone 15 Pro Max arka cam: önce ve sonra</span><span data-i18n="wk_drag">Kaydırarak karşılaştırın</span></p>
+
+    <ol class="steps">
+      <li><span class="n">1</span><span data-i18n="tl_1">Telefonu bırakın</span></li>
+      <li class="s2"><span class="n">2</span><span data-i18n="tl_2">Siz keyfinize bakın</span><img class="tc-thumb" src="../media/terracity-720.jpg" srcset="../media/terracity-720.jpg 720w, ../media/terracity.jpg 1200w" sizes="120px" width="720" height="500" loading="lazy" decoding="async" alt="" data-i18n-alt="tc_alt"></li>
+      <li><span class="n">3</span><span><span class="chans" aria-hidden="true"><span class="w"><svg class="ic" aria-hidden="true"><use href="#i-wa"/></svg></span><span class="t"><svg class="ic fill" aria-hidden="true"><use href="#i-tg"/></svg></span><span><svg class="ic" aria-hidden="true"><use href="#i-call"/></svg></span></span> <span data-i18n="tl_3">Hazır olunca WhatsApp, Telegram ya da telefonla haber verelim</span></span></li>
+    </ol>
+  </div>
+</section>
+
+<!-- 4. REVIEWS -->
+<section class="sec" id="reviews" aria-labelledby="rvH">
+  <div class="wrap">
+    <h2 class="h2" id="rvH" data-i18n="rv_title">Bizi ilk kez deneyenler ne yazdı?</h2>
+    <div class="carousel"><div class="scroller rvs" id="rvs"></div></div>
+    <div class="trust rv-trust compact" style="margin-top:14px"><div class="tr-tiles"><a class="tr-tile g" href="https://www.google.com/maps/search/?api=1&amp;query=Antalya+Fix+TerraCity" target="_blank" rel="noopener"><span class="tr-src"><svg class="gmark" viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9 3.5l6.7-6.7C35.6 2.4 30.2 0 24 0 14.6 0 6.6 5.4 2.7 13.3l7.8 6C12.4 13.6 17.7 9.5 24 9.5z"/><path fill="#4285F4" d="M46.1 24.5c0-1.6-.1-3.1-.4-4.5H24v9h12.4c-.5 2.9-2.2 5.3-4.6 6.9l7.5 5.8c4.4-4 6.8-10 6.8-17.2z"/><path fill="#FBBC05" d="M10.5 28.7A14.5 14.5 0 0 1 9.5 24c0-1.6.3-3.2.9-4.7l-7.8-6A24 24 0 0 0 0 24c0 3.9.9 7.5 2.6 10.7l7.9-6z"/><path fill="#34A853" d="M24 48c6.5 0 11.9-2.1 15.9-5.8l-7.5-5.8c-2.1 1.4-4.8 2.3-8.4 2.3-6.3 0-11.6-4.1-13.5-9.8l-7.9 6C6.6 42.6 14.6 48 24 48z"/></svg><span data-i18n="fd_tab_g">Google Haritalar</span></span><span class="tr-sc"><span class="tr-num" data-score="4.9">4,9</span><span class="stars" role="img" aria-label="5/5"><svg class="ic fill" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic fill" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic fill" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic fill" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic fill" aria-hidden="true"><use href="#i-star"/></svg></span></span><span class="tr-l" data-i18n="c_g">419 yorum</span></a><a class="tr-tile y" href="https://yandex.ru/maps/org/antalya_fix/157554788738/reviews/" target="_blank" rel="noopener"><span class="tr-src"><svg class="ymark" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="24" fill="#FC3F1D"/><path fill="#fff" d="M27.1 37.5h4.4V10.5h-6.4c-6.4 0-9.8 3.3-9.8 8.2 0 3.9 1.9 6.2 5.2 8.6l-5.8 10.2h4.8l6.4-11.4-2.2-1.5c-2.7-1.8-4-3.3-4-6.3 0-2.7 1.9-4.5 5.4-4.5h2z"/></svg><span data-i18n="fd_tab_y">Yandex Haritalar</span></span><span class="tr-sc"><span class="tr-num" data-score="5.0">5,0</span><span class="stars" role="img" aria-label="5/5"><svg class="ic fill" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic fill" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic fill" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic fill" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic fill" aria-hidden="true"><use href="#i-star"/></svg></span></span><span class="tr-l" data-i18n="c_y">33 puan</span></a></div></div>
+    <div class="rv-acts">
+      <div class="pair readpair">
+        <a class="btn btn-g" data-read="g" href="https://www.google.com/maps/search/?api=1&amp;query=Antalya+Fix+TerraCity" target="_blank" rel="noopener"><span class="mark" aria-hidden="true">G</span><span data-i18n="rv_all">Google’da oku</span></a>
+        <a class="btn btn-g" data-read="y" href="https://yandex.ru/maps/org/antalya_fix/157554788738/reviews/" target="_blank" rel="noopener"><span class="mark y" aria-hidden="true">Я</span><span data-i18n="rv_all_y">Yandex’te oku</span></a>
+      </div>
+      <a class="btn btn-g btn-block" href="https://www.google.com/maps/search/?api=1&amp;query=Antalya+Fix+TerraCity" target="_blank" rel="noopener"><svg class="ic fill" aria-hidden="true" style="color:var(--gold)"><use href="#i-star"/></svg><span data-i18n="af_btn">Google’da yorum yazın</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- 4b. WHAT WE DO -->
+<section class="sec" id="work" aria-labelledby="swH">
+  <div class="wrap">
+    <h2 class="h2" id="swH" data-i18n="sw_title">Yaptığımız işler</h2>
+    <p class="lede" data-i18n="sw_sub"></p>
+    <div class="carousel"><div class="scroller" id="workCards"></div></div>
+  </div>
+</section>
+
+<!-- 5. JOURNEYS / FORMS -->
+<section class="sec" id="act" aria-labelledby="actH">
+  <div class="wrap">
+    <h2 class="h2" id="actH" data-i18n="a_journeys">Ne yapmak istiyorsunuz?</h2>
+    <div class="seg" role="tablist" data-i18n-aria="a_journeys" aria-label="Ne yapmak istiyorsunuz?">
+      <button type="button" role="tab" id="tb-repair" aria-controls="repair" aria-selected="true" data-panel="repair"><svg class="ic" aria-hidden="true"><use href="#i-wrench"/></svg><span data-i18n="j_fix">Telefonumu tamir ettir</span></button>
+      <button type="button" role="tab" id="tb-sell" aria-controls="sell" aria-selected="false" tabindex="-1" data-panel="sell"><svg class="ic" aria-hidden="true"><use href="#i-tag"/></svg><span data-i18n="j_sell">Telefonumu sat</span></button>
+      <button type="button" role="tab" id="tb-buy" aria-controls="buy" aria-selected="false" tabindex="-1" data-panel="buy"><svg class="ic" aria-hidden="true"><use href="#i-cart"/></svg><span data-i18n="j_buy">Telefon al</span></button>
+      <button type="button" role="tab" id="tb-pc" aria-controls="pc" aria-selected="false" tabindex="-1" data-panel="pc"><svg class="ic" aria-hidden="true"><use href="#i-laptop"/></svg><span data-i18n="j_pc">Bilgisayar ve veri</span></button>
+    </div>
+
+    <div class="panel" id="repair" role="tabpanel" aria-labelledby="tb-repair">
+      <h3 data-i18n="q_title">Tamir fiyatını yazmadan sorun</h3>
+      <p class="note" data-i18n="q_sub"></p>
+      <div class="brands" id="brandsInline"></div>
+    </div>
+
+    <div class="panel" id="sell" role="tabpanel" aria-labelledby="tb-sell" hidden>
+      <h3 data-i18n="s_title">Telefonunuzu bize satın</h3>
+      <p class="note" data-i18n="s_sub"></p>
+      <p class="rline" data-rline></p>
+      <form class="box" id="est" novalidate style="margin-top:12px">
+        <fieldset class="fs"><legend data-i18n="s_brand">Marka</legend><div class="chips" id="sBrand"></div></fieldset>
+        <fieldset class="fs" id="fsModel" hidden><legend data-i18n="s_model">Model</legend><label class="sr" for="sSearch" data-i18n="s_search">Model ara</label><input class="field" id="sSearch" type="search" name="model-search" autocomplete="off" spellcheck="false" data-i18n-ph="s_search_ph" placeholder="Model ara…" style="margin-bottom:10px"><div class="chips" id="sModel"></div>
+          <div id="sModelTxtWrap" hidden><label class="sr" for="sModelTxt" data-i18n="s_model">Model</label><input class="field" id="sModelTxt" name="sell-model" type="text" autocomplete="off" spellcheck="false" data-i18n-ph="s_model_ph" placeholder="örn. Galaxy S21…"></div>
+        </fieldset>
+        <fieldset class="fs" id="fsStorage" hidden><legend data-i18n="s_storage">Hafıza</legend><div class="chips" id="sStorage"></div></fieldset>
+        <fieldset class="fs"><legend data-i18n="s_screen">Ekran</legend><div class="chips">
+          <label class="chip"><input type="radio" name="screen" value="clean"><span data-i18n="c_clean">Temiz</span></label>
+          <label class="chip"><input type="radio" name="screen" value="light"><span data-i18n="c_light">Hafif çizik</span></label>
+          <label class="chip"><input type="radio" name="screen" value="cracked"><span data-i18n="c_cracked">Kırık</span></label>
+        </div></fieldset>
+        <fieldset class="fs"><legend data-i18n="s_body">Kasa</legend><div class="chips">
+          <label class="chip"><input type="radio" name="body" value="clean"><span data-i18n="b_clean">Temiz</span></label>
+          <label class="chip"><input type="radio" name="body" value="marks"><span data-i18n="b_marks">Hafif izler</span></label>
+          <label class="chip"><input type="radio" name="body" value="dents"><span data-i18n="b_dents">Ezik / çatlak</span></label>
+        </div></fieldset>
+        <fieldset class="fs"><legend data-i18n="s_battery">Pil sağlığı</legend><div class="chips" id="sBatChips"></div></fieldset>
+        <fieldset class="fs"><legend data-i18n="s_box">Kutu ve şarj aleti</legend><div class="chips">
+          <label class="chip"><input type="radio" name="box" value="full"><span data-i18n="box_full">Kutu + şarj</span></label>
+          <label class="chip"><input type="radio" name="box" value="only"><span data-i18n="box_only">Sadece kutu</span></label>
+          <label class="chip"><input type="radio" name="box" value="none"><span data-i18n="box_none">Yok</span></label>
+        </div></fieldset>
+        <fieldset class="fs"><legend data-i18n="s_bio">Face ID / Touch ID / parmak izi çalışıyor mu?</legend><div class="chips">
+          <label class="chip"><input type="radio" name="bio" value="yes"><span data-i18n="yes">Evet</span></label>
+          <label class="chip"><input type="radio" name="bio" value="no"><span data-i18n="no">Hayır</span></label>
+        </div></fieldset>
+        <fieldset class="fs"><legend data-i18n="s_wdoc">Garanti belgesi var mı?</legend><div class="chips">
+          <label class="chip"><input type="radio" name="wdoc" value="yes"><span data-i18n="yes">Evet</span></label>
+          <label class="chip"><input type="radio" name="wdoc" value="no"><span data-i18n="no">Hayır</span></label>
+          <label class="chip"><input type="radio" name="wdoc" value="unk"><span data-i18n="s_bat_unknown">Bilmiyorum</span></label>
+        </div></fieldset>
+        <label class="check" style="margin-top:8px"><input type="checkbox" id="sTrade" name="trade-in"><span data-i18n="s_trade">Yeni bir telefona takas düşünüyorum</span></label>
+      </form>
+
+      <div class="box" style="margin-top:12px">
+        <p class="rline" data-rline style="margin-top:0"></p>
+        <div class="pair" data-send="sell" style="margin-top:12px"></div>
+        <p class="note" style="margin-top:10px;display:flex;gap:8px"><svg class="ic" aria-hidden="true" style="width:18px;height:18px;color:var(--cyan)"><use href="#i-camera"/></svg><span data-i18n="s_photos">Fotoğrafları WhatsApp’ta isteyeceğiz.</span></p>
+        <p class="note" style="margin-top:8px;display:flex;gap:8px"><svg class="ic" aria-hidden="true" style="width:18px;height:18px;color:var(--cyan)"><use href="#i-swap"/></svg><span data-i18n="s_trade_note"></span></p>
+      </div>
+    </div>
+
+    <div class="panel" id="buy" role="tabpanel" aria-labelledby="tb-buy" hidden>
+      <h3 data-i18n="b_title">Telefon alın: sıfır ya da kontrol edilmiş 2. el</h3>
+      <p class="note" data-i18n="b_sub"></p>
+      <figure class="boxes"><img src="../media/boxes.jpg" width="900" height="1600" loading="lazy" decoding="async" alt="" data-i18n-alt="alt_boxes"></figure>
+      <div class="tabs" role="tablist" data-i18n-aria="j_buy" aria-label="Telefon al">
+        <button type="button" role="tab" id="tabNew" aria-selected="true" aria-controls="cards" data-cat="new" data-i18n="b_new">Sıfır</button>
+        <button type="button" role="tab" id="tabUsed" aria-selected="false" aria-controls="cards" data-cat="used" tabindex="-1" data-i18n="b_used">Kontrol edilmiş 2. el</button>
+      </div>
+      <p class="rline" data-rline></p>
+      <div class="carousel"><div class="scroller" id="cards" role="tabpanel" aria-labelledby="tabNew"></div></div>
+      <p class="note" style="margin-top:10px" data-i18n="b_other">Aradığınız model yok mu? Sorun</p>
+      <div class="pair" data-send="other" style="margin-top:10px"></div>
+    </div>
+
+    <div class="panel" id="pc" role="tabpanel" aria-labelledby="tb-pc" hidden>
+      <div class="box">
+        <h4 data-i18n="pc_h">Bilgisayarınız için</h4>
+        <p data-i18n="pc_typ"></p>
+        <fieldset class="fs" style="margin-top:14px"><legend data-i18n="pc_dev">Cihaz</legend><div class="chips">
+          <label class="chip"><input type="radio" name="pcdev" value="laptop" checked><span data-i18n="pc_laptop">Dizüstü</span></label>
+          <label class="chip"><input type="radio" name="pcdev" value="desktop"><span data-i18n="pc_desktop">Masaüstü</span></label>
+        </div></fieldset>
+        <fieldset class="fs"><legend data-i18n="pc_issue">Sorun</legend><div class="chips">
+          <label class="chip"><input type="radio" name="pcissue" value="slow" checked><span data-i18n="pc_slow">Yavaşladı</span></label>
+          <label class="chip"><input type="radio" name="pcissue" value="screen"><span data-i18n="pc_screen">Ekran</span></label>
+          <label class="chip"><input type="radio" name="pcissue" value="keyboard"><span data-i18n="pc_keyboard">Klavye</span></label>
+          <label class="chip"><input type="radio" name="pcissue" value="battery"><span data-i18n="pc_battery">Batarya</span></label>
+          <label class="chip"><input type="radio" name="pcissue" value="windows"><span data-i18n="pc_windows">Windows kurulumu</span></label>
+          <label class="chip"><input type="radio" name="pcissue" value="clean"><span data-i18n="pc_clean">Temizlik ve bakım</span></label>
+          <label class="chip"><input type="radio" name="pcissue" value="other"><span data-i18n="pc_other">Başka</span></label>
+        </div></fieldset>
+        <p class="rline" data-rline></p>
+        <div class="pair" data-send="pc"></div>
+      </div>
+      <div class="box">
+        <div style="display:grid;grid-template-columns:84px 1fr;gap:12px;align-items:start">
+          <img src="../media/transfer.jpg" width="900" height="1600" loading="lazy" decoding="async" alt="" data-i18n-alt="alt_transfer" style="width:84px;height:112px;object-fit:cover;border-radius:12px;border:1px solid var(--line)">
+          <div><h4 data-i18n="dt_title">Yeni telefon mu aldınız?</h4><p class="note" style="margin-top:6px" data-i18n="dt_sub"></p></div>
+        </div>
+        <div style="display:grid;gap:10px;margin-top:14px">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap"><span class="flabel" style="margin:0" id="dtFromL" data-i18n="dt_from">Eski telefon</span><div class="chips" role="radiogroup" aria-labelledby="dtFromL"><label class="chip"><input type="radio" name="dtfrom" value="iPhone" checked><span translate="no">iPhone</span></label><label class="chip"><input type="radio" name="dtfrom" value="Android"><span translate="no">Android</span></label></div></div>
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap"><span class="flabel" style="margin:0" id="dtToL" data-i18n="dt_to">Yeni telefon</span><div class="chips" role="radiogroup" aria-labelledby="dtToL"><label class="chip"><input type="radio" name="dtto" value="iPhone" checked><span translate="no">iPhone</span></label><label class="chip"><input type="radio" name="dtto" value="Android"><span translate="no">Android</span></label></div></div>
+        </div>
+        <p class="rline" data-rline></p>
+        <div class="pair" data-send="data"></div>
+      </div>
+      <div class="box q">
+        <h4 data-i18n="dr_title">Telefonunuz açılmıyor, fotoğraflarınız mı lazım?</h4>
+        <p data-i18n="dr_sub"></p>
+        <p class="rline" data-rline></p>
+        <div class="pair" data-send="rec"></div>
+      </div>
+    </div>
+
+    <ul class="also" aria-labelledby="alsoH">
+      <li><span class="pi"><svg class="ic" aria-hidden="true"><use href="#i-spark"/></svg></span><div><b data-i18n="sv_scratch_t"></b><p data-i18n="sv_scratch_d"></p></div></li>
+      <li><span class="pi"><svg class="ic" aria-hidden="true"><use href="#i-case"/></svg></span><div><b data-i18n="sv_acc_t"></b><p data-i18n="sv_acc_d"></p></div></li>
+      <li><span class="pi"><svg class="ic" aria-hidden="true"><use href="#i-watch"/></svg></span><div><b data-i18n="sv_small_t"></b><p data-i18n="sv_small_d"></p></div></li>
+      <li><span class="pi"><svg class="ic" aria-hidden="true"><use href="#i-car"/></svg></span><div><b data-i18n="sv_delivery_t"></b><p data-i18n="sv_delivery_d"></p><div class="pair" data-send="del" style="margin-top:10px"></div></div></li>
+    </ul>
+    <span id="alsoH" class="sr" data-i18n="sv_title">Ayrıca</span>
+  </div>
+</section>
+
+<!-- 6. PARTS -->
+<section class="sec" id="quality" aria-labelledby="qaH">
+  <div class="wrap">
+    <h2 class="h2" id="qaH" data-i18n="parts_t">Hangi parça takılıyor? Baştan, açıkça.</h2>
+    <p class="lede" data-i18n="qa_sub"></p>
+    <div class="ptabs" role="tablist" data-i18n-aria="parts_t" aria-label="Parça">
+      <button type="button" role="tab" id="pt-orig" aria-controls="tierCard" aria-selected="true" data-tier="orig" data-i18n="t_orig">Orijinal</button>
+      <button type="button" role="tab" id="pt-oled" aria-controls="tierCard" aria-selected="false" tabindex="-1" data-tier="oled" data-i18n="t_oled">OLED muadil</button>
+      <button type="button" role="tab" id="pt-eco" aria-controls="tierCard" aria-selected="false" tabindex="-1" data-tier="eco" data-i18n="t_eco">Ekonomik (LCD)</button>
+    </div>
+    <div class="tier" id="tierCard" role="tabpanel" aria-labelledby="pt-orig"></div>
+    <ul class="prom">
+      <li><span class="pi"><svg class="ic" aria-hidden="true"><use href="#i-spark"/></svg></span><div><b data-i18n="pr1_t"></b><p data-i18n="pr1_d"></p></div></li>
+      <li><span class="pi"><svg class="ic" aria-hidden="true"><use href="#i-hand"/></svg></span><div><b data-i18n="pr3_t"></b><p data-i18n="pr3_d"></p></div></li>
+    </ul>
+  </div>
+</section>
+
+<!-- 7. INSTAGRAM -->
+<section class="sec" id="instagram" aria-labelledby="igH">
+  <div class="wrap">
+    <h2 class="h2" id="igH" style="font-size:clamp(20px,5.4vw,30px)" data-i18n="ig_title">Instagram’da son işlerimiz</h2>
+    <div class="igs">
+      <a href="https://www.instagram.com/antalyafix/reel/DJKTypLMD-9/" target="_blank" rel="noopener"><span class="sq"><img src="../media/lens.jpg" width="900" height="1498" loading="lazy" decoding="async" alt=""><span class="pl" role="img" data-i18n-aria="ig_reel" aria-label="Video"><svg class="ic" aria-hidden="true"><use href="#i-play"/></svg></span></span><span data-i18n="ig_c1"></span></a>
+      <a href="https://www.instagram.com/antalyafix/p/DJ2Cs-SsL-p/" target="_blank" rel="noopener"><span class="sq"><img src="../media/after.jpg" width="900" height="1126" loading="lazy" decoding="async" alt=""></span><span data-i18n="ig_c2"></span></a>
+      <a href="https://www.instagram.com/antalyafix/reel/Dfuz3YWoGMq/" target="_blank" rel="noopener"><span class="sq"><img src="../media/battery.jpg" width="900" height="1600" loading="lazy" decoding="async" alt=""><span class="pl" role="img" data-i18n-aria="ig_reel" aria-label="Video"><svg class="ic" aria-hidden="true"><use href="#i-play"/></svg></span></span><span data-i18n="ig_c3"></span></a>
+      <a href="https://www.instagram.com/antalyafix/reel/DE_J1OdCswb/" target="_blank" rel="noopener"><span class="sq"><img src="../media/boxes.jpg" width="900" height="1600" loading="lazy" decoding="async" alt=""><span class="pl" role="img" data-i18n-aria="ig_reel" aria-label="Video"><svg class="ic" aria-hidden="true"><use href="#i-play"/></svg></span></span><span data-i18n="ig_c4"></span></a>
+    </div>
+    <div class="ig-foot">
+      <span class="h"><svg class="ic" aria-hidden="true"><use href="#i-ig"/></svg><span translate="no">@antalyafix</span></span>
+      <a class="btn btn-p btn-sm" href="https://www.instagram.com/antalyafix/" target="_blank" rel="noopener"><span data-i18n="ig_follow">Takip et</span></a>
+      <a class="btn btn-g btn-sm" href="https://ig.me/m/antalyafix" target="_blank" rel="noopener"><span data-i18n="ig_dm">Instagram’dan yaz</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- 8. FIND -->
+<section class="sec" id="find" aria-labelledby="fdH">
+  <div class="wrap find">
+    <div>
+      <h2 class="h2" id="fdH" data-i18n="fd_title">Bizi nasıl bulursunuz</h2>
+      <figure class="tc"><img src="../media/terracity-720.jpg" srcset="../media/terracity-720.jpg 720w, ../media/terracity.jpg 1200w" sizes="(min-width:900px) 600px, 100vw" width="1200" height="832" loading="lazy" decoding="async" alt="" data-i18n-alt="tc_alt"><figcaption><span data-i18n="tc_cap">TerraCity AVM · Lara, Antalya</span></figcaption></figure>
+      <p class="credit"><a href="https://commons.wikimedia.org/wiki/File:Antalya,_Turkey_2022_-_TerraCity.jpg" target="_blank" rel="noopener" data-i18n="tc_credit">TerraCity fotoğrafı: Sharon Hahn Darlin, CC BY 2.0</a></p>
+      <figure class="store" style="margin-top:10px"><img src="../media/store.jpg" width="1000" height="1250" loading="lazy" decoding="async" alt="" data-i18n-alt="fd_store_alt"><figcaption><b data-i18n="store_cap">Dükkânımız: TerraCity AVM, Kat −2</b><span><svg class="ic" aria-hidden="true"><use href="#i-pin"/></svg><span data-i18n="hero_loc_sub">MediaMarkt tarafındaki merdivenden aşağı</span></span></figcaption></figure>
+      <div class="routes" style="margin-top:14px"><a class="btn btn-p btn-sm" data-route="g" href="https://www.google.com/maps/dir/?api=1&amp;destination=36.8521934,30.7578719" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-nav"/></svg><span data-i18n="fd_route_g">Google ile yol tarifi al</span></a><a class="btn btn-g btn-sm" data-route="y" href="https://yandex.ru/maps/?rtext=~36.852621%2C30.757812&amp;rtt=auto" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-nav"/></svg><span data-i18n="fd_route_y">Yandex ile yol tarifi al</span></a></div>
+      <div class="mapbox">
+        <div class="maptabs" role="tablist" data-i18n-aria="fd_title" aria-label="Harita">
+          <button type="button" role="tab" id="mtG" aria-controls="mapPane" aria-selected="true" data-map="g" data-i18n="fd_tab_g">Google Haritalar</button>
+          <button type="button" role="tab" id="mtY" aria-controls="mapPane" aria-selected="false" data-map="y" tabindex="-1" data-i18n="fd_tab_y">Yandex Haritalar</button>
+        </div>
+        <div class="mappane" id="mapPane" role="tabpanel" aria-labelledby="mtG"><button class="btn btn-g" type="button" id="mapShow"><svg class="ic" aria-hidden="true"><use href="#i-pin"/></svg><span data-i18n="map_show">Haritayı göster</span></button></div>
+      </div>
+    </div>
+    <div>
+      <dl class="info">
+        <div><dt data-i18n="fd_addr">Adres</dt><dd translate="no">Fener Mah. Tekelioğlu Cad. No:55, TerraCity AVM, Kat -2, 07160 Muratpaşa/Antalya</dd></div>
+        <div><dt data-i18n="fd_hours">Çalışma saatleri</dt><dd><span data-i18n="fd_hours_v">Her gün 10:00–22:00, pazar dahil</span><br><b id="findOpen" class="findopen"></b></dd></div>
+        <div><dt data-i18n="fd_phone">Telefon</dt><dd><a href="tel:+905441121911" class="num">0544 112 19 11</a></dd></div>
+        <div><dt translate="no">Plus code</dt><dd translate="no">VQ25+V4 Muratpaşa</dd></div>
+      </dl>
+      <p class="langs"><b data-i18n="lg_speak"></b> <span data-i18n="lg_write"></span></p>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div class="foot-r">
+      <span class="wm" translate="no">ANTALYA FI<span class="x">X</span></span>
+      <a class="ig-link" href="https://www.instagram.com/antalyafix/" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-ig"/></svg><span translate="no">@antalyafix</span></a>
+      <a href="tel:+905441121911" class="num">0544 112 19 11</a>
+    </div>
+    <p data-i18n="hero_what">Telefon, tablet, bilgisayar tamiri; telefon alım satımı.</p>
+    <p><a href="https://commons.wikimedia.org/wiki/File:Antalya,_Turkey_2022_-_TerraCity.jpg" target="_blank" rel="noopener" data-i18n="tc_credit">TerraCity fotoğrafı: Sharon Hahn Darlin, CC BY 2.0</a></p>
+    <p data-i18n="ft_media">Fotoğraf ve videolar: @antalyafix</p>
+    <p data-i18n="ft_demo"></p>
+    <p data-i18n="ft_site">Site: Onaz Studio</p>
+  </div>
+</footer>
+
+<nav class="mbar" id="mbar" data-i18n-aria="a_contact" aria-label="İletişim">
+  <a class="wa" id="waBar" href="https://wa.me/905441121911" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-wa"/></svg><span translate="no">WhatsApp</span></a>
+  <a class="tg" id="tgBar" href="https://t.me/+905441121911" target="_blank" rel="noopener"><svg class="ic fill" aria-hidden="true"><use href="#i-tg"/></svg><span data-i18n="bar_tg">Telegram</span></a>
+  <a href="tel:+905441121911"><svg class="ic" aria-hidden="true"><use href="#i-call"/></svg><span data-i18n="bar_call">Ara</span></a>
+  <a id="routeBar" href="https://www.google.com/maps/dir/?api=1&amp;destination=36.8521934,30.7578719" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-nav"/></svg><span data-i18n="bar_route">Yol tarifi</span></a>
+</nav>
+<button class="totop" id="totop" type="button" data-i18n-aria="a_top" aria-label="Yukarı çık"><svg class="ic" aria-hidden="true"><use href="#i-up"/></svg></button>
+<div class="toast" id="toast" role="status" aria-live="polite"><svg class="ic fill" aria-hidden="true" style="color:#229ED9"><use href="#i-tg"/></svg><span id="toastT"></span></div>
+
+<dialog class="sheet" id="sheet" aria-labelledby="shTitle">
+  <div class="sh" id="sh">
+    <div class="grab" id="grab" aria-hidden="true"><i></i></div>
+    <div class="sh-h" id="shHead">
+      <button class="icon-btn" id="shBack" type="button" data-i18n-aria="sh_back" aria-label="Geri"><svg class="ic" aria-hidden="true"><use href="#i-back"/></svg></button>
+      <div class="mid"><p class="stp" id="shStep"></p><h2 id="shTitle"></h2></div>
+      <button class="icon-btn" id="shClose" type="button" data-i18n-aria="sh_close" aria-label="Kapat"><svg class="ic" aria-hidden="true"><use href="#i-x"/></svg></button>
+    </div>
+    <div class="prog" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+    <div class="sh-b" id="shBody"></div>
+  </div>
+</dialog>
+
+<script>
+const I18N = {
+tr:{
+meta_title:"Antalya Fix · TerraCity’de telefon tamiri",
+meta_desc:"TerraCity AVM kat −2’de telefon, tablet ve bilgisayar tamiri; sıfır ve 2. el telefon. Her gün 10:00–22:00.",
+demo:"Demo · Onaz Studio tarafından Antalya Fix için hazırlanmıştır",
+skip:"İçeriğe geç",
+a_lang:"Dili değiştir",
+a_journeys:"Ne yapmak istiyorsunuz?",
+a_contact:"İletişim",
+st_open:"Şu an açık", st_closed:"Kapalı", hero_loc:"TerraCity AVM · Kat −2",
+hero_loc_sub:"MediaMarkt tarafındaki merdivenden aşağı",
+hero_h1:"Siz keyifli vakit geçirirken telefonunuz hızlıca tamir olsun.",
+j_fix:"Telefonumu tamir ettir", j_sell:"Telefonumu sat", j_buy:"Telefon al", j_pc:"Bilgisayar ve veri", wk_title:"Kendi tezgâhımızdan gerçek işler",
+wk_video:"Antalya Fix tezgâhından tamir görüntüleri",
+wk_before:"Önce", wk_after:"Sonra", wk_drag:"Kaydırarak karşılaştırın",
+wk_ba_title:"iPhone 15 Pro Max arka cam: önce ve sonra",
+alt_before:"Arka camı çatlamış iPhone 15 Pro Max", alt_after:"Aynı telefon, yeni arka camıyla", alt_transfer:"Kurulum ekranında yeni bir iPhone", alt_boxes:"Kutulu sıfır iPhone’lar",
+q_title:"Tamir fiyatını yazmadan sorun",
+q_sub:"Marka, model ve sorunu seçin. WhatsApp sizin dilinizde hazır bir mesajla açılır, siz sadece gönderin.",
+q_pick:"Telefonunuzun markası ne?",
+sh_step:"Adım {n}/4", sh_t2:"Hangi model?", sh_model_label:"Model", sh_model_ph:"Modeli yazın, örn. iPhone 13…", sh_or:"ya da listeden seçin",
+sh_t3:"Sorun ne?", sh_t4:"Mesajınız hazır", sh_device:"Cihaz", sh_problem:"Sorun", sh_edit:"Değiştir",
+sh_quality:"Ekran için parça tercihi", sh_quality_hint:"İsteğe bağlı. Emin değilseniz seçenekleri biz anlatırız.", q_unsure:"Bilmiyorum",
+sh_courier:"Gelemiyorum, adrese teslimat istiyorum",
+sh_preview:"Gönderilecek mesaj", sh_back:"Geri", sh_close:"Kapat", sh_next:"Devam",
+sh_err_model:"Modeli yazın ya da listeden seçin.",
+br_tablet:"iPad / tablet", br_other:"Başka marka", md_older:"Daha eski model",
+p_screen:"Ekran kırık", p_battery:"Batarya", p_port:"Şarj girişi", p_back:"Arka cam", p_camera:"Kamera", p_water:"Sıvı teması", p_scratch:"Ön cam çiziği", p_data:"Veri aktarımı", p_other:"Başka sorun",
+m_hello:"Merhaba Antalya Fix!",
+m_device:"{d} cihazım var.",
+m_screen:"Ekranı kırıldı.", m_battery:"Bataryası değişmeli.", m_port:"Şarj girişinde sorun var.", m_back:"Arka camı kırık.", m_camera:"Kamerasında sorun var.", m_water:"Sıvı teması oldu.", m_scratch:"Ön camı çizildi, çizikleri giderebilir misiniz?", m_data:"Verilerimi yeni telefona aktarmak istiyorum.", m_other:"Başka bir sorunu var, anlatayım.",
+m_quality:"Parça tercihim: {q}.", m_q_unsure:"Parça seçeneklerini anlatır mısınız?",
+m_courier:"Mağazaya gelemiyorum, adresten alım ve teslimat mümkün mü?",
+m_ask:"Ücreti ne olur, ne kadar sürer?",
+m_generic:"Merhaba Antalya Fix! Bir fiyat sormak istiyorum.",
+qa_sub:"Ekran tamirinde üç seçenek var ve aralarındaki fark ilk bakışta görülmez. Hepsini sade bir dille anlatıyor, kararı size bırakıyoruz.",
+t_orig:"Orijinal", t_orig_d:"Telefonun fabrikadan çıktığı parçanın aynısı. Renk, parlaklık ve dokunma hissi ilk günkü gibi.",
+t_oled:"OLED muadil", t_oled_d:"Başka bir üreticinin OLED ekranı. Siyahlar derin, renkler orijinale yakın, fiyatı daha uygun.",
+t_eco:"Ekonomik (LCD)", t_eco_d:"LCD panel. Sorunsuz çalışır, ama siyahlar biraz griye çalar ve pil daha çabuk biter. Bütçe öncelikliyse doğru seçim.",
+row_color:"Renk ve netlik", row_battery:"Pil dostu", pr1_t:"Orijinal ve titiz işçilik", pr1_d:"Instagram’daki işlerimizde görebilirsiniz: orijinal kalitede, milimetrik işçilik.",
+pr3_t:"Parça seçeneğini size soruyoruz", pr3_d:"Seçenekleri sade bir dille anlatırız, karar sizin.",
+s_title:"Telefonunuzu bize satın",
+s_sub:"Birkaç dokunuşla seçin; teklifimizi WhatsApp ya da Telegram’dan yazalım.",
+s_brand:"Marka", s_model:"Model", s_model_ph:"örn. Galaxy S21…", s_storage:"Hafıza",
+s_screen:"Ekran", c_clean:"Temiz", c_light:"Hafif çizik", c_cracked:"Kırık",
+s_body:"Kasa", b_clean:"Temiz", b_marks:"Hafif izler", b_dents:"Ezik / çatlak",
+s_battery:"Pil sağlığı", s_bat_unknown:"Bilmiyorum",
+s_box:"Kutu ve şarj aleti", box_full:"Kutu + şarj", box_only:"Sadece kutu", box_none:"Yok",
+s_bio:"Face ID / Touch ID / parmak izi çalışıyor mu?", yes:"Evet", no:"Hayır", bio_yes:"çalışıyor", bio_no:"çalışmıyor",
+s_trade:"Yeni bir telefona takas düşünüyorum",
+s_trade_note:"Takas da olur mu? Telefonunuzun yeni bir telefona sayılıp sayılamayacağını sorun, birlikte bakalım.",
+m_sell:"Telefonumu satmak istiyorum: {d}. Ekran: {sc}, kasa: {bo}, pil sağlığı: {ba}, kutu/şarj: {bx}, Face ID / Touch ID: {bio}. Fotoğraf gönderebilirim. Ne kadar teklif edersiniz?",
+m_sell_trade:"Yeni bir telefona takas da düşünüyorum.",
+b_title:"Telefon alın: sıfır ya da kontrol edilmiş 2. el",
+b_sub:"Modeli ve hafızayı seçin, “Var mı? Fiyat sor” ile tek dokunuşla sorun.",
+b_new:"Sıfır", b_used:"Kontrol edilmiş 2. el",
+b_other:"Aradığınız model yok mu? Sorun",
+b_check:"Kontrol edildi", b_ask:"Var mı? Fiyat sor",
+b_cond_new:"sıfır", b_cond_used:"2. el",
+m_buy:"{d} ({c}) elinizde var mı? Fiyatı nedir?",
+m_buy_other:"Bir telefon arıyorum. Elinizde hangi modeller var?",
+pc_h:"Bilgisayarınız için",
+pc_typ:"Tipik işler: yavaşlayan bilgisayar, ekran, klavye, batarya, Windows kurulumu, temizlik. Sizinkini sorun.",
+pc_dev:"Cihaz", pc_laptop:"Dizüstü", pc_desktop:"Masaüstü", pc_issue:"Sorun",
+pc_slow:"Yavaşladı", pc_screen:"Ekran", pc_keyboard:"Klavye", pc_battery:"Batarya", pc_windows:"Windows kurulumu", pc_clean:"Temizlik ve bakım", pc_other:"Başka",
+m_pc_laptop:"Dizüstü bilgisayarım için yazıyorum.", m_pc_desktop:"Masaüstü bilgisayarım için yazıyorum.", m_pc_issue:"Sorun: {i}.", m_pc_ask:"Bakabilir misiniz? Ücreti ve süresi ne olur?",
+dt_title:"Yeni telefon mu aldınız?", dt_sub:"Rehberinizi, fotoğraflarınızı ve WhatsApp’ınızı yeni telefona taşıyoruz.",
+dt_from:"Eski telefon", dt_to:"Yeni telefon", m_data:"Yeni telefon aldım. Rehberimi, fotoğraflarımı ve WhatsApp’ımı eski {f} telefonumdan yeni {t} telefonuma taşımak istiyorum. Ücreti ve süresi ne olur?",
+dr_title:"Telefonunuz açılmıyor, fotoğraflarınız mı lazım?",
+dr_sub:"Verilerin kurtarılıp kurtarılamayacağı cihaza göre değişir. Durumu yazın, mümkün mü değil mi, size söyleyelim.",
+m_recover:"Telefonum açılmıyor ve içindeki fotoğraflara ihtiyacım var. Verileri kurtarmanız mümkün mü?",
+sv_title:"Ayrıca",
+sv_scratch_t:"Ön cam çizik giderme", sv_scratch_d:"Çizilmiş ön cam için, ekranı değiştirmeden.",
+sv_acc_t:"Aksesuar", sv_acc_d:"Kılıf, ekran koruyucu, şarj aleti.",
+sv_small_t:"Küçük işler, hemen", sv_small_d:"Saat kordonu takmak gibi işleri bir dakikada hallederiz.",
+sv_delivery_t:"Adrese teslimat", sv_delivery_d:"Gelemiyorsanız WhatsApp’tan yazın, birlikte ayarlayalım.",
+m_delivery:"Mağazaya gelemiyorum. Adrese teslimat ya da kuryeyle alım mümkün mü?",
+rv_title:"Bizi ilk kez deneyenler ne yazdı?",
+rv_all:"Google’da oku",
+rv_show:"Orijinali göster", rv_hide:"Çeviriyi göster", rv_summary:"Yorum özeti",
+rv_src_ru:"Google yorumu · Rusça", rv_guide:"Yerel Rehber",
+rv_m2:"iPhone 15 Pro · şişmiş batarya", rv_m3:"iPhone 14 Pro · yeşile dönen ekran",
+rv_t1:"iPhone 14 Pro Max telefonumu berbat halden harika hale çevirdiler, işlemi 2 saat içerisinde bitirdiler, ekran koruyucu da hediye ettiler.",
+rv_t2:"…biz AVM’de gezerken 2 saatte her şey mükemmel yapıldı… orijinal batarya… Ridvan İngilizce konuşuyor.",
+rv_t3:"…hediye olarak ekran koruyucu cam taktılar ve kılıfta indirim yaptılar.",
+rv_t4:"Dokunmadan telefonumuzu yaptı ve gülümseme ile uğurladılar.",
+rv_t5:"…tamir ücretleri neredeyse bedava…",
+rv_t6:"Kimsenin takmadığı saat kordonunu bir dakikada taktılar.",
+fd_title:"Bizi nasıl bulursunuz",
+fd_store_alt:"Antalya Fix’in TerraCity’deki tezgâhı, arkada yürüyen merdiven",
+fd_tab_g:"Google Haritalar", fd_tab_y:"Yandex Haritalar",
+fd_route_g:"Google ile yol tarifi al", fd_route_y:"Yandex ile yol tarifi al",
+fd_addr:"Adres", fd_hours:"Çalışma saatleri", fd_hours_v:"Her gün 10:00–22:00, pazar dahil", fd_phone:"Telefon",
+lg_speak:"Dükkânda Türkçe ve İngilizce konuşuyoruz.",
+lg_write:"Bu site Rusça, Kazakça ve Özbekçe de var; WhatsApp mesajınızı bu dillerde de gönderebilirsiniz.",
+af_btn:"Google’da yorum yazın",
+ft_media:"Fotoğraf ve videolar: @antalyafix",
+ft_demo:"Demo · Onaz Studio tarafından Antalya Fix için hazırlanmıştır.",
+ft_site:"Site: Onaz Studio",
+bar_call:"Ara", bar_route:"Yol tarifi",
+hero_what:"Telefon, tablet, bilgisayar tamiri; telefon alım satımı.",
+tq_g:"Google’da 419 yorum",
+tq_y:"Yandex’te 33 puan",
+rv_google:"Google yorumu",
+a_top:"Yukarı çık",
+bar_tg:"Telegram",
+send_wa:"WhatsApp’tan gönder",
+send_tg:"Telegram’dan gönder",
+toast_tg:"Mesajınız kopyalandı, Telegram’da yapıştırıp gönderin",
+store_cap:"Dükkânımız: TerraCity AVM, Kat −2",
+sw_title:"Yaptığımız işler",
+sw_sub:"Her işin yanında, o işi yaptıranların gerçek yorumu.",
+sw_back_t:"Arka cam değişimi",
+sw_back_d:"Kırık camı söküyor, yüzeyi temizliyor, yeni camı takıyoruz.",
+sw_bat_t:"Pil değişimi",
+sw_bat_d:"Şişmiş ya da çabuk biten pili değiştiriyoruz.",
+sw_scr_t:"Ekran değişimi",
+sw_scr_d:"Kırık ya da arızalı ekranı değiştiriyoruz; parça seçeneğini size soruyoruz.",
+sw_cam_t:"Kamera camı",
+sw_cam_d:"Çatlayan kamera camını milimetrik değiştiriyoruz.",
+sw_data_t:"Veri aktarımı",
+sw_data_d:"Rehber, fotoğraf ve WhatsApp’ı yeni telefona taşıyoruz.",
+sw_phone_t:"Sıfır ve 2. el telefon",
+sw_phone_d:"Sıfır ve kontrollü ikinci el telefonlar; telefonunuzu da alıyoruz.",
+sw_ask:"Bu iş için fiyat sor",
+sw_phone_ask:"Telefonlara bak",
+sw_ig:"Instagram’da izleyin",
+sw_ba:"Önce / sonra",
+ready_q:"Telefonunuz hazır olunca nasıl haber verelim?",
+ready_wa:"WhatsApp’tan yazın",
+ready_tg:"Telegram’dan yazın",
+ready_call:"Beni arayın",
+m_ready_wa:"Hazır olunca bana WhatsApp’tan yazın.",
+m_ready_tg:"Hazır olunca bana Telegram’dan yazın.",
+m_ready_call:"Hazır olunca beni arayın.",
+ig_title:"Instagram’da son işlerimiz",
+ig_c1:"iPhone 12 Pro Max kamera camı",
+ig_c2:"iPhone 15 Pro Max arka cam",
+ig_c3:"Pil değişimi",
+ig_c4:"Sıfır iPhone’lar",
+ig_follow:"Takip et",
+ig_dm:"Instagram’dan yaz",
+ig_reel:"Video",
+map_show:"Haritayı göster",
+parts_t:"Hangi parça takılıyor? Baştan, açıkça.",
+st_open_sub2:"22:00’ye kadar",
+st_soon:"Birazdan kapanıyoruz",
+st_soon_sub:"22:00’de kapanıyoruz",
+st_today:"10:00’da açılıyor",
+st_tomorrow:"Yarın 10:00’da açılıyor",
+st_s_open:"Açık",
+st_s_closed:"Kapalı",
+theme_light:"Açık tema",
+theme_dark:"Koyu tema",
+a_rating:"Puanlar ve yorumlar",
+tl_1:"Telefonu bırakın",
+tl_2:"Siz keyfinize bakın",
+tl_3:"Hazır olunca WhatsApp, Telegram ya da telefonla haber verelim",
+srv_back:"…berbat halden harika hale çevirdiler…",
+srv_bat:"…her şey mükemmel yapıldı… orijinal batarya…",
+rv_all_y:"Yandex’te oku",
+car_prev:"Önceki",
+car_next:"Sonraki",
+oled_plain:"“Muadil” = aynı işi gören, başka üreticinin parçası.",
+reel_lbl:"Kendi tezgâhımızdan",
+demo_m:"Demo · Onaz Studio · Antalya Fix için",
+tc_alt:"TerraCity alışveriş merkezinin dış cephesi",
+tc_cap:"TerraCity AVM · Lara, Antalya",
+tc_credit:"TerraCity fotoğrafı: Sharon Hahn Darlin, CC BY 2.0",
+c_g:"419 yorum",
+c_y:"33 puan",
+s_wdoc:"Garanti belgesi var mı?",
+m_wdoc:"Garanti belgesi: {v}.",
+s_photos:"Fotoğrafları WhatsApp’ta isteyeceğiz.",
+s_search:"Model ara",
+s_search_ph:"Model ara, örn. 13 Pro…",
+price_hint:"Fiyat sor: WhatsApp ya da Telegram"
+},
+en:{
+meta_title:"Antalya Fix · Phone repair in TerraCity",
+meta_desc:"Phone, tablet and computer repair on floor −2 of TerraCity mall, Antalya; new and used phones. Open daily 10:00–22:00.",
+demo:"Demo · prepared by Onaz Studio for Antalya Fix",
+skip:"Skip to content",
+a_lang:"Change language",
+a_journeys:"What do you need?",
+a_contact:"Contact",
+st_open:"Open now", st_closed:"Closed", hero_loc:"TerraCity mall · Floor −2",
+hero_loc_sub:"Down the stairs on the MediaMarkt side",
+hero_h1:"Enjoy your time while your phone gets fixed fast.",
+j_fix:"Fix my phone", j_sell:"Sell my phone", j_buy:"Buy a phone", j_pc:"Computer & data", wk_title:"Real work from our own bench",
+wk_video:"Repair footage from the Antalya Fix bench",
+wk_before:"Before", wk_after:"After", wk_drag:"Drag to compare",
+wk_ba_title:"iPhone 15 Pro Max back glass: before and after",
+alt_before:"iPhone 15 Pro Max with a cracked back glass", alt_after:"The same phone with its new back glass", alt_transfer:"A new iPhone on its setup screen", alt_boxes:"New iPhones in their boxes",
+q_title:"Get a repair price without typing",
+q_sub:"Pick the brand, model and problem. WhatsApp opens with the message already written in your language. Just hit send.",
+q_pick:"Which brand is your phone?",
+sh_step:"Step {n} of 4", sh_t2:"Which model?", sh_model_label:"Model", sh_model_ph:"Type the model, e.g. iPhone 13…", sh_or:"or pick one from the list",
+sh_t3:"What’s wrong with it?", sh_t4:"Your message is ready", sh_device:"Device", sh_problem:"Problem", sh_edit:"Change",
+sh_quality:"Screen part preference", sh_quality_hint:"Optional. Not sure? We’ll explain the options.", q_unsure:"Not sure",
+sh_courier:"I can’t come in, I’d like delivery",
+sh_preview:"Message preview", sh_back:"Back", sh_close:"Close", sh_next:"Continue",
+sh_err_model:"Type the model or pick one from the list.",
+br_tablet:"iPad / tablet", br_other:"Another brand", md_older:"Older model",
+p_screen:"Cracked screen", p_battery:"Battery", p_port:"Charging port", p_back:"Back glass", p_camera:"Camera", p_water:"Water damage", p_scratch:"Glass scratches", p_data:"Data transfer", p_other:"Something else",
+m_hello:"Hello Antalya Fix!",
+m_device:"I have {d}.",
+m_screen:"The screen is broken.", m_battery:"The battery needs replacing.", m_port:"The charging port isn’t working properly.", m_back:"The back glass is broken.", m_camera:"There’s a problem with the camera.", m_water:"It got wet.", m_scratch:"The front glass is scratched. Can you remove the scratches?", m_data:"I’d like to move my data to a new phone.", m_other:"It has a different problem, I’ll describe it.",
+m_quality:"Part preference: {q}.", m_q_unsure:"Could you explain the part options?",
+m_courier:"I can’t come to the shop. Could you pick it up and deliver it back?",
+m_ask:"How much and how long would it take?",
+m_generic:"Hello Antalya Fix! I’d like to ask about a price.",
+qa_sub:"A screen repair comes in three grades, and the difference isn’t obvious at first glance. We explain each one in plain words and let you choose.",
+t_orig:"Original", t_orig_d:"The same part your phone left the factory with. Colour, brightness and touch feel exactly like day one.",
+t_oled:"OLED equivalent", t_oled_d:"An OLED panel from another maker. Deep blacks, colours close to original, a lower price.",
+t_eco:"Economy (LCD)", t_eco_d:"An LCD panel. It works fine, but blacks look a little grey and the battery drains faster. The right pick when budget comes first.",
+row_color:"Colour & sharpness", row_battery:"Easy on battery", pr1_t:"Original parts, careful workmanship", pr1_d:"You can see it in our Instagram posts: original quality, millimetre-precise work.",
+pr3_t:"We ask which part you want", pr3_d:"We explain the options in plain words; the decision is yours.",
+s_title:"Sell us your phone",
+s_sub:"Pick a few options and we’ll send our offer on WhatsApp or Telegram.",
+s_brand:"Brand", s_model:"Model", s_model_ph:"e.g. Galaxy S21…", s_storage:"Storage",
+s_screen:"Screen", c_clean:"Clean", c_light:"Light scratches", c_cracked:"Cracked",
+s_body:"Body", b_clean:"Clean", b_marks:"Light marks", b_dents:"Dents / cracks",
+s_battery:"Battery health", s_bat_unknown:"I don’t know",
+s_box:"Box & charger", box_full:"Box + charger", box_only:"Box only", box_none:"None",
+s_bio:"Do Face ID / Touch ID / fingerprint work?", yes:"Yes", no:"No", bio_yes:"works", bio_no:"doesn’t work",
+s_trade:"I’m thinking of trading it in for a new phone",
+s_trade_note:"Trade-in? Ask us whether your phone can count towards a new one.",
+m_sell:"I’d like to sell my {d}. Screen: {sc}, body: {bo}, battery health: {ba}, box/charger: {bx}, Face ID / Touch ID: {bio}. I can send photos. What would you offer?",
+m_sell_trade:"I’m also thinking of trading it in for a new phone.",
+b_title:"Buy a phone: new or checked used",
+b_sub:"Pick the model and storage, then ask with one tap: “In stock? Ask the price”.",
+b_new:"New", b_used:"Checked used",
+b_other:"Can’t see your model? Ask us",
+b_check:"Checked", b_ask:"In stock? Ask the price",
+b_cond_new:"new", b_cond_used:"used",
+m_buy:"Do you have the {d} ({c}) in stock? What’s the price?",
+m_buy_other:"I’m looking for a phone. Which models do you have?",
+pc_h:"For your computer",
+pc_typ:"Typical jobs: a slow computer, screen, keyboard, battery, Windows install, cleaning. Ask about yours.",
+pc_dev:"Device", pc_laptop:"Laptop", pc_desktop:"Desktop", pc_issue:"Problem",
+pc_slow:"It’s slow", pc_screen:"Screen", pc_keyboard:"Keyboard", pc_battery:"Battery", pc_windows:"Windows install", pc_clean:"Cleaning & service", pc_other:"Something else",
+m_pc_laptop:"I’m writing about my laptop.", m_pc_desktop:"I’m writing about my desktop computer.", m_pc_issue:"Problem: {i}.", m_pc_ask:"Could you take a look? How much and how long would it take?",
+dt_title:"Got a new phone?", dt_sub:"We move your contacts, photos and WhatsApp to the new phone.",
+dt_from:"Old phone", dt_to:"New phone", m_data:"I’ve got a new phone. I’d like to move my contacts, photos and WhatsApp from my old {f} to my new {t}. How much and how long would it take?",
+dr_title:"Phone won’t turn on and you need your photos?",
+dr_sub:"Whether data can be recovered depends on the device. Tell us what happened and we’ll tell you if it’s possible.",
+m_recover:"My phone won’t turn on and I need the photos on it. Is it possible to recover the data?",
+sv_title:"Also",
+sv_scratch_t:"Front-glass scratch removal", sv_scratch_d:"For a scratched front glass, without replacing the screen.",
+sv_acc_t:"Accessories", sv_acc_d:"Cases, screen protectors, chargers.",
+sv_small_t:"Small jobs on the spot", sv_small_d:"Like fitting a watch strap, done in a minute.",
+sv_delivery_t:"Delivery to your address", sv_delivery_d:"Can’t come in? Message us on WhatsApp and we’ll arrange it.",
+m_delivery:"I can’t come to the shop. Is delivery to my address or a courier pick-up possible?",
+rv_title:"What did first-time customers write?",
+rv_all:"Read on Google",
+rv_show:"Show original", rv_hide:"Show translation", rv_summary:"Review summary",
+rv_src_ru:"Google review · Russian", rv_guide:"Local Guide",
+rv_m2:"iPhone 15 Pro · swollen battery", rv_m3:"iPhone 14 Pro · screen turned green",
+rv_t1:"They turned my iPhone 14 Pro Max from a wreck into a beauty, finished the job within 2 hours and gave me a screen protector as a gift.",
+rv_t2:"…in 2 hours, while we walked around the mall, everything was done perfectly… original battery… Ridvan speaks English.",
+rv_t3:"…they fitted a screen protector as a gift and gave us a discount on a case.",
+rv_t4:"He fixed our phone without even touching it, and they saw us off with a smile.",
+rv_t5:"…repair prices are almost free…",
+rv_t6:"Fitted a watch strap in a minute when no one else would.",
+fd_title:"How to find us",
+fd_store_alt:"Antalya Fix’s counter in TerraCity, with the escalator behind",
+fd_tab_g:"Google Maps", fd_tab_y:"Yandex Maps",
+fd_route_g:"Directions in Google Maps", fd_route_y:"Directions in Yandex Maps",
+fd_addr:"Address", fd_hours:"Opening hours", fd_hours_v:"Every day 10:00–22:00, Sundays included", fd_phone:"Phone",
+lg_speak:"In the shop we speak Turkish and English.",
+lg_write:"This site also comes in Russian, Kazakh and Uzbek, and your WhatsApp message can be in any of them.",
+af_btn:"Write a Google review",
+ft_media:"Photos and videos: @antalyafix",
+ft_demo:"Demo · prepared by Onaz Studio for Antalya Fix.",
+ft_site:"Site: Onaz Studio",
+bar_call:"Call", bar_route:"Directions",
+hero_what:"Phone, tablet and computer repair; phones bought and sold.",
+tq_g:"419 reviews on Google",
+tq_y:"33 ratings on Yandex",
+rv_google:"Google review",
+a_top:"Back to top",
+bar_tg:"Telegram",
+send_wa:"Send on WhatsApp",
+send_tg:"Send on Telegram",
+toast_tg:"Your message is copied. Paste it in Telegram and send",
+store_cap:"Our shop: TerraCity mall, floor −2",
+sw_title:"What we do",
+sw_sub:"Each job comes with a real review from someone who had it done.",
+sw_back_t:"Back glass replacement",
+sw_back_d:"We remove the cracked glass, clean the surface and fit new glass.",
+sw_bat_t:"Battery replacement",
+sw_bat_d:"We replace swollen or fast-draining batteries.",
+sw_scr_t:"Screen replacement",
+sw_scr_d:"We replace cracked or faulty screens, and ask you which part you want.",
+sw_cam_t:"Camera lens glass",
+sw_cam_d:"We replace cracked camera lens glass with millimetre precision.",
+sw_data_t:"Data transfer",
+sw_data_d:"We move contacts, photos and WhatsApp to your new phone.",
+sw_phone_t:"New and used phones",
+sw_phone_d:"New and checked used phones, and we buy yours too.",
+sw_ask:"Ask the price for this",
+sw_phone_ask:"See the phones",
+sw_ig:"Watch on Instagram",
+sw_ba:"Before / after",
+ready_q:"How should we tell you it’s ready?",
+ready_wa:"WhatsApp me",
+ready_tg:"Telegram me",
+ready_call:"Call me",
+m_ready_wa:"Please message me on WhatsApp when it’s ready.",
+m_ready_tg:"Please message me on Telegram when it’s ready.",
+m_ready_call:"Please call me when it’s ready.",
+ig_title:"Our latest work on Instagram",
+ig_c1:"iPhone 12 Pro Max camera glass",
+ig_c2:"iPhone 15 Pro Max back glass",
+ig_c3:"Battery replacement",
+ig_c4:"New iPhones",
+ig_follow:"Follow",
+ig_dm:"Message on Instagram",
+ig_reel:"Video",
+map_show:"Show the map",
+parts_t:"Which part goes in? You’ll know up front.",
+st_open_sub2:"until 22:00",
+st_soon:"Closing soon",
+st_soon_sub:"we close at 22:00",
+st_today:"opens at 10:00",
+st_tomorrow:"opens tomorrow at 10:00",
+st_s_open:"Open",
+st_s_closed:"Closed",
+theme_light:"Light theme",
+theme_dark:"Dark theme",
+a_rating:"Ratings and reviews",
+tl_1:"Leave your phone",
+tl_2:"Enjoy yourself",
+tl_3:"When it’s ready, we tell you on WhatsApp, Telegram or by phone",
+srv_back:"…they turned it from a wreck into a beauty…",
+srv_bat:"…everything was done perfectly… original battery…",
+rv_all_y:"Read on Yandex",
+car_prev:"Previous",
+car_next:"Next",
+oled_plain:"“Equivalent” means a part from another maker that does the same job.",
+reel_lbl:"From our own bench",
+demo_m:"Demo · Onaz Studio for Antalya Fix",
+tc_alt:"The outside of TerraCity shopping mall",
+tc_cap:"TerraCity mall · Lara, Antalya",
+tc_credit:"TerraCity photo: Sharon Hahn Darlin, CC BY 2.0",
+c_g:"419 reviews",
+c_y:"33 ratings",
+s_wdoc:"Do you have the warranty card?",
+m_wdoc:"Warranty card: {v}.",
+s_photos:"We’ll ask for photos on WhatsApp.",
+s_search:"Search models",
+s_search_ph:"Search, e.g. 13 Pro…",
+price_hint:"Ask for a price: WhatsApp or Telegram"
+},
+ru:{
+meta_title:"Antalya Fix · Ремонт телефонов в TerraCity",
+meta_desc:"Ремонт телефонов, планшетов и компьютеров в ТЦ TerraCity, этаж −2, Анталья; новые и б/у телефоны. Ежедневно 10:00–22:00.",
+demo:"Демо · подготовлено Onaz Studio для Antalya Fix",
+skip:"Перейти к содержанию",
+a_lang:"Сменить язык",
+a_journeys:"Что вам нужно?",
+a_contact:"Связаться",
+st_open:"Сейчас открыто", st_closed:"Закрыто", hero_loc:"ТЦ TerraCity · этаж −2",
+hero_loc_sub:"Вниз по лестнице со стороны MediaMarkt",
+hero_h1:"Приятно проводите время — а телефон мы быстро починим.",
+j_fix:"Починить телефон", j_sell:"Продать телефон", j_buy:"Купить телефон", j_pc:"Компьютер и данные", wk_title:"Настоящая работа с нашего стола",
+wk_video:"Кадры ремонта с рабочего места Antalya Fix",
+wk_before:"До", wk_after:"После", wk_drag:"Потяните, чтобы сравнить",
+wk_ba_title:"iPhone 15 Pro Max, заднее стекло: до и после",
+alt_before:"iPhone 15 Pro Max с треснувшим задним стеклом", alt_after:"Тот же телефон с новым задним стеклом", alt_transfer:"Новый iPhone на экране настройки", alt_boxes:"Новые iPhone в коробках",
+q_title:"Узнайте цену ремонта, ничего не печатая",
+q_sub:"Выберите марку, модель и проблему. WhatsApp откроется с готовым сообщением на вашем языке — останется нажать «Отправить».",
+q_pick:"Какой марки ваш телефон?",
+sh_step:"Шаг {n} из 4", sh_t2:"Какая модель?", sh_model_label:"Модель", sh_model_ph:"Введите модель, например iPhone 13…", sh_or:"или выберите из списка",
+sh_t3:"Что случилось?", sh_t4:"Сообщение готово", sh_device:"Устройство", sh_problem:"Проблема", sh_edit:"Изменить",
+sh_quality:"Какой экран ставить", sh_quality_hint:"Необязательно. Не уверены — мы расскажем о вариантах.", q_unsure:"Не знаю",
+sh_courier:"Не могу приехать, нужна доставка",
+sh_preview:"Текст сообщения", sh_back:"Назад", sh_close:"Закрыть", sh_next:"Далее",
+sh_err_model:"Введите модель или выберите из списка.",
+br_tablet:"iPad / планшет", br_other:"Другая марка", md_older:"Более старая модель",
+p_screen:"Разбит экран", p_battery:"Аккумулятор", p_port:"Разъём зарядки", p_back:"Заднее стекло", p_camera:"Камера", p_water:"Попала вода", p_scratch:"Царапины на стекле", p_data:"Перенос данных", p_other:"Другое",
+m_hello:"Здравствуйте, Antalya Fix!",
+m_device:"У меня {d}.",
+m_screen:"Разбит экран.", m_battery:"Нужно заменить аккумулятор.", m_port:"Проблема с разъёмом зарядки.", m_back:"Разбито заднее стекло.", m_camera:"Проблема с камерой.", m_water:"В телефон попала вода.", m_scratch:"Поцарапано переднее стекло. Можно убрать царапины?", m_data:"Хочу перенести данные на новый телефон.", m_other:"Другая проблема, опишу подробнее.",
+m_quality:"Предпочтение по детали: {q}.", m_q_unsure:"Расскажите, пожалуйста, о вариантах деталей.",
+m_courier:"Не могу приехать в сервис. Можно забрать телефон и привезти обратно?",
+m_ask:"Сколько это будет стоить и сколько займёт времени?",
+m_generic:"Здравствуйте, Antalya Fix! Хочу узнать цену.",
+qa_sub:"Для замены экрана есть три варианта, и разницу не всегда видно сразу. Объясняем каждый простыми словами — выбор за вами.",
+t_orig:"Оригинал", t_orig_d:"Та же деталь, что стояла в телефоне с завода. Цвета, яркость и отклик — как в первый день.",
+t_oled:"OLED-аналог", t_oled_d:"OLED-экран другого производителя. Глубокий чёрный, цвета близки к оригиналу, цена ниже.",
+t_eco:"Эконом (LCD)", t_eco_d:"LCD-панель. Работает нормально, но чёрный немного сероватый, а батарея садится быстрее. Подходит, когда главное — бюджет.",
+row_color:"Цвет и чёткость", row_battery:"Бережёт батарею", pr1_t:"Оригинальные детали и аккуратная работа", pr1_d:"Это видно по нашим работам в Instagram: оригинальное качество, точность до миллиметра.",
+pr3_t:"Спрашиваем, какую деталь ставить", pr3_d:"Объясняем варианты простыми словами — решение за вами.",
+s_title:"Продайте нам свой телефон",
+s_sub:"Выберите несколько вариантов — предложение пришлём в WhatsApp или Telegram.",
+s_brand:"Марка", s_model:"Модель", s_model_ph:"например, Galaxy S21…", s_storage:"Память",
+s_screen:"Экран", c_clean:"Без царапин", c_light:"Лёгкие царапины", c_cracked:"Разбит",
+s_body:"Корпус", b_clean:"Без следов", b_marks:"Мелкие следы", b_dents:"Вмятины / трещины",
+s_battery:"Состояние батареи", s_bat_unknown:"Не знаю",
+s_box:"Коробка и зарядка", box_full:"Коробка + зарядка", box_only:"Только коробка", box_none:"Нет",
+s_bio:"Работает Face ID / Touch ID / отпечаток?", yes:"Да", no:"Нет", bio_yes:"работает", bio_no:"не работает",
+s_trade:"Хочу обменять на новый телефон",
+s_trade_note:"Обмен? Спросите, можно ли зачесть ваш телефон в счёт нового.",
+m_sell:"Хочу продать телефон: {d}. Экран: {sc}, корпус: {bo}, состояние батареи: {ba}, коробка/зарядка: {bx}, Face ID / Touch ID: {bio}. Могу прислать фото. Сколько предложите?",
+m_sell_trade:"Также рассматриваю обмен на новый телефон.",
+b_title:"Купить телефон: новый или проверенный б/у",
+b_sub:"Выберите модель и память и одним касанием спросите: «Есть? Узнать цену».",
+b_new:"Новые", b_used:"Проверенные б/у",
+b_other:"Нет нужной модели? Спросите",
+b_check:"Проверен", b_ask:"Есть? Узнать цену",
+b_cond_new:"новый", b_cond_used:"б/у",
+m_buy:"Есть ли в наличии {d} ({c})? Какая цена?",
+m_buy_other:"Ищу телефон. Какие модели есть в наличии?",
+pc_h:"Для вашего компьютера",
+pc_typ:"Типичные работы: медленный компьютер, экран, клавиатура, батарея, установка Windows, чистка. Спросите про ваш случай.",
+pc_dev:"Устройство", pc_laptop:"Ноутбук", pc_desktop:"Настольный ПК", pc_issue:"Проблема",
+pc_slow:"Тормозит", pc_screen:"Экран", pc_keyboard:"Клавиатура", pc_battery:"Батарея", pc_windows:"Установка Windows", pc_clean:"Чистка и обслуживание", pc_other:"Другое",
+m_pc_laptop:"Пишу по поводу ноутбука.", m_pc_desktop:"Пишу по поводу настольного компьютера.", m_pc_issue:"Проблема: {i}.", m_pc_ask:"Сможете посмотреть? Сколько стоит и сколько по времени?",
+dt_title:"Купили новый телефон?", dt_sub:"Перенесём контакты, фото и WhatsApp на новый телефон.",
+dt_from:"Старый телефон", dt_to:"Новый телефон", m_data:"У меня новый телефон. Хочу перенести контакты, фото и WhatsApp со старого {f} на новый {t}. Сколько это стоит и сколько займёт времени?",
+dr_title:"Телефон не включается, а нужны фото?",
+dr_sub:"Можно ли спасти данные, зависит от устройства. Опишите ситуацию — скажем, возможно ли это.",
+m_recover:"Мой телефон не включается, а мне нужны фото с него. Можно ли восстановить данные?",
+sv_title:"А ещё",
+sv_scratch_t:"Удаление царапин со стекла", sv_scratch_d:"Для поцарапанного стекла — без замены экрана.",
+sv_acc_t:"Аксессуары", sv_acc_d:"Чехлы, защитные стёкла, зарядки.",
+sv_small_t:"Мелочи — сразу", sv_small_d:"Например, поставить ремешок на часы — за минуту.",
+sv_delivery_t:"Доставка по адресу", sv_delivery_d:"Не можете приехать? Напишите в WhatsApp, договоримся.",
+m_delivery:"Не могу приехать в сервис. Возможна доставка по адресу или курьер?",
+rv_title:"Что написали те, кто пришёл к нам впервые?",
+rv_all:"Читать в Google",
+rv_show:"Показать оригинал", rv_hide:"Показать перевод", rv_summary:"Кратко из отзыва",
+rv_src_ru:"Отзыв в Google", rv_guide:"Местный эксперт",
+rv_m2:"iPhone 15 Pro · вздутый аккумулятор", rv_m3:"iPhone 14 Pro · позеленел экран",
+rv_t1:"Превратили мой iPhone 14 Pro Max из ужасного состояния в отличное, сделали всё за 2 часа и подарили защитное стекло.",
+rv_t2:"…за 2 часа, пока гуляли по ТЦ, все было прекрасно сделано… оригинальный аккумулятор… Ridvan говорит на английском.",
+rv_t3:"…в подарок установили защитное стекло и сделали скидку на чехол.",
+rv_t4:"Починил наш телефон, даже не прикасаясь к нему, и проводили нас с улыбкой.",
+rv_t5:"…цены на ремонт почти бесплатные…",
+rv_t6:"Поставили ремешок на часы за минуту, когда никто другой не взялся.",
+fd_title:"Как нас найти",
+fd_store_alt:"Стойка Antalya Fix в TerraCity, за ней эскалатор",
+fd_tab_g:"Google Карты", fd_tab_y:"Яндекс Карты",
+fd_route_g:"Маршрут в Google Картах", fd_route_y:"Маршрут в Яндекс Картах",
+fd_addr:"Адрес", fd_hours:"Часы работы", fd_hours_v:"Ежедневно 10:00–22:00, включая воскресенье", fd_phone:"Телефон",
+lg_speak:"В сервисе говорят по-турецки и по-английски.",
+lg_write:"Сайт есть на русском, казахском и узбекском, и сообщение в WhatsApp можно отправить на любом из этих языков.",
+af_btn:"Оставить отзыв в Google",
+ft_media:"Фото и видео: @antalyafix",
+ft_demo:"Демо · подготовлено Onaz Studio для Antalya Fix.",
+ft_site:"Сайт: Onaz Studio",
+bar_call:"Позвонить", bar_route:"Маршрут",
+hero_what:"Ремонт телефонов, планшетов и компьютеров; покупка и продажа телефонов.",
+tq_g:"419 отзывов в Google",
+tq_y:"33 оценки в Яндексе",
+rv_google:"Отзыв в Google",
+a_top:"Наверх",
+bar_tg:"Telegram",
+send_wa:"Отправить в WhatsApp",
+send_tg:"Отправить в Telegram",
+toast_tg:"Сообщение скопировано — вставьте его в Telegram и отправьте",
+store_cap:"Наш сервис: ТЦ TerraCity, этаж −2",
+sw_title:"Что мы делаем",
+sw_sub:"Рядом с каждой работой — настоящий отзыв клиента.",
+sw_back_t:"Замена заднего стекла",
+sw_back_d:"Снимаем разбитое стекло, очищаем поверхность и ставим новое.",
+sw_bat_t:"Замена аккумулятора",
+sw_bat_d:"Меняем вздутые и быстро садящиеся аккумуляторы.",
+sw_scr_t:"Замена экрана",
+sw_scr_d:"Меняем разбитые и неисправные экраны и спрашиваем, какую деталь ставить.",
+sw_cam_t:"Стекло камеры",
+sw_cam_d:"Меняем треснувшее стекло камеры с точностью до миллиметра.",
+sw_data_t:"Перенос данных",
+sw_data_d:"Переносим контакты, фото и WhatsApp на новый телефон.",
+sw_phone_t:"Новые и б/у телефоны",
+sw_phone_d:"Новые и проверенные б/у телефоны; ваш тоже купим.",
+sw_ask:"Узнать цену этой работы",
+sw_phone_ask:"Посмотреть телефоны",
+sw_ig:"Смотреть в Instagram",
+sw_ba:"До / после",
+ready_q:"Как сообщить, что телефон готов?",
+ready_wa:"Напишите в WhatsApp",
+ready_tg:"Напишите в Telegram",
+ready_call:"Позвоните мне",
+m_ready_wa:"Когда будет готово, напишите мне в WhatsApp.",
+m_ready_tg:"Когда будет готово, напишите мне в Telegram.",
+m_ready_call:"Когда будет готово, позвоните мне.",
+ig_title:"Наши последние работы в Instagram",
+ig_c1:"Стекло камеры iPhone 12 Pro Max",
+ig_c2:"Заднее стекло iPhone 15 Pro Max",
+ig_c3:"Замена аккумулятора",
+ig_c4:"Новые iPhone",
+ig_follow:"Подписаться",
+ig_dm:"Написать в Instagram",
+ig_reel:"Видео",
+map_show:"Показать карту",
+parts_t:"Какая деталь будет стоять? Говорим заранее.",
+st_open_sub2:"до 22:00",
+st_soon:"Скоро закрываемся",
+st_soon_sub:"закрываемся в 22:00",
+st_today:"откроется в 10:00",
+st_tomorrow:"откроется завтра в 10:00",
+st_s_open:"Открыто",
+st_s_closed:"Закрыто",
+theme_light:"Светлая тема",
+theme_dark:"Тёмная тема",
+a_rating:"Оценки и отзывы",
+tl_1:"Оставьте телефон",
+tl_2:"Отдыхайте в своё удовольствие",
+tl_3:"Когда будет готово, сообщим в WhatsApp, Telegram или по телефону",
+srv_back:"…превратили из ужасного состояния в отличное…",
+srv_bat:"…все было прекрасно сделано… оригинальный аккумулятор…",
+rv_all_y:"Читать в Яндексе",
+car_prev:"Назад",
+car_next:"Далее",
+oled_plain:"«Аналог» — деталь другого производителя, которая выполняет ту же работу.",
+reel_lbl:"С нашего рабочего стола",
+demo_m:"Демо · Onaz Studio для Antalya Fix",
+tc_alt:"Фасад торгового центра TerraCity",
+tc_cap:"ТЦ TerraCity · Лара, Анталья",
+tc_credit:"Фото TerraCity: Sharon Hahn Darlin, CC BY 2.0",
+c_g:"419 отзывов",
+c_y:"33 оценки",
+s_wdoc:"Есть гарантийный талон?",
+m_wdoc:"Гарантийный талон: {v}.",
+s_photos:"Фото попросим в WhatsApp.",
+s_search:"Поиск модели",
+s_search_ph:"Поиск, например 13 Pro…",
+price_hint:"Узнать цену: WhatsApp или Telegram"
+},
+kk:{
+meta_title:"Antalya Fix · TerraCity-дегі телефон жөндеу",
+meta_desc:"Анталиядағы TerraCity сауда орталығы, −2 қабат: телефон, планшет және компьютер жөндеу; жаңа және қолданылған телефондар. Күн сайын 10:00–22:00.",
+demo:"Демо · Onaz Studio Antalya Fix үшін дайындады",
+skip:"Мазмұнға өту",
+a_lang:"Тілді ауыстыру",
+a_journeys:"Сізге не керек?",
+a_contact:"Байланыс",
+st_open:"Қазір ашық", st_closed:"Жабық", hero_loc:"TerraCity · −2 қабат",
+hero_loc_sub:"MediaMarkt жағындағы баспалдақпен төмен",
+hero_h1:"Сіз демалып жүргенде, телефоныңыз тез жөнделсін.",
+j_fix:"Телефонды жөндету", j_sell:"Телефонды сату", j_buy:"Телефон сатып алу", j_pc:"Компьютер және деректер", wk_title:"Өз жұмыс үстелімізден нақты жұмыстар",
+wk_video:"Antalya Fix жұмыс үстеліндегі жөндеу кадрлары",
+wk_before:"Дейін", wk_after:"Кейін", wk_drag:"Салыстыру үшін сырғытыңыз",
+wk_ba_title:"iPhone 15 Pro Max артқы әйнегі: дейін және кейін",
+alt_before:"Артқы әйнегі жарылған iPhone 15 Pro Max", alt_after:"Сол телефон, жаңа артқы әйнегімен", alt_transfer:"Баптау экранындағы жаңа iPhone", alt_boxes:"Қорабындағы жаңа iPhone-дар",
+q_title:"Жөндеу бағасын ештеңе жазбай-ақ біліңіз",
+q_sub:"Брендті, модельді және ақауды таңдаңыз. WhatsApp сіздің тіліңізде дайын хабарламамен ашылады — тек жіберсеңіз болғаны.",
+q_pick:"Телефоныңыздың бренді қандай?",
+sh_step:"{n}/4-қадам", sh_t2:"Қай модель?", sh_model_label:"Модель", sh_model_ph:"Модельді жазыңыз, мысалы iPhone 13…", sh_or:"немесе тізімнен таңдаңыз",
+sh_t3:"Не болды?", sh_t4:"Хабарламаңыз дайын", sh_device:"Құрылғы", sh_problem:"Ақау", sh_edit:"Өзгерту",
+sh_quality:"Экран бөлшегін таңдау", sh_quality_hint:"Міндетті емес. Сенімді болмасаңыз, нұсқаларды өзіміз түсіндіреміз.", q_unsure:"Білмеймін",
+sh_courier:"Келе алмаймын, жеткізу керек",
+sh_preview:"Хабарлама мәтіні", sh_back:"Артқа", sh_close:"Жабу", sh_next:"Әрі қарай",
+sh_err_model:"Модельді жазыңыз немесе тізімнен таңдаңыз.",
+br_tablet:"iPad / планшет", br_other:"Басқа бренд", md_older:"Ескірек модель",
+p_screen:"Экран сынған", p_battery:"Батарея", p_port:"Зарядтау ұясы", p_back:"Артқы әйнек", p_camera:"Камера", p_water:"Су тиген", p_scratch:"Әйнектегі сызаттар", p_data:"Деректерді көшіру", p_other:"Басқа ақау",
+m_hello:"Сәлеметсіз бе, Antalya Fix!",
+m_device:"Менде {d} бар.",
+m_screen:"Экраны сынып қалды.", m_battery:"Батареясын ауыстыру керек.", m_port:"Зарядтау ұясында ақау бар.", m_back:"Артқы әйнегі сынған.", m_camera:"Камерасында ақау бар.", m_water:"Телефонға су тиіп кетті.", m_scratch:"Алдыңғы әйнегі сызылған. Сызаттарды кетіре аласыздар ма?", m_data:"Деректерімді жаңа телефонға көшіргім келеді.", m_other:"Басқа ақауы бар, толығырақ жазайын.",
+m_quality:"Бөлшек таңдауым: {q}.", m_q_unsure:"Бөлшек нұсқаларын түсіндіріп бересіздер ме?",
+m_courier:"Шеберханаға келе алмаймын. Телефонды алып кетіп, қайта жеткізіп бере аласыздар ма?",
+m_ask:"Бағасы қанша және қанша уақыт алады?",
+m_generic:"Сәлеметсіз бе, Antalya Fix! Бағасын білгім келеді.",
+qa_sub:"Экранды ауыстырудың үш нұсқасы бар, айырмашылығы бірден байқалмайды. Әрқайсысын қарапайым тілмен түсіндіреміз, таңдау сізде.",
+t_orig:"Түпнұсқа", t_orig_d:"Телефонға зауытта орнатылған бөлшектің дәл өзі. Түсі, жарықтығы мен сенсоры алғашқы күнгідей.",
+t_oled:"OLED баламасы", t_oled_d:"Басқа өндірушінің OLED экраны. Қара түсі терең, түстері түпнұсқаға жақын, бағасы төменірек.",
+t_eco:"Үнемді (LCD)", t_eco_d:"LCD панель. Жақсы жұмыс істейді, бірақ қара түсі сұрғылттау, батарея тезірек отырады. Бюджет маңызды болса — дұрыс таңдау.",
+row_color:"Түс пен анықтық", row_battery:"Батареяны үнемдейді", pr1_t:"Түпнұсқа бөлшек пен мұқият жұмыс", pr1_d:"Мұны Instagram-дағы жұмыстарымыздан көресіз: түпнұсқа сапа, миллиметрлік дәлдік.",
+pr3_t:"Бөлшек түрін сізден сұраймыз", pr3_d:"Нұсқаларды қарапайым тілмен түсіндіреміз, шешім сізде.",
+s_title:"Телефоныңызды бізге сатыңыз",
+s_sub:"Бірнеше нұсқаны таңдаңыз — ұсынысымызды WhatsApp не Telegram арқылы жазамыз.",
+s_brand:"Бренд", s_model:"Модель", s_model_ph:"мысалы, Galaxy S21…", s_storage:"Жад",
+s_screen:"Экран", c_clean:"Таза", c_light:"Сәл сызат", c_cracked:"Сынған",
+s_body:"Корпус", b_clean:"Таза", b_marks:"Сәл іздер", b_dents:"Майысқан / жарылған",
+s_battery:"Батарея күйі", s_bat_unknown:"Білмеймін",
+s_box:"Қорап пен зарядтағыш", box_full:"Қорап + зарядтағыш", box_only:"Тек қорап", box_none:"Жоқ",
+s_bio:"Face ID / Touch ID / саусақ ізі жұмыс істей ме?", yes:"Иә", no:"Жоқ", bio_yes:"жұмыс істейді", bio_no:"жұмыс істемейді",
+s_trade:"Жаңа телефонға айырбастағым келеді",
+s_trade_note:"Айырбас ше? Телефоныңызды жаңасының құнына есептеуге бола ма, сұраңыз.",
+m_sell:"Телефонымды сатқым келеді: {d}. Экран: {sc}, корпус: {bo}, батарея күйі: {ba}, қорап/зарядтағыш: {bx}, Face ID / Touch ID: {bio}. Фото жібере аламын. Қанша ұсынасыздар?",
+m_sell_trade:"Жаңа телефонға айырбастауды да ойлап жүрмін.",
+b_title:"Телефон сатып алу: жаңа немесе тексерілген қолданылған",
+b_sub:"Модель мен жадты таңдап, «Бар ма? Бағасын сұрау» деп бір басумен сұраңыз.",
+b_new:"Жаңа", b_used:"Тексерілген қолданылған",
+b_other:"Керек модель жоқ па? Сұраңыз",
+b_check:"Тексерілген", b_ask:"Бар ма? Бағасын сұрау",
+b_cond_new:"жаңа", b_cond_used:"қолданылған",
+m_buy:"{d} ({c}) қолда бар ма? Бағасы қанша?",
+m_buy_other:"Телефон іздеп жүрмін. Қандай модельдер бар?",
+pc_h:"Компьютеріңіз үшін",
+pc_typ:"Әдеттегі жұмыстар: баяулаған компьютер, экран, пернетақта, батарея, Windows орнату, тазалау. Өз жағдайыңызды сұраңыз.",
+pc_dev:"Құрылғы", pc_laptop:"Ноутбук", pc_desktop:"Үстел компьютері", pc_issue:"Ақау",
+pc_slow:"Баяулады", pc_screen:"Экран", pc_keyboard:"Пернетақта", pc_battery:"Батарея", pc_windows:"Windows орнату", pc_clean:"Тазалау және күтім", pc_other:"Басқа",
+m_pc_laptop:"Ноутбугім бойынша жазып отырмын.", m_pc_desktop:"Үстел компьютерім бойынша жазып отырмын.", m_pc_issue:"Ақауы: {i}.", m_pc_ask:"Қарап бере аласыздар ма? Бағасы мен мерзімі қандай?",
+dt_title:"Жаңа телефон алдыңыз ба?", dt_sub:"Контактілеріңізді, фотоларыңызды және WhatsApp-ты жаңа телефонға көшіреміз.",
+dt_from:"Ескі телефон", dt_to:"Жаңа телефон", m_data:"Жаңа телефон алдым. Контактілерімді, фотоларымды және WhatsApp-ты ескі {f} телефонымнан жаңа {t} телефоныма көшіргім келеді. Бағасы мен мерзімі қандай?",
+dr_title:"Телефон қосылмайды, ал фотолар керек пе?",
+dr_sub:"Деректерді қалпына келтіру мүмкіндігі құрылғыға байланысты. Жағдайды жазыңыз — мүмкін бе, жоқ па, айтамыз.",
+m_recover:"Телефоным қосылмайды, ішіндегі фотолар керек. Деректерді қалпына келтіруге бола ма?",
+sv_title:"Сондай-ақ",
+sv_scratch_t:"Әйнектегі сызаттарды кетіру", sv_scratch_d:"Сызылған алдыңғы әйнекке — экранды ауыстырмай.",
+sv_acc_t:"Аксессуарлар", sv_acc_d:"Қаптар, қорғаныш әйнектер, зарядтағыштар.",
+sv_small_t:"Ұсақ жұмыстар — бірден", sv_small_d:"Мысалы, сағат бауын бір минутта тағамыз.",
+sv_delivery_t:"Мекенжайға жеткізу", sv_delivery_d:"Келе алмасаңыз, WhatsApp-қа жазыңыз, келісеміз.",
+m_delivery:"Шеберханаға келе алмаймын. Мекенжайға жеткізу немесе курьер арқылы алу мүмкін бе?",
+rv_title:"Бізге алғаш келгендер не жазды?",
+rv_all:"Google-да оқу",
+rv_show:"Түпнұсқасын көрсету", rv_hide:"Аудармасын көрсету", rv_summary:"Пікірдің қысқаша мазмұны",
+rv_src_ru:"Google пікірі · орыс тілінде", rv_guide:"Жергілікті гид",
+rv_m2:"iPhone 15 Pro · ісінген батарея", rv_m3:"iPhone 14 Pro · экраны жасылға айналды",
+rv_t1:"iPhone 14 Pro Max телефонымды нашар күйден керемет күйге келтірді, жұмысты 2 сағат ішінде бітіріп, экран қорғанышын сыйға берді.",
+rv_t2:"…біз сауда орталығын аралап жүргенде, 2 сағатта бәрі керемет жасалды… түпнұсқа батарея… Ridvan ағылшынша сөйлейді.",
+rv_t3:"…сыйлық ретінде қорғаныш әйнек орнатып, қапқа жеңілдік жасады.",
+rv_t4:"Телефонымызды тіпті қол тигізбей-ақ жөндеп берді, бізді күлімдеп шығарып салды.",
+rv_t5:"…жөндеу бағасы тегін дерлік…",
+rv_t6:"Ешкім тақпаған сағат бауын бір минутта тағып берді.",
+fd_title:"Бізді қалай табуға болады",
+fd_store_alt:"Antalya Fix-тің TerraCity-дегі сөресі, артында эскалатор",
+fd_tab_g:"Google Карталар", fd_tab_y:"Яндекс Карталар",
+fd_route_g:"Google Карталарда бағыт", fd_route_y:"Яндекс Карталарда бағыт",
+fd_addr:"Мекенжай", fd_hours:"Жұмыс уақыты", fd_hours_v:"Күн сайын 10:00–22:00, жексенбіні қоса", fd_phone:"Телефон",
+lg_speak:"Шеберханада түрікше және ағылшынша сөйлейміз.",
+lg_write:"Сайт орыс, қазақ және өзбек тілдерінде де бар, WhatsApp хабарламасын осы тілдердің кез келгенінде жібере аласыз.",
+af_btn:"Google-да пікір қалдыру",
+ft_media:"Фото және бейнелер: @antalyafix",
+ft_demo:"Демо · Onaz Studio Antalya Fix үшін дайындады.",
+ft_site:"Сайт: Onaz Studio",
+bar_call:"Қоңырау", bar_route:"Бағыт",
+hero_what:"Телефон, планшет, компьютер жөндеу; телефон сату және сатып алу.",
+tq_g:"Google-да 419 пікір",
+tq_y:"Яндексте 33 баға",
+rv_google:"Google пікірі",
+a_top:"Жоғарыға",
+bar_tg:"Telegram",
+send_wa:"WhatsApp-пен жіберу",
+send_tg:"Telegram-мен жіберу",
+toast_tg:"Хабарламаңыз көшірілді, Telegram-ға қойып, жіберіңіз",
+store_cap:"Біздің дүкен: TerraCity сауда орталығы, −2 қабат",
+sw_title:"Біз істейтін жұмыстар",
+sw_sub:"Әр жұмыстың жанында — оны жасатқан клиенттің нақты пікірі.",
+sw_back_t:"Артқы әйнекті ауыстыру",
+sw_back_d:"Сынған әйнекті алып, бетін тазалап, жаңа әйнек орнатамыз.",
+sw_bat_t:"Батареяны ауыстыру",
+sw_bat_d:"Ісінген немесе тез отыратын батареяны ауыстырамыз.",
+sw_scr_t:"Экранды ауыстыру",
+sw_scr_d:"Сынған не ақаулы экранды ауыстырамыз, бөлшек түрін сізден сұраймыз.",
+sw_cam_t:"Камера әйнегі",
+sw_cam_d:"Жарылған камера әйнегін миллиметрлік дәлдікпен ауыстырамыз.",
+sw_data_t:"Деректерді көшіру",
+sw_data_d:"Контактілерді, фотоларды және WhatsApp-ты жаңа телефонға көшіреміз.",
+sw_phone_t:"Жаңа және қолданылған телефондар",
+sw_phone_d:"Жаңа және тексерілген қолданылған телефондар; сіздің телефоныңызды да сатып аламыз.",
+sw_ask:"Бұл жұмыстың бағасын сұрау",
+sw_phone_ask:"Телефондарды көру",
+sw_ig:"Instagram-да көру",
+sw_ba:"Дейін / кейін",
+ready_q:"Телефон дайын болғанда қалай хабарлайық?",
+ready_wa:"WhatsApp-қа жазыңыз",
+ready_tg:"Telegram-ға жазыңыз",
+ready_call:"Маған қоңырау шалыңыз",
+m_ready_wa:"Дайын болғанда маған WhatsApp-қа жазыңыз.",
+m_ready_tg:"Дайын болғанда маған Telegram-ға жазыңыз.",
+m_ready_call:"Дайын болғанда маған қоңырау шалыңыз.",
+ig_title:"Instagram-дағы соңғы жұмыстарымыз",
+ig_c1:"iPhone 12 Pro Max камера әйнегі",
+ig_c2:"iPhone 15 Pro Max артқы әйнегі",
+ig_c3:"Батареяны ауыстыру",
+ig_c4:"Жаңа iPhone-дар",
+ig_follow:"Жазылу",
+ig_dm:"Instagram-да жазу",
+ig_reel:"Бейне",
+map_show:"Картаны көрсету",
+parts_t:"Қандай бөлшек орнатылады? Алдын ала айтамыз.",
+st_open_sub2:"22:00-ге дейін",
+st_soon:"Жақында жабыламыз",
+st_soon_sub:"22:00-де жабыламыз",
+st_today:"10:00-де ашылады",
+st_tomorrow:"ертең 10:00-де ашылады",
+st_s_open:"Ашық",
+st_s_closed:"Жабық",
+theme_light:"Ашық тақырып",
+theme_dark:"Қараңғы тақырып",
+a_rating:"Бағалар мен пікірлер",
+tl_1:"Телефонды қалдырыңыз",
+tl_2:"Демалып, көңіл көтеріңіз",
+tl_3:"Дайын болғанда WhatsApp, Telegram не телефон арқылы хабарлаймыз",
+srv_back:"…нашар күйден керемет күйге келтірді…",
+srv_bat:"…бәрі керемет жасалды… түпнұсқа батарея…",
+rv_all_y:"Яндекстен оқу",
+car_prev:"Алдыңғы",
+car_next:"Келесі",
+oled_plain:"«Балама» — сол қызметті атқаратын басқа өндірушінің бөлшегі.",
+reel_lbl:"Өз жұмыс үстелімізден",
+demo_m:"Демо · Onaz Studio, Antalya Fix үшін",
+tc_alt:"TerraCity сауда орталығының сырты",
+tc_cap:"TerraCity сауда орталығы · Лара, Анталия",
+tc_credit:"TerraCity фотосы: Sharon Hahn Darlin, CC BY 2.0",
+c_g:"419 пікір",
+c_y:"33 баға",
+s_wdoc:"Кепілдік талоны бар ма?",
+m_wdoc:"Кепілдік талоны: {v}.",
+s_photos:"Фотоларды WhatsApp-та сұраймыз.",
+s_search:"Модель іздеу",
+s_search_ph:"Іздеу, мысалы 13 Pro…",
+price_hint:"Бағасын сұраңыз: WhatsApp не Telegram"
+},
+uz:{
+meta_title:"Antalya Fix · TerraCity’da telefon taʼmiri",
+meta_desc:"Antaliyadagi TerraCity savdo markazi, −2-qavat: telefon, planshet va kompyuter taʼmiri; yangi va ishlatilgan telefonlar. Har kuni 10:00–22:00.",
+demo:"Demo · Onaz Studio tomonidan Antalya Fix uchun tayyorlangan",
+skip:"Asosiy qismga oʻtish",
+a_lang:"Tilni oʻzgartirish",
+a_journeys:"Sizga nima kerak?",
+a_contact:"Aloqa",
+st_open:"Hozir ochiq", st_closed:"Yopiq", hero_loc:"TerraCity · −2-qavat",
+hero_loc_sub:"MediaMarkt tomonidagi zinadan pastga",
+hero_h1:"Siz dam olayotganingizda telefoningiz tez tuzatilsin.",
+j_fix:"Telefonni tuzattirish", j_sell:"Telefonni sotish", j_buy:"Telefon sotib olish", j_pc:"Kompyuter va maʼlumotlar", wk_title:"Oʻz ish stolimizdan haqiqiy ishlar",
+wk_video:"Antalya Fix ish stolidan taʼmir lavhalari",
+wk_before:"Oldin", wk_after:"Keyin", wk_drag:"Solishtirish uchun suring",
+wk_ba_title:"iPhone 15 Pro Max orqa oynasi: oldin va keyin",
+alt_before:"Orqa oynasi yorilgan iPhone 15 Pro Max", alt_after:"Oʻsha telefon, yangi orqa oynasi bilan", alt_transfer:"Sozlash ekranidagi yangi iPhone", alt_boxes:"Qutidagi yangi iPhone’lar",
+q_title:"Taʼmir narxini hech narsa yozmasdan bilib oling",
+q_sub:"Brend, model va muammoni tanlang. WhatsApp sizning tilingizda tayyor xabar bilan ochiladi — faqat yuboring.",
+q_pick:"Telefoningiz qaysi brend?",
+sh_step:"{n}/4-qadam", sh_t2:"Qaysi model?", sh_model_label:"Model", sh_model_ph:"Modelni yozing, masalan iPhone 13…", sh_or:"yoki roʻyxatdan tanlang",
+sh_t3:"Nima boʻldi?", sh_t4:"Xabaringiz tayyor", sh_device:"Qurilma", sh_problem:"Muammo", sh_edit:"Oʻzgartirish",
+sh_quality:"Ekran detali tanlovi", sh_quality_hint:"Ixtiyoriy. Ishonchingiz komil boʻlmasa, variantlarni oʻzimiz tushuntiramiz.", q_unsure:"Bilmayman",
+sh_courier:"Kela olmayman, yetkazib berish kerak",
+sh_preview:"Xabar matni", sh_back:"Orqaga", sh_close:"Yopish", sh_next:"Davom etish",
+sh_err_model:"Modelni yozing yoki roʻyxatdan tanlang.",
+br_tablet:"iPad / planshet", br_other:"Boshqa brend", md_older:"Eskiroq model",
+p_screen:"Ekran singan", p_battery:"Batareya", p_port:"Quvvatlash porti", p_back:"Orqa oyna", p_camera:"Kamera", p_water:"Suv tekkan", p_scratch:"Oynadagi tirnalishlar", p_data:"Maʼlumot koʻchirish", p_other:"Boshqa muammo",
+m_hello:"Assalomu alaykum, Antalya Fix!",
+m_device:"Menda {d} bor.",
+m_screen:"Ekrani singan.", m_battery:"Batareyasini almashtirish kerak.", m_port:"Quvvatlash portida muammo bor.", m_back:"Orqa oynasi singan.", m_camera:"Kamerasida muammo bor.", m_water:"Telefonga suv tegib ketdi.", m_scratch:"Old oynasi tirnalgan. Tirnalishlarni ketkaza olasizmi?", m_data:"Maʼlumotlarimni yangi telefonga koʻchirmoqchiman.", m_other:"Boshqa muammo bor, batafsil yozaman.",
+m_quality:"Detal boʻyicha tanlovim: {q}.", m_q_unsure:"Detal variantlarini tushuntirib bera olasizmi?",
+m_courier:"Ustaxonaga kela olmayman. Telefonni olib ketib, qaytarib keltira olasizmi?",
+m_ask:"Narxi qancha va qancha vaqt oladi?",
+m_generic:"Assalomu alaykum, Antalya Fix! Narxini bilmoqchiman.",
+qa_sub:"Ekranni almashtirishning uchta varianti bor, farqi darrov koʻzga tashlanmaydi. Har birini oddiy til bilan tushuntiramiz, tanlov sizda.",
+t_orig:"Original", t_orig_d:"Telefoningizga zavodda oʻrnatilgan detalning aynan oʻzi. Rang, yorqinlik va sensor birinchi kundagidek.",
+t_oled:"OLED muqobili", t_oled_d:"Boshqa ishlab chiqaruvchining OLED ekrani. Qora rang chuqur, ranglar originalga yaqin, narxi arzonroq.",
+t_eco:"Tejamkor (LCD)", t_eco_d:"LCD panel. Yaxshi ishlaydi, lekin qora rang biroz kulrang koʻrinadi va batareya tezroq tugaydi. Byudjet muhim boʻlsa — toʻgʻri tanlov.",
+row_color:"Rang va tiniqlik", row_battery:"Batareyani tejaydi", pr1_t:"Original detallar va puxta ish", pr1_d:"Buni Instagram’dagi ishlarimizda koʻrasiz: original sifat, millimetrik aniqlik.",
+pr3_t:"Detal turini sizdan soʻraymiz", pr3_d:"Variantlarni oddiy til bilan tushuntiramiz, qaror sizda.",
+s_title:"Telefoningizni bizga soting",
+s_sub:"Bir necha variantni tanlang — taklifimizni WhatsApp yoki Telegram orqali yozamiz.",
+s_brand:"Brend", s_model:"Model", s_model_ph:"masalan, Galaxy S21…", s_storage:"Xotira",
+s_screen:"Ekran", c_clean:"Toza", c_light:"Yengil tirnalgan", c_cracked:"Singan",
+s_body:"Korpus", b_clean:"Toza", b_marks:"Yengil izlar", b_dents:"Ezilgan / yorilgan",
+s_battery:"Batareya holati", s_bat_unknown:"Bilmayman",
+s_box:"Quti va quvvatlagich", box_full:"Quti + quvvatlagich", box_only:"Faqat quti", box_none:"Yoʻq",
+s_bio:"Face ID / Touch ID / barmoq izi ishlaydimi?", yes:"Ha", no:"Yoʻq", bio_yes:"ishlaydi", bio_no:"ishlamaydi",
+s_trade:"Yangi telefonga almashtirmoqchiman",
+s_trade_note:"Almashtirish-chi? Telefoningizni yangisining narxiga hisoblash mumkinmi, soʻrang.",
+m_sell:"Telefonimni sotmoqchiman: {d}. Ekran: {sc}, korpus: {bo}, batareya holati: {ba}, quti/quvvatlagich: {bx}, Face ID / Touch ID: {bio}. Rasm yubora olaman. Qancha taklif qilasiz?",
+m_sell_trade:"Yangi telefonga almashtirishni ham oʻylayapman.",
+b_title:"Telefon sotib olish: yangi yoki tekshirilgan ishlatilgan",
+b_sub:"Model va xotirani tanlang, bir bosishda «Bormi? Narxini soʻrash» deb soʻrang.",
+b_new:"Yangi", b_used:"Tekshirilgan ishlatilgan",
+b_other:"Kerakli model yoʻqmi? Soʻrang",
+b_check:"Tekshirilgan", b_ask:"Bormi? Narxini soʻrash",
+b_cond_new:"yangi", b_cond_used:"ishlatilgan",
+m_buy:"{d} ({c}) sizda bormi? Narxi qancha?",
+m_buy_other:"Telefon qidiryapman. Qaysi modellar bor?",
+pc_h:"Kompyuteringiz uchun",
+pc_typ:"Odatiy ishlar: sekinlashgan kompyuter, ekran, klaviatura, batareya, Windows oʻrnatish, tozalash. Oʻzingiznikini soʻrang.",
+pc_dev:"Qurilma", pc_laptop:"Noutbuk", pc_desktop:"Stol kompyuteri", pc_issue:"Muammo",
+pc_slow:"Sekinlashdi", pc_screen:"Ekran", pc_keyboard:"Klaviatura", pc_battery:"Batareya", pc_windows:"Windows oʻrnatish", pc_clean:"Tozalash va xizmat", pc_other:"Boshqa",
+m_pc_laptop:"Noutbukim boʻyicha yozyapman.", m_pc_desktop:"Stol kompyuterim boʻyicha yozyapman.", m_pc_issue:"Muammo: {i}.", m_pc_ask:"Koʻrib bera olasizmi? Narxi va muddati qancha?",
+dt_title:"Yangi telefon oldingizmi?", dt_sub:"Kontaktlaringiz, rasmlaringiz va WhatsApp’ni yangi telefonga koʻchiramiz.",
+dt_from:"Eski telefon", dt_to:"Yangi telefon", m_data:"Yangi telefon oldim. Kontaktlar, rasmlar va WhatsApp’ni eski {f} telefonimdan yangi {t} telefonimga koʻchirmoqchiman. Narxi va muddati qancha?",
+dr_title:"Telefon yoqilmayapti, rasmlar esa kerakmi?",
+dr_sub:"Maʼlumotni tiklash mumkinligi qurilmaga bogʻliq. Vaziyatni yozing — mumkinmi yoki yoʻqmi, aytamiz.",
+m_recover:"Telefonim yoqilmayapti, ichidagi rasmlar kerak. Maʼlumotlarni tiklash mumkinmi?",
+sv_title:"Shuningdek",
+sv_scratch_t:"Old oynadagi tirnalishlarni ketkazish", sv_scratch_d:"Tirnalgan old oyna uchun — ekranni almashtirmasdan.",
+sv_acc_t:"Aksessuarlar", sv_acc_d:"Gʻiloflar, himoya oynalari, quvvatlagichlar.",
+sv_small_t:"Mayda ishlar — darhol", sv_small_d:"Masalan, soat tasmasini bir daqiqada taqib beramiz.",
+sv_delivery_t:"Manzilga yetkazib berish", sv_delivery_d:"Kela olmasangiz, WhatsApp’ga yozing, kelishib olamiz.",
+m_delivery:"Ustaxonaga kela olmayman. Manzilga yetkazib berish yoki kuryer orqali olib ketish mumkinmi?",
+rv_title:"Bizga birinchi marta kelganlar nima yozdi?",
+rv_all:"Google’da oʻqish",
+rv_show:"Asl matnni koʻrsatish", rv_hide:"Tarjimani koʻrsatish", rv_summary:"Sharh qisqacha",
+rv_src_ru:"Google sharhi · rus tilida", rv_guide:"Mahalliy gid",
+rv_m2:"iPhone 15 Pro · shishgan batareya", rv_m3:"iPhone 14 Pro · ekran yashil boʻlib qoldi",
+rv_t1:"iPhone 14 Pro Max telefonimni yomon holatdan ajoyib holatga keltirishdi, ishni 2 soat ichida tugatib, ekran himoyasini sovgʻa qilishdi.",
+rv_t2:"…biz savdo markazini aylanib yurganimizda, 2 soatda hammasi aʼlo darajada qilindi… original batareya… Ridvan inglizcha gapiradi.",
+rv_t3:"…sovgʻa sifatida himoya oynasini oʻrnatishdi va gʻilofga chegirma qilishdi.",
+rv_t4:"Telefonimizni hatto tegmasdan tuzatib berdi va bizni tabassum bilan kuzatib qoʻyishdi.",
+rv_t5:"…taʼmir narxlari deyarli tekin…",
+rv_t6:"Hech kim taqmagan soat tasmasini bir daqiqada taqib berishdi.",
+fd_title:"Bizni qanday topasiz",
+fd_store_alt:"Antalya Fix’ning TerraCity’dagi peshtaxtasi, orqasida eskalator",
+fd_tab_g:"Google Xaritalar", fd_tab_y:"Yandex Xaritalar",
+fd_route_g:"Google Xaritalarda yoʻnalish", fd_route_y:"Yandex Xaritalarda yoʻnalish",
+fd_addr:"Manzil", fd_hours:"Ish vaqti", fd_hours_v:"Har kuni 10:00–22:00, yakshanba ham", fd_phone:"Telefon",
+lg_speak:"Ustaxonada turkcha va inglizcha gaplashamiz.",
+lg_write:"Sayt rus, qozoq va oʻzbek tillarida ham bor, WhatsApp xabarini shu tillarning istalganida yuborishingiz mumkin.",
+af_btn:"Google’da sharh qoldirish",
+ft_media:"Rasm va videolar: @antalyafix",
+ft_demo:"Demo · Onaz Studio tomonidan Antalya Fix uchun tayyorlangan.",
+ft_site:"Sayt: Onaz Studio",
+bar_call:"Qoʻngʻiroq", bar_route:"Yoʻnalish",
+hero_what:"Telefon, planshet, kompyuter taʼmiri; telefon oldi-sottisi.",
+tq_g:"Google’da 419 ta sharh",
+tq_y:"Yandex’da 33 ta baho",
+rv_google:"Google sharhi",
+a_top:"Yuqoriga",
+bar_tg:"Telegram",
+send_wa:"WhatsApp’da yuborish",
+send_tg:"Telegram’da yuborish",
+toast_tg:"Xabaringiz nusxalandi, Telegram’ga qoʻyib yuboring",
+store_cap:"Doʻkonimiz: TerraCity savdo markazi, −2-qavat",
+sw_title:"Qiladigan ishlarimiz",
+sw_sub:"Har bir ish yonida — uni qildirgan mijozning haqiqiy sharhi.",
+sw_back_t:"Orqa oynani almashtirish",
+sw_back_d:"Singan oynani olib, yuzasini tozalab, yangi oyna oʻrnatamiz.",
+sw_bat_t:"Batareyani almashtirish",
+sw_bat_d:"Shishgan yoki tez tugaydigan batareyani almashtiramiz.",
+sw_scr_t:"Ekranni almashtirish",
+sw_scr_d:"Singan yoki nosoz ekranni almashtiramiz, detal turini sizdan soʻraymiz.",
+sw_cam_t:"Kamera oynasi",
+sw_cam_d:"Yorilgan kamera oynasini millimetrik aniqlikda almashtiramiz.",
+sw_data_t:"Maʼlumot koʻchirish",
+sw_data_d:"Kontaktlar, rasmlar va WhatsApp’ni yangi telefonga koʻchiramiz.",
+sw_phone_t:"Yangi va ishlatilgan telefonlar",
+sw_phone_d:"Yangi va tekshirilgan ishlatilgan telefonlar; sizning telefoningizni ham sotib olamiz.",
+sw_ask:"Bu ish narxini soʻrash",
+sw_phone_ask:"Telefonlarni koʻrish",
+sw_ig:"Instagram’da koʻrish",
+sw_ba:"Oldin / keyin",
+ready_q:"Telefon tayyor boʻlganda qanday xabar beraylik?",
+ready_wa:"WhatsApp’ga yozing",
+ready_tg:"Telegram’ga yozing",
+ready_call:"Menga qoʻngʻiroq qiling",
+m_ready_wa:"Tayyor boʻlganda menga WhatsApp’ga yozing.",
+m_ready_tg:"Tayyor boʻlganda menga Telegram’ga yozing.",
+m_ready_call:"Tayyor boʻlganda menga qoʻngʻiroq qiling.",
+ig_title:"Instagram’dagi soʻnggi ishlarimiz",
+ig_c1:"iPhone 12 Pro Max kamera oynasi",
+ig_c2:"iPhone 15 Pro Max orqa oynasi",
+ig_c3:"Batareyani almashtirish",
+ig_c4:"Yangi iPhone’lar",
+ig_follow:"Kuzatish",
+ig_dm:"Instagram’da yozish",
+ig_reel:"Video",
+map_show:"Xaritani koʻrsatish",
+parts_t:"Qaysi detal oʻrnatiladi? Oldindan aytamiz.",
+st_open_sub2:"22:00 gacha",
+st_soon:"Tez orada yopilamiz",
+st_soon_sub:"22:00 da yopilamiz",
+st_today:"10:00 da ochiladi",
+st_tomorrow:"ertaga 10:00 da ochiladi",
+st_s_open:"Ochiq",
+st_s_closed:"Yopiq",
+theme_light:"Yorugʻ mavzu",
+theme_dark:"Qorongʻi mavzu",
+a_rating:"Baholar va sharhlar",
+tl_1:"Telefonni qoldiring",
+tl_2:"Maroqli dam oling",
+tl_3:"Tayyor boʻlganda WhatsApp, Telegram yoki telefon orqali xabar beramiz",
+srv_back:"…yomon holatdan ajoyib holatga keltirishdi…",
+srv_bat:"…hammasi aʼlo darajada qilindi… original batareya…",
+rv_all_y:"Yandex’da oʻqish",
+car_prev:"Oldingi",
+car_next:"Keyingi",
+oled_plain:"«Muqobil» — xuddi shu ishni bajaradigan boshqa ishlab chiqaruvchining detali.",
+reel_lbl:"Oʻz ish stolimizdan",
+demo_m:"Demo · Onaz Studio, Antalya Fix uchun",
+tc_alt:"TerraCity savdo markazining tashqi koʻrinishi",
+tc_cap:"TerraCity savdo markazi · Lara, Antaliya",
+tc_credit:"TerraCity surati: Sharon Hahn Darlin, CC BY 2.0",
+c_g:"419 ta sharh",
+c_y:"33 ta baho",
+s_wdoc:"Kafolat taloni bormi?",
+m_wdoc:"Kafolat taloni: {v}.",
+s_photos:"Rasmlarni WhatsApp’da soʻraymiz.",
+s_search:"Model qidirish",
+s_search_ph:"Qidirish, masalan 13 Pro…",
+price_hint:"Narxini soʻrang: WhatsApp yoki Telegram"
+}
+}; // end-i18n
+
+(function(){
+"use strict";
+var $=function(s,r){return (r||document).querySelector(s)};
+var $$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};
+var LANGS=["tr","en","ru","kk","uz"];
+var NATIVE={tr:"Türkçe",en:"English",ru:"Русский",kk:"Қазақша",uz:"Oʻzbekcha"};
+var TRNAME={tr:"Türkçe",en:"İngilizce",ru:"Rusça",kk:"Kazakça",uz:"Özbekçe"};
+var LOCALE={tr:"tr-TR",en:"en-GB",ru:"ru-RU",kk:"kk-KZ",uz:"uz-Latn-UZ"};
+var NUMLOC={tr:"tr-TR",en:"en-GB",ru:"ru-RU",kk:"ru-RU",uz:"ru-RU"};
+var WA="905441121911",TG="https://t.me/+905441121911";
+var G_ROUTE="https://www.google.com/maps/dir/?api=1&destination=36.8521934,30.7578719";
+var Y_ROUTE="https://yandex.ru/maps/?rtext=~36.852621%2C30.757812&rtt=auto";
+var G_EMBED="https://www.google.com/maps?q=36.8521934,30.7578719&z=17&output=embed";
+var Y_EMBED="https://yandex.ru/map-widget/v1/?oid=157554788738&ll=30.757812%2C36.852621&z=17";
+var reduce=window.matchMedia("(prefers-reduced-motion: reduce)");
+var lang="tr";
+function ruSide(){return lang==="ru"||lang==="kk"||lang==="uz"}
+
+function t(k,L){var d=I18N[L||lang];if(d&&d[k]!=null)return d[k];return I18N.tr[k]!=null?I18N.tr[k]:k}
+function tr(k){return I18N.tr[k]}
+function fill(s,o){return s.replace(/\{(\w+)\}/g,function(_,k){return o[k]!=null?o[k]:""})}
+function lc(s,L){return s.toLocaleLowerCase(LOCALE[L||lang])}
+function num(n,o,L){try{return new Intl.NumberFormat(NUMLOC[L||lang],o).format(n)}catch(e){return String(n)}}
+function pct(v,L){return num(v/100,{style:"percent",maximumFractionDigits:0},L)}
+function score(v){return num(v,{minimumFractionDigits:1,maximumFractionDigits:1})}
+function esc(s){return String(s).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]})}
+function icon(id,cls){return '<svg class="ic'+(cls?" "+cls:"")+'" aria-hidden="true"><use href="#'+id+'"/></svg>'}
+function storageLabel(gb){return gb>=1024?(gb/1024)+" TB":gb+" GB"}
+function article(d){return /^(?:[aeiou]|hon)/i.test(d)?"an":"a"}
+function radio(name){var r=$('input[name="'+name+'"]:checked');return r?r.value:null}
+
+/* ---------- messages: customer line + Turkish owner block ---------- */
+function waText(m){return m.c+"\n—\n"+m.l.filter(Boolean).join("\n")+"\n🌐 Müşteri dili: "+TRNAME[lang]}
+function waHref(m){return "https://wa.me/"+WA+"?text="+encodeURIComponent(waText(m))}
+var SENDS={
+  gen:function(){return {c:t("m_generic"),l:["🔔 TALEP: Fiyat sorusu (genel)"]}},
+  other:function(){return {c:t("m_hello")+" "+t("m_buy_other"),l:["🔔 TALEP: Stok sorusu (model belirtilecek)"]}},
+  pc:function(){var dev=radio("pcdev")||"laptop",iss=radio("pcissue")||"slow";
+    return {c:[t("m_hello"),t(dev==="laptop"?"m_pc_laptop":"m_pc_desktop"),fill(t("m_pc_issue"),{i:lc(t("pc_"+iss))}),t("m_pc_ask")].join(" "),
+      l:["🔔 TALEP: Bilgisayar tamiri","💻 "+tr("pc_"+dev)+" · Sorun: "+lc(tr("pc_"+iss),"tr")]}},
+  data:function(){var f=radio("dtfrom")||"iPhone",to=radio("dtto")||"iPhone";
+    return {c:t("m_hello")+" "+fill(t("m_data"),{f:f,t:to}),l:["🔔 TALEP: Veri aktarımı (rehber, fotoğraf, WhatsApp)","📱 "+f+" → "+to]}},
+  rec:function(){return {c:t("m_hello")+" "+t("m_recover"),l:["🔔 TALEP: Veri kurtarma sorusu (yapılabilir mi?)","📱 Telefon açılmıyor, fotoğraflar lazım"]}},
+  del:function(){return {c:t("m_hello")+" "+t("m_delivery"),l:["🔔 TALEP: Adrese teslimat / kurye ile alım sorusu"]}},
+  sell:function(){return sellMsg()},
+  sheet:function(){return repairMsg()}
+};
+function pairHTML(key){
+  var m=SENDS[key]();
+  return '<a class="btn btn-p" href="'+esc(waHref(m))+'" target="_blank" rel="noopener" data-wa="'+key+'">'+icon("i-wa")+'<span>'+esc(t("send_wa"))+'</span></a>'+
+    '<a class="btn btn-tg" href="'+TG+'" target="_blank" rel="noopener" data-tg="'+key+'">'+icon("i-tg","fill")+'<span>'+esc(t("send_tg"))+'</span></a>';
+}
+function renderSends(){$$("[data-send]").forEach(function(el){el.innerHTML=pairHTML(el.getAttribute("data-send"))})}
+function updateSend(key){var m=SENDS[key]();$$('[data-wa="'+key+'"]').forEach(function(a){a.href=waHref(m)})}
+function rlineHTML(){
+  var g='<span class="rp">'+icon("i-star","fill")+'<b>'+score(4.9)+'</b> '+esc(t("tq_g"))+'</span>',y='<span class="rp">'+icon("i-star","fill")+'<b>'+score(5.0)+'</b> '+esc(t("tq_y"))+'</span>';
+  return ruSide()?y+'<span class="sep">·</span>'+g:g+'<span class="sep">·</span>'+y;
+}
+function renderRlines(){var h=rlineHTML();$$("[data-rline]").forEach(function(el){el.innerHTML=h})}
+
+/* Telegram: copy the same message, show toast, let the link open t.me */
+function copyText(txt){
+  try{if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(txt).catch(fallback);return}}catch(e){}
+  fallback();
+  function fallback(){var ta=document.createElement("textarea");ta.value=txt;ta.setAttribute("readonly","");ta.style.position="fixed";ta.style.opacity="0";document.body.appendChild(ta);ta.select();try{document.execCommand("copy")}catch(e){}document.body.removeChild(ta)}
+}
+var toastTimer;
+function toast(msg){var el=$("#toast");$("#toastT").textContent=msg;el.classList.add("on");clearTimeout(toastTimer);toastTimer=setTimeout(function(){el.classList.remove("on")},4200)}
+document.addEventListener("click",function(e){
+  var a=e.target.closest("[data-tg]");if(!a)return;
+  var key=a.getAttribute("data-tg"),m;
+  if(key.indexOf("buy:")===0){var p=key.split(":");m=buyMsg(CAT[p[1]][+p[2]],+p[3]||0,p[1])}
+  else m=(SENDS[key]||SENDS.gen)();
+  copyText(waText(m));toast(t("toast_tg"));
+});
+
+/* ---------- language ---------- */
+function detect(){
+  try{var u=new URLSearchParams(location.search).get("lang");if(LANGS.indexOf(u)>-1)return u}catch(e){}
+  try{var s=localStorage.getItem("af_lang");if(LANGS.indexOf(s)>-1)return s}catch(e){}
+  var nl=navigator.languages||[navigator.language||""];
+  for(var i=0;i<nl.length;i++){var c=String(nl[i]||"").slice(0,2).toLowerCase();if(LANGS.indexOf(c)>-1)return c}
+  return "tr";
+}
+function applyI18n(){
+  $$("[data-i18n]").forEach(function(el){el.textContent=t(el.getAttribute("data-i18n"))});
+  $$("[data-i18n-aria]").forEach(function(el){el.setAttribute("aria-label",t(el.getAttribute("data-i18n-aria")))});
+  $$("[data-i18n-ph]").forEach(function(el){el.setAttribute("placeholder",t(el.getAttribute("data-i18n-ph")))});
+  $$("[data-i18n-alt]").forEach(function(el){el.setAttribute("alt",t(el.getAttribute("data-i18n-alt")))});
+  document.title=t("meta_title");
+  var md=$('meta[name="description"]');if(md)md.setAttribute("content",t("meta_desc"));
+  document.documentElement.lang=lang==="uz"?"uz-Latn":lang;
+  $("#langCode").textContent=lang.toUpperCase();
+  $$("[data-score]").forEach(function(el){el.textContent=score(parseFloat(el.getAttribute("data-score")))});
+  $$(".trust").forEach(function(x){x.classList.toggle("yfirst",ruSide())});
+  var rp=$(".readpair");if(ruSide())rp.insertBefore($('[data-read="y"]',rp),$('[data-read="g"]',rp));else rp.insertBefore($('[data-read="g"]',rp),$('[data-read="y"]',rp));
+  $("#rchip").classList.toggle("y",ruSide());
+  $("#mbar").classList.toggle("tgfirst",ruSide());
+  $("#routeBar").href=ruSide()?Y_ROUTE:G_ROUTE;
+  $$(".routes").forEach(function(r){var g=$('[data-route="g"]',r),y=$('[data-route="y"]',r);if(ruSide())r.insertBefore(y,g);else r.insertBefore(g,y)});
+  var gen=SENDS.gen();$("#waBar").href=waHref(gen);$("#waTop").href=waHref(gen);$("#tgBar").setAttribute("data-tg","gen");
+  themeLabel();
+}
+function setLang(l,fromUser){
+  lang=l;
+  applyI18n();renderLangMenu();renderStatus();renderRlines();renderSends();renderBrandsInline();renderWork();renderReviews();renderSell();renderBuy();renderTier();
+  if(!mapUser)setMapTab(ruSide()?"y":"g");
+  if(sheet.open)renderSheet();
+  if(fromUser){
+    try{localStorage.setItem("af_lang",l)}catch(e){}
+    try{var u=new URL(location.href);u.searchParams.set("lang",l);history.replaceState(null,"",u.toString())}catch(e){}
+  }
+}
+var langBtn=$("#langBtn"),langMenu=$("#langMenu");
+function renderLangMenu(){langMenu.innerHTML=LANGS.map(function(l){return '<li><button type="button" lang="'+l+'" data-lang="'+l+'" aria-current="'+(l===lang)+'">'+NATIVE[l]+'<span translate="no">'+l.toUpperCase()+'</span></button></li>'}).join("")}
+function toggleMenu(open){langMenu.hidden=!open;langBtn.setAttribute("aria-expanded",String(open));if(open){var c=$('button[aria-current="true"]',langMenu)||$("button",langMenu);c&&c.focus()}}
+langBtn.addEventListener("click",function(){toggleMenu(langMenu.hidden)});
+langMenu.addEventListener("click",function(e){var b=e.target.closest("button[data-lang]");if(!b)return;toggleMenu(false);langBtn.focus();setLang(b.getAttribute("data-lang"),true)});
+langMenu.addEventListener("keydown",function(e){var it=$$("button",langMenu),i=it.indexOf(document.activeElement);
+  if(e.key==="ArrowDown"){e.preventDefault();it[(i+1)%it.length].focus()}else if(e.key==="ArrowUp"){e.preventDefault();it[(i-1+it.length)%it.length].focus()}else if(e.key==="Escape"){toggleMenu(false);langBtn.focus()}});
+document.addEventListener("click",function(e){if(!langMenu.hidden&&!e.target.closest(".lang"))toggleMenu(false)});
+
+/* ---------- theme ---------- */
+var themeBtn=$("#themeBtn");
+function isLight(){return document.documentElement.getAttribute("data-theme")==="light"}
+function themeLabel(){var l=t(isLight()?"theme_dark":"theme_light");themeBtn.setAttribute("aria-label",l);themeBtn.title=l;$('meta[name="theme-color"]').setAttribute("content",isLight()?"#F3F6F8":"#060B12")}
+themeBtn.addEventListener("click",function(){
+  if(isLight())document.documentElement.removeAttribute("data-theme");else document.documentElement.setAttribute("data-theme","light");
+  try{localStorage.setItem("af_theme",isLight()?"light":"dark")}catch(e){}
+  themeLabel();
+});
+
+/* ---------- open status ---------- */
+function istMinutes(){
+  try{var p=new Intl.DateTimeFormat("en-GB",{timeZone:"Europe/Istanbul",hour:"2-digit",minute:"2-digit",hourCycle:"h23"}).formatToParts(new Date());
+    var h=+p.filter(function(x){return x.type==="hour"})[0].value,m=+p.filter(function(x){return x.type==="minute"})[0].value;return (h%24)*60+m}
+  catch(e){var d=new Date();return ((d.getUTCHours()+3)%24)*60+d.getUTCMinutes()}
+}
+function renderStatus(){
+  var m=istMinutes(),open=m>=600&&m<1320,soon=open&&m>=1260,state=open?(soon?"soon":"open"):"closed";
+  $("#hstat").setAttribute("data-state",state);$("#hstatT").textContent=t(open?"st_s_open":"st_s_closed");
+  var full=t(open?(soon?"st_soon":"st_open"):"st_closed")+" · "+t(open?(soon?"st_soon_sub":"st_open_sub2"):(m<600?"st_today":"st_tomorrow"));
+  $("#hstat").setAttribute("aria-label",full);$("#hstat").title=full;
+  var bs=$("#bstat");if(bs){bs.setAttribute("data-state",state);$("#bstatT").textContent=full}
+  var fl=$("#findOpen");if(fl){fl.textContent=full;fl.setAttribute("data-state",state)}
+}
+setInterval(renderStatus,60000);
+
+/* ---------- reel + before/after ---------- */
+var reel=$("#reel");
+function playReel(){var p=reel.play();if(p&&p.catch)p.catch(function(){})}
+if(reduce.matches){reel.removeAttribute("autoplay");reel.pause();reel.preload="none"}
+else if("IntersectionObserver" in window)new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)playReel();else if(!reel.paused)reel.pause()})},{threshold:.3}).observe(reel);
+var ba=$("#ba"),baRange=$("#baRange");
+baRange.addEventListener("input",function(){ba.style.setProperty("--pos",baRange.value+"%")});
+
+/* ---------- carousels: peek + dots + arrows ---------- */
+function carousel(sc){
+  var wrap=sc.parentNode,nav=$(".cnav",wrap);
+  if(!nav){nav=document.createElement("div");nav.className="cnav";
+    nav.innerHTML='<button type="button" class="cp">'+icon("i-back")+'</button><div class="dots" aria-hidden="true"></div><button type="button" class="cn">'+icon("i-chev")+'</button>';
+    wrap.appendChild(nav);
+    $(".cp",nav).addEventListener("click",function(){step(-1)});$(".cn",nav).addEventListener("click",function(){step(1)});
+    sc.addEventListener("scroll",function(){if(sc._raf)return;sc._raf=requestAnimationFrame(function(){sc._raf=0;sync()})},{passive:true});
+  }
+  $(".cp",nav).setAttribute("aria-label",t("car_prev"));$(".cn",nav).setAttribute("aria-label",t("car_next"));
+  $(".dots",nav).innerHTML=Array.prototype.map.call(sc.children,function(){return "<i></i>"}).join("");
+  function idx(){var kids=sc.children,best=0,d=1e9;for(var i=0;i<kids.length;i++){var x=Math.abs(kids[i].offsetLeft-sc.offsetLeft-sc.scrollLeft-16);if(x<d){d=x;best=i}}return best}
+  function step(dir){var kids=sc.children,i=Math.max(0,Math.min(kids.length-1,idx()+dir));sc.scrollTo({left:kids[i].offsetLeft-sc.offsetLeft-16,behavior:reduce.matches?"auto":"smooth"})}
+  function sync(){var i=idx(),d=$$(".dots i",nav);d.forEach(function(x,j){x.classList.toggle("on",j===i)});
+    $(".cp",nav).disabled=sc.scrollLeft<4;$(".cn",nav).disabled=sc.scrollLeft+sc.clientWidth>=sc.scrollWidth-4}
+  sync();
+}
+
+/* ---------- work + review cards ---------- */
+var WORK=[
+  {img:"after.jpg",w:900,h:1126,t:"sw_back_t",d:"sw_back_d",rv:{k:"srv_back",o:"tr",who:"Asena Ö.",meta:"iPhone 14 Pro Max"},ba:1,prob:"back"},
+  {img:"battery.jpg",w:900,h:1600,t:"sw_bat_t",d:"sw_bat_d",rv:{k:"srv_bat",o:"ru",metaKey:"rv_m2"},prob:"battery"},
+  {img:"battery2.jpg",w:900,h:1600,t:"sw_scr_t",d:"sw_scr_d",rv:{k:"rv_t3",o:"ru",metaKey:"rv_m3"},prob:"screen"},
+  {img:"lens.jpg",w:900,h:1498,t:"sw_cam_t",d:"sw_cam_d",ig:"https://www.instagram.com/antalyafix/reel/DJKTypLMD-9/",prob:"camera"},
+  {img:"transfer.jpg",w:900,h:1600,t:"sw_data_t",d:"sw_data_d",prob:"data"},
+  {img:"boxes.jpg",w:900,h:1600,t:"sw_phone_t",d:"sw_phone_d",ig:"https://www.instagram.com/antalyafix/reel/DE_J1OdCswb/",panel:"buy"}
+];
+var showOrig={};
+function quoteHTML(id,r){
+  var orig=r.o!==lang,showing=orig&&showOrig[id],L=showing?r.o:lang;
+  var who=r.who?'<b translate="no">'+esc(r.who)+'</b>':'<b>'+esc(t("rv_google"))+'</b>';
+  var meta=r.metaKey?t(r.metaKey):(r.meta||"");
+  return {q:'<span lang="'+(L==="uz"?"uz-Latn":L)+'">“'+esc(t(r.k,L))+'”</span>',who:who,meta:meta,
+    tog:orig?'<button class="rv-tg" type="button" data-rv="'+id+'" aria-pressed="'+(showing?"true":"false")+'">'+esc(t(showing?"rv_hide":"rv_show"))+'</button>':""};
+}
+function renderWork(){
+  var sc=$("#workCards");
+  sc.innerHTML=WORK.map(function(w,i){
+    var q="";
+    if(w.rv){var h=quoteHTML("w"+i,w.rv);q='<blockquote>'+h.q+'<footer><span>'+h.who+(h.meta?' · '+esc(h.meta):"")+' · '+esc(t("rv_google"))+'</span>'+h.tog+'</footer></blockquote>'}
+    else if(w.ig)q='<a class="linkbtn" href="'+w.ig+'" target="_blank" rel="noopener">'+icon("i-ig")+'<span>'+esc(t("sw_ig"))+'</span></a>';
+    var act=w.panel?'<button class="btn btn-g" type="button" data-goto-panel="'+w.panel+'">'+esc(t("sw_phone_ask"))+icon("i-chev")+'</button>'
+      :'<button class="btn btn-p" type="button" data-ask="'+w.prob+'">'+icon("i-wa")+'<span>'+esc(t("sw_ask"))+'</span></button>';
+    return '<article class="wc"><div class="ph"><img src="../media/'+w.img+'" width="'+w.w+'" height="'+w.h+'" loading="lazy" decoding="async" alt="">'+
+      (w.ba?'<a class="t2h" href="#ba">'+esc(t("sw_ba"))+'</a>':"")+'</div><div class="bd"><h3>'+esc(t(w.t))+'</h3><p class="d">'+esc(t(w.d))+'</p>'+q+'<div style="margin-top:auto">'+act+'</div></div></article>';
+  }).join("");
+  $$(".wc .btn",sc).forEach(function(b){b.classList.add("btn-block")});
+  carousel(sc);
+}
+var REV=[{k:"rv_t1",o:"tr",who:"Asena Ö.",meta:"iPhone 14 Pro Max"},{k:"rv_t2",o:"ru",metaKey:"rv_m2"},{k:"rv_t3",o:"ru",metaKey:"rv_m3"},{k:"rv_t4",o:"tr",who:"Selim D."},{k:"rv_t5",o:"tr",who:"Aktan V.",metaKey:"rv_guide"},{k:"rv_t6",sum:true,who:"Cansu Ç. T."}];
+function renderReviews(){
+  var stars='<span class="stars" role="img" aria-label="5/5">'+[1,2,3,4,5].map(function(){return icon("i-star","fill")}).join("")+'</span>';
+  var sc=$("#rvs");
+  sc.innerHTML=REV.map(function(r,i){
+    if(r.sum)return '<figure class="rv">'+stars+'<blockquote>'+esc(t(r.k))+'</blockquote><p class="note">'+esc(t("rv_summary"))+'</p><figcaption class="rv-f"><span class="rv-who"><b translate="no">'+esc(r.who)+'</b><span>'+esc(t("rv_google"))+'</span></span></figcaption></figure>';
+    var h=quoteHTML("r"+i,r);
+    return '<figure class="rv">'+stars+'<blockquote>'+h.q+'</blockquote><figcaption class="rv-f"><span class="rv-who">'+h.who+'<span>'+esc((h.meta?h.meta+" · ":"")+t("rv_google"))+'</span></span>'+h.tog+'</figcaption></figure>';
+  }).join("");
+  carousel(sc);
+}
+document.addEventListener("click",function(e){
+  var b=e.target.closest("[data-rv]");if(b){var id=b.getAttribute("data-rv");showOrig[id]=!showOrig[id];if(id.charAt(0)==="w")renderWork();else renderReviews();var nb=$('[data-rv="'+id+'"]');nb&&nb.focus();return}
+  var a=e.target.closest("[data-ask]");if(a){S.problem=a.getAttribute("data-ask");S.preset=true;S.quality=null;openSheet(1);return}
+  var g=e.target.closest("[data-goto-panel],[data-panel-link]");if(g){e.preventDefault();showPanel(g.getAttribute("data-goto-panel")||g.getAttribute("data-panel-link"),true)}
+});
+
+/* ---------- journey panels ---------- */
+var PANELS=["repair","sell","buy","pc"];
+function showPanel(id,scroll){
+  if(PANELS.indexOf(id)<0)return;
+  $$(".seg [role=tab]").forEach(function(b){var on=b.getAttribute("data-panel")===id;b.setAttribute("aria-selected",String(on));b.tabIndex=on?0:-1});
+  PANELS.forEach(function(p){$("#"+p).hidden=p!==id});
+  if(id==="buy")renderBuy();
+  if(scroll){try{history.replaceState(null,"","#"+id)}catch(e){}$("#act").scrollIntoView({behavior:reduce.matches?"auto":"smooth"})}
+}
+$$(".seg [role=tab]").forEach(function(b){
+  b.addEventListener("click",function(){showPanel(b.getAttribute("data-panel"))});
+  b.addEventListener("keydown",function(e){if(e.key!=="ArrowRight"&&e.key!=="ArrowLeft")return;e.preventDefault();var i=PANELS.indexOf(b.getAttribute("data-panel"));i=(i+(e.key==="ArrowRight"?1:-1)+4)%4;showPanel(PANELS[i]);$("#tb-"+PANELS[i]).focus()});
+});
+window.addEventListener("hashchange",function(){var h=location.hash.slice(1);if(PANELS.indexOf(h)>-1)showPanel(h,true)});
+
+/* ---------- repair sheet ---------- */
+var BRANDS=[
+  {id:"iphone",name:"iPhone",pre:"iPhone",kw:/iphone/i,ic:"i-screen",models:["iPhone 17 Pro Max","iPhone 17 Pro","iPhone 17","iPhone 16 Pro Max","iPhone 16 Pro","iPhone 16","iPhone 15 Pro Max","iPhone 15 Pro","iPhone 15","iPhone 14 Pro Max","iPhone 14 Pro","iPhone 14","iPhone 13","iPhone 12","iPhone 11"]},
+  {id:"samsung",name:"Samsung",pre:"Samsung",kw:/samsung|galaxy/i,ic:"i-screen",models:["Galaxy S25 Ultra","Galaxy S25","Galaxy S24 Ultra","Galaxy S24","Galaxy S23","Galaxy A56","Galaxy A55","Galaxy A35","Galaxy A15"]},
+  {id:"xiaomi",name:"Xiaomi / Redmi",pre:"Xiaomi",kw:/xiaomi|redmi|poco/i,ic:"i-screen",models:["Redmi Note 14 Pro","Redmi Note 13 Pro","Redmi Note 13","Xiaomi 14T","Xiaomi 13T","POCO X6 Pro"]},
+  {id:"huawei",name:"Huawei",pre:"Huawei",kw:/huawei/i,ic:"i-screen",models:["P60 Pro","Mate 50 Pro","nova 12","nova 11","P30 Pro"]},
+  {id:"oppo",name:"Oppo",pre:"Oppo",kw:/oppo/i,ic:"i-screen",models:["Reno 12","Reno 11","A79","A58"]},
+  {id:"honor",name:"Honor",pre:"Honor",kw:/honor/i,ic:"i-screen",models:["Magic6 Pro","200","90","X8b"]},
+  {id:"tablet",key:"br_tablet",pre:"",kw:null,ic:"i-backglass",models:["iPad Pro","iPad Air","iPad","iPad mini","Galaxy Tab S9"]},
+  {id:"other",key:"br_other",pre:"",kw:null,ic:"i-dots",models:[]}
+];
+var PROBLEMS=[["screen","i-screen"],["battery","i-battery"],["port","i-plug"],["back","i-backglass"],["camera","i-camera"],["water","i-drop"],["scratch","i-spark"],["data","i-swap"],["other","i-dots"]];
+function brandById(id){for(var i=0;i<BRANDS.length;i++)if(BRANDS[i].id===id)return BRANDS[i];return null}
+function brandName(b,L){return b.key?t(b.key,L):b.name}
+var S={brand:null,model:"",older:false,problem:null,quality:null,ready:"wa",courier:false,preset:false};
+var step=1,opener=null,sheet=$("#sheet"),shBody=$("#shBody");
+function deviceStr(L){var b=brandById(S.brand);if(!b)return "";if(S.older)return brandName(b,L)+" ("+lc(t("md_older",L),L)+")";var m=S.model.trim();return b.pre&&!b.kw.test(m)?b.pre+" "+m:m}
+var READY={wa:["m_ready_wa","WhatsApp"],tg:["m_ready_tg","Telegram"],call:["m_ready_call","Arayın"]};
+function repairMsg(){
+  if(!S.brand||!S.problem)return SENDS.gen();
+  var dC=deviceStr(lang),dT=deviceStr("tr");
+  var p=[t("m_hello"),fill(t("m_device"),{d:lang==="en"?article(dC)+" "+dC:dC}),t("m_"+S.problem)];
+  if(S.quality)p.push(S.quality==="unsure"?t("m_q_unsure"):fill(t("m_quality"),{q:t("t_"+S.quality)}));
+  p.push(t(READY[S.ready][0]));
+  if(S.courier)p.push(t("m_courier"));
+  p.push(t("m_ask"));
+  return {c:p.join(" "),l:["🔔 TALEP: Tamir"+(S.courier?" + adrese teslimat / kurye":""),"📱 "+dT,"🔧 Arıza: "+tr("p_"+S.problem),
+    S.quality?"🧩 Parça tercihi: "+(S.quality==="unsure"?"bilmiyor, seçenekleri soruyor":tr("t_"+S.quality)):null,"📣 Hazır olunca: "+READY[S.ready][1]]};
+}
+function brandTiles(pressed){return BRANDS.map(function(b){return '<button class="tile" type="button" data-brand="'+b.id+'"'+(pressed&&S.brand===b.id?' aria-pressed="true"':"")+'>'+icon(b.ic)+'<span'+(b.key?"":' translate="no"')+'>'+esc(brandName(b))+'</span>'+icon("i-chev","chev")+'</button>'}).join("")}
+function renderBrandsInline(){$("#brandsInline").innerHTML=brandTiles(false)}
+$("#brandsInline").addEventListener("click",function(e){var b=e.target.closest("[data-brand]");if(!b)return;S.brand=b.getAttribute("data-brand");S.model="";S.older=false;S.preset=false;S.problem=null;openSheet(2)});
+$$("[data-open-sheet]").forEach(function(b){b.addEventListener("click",function(){S.preset=false;S.problem=null;showPanel("repair");openSheet(1)})});
+var TITLES={1:"q_pick",2:"sh_t2",3:"sh_t3",4:"sh_t4"};
+function chipsRadio(name,opts,cur){return '<div class="chips">'+opts.map(function(o){return '<label class="chip"><input type="radio" name="'+name+'" value="'+o[0]+'"'+(cur===o[0]?" checked":"")+'><span>'+esc(o[1])+'</span></label>'}).join("")+'</div>'}
+function renderSheet(dir){
+  $("#shStep").textContent=fill(t("sh_step"),{n:step});
+  $("#shTitle").textContent=t(TITLES[step]);
+  $("#shBack").hidden=step===1;
+  $$(".prog i",sheet).forEach(function(el,i){el.classList.toggle("on",i<step)});
+  var h="";
+  if(step===1)h='<div class="pgrid">'+brandTiles(true)+'</div>';
+  else if(step===2){var b=brandById(S.brand)||BRANDS[0];
+    h=(b.models.length?'<div class="chips">'+b.models.map(function(m){return '<button class="chip" type="button" data-model="'+esc(m)+'"><span translate="no">'+esc(m)+'</span></button>'}).join("")+(b.id!=="tablet"?'<button class="chip" type="button" data-older="1"><span>'+esc(t("md_older"))+'</span></button>':"")+'</div><p class="bubble-l">'+esc(t("sh_or"))+'</p>':"")+
+      '<label class="sr" for="shModel">'+esc(t("sh_model_label"))+'</label><input class="field" id="shModel" name="device-model" type="text" autocomplete="off" spellcheck="false" enterkeyhint="next" style="margin-top:8px" placeholder="'+esc(t("sh_model_ph"))+'" value="'+esc(S.older?"":S.model)+'">'+
+      '<p class="err" id="shErr" aria-live="polite"></p><button class="btn btn-g btn-block" type="button" id="shNext" style="margin-top:10px">'+esc(t("sh_next"))+icon("i-chev")+'</button>';
+  }
+  else if(step===3)h='<div class="pgrid">'+PROBLEMS.map(function(p){return '<button class="ptile" type="button" data-p="'+p[0]+'">'+icon(p[1])+'<span>'+esc(t("p_"+p[0]))+'</span></button>'}).join("")+'</div>';
+  else{
+    var r=repairMsg();
+    h='<dl class="sum"><div><dt>'+esc(t("sh_device"))+'</dt><dd><span translate="no">'+esc(deviceStr(lang))+'</span><button type="button" data-go="2">'+esc(t("sh_edit"))+'</button></dd></div><div><dt>'+esc(t("sh_problem"))+'</dt><dd><span>'+esc(t("p_"+S.problem))+'</span><button type="button" data-go="3">'+esc(t("sh_edit"))+'</button></dd></div></dl>';
+    if(S.problem==="screen")h+='<fieldset class="fs"><legend>'+esc(t("sh_quality"))+'</legend>'+chipsRadio("shq",[["orig",t("t_orig")],["oled",t("t_oled")],["eco",t("t_eco")],["unsure",t("q_unsure")]],S.quality)+'<p class="note" style="margin-top:8px">'+esc(t("oled_plain"))+' '+esc(t("sh_quality_hint"))+'</p></fieldset>';
+    h+='<fieldset class="fs"><legend>'+esc(t("ready_q"))+'</legend>'+chipsRadio("shready",[["wa",t("ready_wa")],["tg",t("ready_tg")],["call",t("ready_call")]],S.ready)+'</fieldset>';
+    h+='<label class="check" style="margin-top:8px"><input type="checkbox" id="shCourier"'+(S.courier?" checked":"")+'><span>'+esc(t("sh_courier"))+'</span></label>';
+    h+='<p class="bubble-l">'+esc(t("sh_preview"))+'</p><div class="bubble" id="shBubble">'+esc(waText(r))+'</div>';
+    h+='<p class="rline">'+rlineHTML()+'</p><div class="pair" data-send="sheet">'+pairHTML("sheet")+'</div>';
+  }
+  shBody.innerHTML='<div class="pane'+(dir==="back"?" back":"")+'">'+h+'</div>';shBody.scrollTop=0;
+}
+function go(n,dir){step=n;renderSheet(dir);var ti=$("#shTitle");ti.setAttribute("tabindex","-1");ti.focus({preventScroll:true})}
+function afterModel(){go(S.preset&&S.problem?4:3)}
+function submitModel(){var inp=$("#shModel"),v=inp?inp.value.trim():"";if(!v){$("#shErr").textContent=t("sh_err_model");inp.focus();return}S.model=v;S.older=false;afterModel()}
+shBody.addEventListener("click",function(e){var el;
+  if((el=e.target.closest("[data-brand]"))){var nb=el.getAttribute("data-brand");if(nb!==S.brand){S.model="";S.older=false}S.brand=nb;go(2)}
+  else if((el=e.target.closest("[data-model]"))){S.model=el.getAttribute("data-model");S.older=false;afterModel()}
+  else if(e.target.closest("[data-older]")){S.older=true;S.model="";afterModel()}
+  else if(e.target.closest("#shNext"))submitModel();
+  else if((el=e.target.closest("[data-p]"))){S.problem=el.getAttribute("data-p");if(S.problem!=="screen")S.quality=null;go(4)}
+  else if((el=e.target.closest("[data-go]")))go(+el.getAttribute("data-go"),"back");
+});
+shBody.addEventListener("keydown",function(e){if(e.key==="Enter"&&e.target.id==="shModel"){e.preventDefault();submitModel()}});
+shBody.addEventListener("change",function(e){
+  if(e.target.name==="shq")S.quality=e.target.value;else if(e.target.name==="shready")S.ready=e.target.value;else if(e.target.id==="shCourier")S.courier=e.target.checked;else return;
+  $("#shBubble").textContent=waText(repairMsg());updateSend("sheet");
+});
+$("#shBack").addEventListener("click",function(){var p=step-1;if(step===4&&S.preset)p=2;go(Math.max(1,p),"back")});
+function openSheet(n){opener=document.activeElement;if(n===2&&!S.brand)n=1;step=n;renderSheet();sheet.classList.remove("closing");
+  if(typeof sheet.showModal==="function")sheet.showModal();else sheet.setAttribute("open","");var ti=$("#shTitle");ti.setAttribute("tabindex","-1");ti.focus({preventScroll:true})}
+function closeSheet(){if(!sheet.open)return;if(reduce.matches){sheet.close();return}sheet.classList.add("closing");var done=false;
+  function fin(){if(done)return;done=true;sheet.classList.remove("closing");$("#sh").style.transform="";sheet.close()}
+  $("#sh").addEventListener("animationend",fin,{once:true});setTimeout(fin,360)}
+sheet.addEventListener("cancel",function(e){e.preventDefault();closeSheet()});
+sheet.addEventListener("close",function(){if(opener&&opener.focus)opener.focus()});
+sheet.addEventListener("click",function(e){if(e.target===sheet)closeSheet()});
+$("#shClose").addEventListener("click",closeSheet);
+(function(){var sh=$("#sh"),y0=null,dy=0;
+  function down(e){if(e.target.closest("button"))return;y0=e.clientY;dy=0;sh.style.transition="none"}
+  function move(e){if(y0==null)return;dy=Math.max(0,e.clientY-y0);sh.style.transform="translateY("+dy+"px)"}
+  function up(){if(y0==null)return;y0=null;sh.style.transition="transform .25s cubic-bezier(.16,1,.3,1)";if(dy>110){sh.style.transform="";sh.style.transition="";closeSheet()}else sh.style.transform=""}
+  [$("#grab"),$("#shHead")].forEach(function(el){el.addEventListener("pointerdown",down);el.addEventListener("pointermove",move);el.addEventListener("pointerup",up);el.addEventListener("pointercancel",up)});
+})();
+
+/* ---------- sell flow + photo trade-in ---------- */
+var SELL={
+  iphone:{name:"iPhone",models:[["iPhone 16 Pro Max",0,[256,512,1024]],["iPhone 16 Pro",0,[128,256,512,1024]],["iPhone 16",0,[128,256,512]],["iPhone 15 Pro Max",0,[256,512,1024]],["iPhone 15 Pro",0,[128,256,512,1024]],["iPhone 15",0,[128,256,512]],["iPhone 14 Pro Max",0,[128,256,512,1024]],["iPhone 14 Pro",0,[128,256,512,1024]],["iPhone 14",0,[128,256,512]],["iPhone 13",0,[128,256,512]],["iPhone 12",0,[64,128,256]],["iPhone 11",0,[64,128,256]]]},
+  samsung:{name:"Samsung",models:[["Galaxy S25 Ultra",0,[256,512,1024]],["Galaxy S24 Ultra",0,[256,512,1024]],["Galaxy S24",0,[128,256,512]],["Galaxy S23",0,[128,256,512]],["Galaxy A56",0,[128,256]],["Galaxy A55",0,[128,256]],["Galaxy A35",0,[128,256]]]},
+  xiaomi:{name:"Xiaomi / Redmi",models:[["Xiaomi 14T",0,[256,512]],["Redmi Note 14 Pro",0,[256,512]],["Redmi Note 13 Pro",0,[256,512]],["Redmi Note 13",0,[128,256]]]},
+  other:{key:"br_other",models:[]}
+};
+var E={brand:null,model:"",storage:null};
+var est=$("#est"),sModelTxt=$("#sModelTxt"),sSearch=$("#sSearch");
+var BAT=[["90","90–100"],["80","80–89"],["low","<80"],["unk",""]];
+function batLabel(v,L){if(v==="unk")return t("s_bat_unknown",L);var x=BAT.filter(function(b){return b[0]===v})[0][1];return v==="low"?"<"+pct(80,L):x.split("–").map(function(n,i){return i?pct(+n,L):num(+n,{},L)}).join("–")}
+function sellModel(){if(!E.brand)return null;var b=SELL[E.brand];for(var i=0;i<b.models.length;i++)if(b.models[i][0]===E.model)return b.models[i];return null}
+function renderSell(){
+  $("#sBrand").innerHTML=Object.keys(SELL).map(function(k){var b=SELL[k];return '<label class="chip"><input type="radio" name="sbrand" value="'+k+'"'+(E.brand===k?" checked":"")+'><span'+(b.key?"":' translate="no"')+'>'+esc(b.key?t(b.key):b.name)+'</span></label>'}).join("");
+  var b=E.brand?SELL[E.brand]:null;
+  $("#sModel").innerHTML=b?b.models.map(function(m){return '<label class="chip"><input type="radio" name="smodel" value="'+esc(m[0])+'"'+(E.model===m[0]?" checked":"")+'><span translate="no">'+esc(m[0])+'</span></label>'}).join(""):"";
+  $("#fsModel").hidden=!b;$("#fsStorage").hidden=!b;
+  $("#sModelTxtWrap").hidden=!(b&&!b.models.length);$("#sModel").hidden=!!(b&&!b.models.length);
+  var m=sellModel(),st=m?m[2]:[64,128,256,512,1024];
+  if(E.storage&&st.indexOf(E.storage)<0)E.storage=null;
+  $("#sStorage").innerHTML=st.map(function(s){return '<label class="chip"><input type="radio" name="sstorage" value="'+s+'"'+(E.storage===s?" checked":"")+'><span class="num">'+storageLabel(s)+'</span></label>'}).join("");
+  var cb=radio("sbat");
+  $("#sBatChips").innerHTML=BAT.map(function(x){return '<label class="chip"><input type="radio" name="sbat" value="'+x[0]+'"'+(cb===x[0]?" checked":"")+'><span class="num">'+esc(batLabel(x[0]))+'</span></label>'}).join("");
+  $("#sSearch").parentNode && ($("#sSearch").hidden=!(b&&b.models.length>6));
+  filterModels();
+  updateSell();
+}
+function sellState(){
+  var b=E.brand?SELL[E.brand]:null,m=sellModel();
+  return {model:b?(b.models.length?(m?m[0]:""):sModelTxt.value.trim()):"",screen:radio("screen"),body:radio("body"),box:radio("box"),bio:radio("bio"),bat:radio("sbat"),wdoc:radio("wdoc"),trade:$("#sTrade").checked};
+}
+function dash(v,fn){return v?fn(v):"—"}
+function sellMsg(){
+  var o=sellState(),stor=E.storage?storageLabel(E.storage):"";
+  if(!o.model)return {c:t("m_hello")+" "+fill(t("m_sell"),{d:"—",sc:"—",bo:"—",ba:"—",bx:"—",bio:"—"}),l:["🔔 TALEP: Telefon satış teklifi (model belirtilmedi)","📸 Fotoğraf gönderecek"]};
+  var bat=o.bat?(o.bat==="unk"?lc(t("s_bat_unknown")):batLabel(o.bat)):"—";
+  var wd=o.wdoc?(o.wdoc==="unk"?lc(t("s_bat_unknown")):lc(t(o.wdoc))):"—";
+  var c=t("m_hello")+" "+fill(t("m_sell"),{d:o.model+(stor?", "+stor:""),sc:dash(o.screen,function(v){return lc(t("c_"+v))}),bo:dash(o.body,function(v){return lc(t("b_"+v))}),ba:bat,bx:dash(o.box,function(v){return lc(t("box_"+v))}),bio:dash(o.bio,function(v){return t("bio_"+v)})})+" "+fill(t("m_wdoc"),{v:wd})+(o.trade?" "+t("m_sell_trade"):"");
+  return {c:c,l:["🔔 TALEP: Telefon satış teklifi"+(o.trade?" (yeni telefona takas düşünüyor)":""),"📱 "+o.model+(stor?" · "+stor:""),
+    "🔎 Ekran: "+dash(o.screen,function(v){return lc(tr("c_"+v),"tr")})+" · Kasa: "+dash(o.body,function(v){return lc(tr("b_"+v),"tr")})+" · Pil: "+(o.bat?(o.bat==="unk"?"bilinmiyor":batLabel(o.bat,"tr")):"—")+" · Garanti belgesi: "+(o.wdoc?{yes:"var",no:"yok",unk:"bilmiyor"}[o.wdoc]:"—")+" · Kutu/şarj: "+dash(o.box,function(v){return lc(tr("box_"+v),"tr")})+" · Face ID/Touch ID: "+dash(o.bio,function(v){return tr("bio_"+v)}),
+    "📸 Fotoğraf gönderecek"]};
+}
+function updateSell(){
+  updateSend("sell");
+}
+est.addEventListener("change",function(e){var n=e.target.name;
+  if(n==="sbrand"){E.brand=e.target.value;E.model="";E.storage=null;sSearch.value="";renderSell();return}
+  if(n==="smodel"){E.model=e.target.value;renderSell();return}
+  if(n==="sstorage")E.storage=+e.target.value;
+  updateSell();
+});
+est.addEventListener("input",function(e){if(e.target===sModelTxt)updateSell();if(e.target===sSearch)filterModels()});
+function filterModels(){var q=sSearch.value.trim().toLowerCase();$$("#sModel .chip").forEach(function(c){c.hidden=q&&c.textContent.toLowerCase().indexOf(q)<0})}
+est.addEventListener("submit",function(e){e.preventDefault()});
+/* ---------- buy catalogue (no prices: today's price on WhatsApp) ---------- */
+var CAT={
+  new:[{n:"iPhone 16",st:[128,256],c:["#C9D6E3","#8FA3B8"]},{n:"iPhone 15",st:[128,256],c:["#F3D2DC","#C99AAA"]},{n:"Samsung Galaxy S25",st:[256,512],c:["#3A4452","#151B23"],and:1},{n:"Redmi Note 14 Pro",st:[256,512],c:["#35574A","#172A22"],and:1}],
+  used:[{n:"iPhone 15 Pro",st:[128,256],bat:92,c:["#BDB6AA","#7B746A"]},{n:"iPhone 14",st:[128],bat:88,c:["#3E5070","#1D283A"]},{n:"iPhone 13",st:[128,256],bat:86,c:["#E7E9EC","#A9B0B9"]},{n:"Samsung Galaxy S23",st:[256],c:["#E8DFD3","#B2A592"],and:1}]
+};
+var cat="new",sel={};
+function buyMsg(it,i,c){var s=storageLabel(it.st[i]);
+  return {c:t("m_hello")+" "+fill(t("m_buy"),{d:it.n+" "+s,c:t(c==="new"?"b_cond_new":"b_cond_used")}),
+    l:["🔔 TALEP: Stok sorusu (“Bu ürün var mı?”)","📱 "+it.n+" · "+s+" · "+(c==="new"?"Sıfır":"2. el")]}}
+function renderBuy(){
+  var sc=$("#cards");
+  sc.innerHTML=CAT[cat].map(function(it,k){var key=cat+k,i=sel[key]||0;
+    var badges=cat==="used"?'<div class="badges"><span class="bdg">'+icon("i-check")+esc(t("b_check"))+'</span>'+'</div>':"";
+    return '<article class="pc" data-k="'+k+'"><div class="phn'+(it.and?" and":"")+'" style="--c1:'+it.c[0]+';--c2:'+it.c[1]+'" aria-hidden="true"></div><div style="min-width:0">'+
+      '<h3 translate="no">'+esc(it.n)+'</h3>'+badges+
+      '<div class="chips" role="radiogroup" aria-label="'+esc(t("s_storage"))+'">'+it.st.map(function(s,j){return '<label class="chip"><input type="radio" name="st-'+key+'" value="'+j+'"'+(j===i?" checked":"")+'><span class="num">'+storageLabel(s)+'</span></label>'}).join("")+'</div>'+
+      '</div>'+
+      '<div class="act"><a class="btn btn-p" data-buywa href="'+esc(waHref(buyMsg(it,i,cat)))+'" target="_blank" rel="noopener">'+icon("i-wa")+'<span>'+esc(t("b_ask"))+'</span></a><a class="btn btn-tg tgsq" href="'+TG+'" target="_blank" rel="noopener" data-tg="buy:'+cat+':'+k+':'+i+'" aria-label="'+esc(t("send_tg"))+'">'+icon("i-tg","fill")+'</a></div></article>';
+  }).join("");
+  carousel(sc);
+}
+$("#cards").addEventListener("change",function(e){var card=e.target.closest(".pc");if(!card)return;var k=+card.getAttribute("data-k");sel[cat+k]=+e.target.value;var it=CAT[cat][k],i=sel[cat+k];
+  $("[data-buywa]",card).href=waHref(buyMsg(it,i,cat));$("[data-tg]",card).setAttribute("data-tg","buy:"+cat+":"+k+":"+i)});
+var btabs=$$('#buy [role="tab"]');
+function setCat(c,focus){cat=c;btabs.forEach(function(b){var on=b.getAttribute("data-cat")===c;b.setAttribute("aria-selected",String(on));b.tabIndex=on?0:-1;if(on){$("#cards").setAttribute("aria-labelledby",b.id);if(focus)b.focus()}});renderBuy()}
+btabs.forEach(function(b){b.addEventListener("click",function(){setCat(b.getAttribute("data-cat"))});b.addEventListener("keydown",function(e){if(e.key==="ArrowRight"||e.key==="ArrowLeft"){e.preventDefault();setCat(cat==="new"?"used":"new",true)}})});
+$("#pc").addEventListener("change",function(){updateSend("pc");updateSend("data")});
+
+/* ---------- parts tabs ---------- */
+var TIERS={orig:[5,5,3],oled:[4,4,2],eco:[3,3,1]},tier="orig";
+function segs(n){var h="";for(var i=0;i<5;i++)h+='<i'+(i<n?' class="on"':"")+'></i>';return '<span class="segs" role="img" aria-label="'+n+'/5">'+h+'</span>'}
+function renderTier(){var v=TIERS[tier];
+  $("#tierCard").innerHTML='<p>'+esc(t("t_"+tier+"_d"))+'</p>'+(tier==="oled"?'<p class="note" style="margin-top:6px">'+esc(t("oled_plain"))+'</p>':"")+
+    '<div class="meters"><div class="meter"><span>'+esc(t("row_color"))+'</span>'+segs(v[0])+'</div><div class="meter"><span>'+esc(t("row_battery"))+'</span>'+segs(v[1])+'</div></div>';
+  $("#tierCard").setAttribute("aria-labelledby","pt-"+tier);
+}
+$$(".ptabs [role=tab]").forEach(function(b){
+  function sel(btn){tier=btn.getAttribute("data-tier");$$(".ptabs [role=tab]").forEach(function(x){var on=x===btn;x.setAttribute("aria-selected",String(on));x.tabIndex=on?0:-1});renderTier()}
+  b.addEventListener("click",function(){sel(b)});
+  b.addEventListener("keydown",function(e){if(e.key!=="ArrowRight"&&e.key!=="ArrowLeft")return;e.preventDefault();var all=$$(".ptabs [role=tab]"),i=all.indexOf(b);var n=all[(i+(e.key==="ArrowRight"?1:-1)+all.length)%all.length];sel(n);n.focus()});
+});
+
+/* ---------- map: dark placeholder, loads on tap ---------- */
+var mapUser=false,mapW="g",mapOn=false,pane=$("#mapPane");
+function loadMap(){var f=$("iframe",pane);if(!f){f=document.createElement("iframe");f.setAttribute("loading","lazy");f.setAttribute("referrerpolicy","no-referrer-when-downgrade");pane.appendChild(f)}
+  f.src=mapW==="g"?G_EMBED:Y_EMBED;f.title=t(mapW==="g"?"fd_tab_g":"fd_tab_y")+" · Antalya Fix";var b=$("#mapShow");if(b)b.hidden=true;mapOn=true}
+function setMapTab(w,user){if(user)mapUser=true;mapW=w;
+  [["g","#mtG"],["y","#mtY"]].forEach(function(x){var on=x[0]===w,tb=$(x[1]);tb.setAttribute("aria-selected",String(on));tb.tabIndex=on?0:-1;if(on)pane.setAttribute("aria-labelledby",tb.id.slice(0))});
+  if(mapOn)loadMap()}
+$$(".maptabs [role=tab]").forEach(function(b){b.addEventListener("click",function(){setMapTab(b.getAttribute("data-map"),true)});
+  b.addEventListener("keydown",function(e){if(e.key==="ArrowRight"||e.key==="ArrowLeft"){e.preventDefault();var w=mapW==="g"?"y":"g";setMapTab(w,true);$(w==="g"?"#mtG":"#mtY").focus()}})});
+$("#mapShow").addEventListener("click",loadMap);
+
+/* ---------- back to top ---------- */
+var totop=$("#totop");
+window.addEventListener("scroll",function(){totop.classList.toggle("on",window.scrollY>window.innerHeight*1.5)},{passive:true});
+function toTop(e){if(e)e.preventDefault();window.scrollTo({top:0,behavior:reduce.matches?"auto":"smooth"});$("#logoTop").focus({preventScroll:true})}
+totop.addEventListener("click",toTop);$("#logoTop").addEventListener("click",toTop);
+
+/* ---------- boot ---------- */
+setLang(detect(),false);
+var h0=location.hash.slice(1);if(PANELS.indexOf(h0)>-1)showPanel(h0,false);
+})();
+
+
+/* hero video loop: source by width, poster under reduced motion */
+(function(){var v=document.getElementById("bandVid");if(!v)return;
+var mq=window.matchMedia("(min-width:900px)"),rm=window.matchMedia("(prefers-reduced-motion: reduce)"),cur="";
+function set(){if(rm.matches){v.pause();v.classList.remove("on");return}
+var src=mq.matches?"../media/terracity-loop.mp4":"../media/terracity-loop-m.mp4";
+if(src!==cur){cur=src;v.poster=src.replace(".mp4",".jpg");v.src=src;v.load()}
+v.muted=true;var p=v.play();if(p&&p.catch)p.catch(function(){})}
+v.addEventListener("playing",function(){v.classList.add("on")});
+document.addEventListener("visibilitychange",function(){if(!document.hidden&&!rm.matches&&v.paused){var p=v.play();if(p&&p.catch)p.catch(function(){})}});
+if(mq.addEventListener){mq.addEventListener("change",set);rm.addEventListener("change",set)}
+set()})();
+</script>
+</body>
+</html>

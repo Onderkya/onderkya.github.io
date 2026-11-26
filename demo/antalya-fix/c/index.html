@@ -1,0 +1,2832 @@
+<!doctype html>
+<html lang="tr" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#0B1C3F">
+<title data-i18n="meta_title">Antalya Fix · TerraCity</title>
+<meta name="description" data-i18n-attr="content:meta_desc" content="">
+<link rel="icon" href="logo.jpg">
+<link rel="preload" as="image" href="../media/terracity-loop-m.jpg" media="(max-width:899px)" fetchpriority="high">
+<link rel="preload" as="image" href="../media/terracity-loop.jpg" media="(min-width:900px)" fetchpriority="high">
+<script>try{if(localStorage.getItem("af_theme")==="light")document.documentElement.dataset.theme="light";}catch(e){}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&family=Unbounded:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0B1C3F; --navy-2:#13295A; --navy-3:#1C3A78; --deep:#071330;
+  --cyan:#3FE0F0; --loc:#FFC83D; --star:#F2A900; --wa:#25D366; --wa-ink:#0B3D20; --tg:#1C7FB0; --red:#E5484D;
+  --on-dark:#FFFFFF; --on-dark-soft:#B9C8EA; --line-dark:rgba(185,200,234,.28);
+  --f-display:"Unbounded","Onest",system-ui,sans-serif;
+  --f-body:"Onest",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --r-xl:26px; --r-lg:22px; --r-md:16px;
+  --head-h:56px; --bar-h:64px;
+  --ease-out:cubic-bezier(.16,1,.3,1);
+  /* light theme roles */
+  --bg:#EEF4FA; --surface:#FFFFFF; --surface-2:#EEF4FA; --text:#0B1C3F; --text-soft:#40527A;
+  --line:#C3D0E6; --stroke:#0B1C3F; --field:#F8FBFF; --placeholder:#5F6F92;
+  --sel-bg:#0B1C3F; --sel-text:#FFFFFF; --sel-ic:#3FE0F0;
+  --strong-bg:#0B1C3F; --strong-text:#FFFFFF; --strong-hover:#1C3A78;
+  --accent-ink:#04687A; --tint-cyan:#D6F7FB; --tint-lilac:#E1E9FF; --tint-green:#E3FAEB; --green-ink:#0B3D20;
+  --err:#A3262A; --demo-bg:#E1E9FF; --demo-text:#0B1C3F; --hero-bg:#0B1C3F; --band-border:transparent;
+  --lift:0 1px 2px rgba(11,28,63,.06),0 10px 24px -14px rgba(11,28,63,.35);
+  --chev:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230B1C3F' stroke-width='2.5' stroke-linecap='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  color-scheme:light;
+}
+:root[data-theme="dark"]{
+  --bg:#071330; --surface:#0F2150; --surface-2:#16306A; --text:#EEF3FF; --text-soft:#B7C6E8;
+  --line:#2C4782; --stroke:#8AA0CF; --field:#0B1C3F; --placeholder:#94A8D2;
+  --sel-bg:#3FE0F0; --sel-text:#0B1C3F; --sel-ic:#0B1C3F;
+  --strong-bg:#3FE0F0; --strong-text:#0B1C3F; --strong-hover:#7BEAF5;
+  --accent-ink:#7BEAF5; --tint-cyan:#0E3550; --tint-lilac:#1B2F66; --tint-green:#0F3A26; --green-ink:#B8F5CF;
+  --err:#FF9EA1; --demo-bg:#13295A; --demo-text:#E6EDFF; --hero-bg:#0B1C3F; --band-border:var(--line);
+  --lift:0 1px 2px rgba(0,0,0,.25),0 12px 26px -14px rgba(0,0,0,.7);
+  --chev:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23EEF3FF' stroke-width='2.5' stroke-linecap='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:calc(var(--head-h) + 12px)}
+body{margin:0;background:var(--bg);color:var(--text);font:400 16px/1.55 var(--f-body);-webkit-font-smoothing:antialiased;overflow-x:hidden;
+  padding-bottom:calc(var(--bar-h) + 16px + env(safe-area-inset-bottom));-webkit-tap-highlight-color:rgba(63,224,240,.25);caret-color:var(--accent-ink)}
+::selection{background:var(--cyan);color:var(--navy)}
+img,svg,video{display:block;max-width:100%}
+a{color:inherit;text-underline-offset:.2em}
+button,input,select,textarea{font:inherit;color:inherit}
+a,button,label,select,input{touch-action:manipulation}
+button{cursor:pointer}
+[hidden]{display:none!important}
+:focus-visible{outline:3px solid var(--stroke);outline-offset:3px;border-radius:12px}
+.dark :focus-visible{outline-color:var(--cyan)}
+.sr{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.skip{position:absolute;left:12px;top:-60px;z-index:100;background:var(--cyan);color:var(--navy);padding:10px 16px;border-radius:12px;font-weight:700;text-decoration:none}
+.skip:focus{top:12px}
+.wrap{width:min(1080px,100% - 32px);margin-inline:auto}
+.num{font-variant-numeric:tabular-nums}
+.demo{background:var(--demo-bg);color:var(--demo-text);font-size:12.5px;line-height:1.35;padding:7px 16px;text-align:center;font-weight:600}
+
+/* header */
+.head{position:sticky;top:0;z-index:40;background:var(--navy);color:#fff;padding-top:env(safe-area-inset-top);border-bottom:1px solid var(--line-dark)}
+.head .wrap{height:var(--head-h);display:flex;align-items:center;gap:6px}
+.brand{display:flex;align-items:center;gap:9px;text-decoration:none;min-width:0;flex:1;min-height:44px}
+.brand img{width:36px;height:36px;border-radius:50%;box-shadow:0 0 0 1px var(--cyan);flex:none}
+.wordmark{font:700 14.5px/1 var(--f-display);letter-spacing:.01em;white-space:nowrap}
+.wordmark .x{display:inline-block;color:var(--cyan);transform:skewX(-14deg);font-size:1.12em}
+.brand .wordmark{display:none}
+.hchip{display:inline-flex;align-items:center;gap:5px;min-height:44px;padding:0 10px;border-radius:999px;background:var(--navy-2);color:#fff;text-decoration:none;font-size:13px;font-weight:700;white-space:nowrap;border:1px solid var(--line-dark)}
+.hchip svg{width:14px;height:14px;color:var(--star)}
+.hchip .ya{color:#FF8A8E;font-family:var(--f-display);font-size:11.5px}
+.hopen .dot{width:9px;height:9px}
+.iconbtn{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:var(--navy-2);border:1px solid var(--line-dark);color:#fff;text-decoration:none;flex:none;transition:background-color .2s,transform .15s}
+.iconbtn:hover{background:var(--navy-3)}
+.iconbtn:active{transform:scale(.94)}
+.iconbtn svg{width:20px;height:20px}
+.langbtn{height:44px;min-width:48px;border-radius:999px;padding:0 12px;display:flex;align-items:center;justify-content:center;gap:6px;background:var(--cyan);color:var(--navy);border:0;font-weight:800;font-size:14px;flex:none}
+.langbtn svg{width:18px;height:18px;display:none}
+.langmenu{position:absolute;right:16px;top:calc(var(--head-h) + 6px);background:var(--surface);color:var(--text);border-radius:18px;padding:6px;min-width:200px;box-shadow:var(--lift);border:1px solid var(--stroke);transform-origin:top right;animation:pop .22s var(--ease-out)}
+.langmenu button{display:flex;width:100%;align-items:center;justify-content:space-between;gap:12px;min-height:46px;padding:0 14px;border:0;background:none;border-radius:12px;font-weight:600;font-size:15.5px;text-align:left}
+.langmenu button:hover{background:var(--surface-2)}
+.langmenu button[aria-checked="true"]{background:var(--sel-bg);color:var(--sel-text)}
+.langmenu .code{font-size:12px;opacity:.8;font-weight:700}
+@keyframes pop{from{opacity:0;transform:scale(.94) translateY(-6px)}to{opacity:1;transform:none}}
+@media (min-width:430px){.brand .wordmark{display:inline} .langbtn svg{display:block}}
+
+/* hero */
+.hero{background:var(--hero-bg);color:#fff;position:relative;overflow:hidden;padding:16px 0 24px;border-radius:0 0 30px 30px;border:1px solid var(--band-border);border-top:0}
+.hero::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(420px 260px at 95% 0%,rgba(63,224,240,.22),transparent 70%),radial-gradient(circle at 1px 1px,rgba(185,200,234,.14) 1px,transparent 1.5px) 0 0/22px 22px}
+.hero .wrap{position:relative}
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.pill{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:6px 14px;border-radius:999px;font-size:14.5px;font-weight:700;line-height:1.2;text-decoration:none}
+.pill svg{width:17px;height:17px;flex:none}
+.pill-loc{background:var(--loc);color:var(--navy)}
+.pill-live{background:rgba(37,211,102,.16);border:1px solid rgba(37,211,102,.55);color:#fff}
+.pill-live[data-open="false"]{background:rgba(229,72,77,.16);border-color:rgba(229,72,77,.6)}
+.dot{width:10px;height:10px;border-radius:50%;background:var(--wa);flex:none}
+[data-open="false"] .dot{background:var(--red)}
+[data-open="true"] .dot{animation:pulse 2.2s var(--ease-out) infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(37,211,102,.6)}80%,100%{box-shadow:0 0 0 8px rgba(37,211,102,0)}}
+h1{font:600 clamp(23px,6.1vw,46px)/1.15 var(--f-display);letter-spacing:-.02em;margin:0 0 10px;text-wrap:balance}
+.what{color:#fff;font-size:15.5px;font-weight:600;margin:0 0 4px;text-wrap:pretty}
+.hsub{color:var(--on-dark-soft);font-size:15.5px;margin:0 0 16px;text-wrap:pretty}
+.trust{background:var(--surface);color:var(--text);border:1px solid var(--line);border-radius:var(--r-xl);padding:4px 16px 14px;margin-bottom:14px}
+.trust a.row{display:flex;align-items:center;gap:12px;text-decoration:none;padding:12px 0;min-height:44px}
+.trust a.row+a.row{border-top:1px solid var(--line)}
+.trust .mark{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font:700 12.5px/1 var(--f-display);color:#fff;flex:none}
+.trust .g{background:#0B1C3F;box-shadow:0 0 0 1px var(--line)} .trust .y{background:var(--red)}
+.trust .score{font:700 46px/1 var(--f-display);letter-spacing:-.03em}
+.trust .small .score{font-size:28px}
+.stars{display:flex;gap:2px;color:var(--star)}
+.trust .stars svg{width:18px;height:18px}
+.trust .small .stars svg{width:15px;height:15px}
+.trust .lbl{font-size:15px;font-weight:600;color:var(--text-soft);margin-top:4px;display:block}
+.trust .chev{margin-left:auto;width:20px;height:20px;color:var(--text-soft);flex:none}
+.trust .meta{border-top:1px solid var(--line);padding-top:10px;display:grid;gap:6px;font-size:14px;color:var(--text-soft)}
+.trust .meta p{margin:0;display:flex;gap:8px;align-items:flex-start;line-height:1.45}
+.trust .meta svg{width:17px;height:17px;flex:none;margin-top:2px;color:var(--accent-ink)}
+.trust .meta q{font-style:italic;quotes:"“" "”"}
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.tile{position:relative;display:flex;flex-direction:column;justify-content:flex-end;min-height:118px;padding:12px 13px;border-radius:var(--r-lg);color:var(--navy);text-decoration:none;overflow:hidden;transition:transform .18s var(--ease-out)}
+.tile:active{transform:scale(.97)}
+.tile strong{font:600 15px/1.2 var(--f-display);letter-spacing:-.01em;overflow-wrap:break-word;position:relative;padding-right:30px}
+.tile span{font-size:13.5px;line-height:1.3;font-weight:500;color:rgba(11,28,63,.82);position:relative;margin-top:3px}
+.tile svg.art{position:absolute;top:12px;left:13px;width:26px;height:26px}
+.tile .go{position:absolute;right:10px;bottom:12px;width:26px;height:26px;border-radius:50%;background:var(--navy);color:#fff;display:grid;place-items:center;z-index:1}
+.tile .go svg{width:14px;height:14px}
+.t-fix{color:#fff}
+.t-fix img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.t-fix::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,19,48,.05) 15%,rgba(7,19,48,.88) 100%)}
+.t-fix strong,.t-fix span{z-index:1;color:#fff}
+.t-fix .go{background:var(--cyan);color:var(--navy)}
+.t-sell{background:var(--cyan)} .t-buy{background:#fff} .t-pc{background:#E1E9FF}
+
+/* sections */
+.sec{padding:44px 0 0}
+.h2{font:600 clamp(21px,5.6vw,32px)/1.2 var(--f-display);letter-spacing:-.015em;margin:0 0 8px;text-wrap:balance}
+.lead{color:var(--text-soft);font-size:16px;margin:0 0 16px;max-width:60ch;text-wrap:pretty}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-xl);box-shadow:var(--lift);padding:18px}
+.h3{font:600 17px/1.25 var(--f-display);letter-spacing:-.01em;margin:0 0 6px;text-wrap:balance}
+.rline{display:flex;align-items:center;gap:6px;flex-wrap:wrap;font-size:14px;font-weight:600;color:var(--text-soft);margin:0 0 10px}
+.rline svg{width:15px;height:15px;color:var(--star)}
+.rline>span{display:inline-flex;align-items:center;gap:5px}
+
+/* store + how it works */
+.photo{margin:0;position:relative;border-radius:var(--r-xl);overflow:hidden;background:var(--tint-lilac)}
+.photo img{width:100%;height:280px;object-fit:cover;object-position:50% 45%}
+.photo figcaption{position:absolute;left:12px;bottom:12px;right:12px;width:fit-content;background:rgba(11,28,63,.86);color:#fff;font-size:14px;font-weight:600;padding:8px 12px;border-radius:12px;display:flex;gap:8px;align-items:center}
+.photo figcaption svg{width:17px;height:17px;color:var(--loc);flex:none}
+.how{margin:-28px 10px 0;position:relative;z-index:1}
+.how ol{list-style:none;margin:10px 0 0;padding:0;display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
+.how li{text-align:center;font-size:14px;font-weight:600;line-height:1.3}
+.how .ic{position:relative;width:44px;height:44px;margin:0 auto 6px;border-radius:50%;display:grid;place-items:center;background:var(--tint-cyan)}
+.how .ic svg{width:22px;height:22px}
+.how .ic b{position:absolute;top:-4px;left:-4px;width:20px;height:20px;border-radius:50%;background:var(--sel-bg);color:var(--sel-text);font:700 11px/20px var(--f-display);text-align:center}
+.how .chan{display:flex;justify-content:center;gap:5px;margin-top:6px}
+.how .chan span{width:26px;height:26px;border-radius:50%;display:grid;place-items:center}
+.how .chan svg{width:15px;height:15px}
+.chan .c-wa{background:var(--wa);color:var(--wa-ink)} .chan .c-tg{background:var(--tg);color:#fff} .chan .c-ph{background:var(--surface-2);color:var(--text);border:1px solid var(--line)}
+
+/* proof */
+.proof{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.reel,.ba{position:relative;border-radius:var(--r-lg);overflow:hidden;aspect-ratio:4/5;background:var(--navy)}
+.reel video{width:100%;height:100%;object-fit:cover}
+.vbtn{position:absolute;right:8px;bottom:8px;width:44px;height:44px;border-radius:50%;border:0;background:rgba(11,28,63,.82);color:#fff;display:grid;place-items:center}
+.vbtn svg{width:18px;height:18px}
+.vtag{position:absolute;left:8px;top:8px;display:inline-flex;align-items:center;gap:5px;background:rgba(11,28,63,.82);color:#fff;font-size:12px;font-weight:700;padding:5px 8px;border-radius:999px}
+.vtag svg{width:13px;height:13px;color:var(--cyan)}
+.ba{--p:50%}
+.ba img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ba .b4{clip-path:inset(0 calc(100% - var(--p)) 0 0)}
+.ba .line{position:absolute;top:0;bottom:0;left:var(--p);width:3px;margin-left:-1.5px;background:#fff;pointer-events:none}
+.ba .knob{position:absolute;top:50%;left:50%;width:40px;height:40px;margin:-20px 0 0 -20px;border-radius:50%;background:var(--cyan);border:2px solid #fff;display:grid;place-items:center;color:var(--navy)}
+.ba .knob svg{width:22px;height:22px}
+.ba .bt{position:absolute;top:8px;font-size:12px;font-weight:800;padding:4px 8px;border-radius:999px;pointer-events:none}
+.ba .bt.l{left:8px;background:var(--navy);color:#fff}
+.ba .bt.r{right:8px;background:var(--wa);color:var(--wa-ink)}
+.ba input{position:absolute;inset:0;width:100%;height:100%;opacity:0;margin:0;cursor:ew-resize;touch-action:pan-y}
+.ba:has(input:focus-visible){outline:3px solid var(--stroke);outline-offset:3px}
+.proof-cap{grid-column:1/-1;font-size:14px;color:var(--text-soft);margin:2px 0 0}
+.steps3{list-style:none;margin:10px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:8px;grid-column:1/-1}
+.steps3 li{font-size:14px;line-height:1.3;font-weight:600}
+.steps3 img{width:100%;height:auto;aspect-ratio:1;object-fit:cover;border-radius:14px;background:var(--tint-lilac);margin-bottom:6px}
+
+/* horizontal rails: next card peeks at the edge, dots + arrows */
+.rail{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 16px 14px;margin:0 -16px;scroll-padding-inline:16px;overscroll-behavior-x:contain;scrollbar-width:none}
+.rail::-webkit-scrollbar{display:none}
+.railnav{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0 0 6px}
+.dots{display:flex;gap:6px}
+.dots i{width:8px;height:8px;border-radius:50%;background:var(--line);transition:width .2s,background-color .2s}
+.dots i.on{width:22px;border-radius:5px;background:var(--text)}
+.navbtns{display:flex;gap:8px}
+.navbtns button{width:44px;height:44px;border-radius:50%;border:1px solid var(--stroke);background:var(--surface);display:grid;place-items:center;color:var(--text)}
+.navbtns svg{width:20px;height:20px}
+
+/* work cards */
+.wk{flex:0 0 76%;max-width:340px;scroll-snap-align:start;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-xl);overflow:hidden;display:flex;flex-direction:column;box-shadow:var(--lift)}
+.wk .pic{position:relative;display:block;height:160px;background:var(--tint-lilac)}
+.wk .pic img{width:100%;height:100%;object-fit:cover}
+.wk .pic .tag{position:absolute;left:10px;bottom:10px;background:rgba(11,28,63,.86);color:#fff;font-size:13px;font-weight:700;padding:5px 10px;border-radius:999px;display:inline-flex;gap:6px;align-items:center}
+.wk .pic .tag svg{width:14px;height:14px}
+.wk .body{padding:14px 14px 16px;display:flex;flex-direction:column;gap:10px;flex:1}
+.wk .body>p{margin:0;font-size:15px;line-height:1.5}
+.wq{background:var(--surface-2);border-radius:14px;padding:10px 12px;font-size:14.5px;line-height:1.45}
+.wq q{font-style:italic;quotes:"“" "”"}
+.wq .by{display:block;font-size:14px;color:var(--text-soft);margin-top:4px;font-weight:600}
+.wq .stars{display:inline-flex;gap:1px;vertical-align:-2px;margin-right:4px}
+.wq .stars svg{width:13px;height:13px}
+.orig{font-style:italic;color:var(--text-soft)}
+.wq .orig{display:block;margin-top:6px}
+.tgl{background:none;border:0;padding:10px 0;min-height:44px;font-weight:700;font-size:14px;color:var(--accent-ink);text-decoration:underline;text-underline-offset:.25em;text-align:left;align-self:flex-start}
+.iglink{font-size:14px;font-weight:700;color:var(--accent-ink);display:inline-flex;align-items:center;gap:6px;min-height:44px}
+.iglink svg{width:17px;height:17px}
+.wk .send{margin-top:auto;grid-template-columns:1fr}
+.also{display:grid;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-xl);overflow:hidden}
+.also a{display:flex;align-items:center;gap:12px;min-height:60px;padding:10px 16px;text-decoration:none;border-bottom:1px solid var(--line);transition:background-color .15s}
+.also a:last-child{border-bottom:0}
+.also a:hover{background:var(--surface-2)}
+.also a::after{content:"";width:8px;height:8px;border-right:2px solid var(--text);border-top:2px solid var(--text);transform:rotate(45deg);flex:none;margin:0 4px 0 auto}
+.also .ic{width:40px;height:40px;border-radius:13px;display:grid;place-items:center;background:var(--tint-cyan);flex:none}
+.also .ic svg{width:21px;height:21px}
+.also b{display:block;font-size:15px;line-height:1.25}
+.also small{display:block;font-size:14px;line-height:1.35;color:var(--text-soft)}
+
+/* reviews */
+.bigscore{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin:4px 0 14px}
+.bigscore .n{font:700 52px/1 var(--f-display);letter-spacing:-.04em}
+.bigscore .stars svg{width:20px;height:20px}
+.bigscore p{margin:4px 0 0;font-size:14.5px;color:var(--text-soft);line-height:1.4}
+.rev{flex:0 0 78%;max-width:350px;scroll-snap-align:start;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:16px;display:flex;flex-direction:column;gap:10px;box-shadow:var(--lift)}
+.rev .top{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.rev .stars svg{width:17px;height:17px}
+.rev .dev{font-size:13px;font-weight:700;background:var(--surface-2);padding:4px 9px;border-radius:999px;white-space:nowrap}
+.rev blockquote{margin:0;font-size:16px;line-height:1.5;font-weight:500;text-wrap:pretty}
+.rev .orig{margin:0;padding:10px 12px;border-radius:12px;background:var(--surface-2);font-size:14.5px;line-height:1.45}
+.rev .who{margin-top:auto;display:flex;align-items:center;gap:10px;font-size:14px}
+.rev .av{width:36px;height:36px;border-radius:50%;background:var(--sel-bg);color:var(--sel-text);display:grid;place-items:center;font:700 14px/1 var(--f-display);flex:none}
+.rev .who b{display:block;font-size:14.5px}
+.rev .who span{color:var(--text-soft)}
+.rev .sumtag{font-size:14px;color:var(--text-soft)}
+.links2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.writelink{display:inline-flex;align-items:center;min-height:44px;font-size:14.5px;font-weight:700;color:var(--accent-ink)}
+.langs{display:flex;gap:10px;align-items:flex-start;margin-top:10px;padding:12px 14px;border-radius:var(--r-md);background:var(--tint-lilac);font-size:14px;line-height:1.5;color:var(--text-soft)}
+.langs svg{width:20px;height:20px;flex:none;margin-top:1px;color:var(--text)}
+
+/* journeys */
+.jtabs{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px}
+.jtabs button{min-height:64px;border:1px solid var(--stroke);border-radius:16px;background:var(--surface);color:var(--text);display:flex;align-items:center;gap:10px;font-size:15px;font-weight:700;line-height:1.2;padding:8px 12px;text-align:left;transition:background-color .15s,color .15s}
+.jtabs button svg{width:24px;height:24px;flex:none;color:var(--accent-ink)}
+.jtabs button[aria-selected="true"]{background:var(--sel-bg);color:var(--sel-text)}
+.jtabs button[aria-selected="true"] svg{color:var(--sel-ic)}
+.go-hint{font-size:14.5px;color:var(--text-soft);margin:0}
+.panel{animation:fade .25s var(--ease-out)}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.wiz-h{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:-4px 0 8px}
+.wiz-h .back{display:inline-flex;align-items:center;gap:4px;min-height:44px;padding:0 12px 0 6px;border:1px solid var(--stroke);border-radius:999px;background:var(--surface);color:var(--text);font-weight:700;font-size:14.5px}
+.wiz-h .back svg{width:18px;height:18px}
+.wiz-h .back[hidden]{display:inline-flex!important;visibility:hidden}
+.wiz-n{font-size:14px;font-weight:700;color:var(--text-soft)}
+.wiz-bar{height:6px;border-radius:6px;background:var(--surface-2);overflow:hidden;margin-bottom:16px}
+.wiz-bar i{display:block;height:100%;background:var(--cyan);border-radius:6px;transition:width .3s var(--ease-out)}
+.wstep>.h3{margin-bottom:12px}
+.wnext{margin-top:16px}
+.sub{font-weight:700;font-size:14.5px;margin:16px 0 8px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{display:inline-flex;align-items:center;gap:6px;min-height:48px;padding:0 16px;border-radius:999px;border:1px solid var(--stroke);background:var(--surface);color:var(--text);font-weight:600;font-size:15px;line-height:1.15;text-align:left;transition:background-color .15s,color .15s,transform .12s}
+.chip:hover{background:var(--surface-2)}
+.chip:active{transform:scale(.95)}
+.chip .ck{width:0;height:16px;opacity:0;overflow:hidden;transition:width .15s,opacity .15s;margin-left:-6px}
+.chip[aria-pressed="true"]{background:var(--sel-bg);color:var(--sel-text);border-color:var(--sel-bg)}
+.chip[aria-pressed="true"] .ck{width:16px;opacity:1;margin-left:0;color:var(--sel-ic)}
+.chip.ghost{border-style:dashed}
+.seg{display:grid;grid-auto-flow:column;grid-auto-columns:1fr;gap:4px;background:var(--surface-2);border-radius:16px;padding:4px;border:1px solid var(--stroke)}
+.seg button{min-height:44px;border:0;border-radius:12px;background:none;font-weight:600;font-size:14px;line-height:1.15;padding:6px;color:var(--text);transition:background-color .15s,color .15s}
+.seg button[aria-pressed="true"]{background:var(--sel-bg);color:var(--sel-text)}
+.field{display:block;margin-bottom:16px}
+.field>span,.flabel{display:block;font-weight:700;font-size:14.5px;margin-bottom:8px}
+.grid2f{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.input,select.input,textarea.input{width:100%;min-height:50px;border:1px solid var(--stroke);border-radius:14px;background:var(--field);color:var(--text);padding:12px 14px;font-size:16px}
+textarea.input{min-height:80px;resize:vertical;line-height:1.45}
+select.input{appearance:none;-webkit-appearance:none;background:var(--field) var(--chev) no-repeat right 14px center/20px;padding-right:44px}
+.input:focus-visible{outline:none;box-shadow:0 0 0 3px var(--cyan)}
+.input::placeholder{color:var(--placeholder)}
+.input[aria-invalid="true"]{border-color:var(--red);box-shadow:0 0 0 3px rgba(229,72,77,.25)}
+.err{color:var(--err);font-size:14px;font-weight:600;margin:6px 0 10px}
+.check{display:flex;align-items:center;gap:12px;min-height:48px;cursor:pointer;font-weight:600;font-size:15px}
+.check input{width:22px;height:22px;accent-color:var(--cyan);flex:none;margin:0}
+.range-row{display:flex;align-items:center;gap:14px}
+.range-row input{flex:1;accent-color:var(--cyan);height:44px}
+.range-row output{font:600 16px/1 var(--f-display);min-width:58px;text-align:right}
+
+/* buttons */
+.btn{display:flex;align-items:center;justify-content:center;gap:9px;width:100%;min-height:52px;padding:10px 16px;border-radius:16px;border:0;font:700 15.5px/1.2 var(--f-body);text-decoration:none;text-align:center;transition:transform .15s var(--ease-out),background-color .15s}
+.btn svg{width:21px;height:21px;flex:none}
+.btn:active{transform:scale(.97)}
+.btn-wa{background:var(--wa);color:var(--wa-ink)}
+.btn-wa:hover{background:#2EE072}
+.btn-tg{background:var(--tg);color:#fff}
+.btn-tg:hover{background:#176D97}
+.btn-navy{background:var(--strong-bg);color:var(--strong-text)}
+.btn-navy:hover{background:var(--strong-hover)}
+.btn-cyan{background:var(--cyan);color:var(--navy)}
+.btn-line{background:var(--surface);color:var(--text);border:1px solid var(--stroke)}
+.btn-line:hover{background:var(--surface-2)}
+.btn-sm{min-height:48px;font-size:14.5px;border-radius:14px;padding:8px 12px}
+.send{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.sendbox{margin-top:16px;padding-top:14px;border-top:1px dashed var(--line)}
+.preview{margin-top:14px;background:var(--surface-2);border-radius:18px;padding:12px}
+.preview-h{display:flex;align-items:center;gap:8px;font-size:14px;font-weight:700;color:var(--text-soft);margin-bottom:8px}
+.preview-h svg{width:17px;height:17px;color:var(--wa)}
+.bubble{background:#D6FBE1;border-radius:16px 16px 6px 16px;padding:10px 12px 6px;font-size:14px;line-height:1.45;white-space:pre-line;overflow-wrap:anywhere;color:#102A1E;margin-left:14px;animation:pop .25s var(--ease-out)}
+.bubble .meta{display:flex;justify-content:flex-end;align-items:center;gap:4px;font-size:12px;color:#3F5E4E;margin-top:4px}
+.bubble .meta svg{width:16px;height:16px;color:#2B8FC4}
+
+/* sell */
+.offer{background:var(--navy);color:#fff;border-radius:var(--r-lg);padding:16px;margin:0 0 14px;border:1px solid var(--line-dark)}
+.offer .lbl{font-size:14px;font-weight:600;color:var(--on-dark-soft)}
+.offer .amt{font:600 22px/1.25 var(--f-display);color:var(--cyan);margin:6px 0;font-variant-numeric:tabular-nums}
+.offer .amt small{font:700 13px/1 var(--f-body);color:#fff;background:rgba(255,255,255,.14);padding:4px 8px;border-radius:999px;margin-left:6px;vertical-align:3px}
+.offer .amt.wait{font:500 15px/1.45 var(--f-body);color:#fff}
+.offer p{font-size:14px;color:var(--on-dark-soft);margin:0;line-height:1.5}
+.tp{border-top:1px dashed var(--line);padding-top:16px;margin-top:4px}
+.filebtn{display:flex;align-items:center;justify-content:center;gap:9px;min-height:56px;border:1px dashed var(--stroke);border-radius:16px;background:var(--surface-2);font-weight:700;cursor:pointer}
+.filebtn svg{width:22px;height:22px}
+.filebtn:focus-within{outline:3px solid var(--stroke);outline-offset:3px}
+.thumbs{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 0}
+.thumbs img,.thumbs video{width:64px;height:64px;object-fit:cover;border-radius:12px;background:var(--tint-lilac)}
+.small{font-size:14px;color:var(--text-soft);margin:8px 0 0;line-height:1.45}
+.thanks{display:flex;gap:10px;align-items:flex-start;background:var(--tint-green);color:var(--green-ink);border-radius:14px;padding:12px 14px;font-weight:600;font-size:15px;margin-top:12px}
+.thanks svg{width:22px;height:22px;flex:none}
+.notif{margin-top:12px;background:#1B2337;color:#fff;border-radius:20px;padding:14px;font-size:14.5px;line-height:1.5;border:1px solid var(--line-dark)}
+.notif .nh{display:flex;align-items:center;gap:8px;font-size:13px;color:#C9D3EA;margin-bottom:8px}
+.notif .nh img{width:22px;height:22px;border-radius:6px}
+.notif p{margin:0 0 6px}
+.notif .nb{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
+.notif .nb span{display:grid;place-items:center;min-height:40px;border-radius:12px;background:rgba(255,255,255,.12);font-weight:700}
+.or{display:flex;align-items:center;gap:10px;color:var(--text-soft);font-size:14px;margin:16px 0 10px}
+.or::before,.or::after{content:"";flex:1;border-top:1px solid var(--line)}
+
+/* buy rows */
+.bphoto{margin:0 0 14px;border-radius:var(--r-lg);overflow:hidden;position:relative}
+.bphoto img{width:100%;height:170px;object-fit:cover;object-position:50% 30%}
+.bphoto figcaption{position:absolute;left:10px;bottom:10px;background:rgba(11,28,63,.86);color:#fff;font-size:14px;font-weight:600;padding:6px 11px;border-radius:12px}
+.btabs{display:grid;grid-template-columns:1fr 1fr;gap:4px;padding:4px;border-radius:999px;background:var(--surface-2);border:1px solid var(--stroke);margin-bottom:10px}
+.btabs button{min-height:44px;border:0;border-radius:999px;background:none;font-weight:700;font-size:14.5px;color:var(--text)}
+.btabs button[aria-selected="true"]{background:var(--sel-bg);color:var(--sel-text)}
+.prow{padding:14px 0;border-bottom:1px solid var(--line);display:grid;gap:8px}
+.prow:last-child{border-bottom:0;padding-bottom:0}
+.prow .t{display:flex;justify-content:space-between;align-items:baseline;gap:8px;flex-wrap:wrap}
+.prow h3{margin:0;font:700 16.5px/1.25 var(--f-body)}
+.prow .m{font-size:14px;color:var(--text-soft)}
+.prow .m b{color:var(--text)}
+.ex{font-size:12.5px;font-weight:700;color:var(--text-soft);border:1px solid var(--line);border-radius:999px;padding:1px 7px;margin-left:4px;vertical-align:1px}
+.prow .st{display:flex;flex-wrap:wrap;gap:6px}
+.prow .st button{min-height:44px;min-width:76px;padding:0 10px;border-radius:12px;border:1px solid var(--stroke);background:var(--surface);font-weight:700;font-size:14px;color:var(--text);font-variant-numeric:tabular-nums}
+.prow .st button[aria-pressed="true"]{background:var(--sel-bg);color:var(--sel-text);border-color:var(--sel-bg)}
+
+/* pc */
+.qcard{border-radius:var(--r-xl);padding:18px;margin-top:12px;border:1px solid var(--line)}
+.qcard.data{background:var(--tint-cyan)}
+.qcard.rec{background:var(--tint-lilac)}
+.qcard p{margin:0 0 12px;line-height:1.5}
+.ft{display:grid;grid-template-columns:1fr auto 1fr;align-items:end;gap:8px;margin-bottom:12px}
+.ft .arrow{width:24px;height:24px;margin-bottom:14px}
+
+/* quality band (navy in both themes) */
+.band{background:var(--navy);color:#fff;border-radius:30px;padding:34px 0 28px;margin-top:44px;border:1px solid var(--band-border)}
+.band .lead{color:var(--on-dark-soft)}
+.qtabs{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;padding:4px;border-radius:18px;background:var(--navy-2);margin-bottom:10px}
+.qtabs button{min-height:50px;border:0;border-radius:14px;background:none;color:#fff;font-weight:700;font-size:14px;line-height:1.15;padding:6px}
+.qtabs button[aria-selected="true"]{background:var(--cyan);color:var(--navy)}
+.qpanel{background:var(--navy-2);border-radius:20px;padding:16px;border:1px solid var(--line-dark)}
+.qpanel p{margin:0 0 12px;line-height:1.6}
+.meter{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px 0;border-top:1px solid var(--line-dark);font-size:14.5px}
+.mdots{display:flex;gap:6px}
+.mdots i{width:13px;height:13px;border-radius:50%;border:1px solid var(--cyan)}
+.mdots i.on{background:var(--cyan)}
+.war{display:flex;align-items:center;gap:10px;margin-top:6px;padding:10px 12px;border-radius:14px;border:1px solid var(--cyan);font-weight:700;color:var(--cyan)}
+.war svg{width:20px;height:20px;flex:none}
+.qnote{font-size:14px;color:var(--on-dark-soft);margin:10px 0 0}
+.promises{list-style:none;margin:22px 0 0;padding:0;display:grid;gap:14px}
+.promises li{display:flex;gap:12px;align-items:flex-start}
+.promises .ic{width:40px;height:40px;border-radius:13px;background:var(--navy-2);border:1px solid var(--line-dark);color:var(--cyan);display:grid;place-items:center;flex:none}
+.promises .ic svg{width:20px;height:20px}
+.promises strong{display:block;font:600 15.5px/1.3 var(--f-display);margin:2px 0 3px}
+.promises span{color:var(--on-dark-soft);font-size:14.5px;line-height:1.45}
+
+/* instagram */
+.igrow{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:12px}
+.igrow a{display:block;text-decoration:none;font-size:13px;line-height:1.3;font-weight:600}
+.igrow .sq{position:relative;display:block;aspect-ratio:1;border-radius:14px;overflow:hidden;background:var(--tint-lilac);margin-bottom:6px}
+.igrow img{width:100%;height:100%;object-fit:cover}
+.igrow .play{position:absolute;right:6px;top:6px;width:24px;height:24px;border-radius:50%;background:rgba(11,28,63,.78);color:#fff;display:grid;place-items:center}
+.igrow .play svg{width:11px;height:11px}
+.ighead{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.ighead img{width:40px;height:40px;border-radius:50%;box-shadow:0 0 0 1px var(--stroke)}
+.ighead b{font:600 15px/1.2 var(--f-display)}
+
+/* find */
+.path-card{background:linear-gradient(180deg,var(--navy-2),var(--deep));color:#fff;border-radius:var(--r-xl);padding:14px 12px 14px 6px;border:1px solid var(--band-border)}
+.path{display:grid;grid-template-columns:90px 1fr}
+.path svg.route{width:90px;height:330px}
+.stops{list-style:none;margin:0;padding:0}
+.stops li{height:110px;display:flex;flex-direction:column;justify-content:center;padding-right:4px;opacity:.6;transition:opacity .4s}
+.stops li.on{opacity:1}
+.stops b{font:600 15.5px/1.25 var(--f-display);margin-bottom:3px;text-wrap:balance}
+.stops span{font-size:14px;line-height:1.4;color:var(--on-dark-soft)}
+.routes{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px}
+.mapph{position:relative;height:200px;border-radius:var(--r-lg);overflow:hidden;background:radial-gradient(circle at 50% 45%,rgba(63,224,240,.18),transparent 60%),linear-gradient(180deg,var(--navy-2),var(--deep));display:grid;place-items:center;text-align:center;color:#fff;margin-top:12px;padding:16px;border:1px solid var(--band-border)}
+.mapph::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent 0 30px,rgba(185,200,234,.08) 30px 31px),repeating-linear-gradient(90deg,transparent 0 30px,rgba(185,200,234,.08) 30px 31px)}
+.mapph>div{position:relative}
+.mapph svg{width:30px;height:30px;color:var(--loc);margin:0 auto 6px}
+.mapph p{margin:0 0 10px;font-size:14px;color:var(--on-dark-soft)}
+.maptabs{display:grid;grid-template-columns:1fr 1fr;gap:4px;padding:4px;border-radius:999px;background:var(--surface-2);border:1px solid var(--stroke);margin:12px 0 8px}
+.maptabs button{min-height:44px;border:0;border-radius:999px;background:none;font-weight:700;font-size:14px;color:var(--text)}
+.maptabs button[aria-selected="true"]{background:var(--sel-bg);color:var(--sel-text)}
+.mapbox{position:relative;height:300px;border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--line);background:var(--tint-lilac)}
+.mapbox iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.info{margin-top:12px;padding:4px 16px}
+.info .row{display:flex;gap:12px;align-items:flex-start;padding:12px 0;border-bottom:1px solid var(--line)}
+.info .row:last-child{border-bottom:0}
+.info .ic{width:38px;height:38px;border-radius:12px;background:var(--surface-2);display:grid;place-items:center;flex:none}
+.info .ic svg{width:20px;height:20px}
+.info small{display:block;font-size:13px;color:var(--text-soft);font-weight:600;margin-bottom:2px}
+.info .v{font-size:15px;line-height:1.45;font-weight:500;overflow-wrap:anywhere}
+.info a.v{font-weight:700;display:inline-block;padding:10px 0;margin:-8px 0}
+.livebadge{display:inline-flex;align-items:center;gap:7px;margin-top:6px;padding:5px 11px;border-radius:999px;background:var(--surface-2);font-size:14px;font-weight:700}
+
+/* footer */
+.foot{background:var(--navy);color:var(--on-dark-soft);padding:26px 0 30px;margin-top:44px;font-size:14px;border-radius:30px 30px 0 0;border:1px solid var(--band-border);border-bottom:0}
+.foot .row{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:10px}
+.foot .wordmark{color:#fff}
+.foot p{margin:0 0 8px;line-height:1.5}
+.foot a{color:#fff}
+.foot p a{display:inline-block;padding:12px 0;margin:-10px 0}
+
+/* bottom bar, toast, back to top */
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:50;background:var(--surface);border-top:1px solid var(--line);padding:0 8px env(safe-area-inset-bottom);box-shadow:0 -8px 22px -16px rgba(0,0,0,.5)}
+.bar ul{list-style:none;margin:0 auto;padding:7px 0;display:grid;grid-template-columns:repeat(4,1fr);gap:6px;height:var(--bar-h);max-width:560px}
+.bar a{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;border-radius:14px;text-decoration:none;font-size:12.5px;font-weight:700;line-height:1.1;text-align:center;min-width:0}
+.bar a span{max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding:0 2px}
+.bar svg{width:22px;height:22px}
+.bar .b-wa{background:var(--wa);color:var(--wa-ink)}
+.bar .b-tg{background:var(--tg);color:#fff}
+.bar .b-call,.bar .b-route{background:var(--surface-2);color:var(--text)}
+.toast{position:fixed;left:16px;right:16px;bottom:calc(var(--bar-h) + 14px + env(safe-area-inset-bottom));z-index:60;max-width:460px;margin:0 auto;background:var(--navy);color:#fff;border:1px solid var(--line-dark);border-radius:14px;padding:12px 14px;font-size:14.5px;font-weight:600;box-shadow:var(--lift);display:flex;gap:10px;align-items:center;animation:pop .25s var(--ease-out)}
+.toast svg{width:20px;height:20px;color:var(--cyan);flex:none}
+.totop{position:fixed;right:16px;bottom:calc(var(--bar-h) + 14px + env(safe-area-inset-bottom));z-index:55;width:48px;height:48px;border-radius:50%;border:1px solid var(--stroke);background:var(--surface);color:var(--text);display:grid;place-items:center;box-shadow:var(--lift);transition:opacity .2s,transform .2s}
+.totop svg{width:22px;height:22px}
+.totop[hidden]{display:grid!important;opacity:0;pointer-events:none;transform:translateY(8px)}
+
+@media (min-width:760px){
+  .tiles{grid-template-columns:repeat(4,1fr)}
+  .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:end;margin-bottom:18px}
+  .hero-grid .trust{margin:0}
+  .storegrid{display:grid;grid-template-columns:1.2fr .8fr;gap:18px;align-items:center}
+  .storegrid .how{margin:0}
+  .photo img{height:380px}
+  .proof{grid-template-columns:1fr 1fr 1fr}
+  .proof .steps3{grid-column:auto;margin:0;grid-template-columns:1fr;align-content:start}
+  .wk{flex-basis:320px}
+  .rev{flex-basis:330px}
+  .jtabs{grid-template-columns:repeat(4,1fr)}
+  .q-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}
+  .findgrid{display:grid;grid-template-columns:.9fr 1.1fr;gap:20px;align-items:start}
+  .mapbox{height:420px}
+}
+@media (min-width:960px){ body{padding-bottom:100px} .bar{left:50%;right:auto;bottom:16px;transform:translateX(-50%);width:520px;border:1px solid var(--line);border-radius:22px;padding:0 8px} .totop{bottom:96px} .toast{bottom:96px} }
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
+}
+
+/* ===== item 26 first-screen layout ===== */
+:root{--head-h:52px}
+.hero{padding:12px 0 18px}
+.hero .pill-loc{min-height:32px;padding:4px 12px;font-size:14px}
+.hero h1{font-size:clamp(25px,6.9vw,44px);line-height:1.17;margin:12px 0 12px}
+.rtiles{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.rt{display:flex;align-items:center;gap:10px;min-height:72px;padding:10px 12px;border-radius:18px;background:var(--surface);color:var(--text);border:1px solid var(--line);text-decoration:none;transition:transform .15s}
+.rt:active{transform:scale(.97)}
+.rt .score{font:700 36px/1 var(--f-display);letter-spacing:-.03em}
+.rt .meta2{display:flex;flex-direction:column;gap:3px;min-width:0}
+.rt .src{display:flex;align-items:center;gap:6px;font-size:13.5px;font-weight:700}
+.rt .mk{width:20px;height:20px;border-radius:50%;display:grid;place-items:center;font:700 11px/1 var(--f-display);color:#fff;flex:none}
+.rt .mk.g{background:#0B1C3F;box-shadow:0 0 0 1px var(--line)} .rt .mk.y{background:var(--red)}
+.rt .stars svg{width:13px;height:13px}
+.rt .cnt{font-size:13px;color:var(--text-soft);font-weight:600;white-space:nowrap}
+.reelcard{position:relative;margin-top:10px;height:190px;border-radius:20px;overflow:hidden;background:#000;border:1px solid var(--line-dark)}
+.reelcard video{width:100%;height:100%;object-fit:cover}
+.reelcard .lab{position:absolute;left:10px;top:10px;display:inline-flex;align-items:center;gap:6px;background:rgba(11,28,63,.84);color:#fff;font-size:13px;font-weight:700;padding:6px 10px;border-radius:999px}
+.reelcard .lab svg{width:14px;height:14px;color:var(--cyan)}
+.jlinks{display:flex;justify-content:space-between;align-items:center;gap:4px;margin-top:6px;font-size:14px;font-weight:700}
+.jlinks a{display:inline-flex;align-items:center;min-height:44px;color:var(--cyan);text-decoration:underline;text-underline-offset:.25em;text-decoration-thickness:1px}
+.jlinks i{color:var(--on-dark-soft);font-style:normal}
+.hopen{gap:6px}
+.jtile-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.jtile-grid .tile{border:1px solid var(--line)}
+.jtile-grid .t-fix{box-shadow:0 0 0 2px var(--cyan)}
+.how{margin:0}
+.how .lead{margin:0 0 4px;font-size:15px}
+.ba.wide{aspect-ratio:auto;height:250px}
+.bar .b-tg{background:var(--surface-2);color:var(--text)}
+.bar .b-tg svg{color:var(--tg)}
+:root[data-theme="dark"] .bar .b-tg svg{color:#5CC3F0}
+.bar .b-wa{font-size:13px}
+.quote{margin:10px 0 0;padding:12px 14px;border-radius:var(--r-md);background:var(--surface);border:1px solid var(--line);font-size:15px;line-height:1.5}
+.quote q{font-style:italic;quotes:"“" "”"}
+.quote span{display:block;font-size:14px;color:var(--text-soft);margin-top:4px;font-weight:600}
+.wstep>.h3:focus{outline:none}
+@media (min-width:760px){ .reelcard{height:320px} .hero-cols{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:end} .jtile-grid{grid-template-columns:repeat(4,1fr)} .ba.wide{height:380px} }
+
+/* ===== item 29: TerraCity location card in the first screen ===== */
+.loccard{position:relative;display:block;height:176px;border-radius:20px;overflow:hidden;background:#1C3A78;text-decoration:none;color:#fff;border:1px solid var(--line-dark)}
+.loccard img{position:absolute;left:0;top:-58px;width:140%;max-width:none;height:auto;aspect-ratio:1200/832}
+.loccard::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,19,48,0) 45%,rgba(7,19,48,.78) 100%)}
+.loccard .ltag{position:absolute;left:10px;bottom:10px;z-index:1;display:inline-flex;align-items:center;gap:7px;background:var(--loc);color:var(--navy);font-size:14.5px;font-weight:800;padding:7px 12px;border-radius:999px}
+.loccard .ltag svg{width:17px;height:17px}
+.loccard .lopen{position:absolute;right:10px;bottom:12px;z-index:1;display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:700;color:#fff}
+.loccard .cr{position:absolute;right:8px;top:6px;z-index:1;font-size:10.5px;color:rgba(255,255,255,.9);background:rgba(7,19,48,.55);padding:1px 6px;border-radius:6px}
+.hero h1{margin-top:14px}
+.reelcard.swipe{margin-top:0}
+.photo.tc img{height:220px;object-position:20% 45%}
+.credit{font-size:13px}
+@media (min-width:760px){ .loccard{height:300px} .loccard img{width:100%;top:-80px} .photo.tc img{height:340px} }
+
+/* ===== item 30: header must fit in every language ===== */
+.head .wrap{gap:8px}
+.brand{gap:8px}
+.brand .wordmark{display:inline;font-size:13px}
+.langbtn{min-width:44px;padding:0 10px}
+.langbtn svg{display:none}
+.hopen{padding:0 10px;font-size:12.5px;gap:6px;flex:none}
+.send.stack{grid-template-columns:1fr}
+@media (min-width:430px){.brand .wordmark{font-size:14.5px} .langbtn svg{display:block}}
+
+/* ===== item 32 ===== */
+@keyframes kb{from{transform:scale(1) translate(0,0)}to{transform:scale(1.12) translate(-3%,2%)}}
+.loccard img{transform-origin:20% 40%;will-change:transform;animation:kb 14s ease-in-out infinite alternate}
+@media (prefers-reduced-motion:reduce){.loccard img{animation:none!important;transform:none}}
+.rtiles{gap:10px}
+.rt{flex-direction:column;align-items:flex-start;gap:4px;min-height:0;padding:12px 14px 14px;border-radius:20px}
+.rt .src{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:var(--text-soft);white-space:nowrap}
+.rt .mk{width:24px;height:24px;border-radius:50%;background:#fff;display:grid;place-items:center;flex:none;box-shadow:0 0 0 1px var(--line)}
+.rt .mk svg{width:18px;height:18px}
+.rt .score{font:700 44px/1 var(--f-display);letter-spacing:-.03em;margin-top:6px}
+.rt .stars svg{width:16px;height:16px}
+.rt .cnt{font-size:14.5px;font-weight:700;color:var(--text);white-space:nowrap}
+button.tile{border:0;font:inherit;text-align:left;width:100%;cursor:pointer;align-items:stretch}
+.jtile-grid .tile[aria-expanded="true"]{box-shadow:0 0 0 3px var(--cyan)}
+.jtile-grid .t-fix[aria-expanded="false"]{box-shadow:0 0 0 2px var(--cyan)}
+.panels{margin-top:12px}
+.panels .panel{scroll-margin-top:calc(var(--head-h) + 10px)}
+
+/* ===== items 33-34 ===== */
+.askline{display:flex;align-items:center;gap:8px;margin:12px 0 0;font-size:15px;font-weight:700;color:#fff}
+.askline svg{width:20px;height:20px;color:var(--wa);flex:none}
+.askline svg.tgi{color:#5CC3F0;margin-left:-4px}
+.bar .b-tg{background:var(--tg);color:#fff}
+.bar .b-tg svg{color:#fff}
+:root[data-theme="dark"] .bar .b-tg svg{color:#fff}
+.dot{position:relative;width:10px;height:10px;border-radius:50%;background:var(--wa);flex:none}
+.dot::after{content:"";position:absolute;inset:-4px;border-radius:50%;border:2px solid var(--wa);opacity:0}
+[data-open="true"] .dot{animation:none;box-shadow:none}
+[data-open="true"] .dot::after{animation:ring 1.8s var(--ease-out) infinite}
+[data-open="false"] .dot{background:#9AA6BD}
+[data-open="false"] .dot::after{display:none}
+@keyframes ring{0%{transform:scale(.6);opacity:.9}100%{transform:scale(1.9);opacity:0}}
+@media (prefers-reduced-motion:reduce){[data-open="true"] .dot::after{animation:none;opacity:0}}
+.wordmark{padding-right:4px}
+.info a.v{padding:12px 0;margin:-10px 0}
+.rt{min-width:0}
+.rt .src{white-space:normal;line-height:1.2;align-items:flex-start}
+.rt .src>span:last-child{padding-top:3px}
+.hero h1{font:800 clamp(27px,7.2vw,46px)/1.13 var(--f-body);letter-spacing:-.025em;margin:12px 0 12px}
+.loccard{height:150px}
+.loccard img{top:-62px}
+.pills .pill-live{min-height:38px}
+.demo{font-size:12px;padding:6px 12px}
+
+/* ===== desktop >=960: two-column hero, no giant empty areas ===== */
+@media (min-width:960px){
+  .wrap{width:min(1120px,100% - 48px)}
+  .hero .wrap{display:grid;grid-template-columns:1.05fr 1fr;column-gap:36px;align-items:start}
+  .hero .loccard{grid-column:1;grid-row:1/6;height:100%;min-height:380px}
+  .hero .loccard img{width:100%;height:100%;top:0;object-fit:cover;object-position:18% 45%;aspect-ratio:auto}
+  .hero .pills,.hero h1,.hero .rtiles,.hero .askline{grid-column:2}
+  .hero h1{font-size:44px}
+  .reelcard.swipe{height:360px}
+  .panels .card{max-width:760px}
+  .proof .ba.wide,.ba.wide{height:440px;max-width:760px}
+  .how ol{max-width:760px}
+}
+@media (min-width:960px){.reelcard.swipe{max-width:760px;height:340px}}
+
+/* ===== senior pass: one voice, fewer boxes, video hero ===== */
+.h2,.h3,.tile strong,.promises strong,.stops b,.ighead b{font-family:var(--f-body);font-weight:800;letter-spacing:-.02em}
+.h2{font-size:clamp(24px,6.4vw,34px);line-height:1.15;margin-bottom:10px}
+.h3{font-size:18px}
+.sec{padding-top:52px}
+.head{border-bottom-color:transparent}
+.hero{padding:6px 0 20px;border-radius:0 0 28px 28px}
+.hero::before{display:none}
+.loccard{height:clamp(196px,60vw,236px);border-radius:24px;border:0;background:#1C3A78}
+.loccard video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 16%}
+.loccard::after{background:linear-gradient(180deg,rgba(7,19,48,.38) 0%,rgba(7,19,48,0) 34%,rgba(7,19,48,0) 52%,rgba(7,19,48,.72) 100%)}
+.loccard .lopen{left:10px;right:auto;top:10px;bottom:auto;max-width:calc(100% - 20px);gap:8px;padding:7px 12px 7px 11px;border-radius:999px;background:rgba(7,19,48,.78);font-size:13.5px;line-height:1.2;font-weight:700}
+.loccard .ltag{left:10px;bottom:10px;max-width:calc(100% - 20px);font-size:15px;padding:8px 13px}
+.hero h1{margin:16px 0 14px;font-size:clamp(26px,7.1vw,46px);line-height:1.12}
+.rt{border-radius:22px;padding:13px 14px 14px;gap:5px}
+.askline{margin-top:14px;color:var(--on-dark-soft);font-weight:600}
+.askline span{color:#fff}
+/* journeys: one big photo tile for repair, the other three as one quiet list */
+.jtile-grid{grid-template-columns:1fr;gap:10px}
+.jtile-grid .tile{border-radius:22px}
+.jtile-grid .t-fix{min-height:132px;padding:16px 60px 16px 16px;box-shadow:none!important;border:2px solid var(--cyan)}
+.jtile-grid .t-fix strong{font-size:21px;padding:0}
+.jtile-grid .t-fix span:not(.go){font-size:14.5px;margin-top:4px}
+.jtile-grid .t-fix .go{width:40px;height:40px;right:14px;bottom:16px}
+.jtile-grid .t-fix .go svg{width:18px;height:18px}
+.jtile-grid .tile:not(.t-fix){min-height:68px;justify-content:center;padding:11px 44px 11px 68px;background:var(--surface);color:var(--text);box-shadow:var(--lift)}
+.jtile-grid .tile:not(.t-fix) strong{font-size:16.5px;padding:0;line-height:1.2}
+.jtile-grid .tile:not(.t-fix) span:not(.go){color:var(--text-soft);font-size:14px}
+.jtile-grid .tile:not(.t-fix) svg.art{left:14px;top:50%;margin-top:-21px;width:42px;height:42px;padding:10px;border-radius:14px;background:var(--tint-cyan);color:var(--text)}
+.jtile-grid .tile:not(.t-fix) .go{right:10px;top:50%;bottom:auto;margin-top:-13px;background:none;color:var(--text-soft)}
+.jtile-grid .tile:not(.t-fix) .go svg{width:18px;height:18px}
+.jtile-grid .tile[aria-expanded="true"]{box-shadow:0 0 0 3px var(--cyan)!important}
+/* before/after + the same job in three photos */
+.ba.wide{height:clamp(250px,74vw,320px);border-radius:24px}
+.proof-cap{margin:10px 0 0}
+.steps3{margin-top:14px}
+/* how it works: a real sequence, read top to bottom */
+.how{padding:20px 18px}
+.how ol{grid-template-columns:1fr;gap:14px;margin-top:14px}
+.how li{display:grid;grid-template-columns:44px 1fr;column-gap:14px;align-items:center;text-align:left;font-size:15.5px;line-height:1.35}
+.how .ic{margin:0;grid-row:1/3}
+.how li>span:nth-child(2){align-self:end}
+.how li:not(:has(.chan))>span:nth-child(2){grid-row:1/3;align-self:center}
+.how .chan{justify-content:flex-start;margin-top:6px;grid-column:2;align-self:start}
+.how .chan span{width:28px;height:28px}
+/* parts: three plain lines */
+.band{padding:40px 0 32px;margin-top:52px}
+.parts{margin:0;display:grid;border-radius:20px;background:var(--navy-2);border:1px solid var(--line-dark);padding:2px 16px}
+.parts>div{padding:14px 0}
+.parts>div+div{border-top:1px solid var(--line-dark)}
+.parts dt{font-weight:800;font-size:16.5px;color:var(--cyan)}
+.parts dd{margin:3px 0 0;font-size:15px;line-height:1.5;color:#fff}
+.promises strong{font-size:16.5px}
+.wk .pic{height:176px}
+.rev blockquote{font-size:16.5px}
+.foot{margin-top:52px}
+@media (min-width:760px){
+  .jtile-grid{grid-template-columns:1.15fr 1fr;grid-auto-rows:1fr}
+  .jtile-grid .t-fix{grid-row:1/4}
+  .how ol{grid-template-columns:repeat(3,1fr);gap:20px}
+  .ba.wide{height:400px}
+  #proof .wrap{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);column-gap:28px;align-items:start}
+  #proof .h2,#proof .proof-cap{grid-column:1/-1}
+  #proof .ba.wide{grid-row:2;max-width:none}
+  #proof .proof-cap{grid-row:3}
+  #proof .steps3{grid-column:2;grid-row:2;margin:0;grid-template-columns:1fr 1fr 1fr;align-self:start}
+}
+@media (min-width:960px){
+  .hero{padding:20px 0 28px}
+  .hero .wrap{align-items:center}
+  .hero .loccard{grid-row:1/5;min-height:420px}
+  .hero .loccard video{object-position:0% 45%}
+  .hero h1{margin-top:0}
+  .proof .ba.wide{height:440px}
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.06 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.7.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35m-5.42 7.4h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.880 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.82 9.82 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.590 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89 0-3.18-1.24-6.17-3.48-8.41"/></symbol>
+<symbol id="i-tg" viewBox="0 0 24 24"><path fill="currentColor" d="M21.94 4.3 18.7 19.6c-.24 1.07-.88 1.34-1.78.83l-4.93-3.63-2.38 2.29c-.26.26-.48.48-.99.48l.35-5.02 9.14-8.26c.4-.35-.09-.55-.62-.2L6.2 13.2 1.33 11.68c-1.06-.33-1.08-1.06.22-1.57L20.6 2.77c.88-.33 1.65.2 1.34 1.53Z"/></symbol>
+<symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.790 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
+<symbol id="i-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></symbol>
+<symbol id="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></symbol>
+<symbol id="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></symbol>
+<symbol id="i-ig" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.6" cy="6.4" r=".6" fill="currentColor"/></symbol>
+<symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></symbol>
+<symbol id="i-route" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="19" r="3"/><path d="M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15"/><circle cx="18" cy="5" r="3"/></symbol>
+<symbol id="i-wrench" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></symbol>
+<symbol id="i-tag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.59 2.59A2 2 0 0 0 11.17 2H4a2 2 0 0 0-2 2v7.17a2 2 0 0 0 .59 1.42l8.7 8.7a2.43 2.43 0 0 0 3.42 0l6.58-6.58a2.43 2.43 0 0 0 0-3.42z"/><circle cx="7.5" cy="7.5" r="1.2" fill="currentColor"/></symbol>
+<symbol id="i-bag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18M16 10a4 4 0 0 1-8 0"/></symbol>
+<symbol id="i-mobile" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2.5"/><path d="M11 18h2"/></symbol>
+<symbol id="i-laptop" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 16V7a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v9m16 0H4m16 0 1.28 2.55a1 1 0 0 1-.9 1.45H3.62a1 1 0 0 1-.9-1.45L4 16"/></symbol>
+<symbol id="i-coffee" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2v2M14 2v2M6 2v2M16 8a1 1 0 0 1 1 1v8a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V9a1 1 0 0 1 1-1h14a4 4 0 1 1 0 8h-1"/></symbol>
+<symbol id="i-spark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 16v4M17 18h4"/></symbol>
+<symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></symbol>
+<symbol id="i-swap" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 3 4 4-4 4M20 7H4M8 21l-4-4 4-4M4 17h16"/></symbol>
+<symbol id="i-truck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2M15 18H9M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.62l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></symbol>
+<symbol id="i-watch" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="6"/><path d="M12 10v2l1 1M16.13 7.66l-.81-4.05a2 2 0 0 0-2-1.61h-2.68a2 2 0 0 0-2 1.61l-.78 4.05M7.88 16.36l.8 4a2 2 0 0 0 2 1.61h2.72a2 2 0 0 0 2-1.61l.81-4.05"/></symbol>
+<symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></symbol>
+<symbol id="i-dcheck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12.5 6.5 17 15 7.5M12 15.5l1.5 1.5L22 7.5"/></symbol>
+<symbol id="i-star" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.770l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></symbol>
+<symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+<symbol id="i-left" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></symbol>
+<symbol id="i-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></symbol>
+<symbol id="i-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></symbol>
+<symbol id="i-door" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 4h3a2 2 0 0 1 2 2v14M2 20h3M13 20h9M10 12v.01M13 4.56v16.16a1 1 0 0 1-1.24.97L5 20V5.56a2 2 0 0 1 1.52-1.94l4-1A2 2 0 0 1 13 4.56Z"/></symbol>
+<symbol id="i-stairs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h5v-5h5v-5h5V6h3"/><path d="M7 3v7M4 7l3 3 3-3"/></symbol>
+<symbol id="i-bell" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9M10.3 21a1.94 1.94 0 0 0 3.4 0"/></symbol>
+<symbol id="i-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></symbol>
+<symbol id="i-cam" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3z"/><circle cx="12" cy="13" r="3"/></symbol>
+<symbol id="i-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></symbol>
+<symbol id="i-play" viewBox="0 0 24 24"><path fill="currentColor" d="M7 4.5v15a1 1 0 0 0 1.5.86l12.5-7.5a1 1 0 0 0 0-1.72L8.5 3.64A1 1 0 0 0 7 4.5Z"/></symbol>
+<symbol id="i-pause" viewBox="0 0 24 24"><rect fill="currentColor" x="6" y="4" width="4.5" height="16" rx="1.2"/><rect fill="currentColor" x="13.5" y="4" width="4.5" height="16" rx="1.2"/></symbol>
+<symbol id="i-lr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m9 7-5 5 5 5M15 7l5 5-5 5"/></symbol>
+</defs></svg>
+
+<a class="skip" href="#main" data-i18n="skip"></a>
+
+<header class="head dark">
+  <div class="wrap">
+    <a class="brand" href="#top" id="logoTop" aria-label="Antalya Fix"><img src="logo.jpg" alt="" width="36" height="36" fetchpriority="high"><span class="wordmark" translate="no">ANTALYA FI<span class="x">X</span></span></a>
+    <button class="iconbtn" id="themeBtn" type="button"><svg aria-hidden="true"><use id="themeIcon" href="#i-sun"/></svg></button>
+    <button class="langbtn" id="langBtn" aria-haspopup="true" aria-expanded="false" aria-controls="langMenu" data-i18n-attr="aria-label:lang_btn"><svg aria-hidden="true"><use href="#i-globe"/></svg><span id="langCode">TR</span></button>
+  </div>
+  <div class="langmenu" id="langMenu" role="menu" hidden></div>
+</header>
+
+<main id="main">
+<!-- FIRST SCREEN -->
+<section class="hero dark" id="top">
+  <div class="wrap">
+    <a class="loccard" href="#find">
+      <video id="heroVid" muted loop playsinline preload="auto" width="720" height="900" poster="../media/terracity-loop-m.jpg" data-m="../media/terracity-loop-m" data-d="../media/terracity-loop" data-i18n-attr="aria-label:tc_alt"></video>
+      <span class="lopen" data-live data-open="true"><i class="dot" aria-hidden="true"></i><span class="live-t">…</span></span>
+      <span class="ltag"><svg aria-hidden="true"><use href="#i-pin"/></svg><span data-i18n="loc_pill"></span></span>
+    </a>
+    <h1 data-i18n="hero_title"></h1>
+    <div class="rtiles" data-rtiles></div>
+    <p class="askline"><svg aria-hidden="true"><use href="#i-wa"/></svg><svg aria-hidden="true" class="tgi"><use href="#i-tg"/></svg><span data-i18n="ask_line"></span></p>
+  </div>
+</section>
+
+<!-- FIRST SWIPE: journeys, before/after, how it works -->
+<section class="sec" style="padding-top:20px" aria-labelledby="tilesH">
+  <div class="wrap">
+    <div class="reelcard swipe">
+      <video id="reel" muted loop playsinline preload="metadata" poster="../media/reel.jpg" width="720" height="900" data-src="../media/reel.mp4" data-i18n-attr="aria-label:reel_aria"></video>
+      <span class="lab"><svg aria-hidden="true"><use href="#i-wrench"/></svg><span data-i18n="reel_lab"></span></span>
+    </div>
+    <h2 id="tilesH" class="sr" data-i18n="tiles_aria"></h2>
+    <nav class="jtile-grid" style="margin-top:12px" data-i18n-attr="aria-label:tiles_aria">
+      <button type="button" class="tile t-fix" data-j="repair" aria-expanded="false" aria-controls="repair"><img src="../media/lens.jpg" width="900" height="1498" alt="" loading="lazy" decoding="async" style="object-position:50% 35%"><strong data-i18n="j_fix_t"></strong><span data-i18n="j_fix_s"></span><span class="go" aria-hidden="true"><svg><use href="#i-right"/></svg></span></button>
+      <button type="button" class="tile t-sell" data-j="sell" aria-expanded="false" aria-controls="sell"><svg class="art" aria-hidden="true"><use href="#i-tag"/></svg><strong data-i18n="j_sell_t"></strong><span data-i18n="j_sell_s"></span><span class="go" aria-hidden="true"><svg><use href="#i-right"/></svg></span></button>
+      <button type="button" class="tile t-buy" data-j="buy" aria-expanded="false" aria-controls="buy"><svg class="art" aria-hidden="true"><use href="#i-bag"/></svg><strong data-i18n="j_buy_t"></strong><span data-i18n="j_buy_s"></span><span class="go" aria-hidden="true"><svg><use href="#i-right"/></svg></span></button>
+      <button type="button" class="tile t-pc" data-j="pc" aria-expanded="false" aria-controls="pc"><svg class="art" aria-hidden="true"><use href="#i-laptop"/></svg><strong data-i18n="j_pc_t"></strong><span data-i18n="j_pc_s"></span><span class="go" aria-hidden="true"><svg><use href="#i-right"/></svg></span></button>
+    </nav>
+    <div id="go" class="panels">
+    <!-- repair wizard -->
+    <div class="panel" id="repair" role="tabpanel" aria-labelledby="jt-repair" hidden>
+      <div class="card" id="repWiz">
+        <div class="wiz-h"><button type="button" class="back" data-back><svg aria-hidden="true"><use href="#i-left"/></svg><span data-i18n="wiz_back"></span></button><span class="wiz-n" aria-live="polite"></span></div>
+        <div class="wiz-bar" aria-hidden="true"><i></i></div>
+        <section class="wstep" data-step="1"><h3 class="h3" tabindex="-1" data-i18n="rw1"></h3><div class="chips" id="repBrands"></div></section>
+        <section class="wstep" data-step="2" hidden><h3 class="h3" tabindex="-1" data-i18n="rw2"></h3><div class="chips" id="repModels"></div>
+          <label class="field" style="margin:14px 0 0"><span data-i18n="model_type"></span><input class="input" id="repModel" name="model" autocomplete="off" spellcheck="false" data-i18n-attr="placeholder:model_ph"></label>
+          <button type="button" class="btn btn-navy wnext" data-next><span data-i18n="wiz_next"></span></button></section>
+        <section class="wstep" data-step="3" hidden><h3 class="h3" tabindex="-1" data-i18n="rw3"></h3><div class="chips" id="repProblems"></div></section>
+        <section class="wstep" data-step="4" hidden><h3 class="h3" tabindex="-1" data-i18n="rw4"></h3>
+          <p class="sub" data-i18n="step_pref"></p><div class="chips" id="repPrefs"></div>
+          <p class="sub" data-i18n="step_ready"></p><div class="chips" id="repReady"></div>
+          <label class="field" style="margin:16px 0 0"><span data-i18n="step_note"></span><textarea class="input" id="repNote" name="note" rows="2" autocomplete="off" data-i18n-attr="placeholder:note_ph"></textarea></label>
+          <label class="check" style="margin-top:6px"><input type="checkbox" id="repCourier"><span data-i18n="rep_courier"></span></label></section>
+        <div class="sendbox">
+          <div class="preview" id="repPreview" aria-live="polite" hidden><div class="preview-h"><svg aria-hidden="true"><use href="#i-wa"/></svg><span data-i18n="preview_lbl"></span></div><div class="bubble" id="repBubble"></div></div>
+          <div data-send="repair" style="margin-top:12px"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- sell wizard -->
+    <div class="panel" id="sell" role="tabpanel" aria-labelledby="jt-sell" hidden>
+      <div class="card" id="sellWiz">
+        <div class="wiz-h"><button type="button" class="back" data-back><svg aria-hidden="true"><use href="#i-left"/></svg><span data-i18n="wiz_back"></span></button><span class="wiz-n" aria-live="polite"></span></div>
+        <div class="wiz-bar" aria-hidden="true"><i></i></div>
+        <section class="wstep" data-step="1"><h3 class="h3" tabindex="-1" data-i18n="sw1"></h3>
+          <div class="chips" id="sBrands"></div>
+          <div id="sModelsWrap" hidden>
+            <label class="field" style="margin:14px 0 10px"><span data-i18n="s_search"></span><input class="input" id="sSearch" type="search" name="model-search" autocomplete="off" spellcheck="false" data-i18n-attr="placeholder:model_ph"></label>
+            <div class="chips" id="sModels"></div></div>
+          <label class="field" id="sModelOtherWrap" style="margin:14px 0 0" hidden><span data-i18n="s_model_ph"></span><input class="input" id="sModelOther" name="sell-model-text" autocomplete="off" spellcheck="false" data-i18n-attr="placeholder:model_ph"></label>
+          <button type="button" class="btn btn-navy wnext" data-next><span data-i18n="wiz_next"></span></button></section>
+        <section class="wstep" data-step="2" hidden><h3 class="h3" tabindex="-1" data-i18n="sw2"></h3>
+          <p class="sub" data-i18n="s_storage"></p><div class="chips" id="sStorage"></div>
+          <p class="sub" data-i18n="s_battery"></p><div class="chips" id="sBat"></div>
+          <button type="button" class="btn btn-navy wnext" data-next><span data-i18n="wiz_next"></span></button></section>
+        <section class="wstep" data-step="3" hidden><h3 class="h3" tabindex="-1" data-i18n="sw3"></h3>
+          <p class="sub" data-i18n="s_screen"></p><div class="seg" id="sScreen"></div>
+          <p class="sub" data-i18n="s_body"></p><div class="seg" id="sBody"></div>
+          <p class="sub" data-i18n="s_box"></p><div class="seg" id="sBox"></div>
+          <p class="sub" data-i18n="s_wdoc"></p><div class="seg" id="sDoc"></div>
+          <label class="check" style="margin-top:8px"><input type="checkbox" id="sTrade"><span data-i18n="s_trade"></span></label></section>
+        <div class="sendbox"><div data-send="sell"></div><p class="small" data-i18n="sell_photos"></p></div>
+      </div>
+    </div>
+
+    <!-- buy -->
+    <div class="panel" id="buy" role="tabpanel" aria-labelledby="jt-buy" hidden>
+      <div class="card">
+        <h3 class="h3" data-i18n="buy_title"></h3>
+        <p class="small" style="margin:0 0 12px" data-i18n="buy_sub"></p>
+        <figure class="bphoto"><img src="../media/boxes.jpg" width="900" height="1600" loading="lazy" decoding="async" alt=""><figcaption data-i18n="boxes_cap"></figcaption></figure>
+        <div class="btabs" role="tablist" id="bTabs">
+          <button role="tab" id="bt-new" aria-selected="true" aria-controls="catalog" data-c="new" data-i18n="tab_new"></button>
+          <button role="tab" id="bt-used" aria-selected="false" aria-controls="catalog" data-c="used" tabindex="-1" data-i18n="tab_used"></button>
+        </div>
+        <div data-rline></div>
+        <div class="rows" id="catalog" role="tabpanel" aria-labelledby="bt-new"></div>
+      </div>
+    </div>
+
+    <!-- computer & data -->
+    <div class="panel" id="pc" role="tabpanel" aria-labelledby="jt-pc" hidden>
+      <div class="card">
+        <h3 class="h3" data-i18n="pc_title"></h3>
+        <p class="small" style="margin:0 0 14px" data-i18n="pc_sub"></p>
+        <div class="field"><span class="flabel" data-i18n="pc_type"></span><div class="seg" id="pcType"></div></div>
+        <label class="field"><span data-i18n="pc_model_lbl"></span><input class="input" id="pcModel" name="pc-model" autocomplete="off" spellcheck="false" data-i18n-attr="placeholder:pc_model_ph"></label>
+        <div class="field"><span class="flabel" data-i18n="pc_issue"></span><div class="chips" id="pcIssues"></div></div>
+        <div data-send="pc"></div>
+      </div>
+      <div class="qcard data">
+        <h3 class="h3" data-i18n="data_t"></h3>
+        <p data-i18n="data_s"></p>
+        <div class="ft">
+          <div><span class="flabel" data-i18n="data_from"></span><div class="chips" id="dFrom"></div></div>
+          <svg class="arrow" aria-hidden="true"><use href="#i-right"/></svg>
+          <div><span class="flabel" data-i18n="data_to"></span><div class="chips" id="dTo"></div></div>
+        </div>
+        <div data-send="data"></div>
+      </div>
+      <div class="qcard rec">
+        <h3 class="h3" data-i18n="rec_t"></h3>
+        <p data-i18n="rec_s"></p>
+        <div data-send="rec"></div>
+      </div>
+    </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="proof" style="padding-top:28px" aria-labelledby="proof-h">
+  <div class="wrap">
+    <h2 class="h2" id="proof-h" data-i18n="wb_title"></h2>
+    <div class="ba wide" id="ba">
+      <img src="../media/after.jpg" width="900" height="1126" loading="lazy" decoding="async" data-i18n-attr="alt:after_alt" alt="">
+      <img class="b4" src="../media/before.jpg" width="900" height="1126" loading="lazy" decoding="async" data-i18n-attr="alt:before_alt" alt="">
+      <span class="line"><span class="knob"><svg aria-hidden="true"><use href="#i-lr"/></svg></span></span>
+      <span class="bt l" data-i18n="before_lbl"></span><span class="bt r" data-i18n="after_lbl"></span>
+      <input type="range" id="baRange" min="0" max="100" value="50" data-i18n-attr="aria-label:ba_aria">
+    </div>
+    <p class="proof-cap"><span data-i18n="ba_title"></span> · <span data-i18n="ba_hint"></span></p>
+    <ol class="steps3" aria-label="iPhone 15 Pro Max">
+      <li><img src="../media/before.jpg" width="900" height="1126" loading="lazy" decoding="async" alt=""><span data-i18n="st1"></span></li>
+      <li><img src="../media/step2.jpg" width="900" height="1126" loading="lazy" decoding="async" alt=""><span data-i18n="st2"></span></li>
+      <li><img src="../media/after.jpg" width="900" height="1126" loading="lazy" decoding="async" alt=""><span data-i18n="st3"></span></li>
+    </ol>
+  </div>
+</section>
+
+<section class="sec" style="padding-top:20px" aria-labelledby="how-h">
+  <div class="wrap">
+    <div class="card how">
+      <h2 class="h3" id="how-h" data-i18n="tl_title"></h2>
+      <p class="lead" data-i18n="hero_sub"></p>
+      <ol>
+        <li><span class="ic"><b>1</b><svg aria-hidden="true"><use href="#i-mobile"/></svg></span><span data-i18n="tl_1"></span></li>
+        <li><span class="ic"><b>2</b><svg aria-hidden="true"><use href="#i-coffee"/></svg></span><span data-i18n="tl_2"></span></li>
+        <li><span class="ic"><b>3</b><svg aria-hidden="true"><use href="#i-bell"/></svg></span><span data-i18n="tl_3"></span><span class="chan" aria-hidden="true"><span class="c-wa"><svg><use href="#i-wa"/></svg></span><span class="c-tg"><svg><use href="#i-tg"/></svg></span><span class="c-ph"><svg><use href="#i-phone"/></svg></span></span></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="sec" id="reviews" style="padding-top:32px" aria-labelledby="rev-h">
+  <div class="wrap">
+    <h2 class="h2" id="rev-h" data-i18n="rev_title"></h2>
+    <div class="railnav"><div class="dots" id="revDots" aria-hidden="true"></div><div class="navbtns"><button type="button" data-rail="revRail" data-dir="-1" data-i18n-attr="aria-label:rev_prev"><svg aria-hidden="true"><use href="#i-left"/></svg></button><button type="button" data-rail="revRail" data-dir="1" data-i18n-attr="aria-label:rev_next"><svg aria-hidden="true"><use href="#i-right"/></svg></button></div></div>
+    <div class="rail" id="revRail" tabindex="0" role="region" data-i18n-attr="aria-label:rev_title"></div>
+    <div class="links2" id="revLinks" style="margin-top:10px">
+      <a class="btn btn-line btn-sm" data-src="g" href="https://www.google.com/maps/search/?api=1&amp;query=Antalya+Fix+TerraCity" target="_blank" rel="noopener"><span data-i18n="rev_all"></span></a>
+      <a class="btn btn-line btn-sm" data-src="y" href="https://yandex.ru/maps/org/antalya_fix/157554788738/reviews/" target="_blank" rel="noopener"><span data-i18n="rev_all_y"></span></a>
+    </div>
+    <a class="writelink" href="https://www.google.com/maps/search/?api=1&amp;query=Antalya+Fix+TerraCity" target="_blank" rel="noopener" data-i18n="rev_write"></a>
+    <p class="langs"><svg aria-hidden="true"><use href="#i-globe"/></svg><span data-i18n="lang_s"></span></p>
+  </div>
+</section>
+
+<!-- WORK WE DO -->
+<section class="sec" id="work" aria-labelledby="work-h">
+  <div class="wrap">
+    <h2 class="h2" id="work-h" data-i18n="w_title"></h2>
+    <p class="lead" data-i18n="w_sub"></p>
+    <div class="railnav"><div class="dots" id="wkDots" aria-hidden="true"></div><div class="navbtns"><button type="button" data-rail="wkRail" data-dir="-1" data-i18n-attr="aria-label:rev_prev"><svg aria-hidden="true"><use href="#i-left"/></svg></button><button type="button" data-rail="wkRail" data-dir="1" data-i18n-attr="aria-label:rev_next"><svg aria-hidden="true"><use href="#i-right"/></svg></button></div></div>
+    <div class="rail" id="wkRail" tabindex="0" role="region" data-i18n-attr="aria-label:w_title"></div>
+    <h3 class="h3" data-i18n="srv_title" style="margin-top:22px"></h3>
+    <div class="also">
+      <a href="#repair" data-preset="scratch" data-j="repair"><span class="ic"><svg aria-hidden="true"><use href="#i-spark"/></svg></span><span><b data-i18n="sv_scratch"></b><small data-i18n="sv_scratch_s"></small></span></a>
+      <a id="svAcc" target="_blank" rel="noopener" href="#"><span class="ic"><svg aria-hidden="true"><use href="#i-shield"/></svg></span><span><b data-i18n="sv_acc"></b><small data-i18n="sv_acc_s"></small></span></a>
+      <a id="svCourier" target="_blank" rel="noopener" href="#"><span class="ic"><svg aria-hidden="true"><use href="#i-truck"/></svg></span><span><b data-i18n="sv_delivery"></b><small data-i18n="sv_delivery_s"></small></span></a>
+      <a id="svQuick" target="_blank" rel="noopener" href="#"><span class="ic"><svg aria-hidden="true"><use href="#i-watch"/></svg></span><span><b data-i18n="sv_quick"></b><small data-i18n="sv_quick_s"></small></span></a>
+    </div>
+  </div>
+</section>
+
+<!-- PART QUALITY (verified promises only) -->
+<section class="band dark" id="quality" aria-labelledby="q-h">
+  <div class="wrap">
+    <h2 class="h2" id="q-h" data-i18n="q_title"></h2>
+    <p class="lead" data-i18n="q_sub"></p>
+    <div class="q-grid">
+      <div>
+        <dl class="parts">
+          <div><dt data-i18n="q_orig"></dt><dd data-i18n="q_orig_d"></dd></div>
+          <div><dt data-i18n="q_oled"></dt><dd data-i18n="q_oled_d"></dd></div>
+          <div><dt data-i18n="q_lcd"></dt><dd data-i18n="q_lcd_d"></dd></div>
+        </dl>
+        <p class="qnote" data-i18n="q_battery_note"></p>
+      </div>
+      <ul class="promises">
+        <li><span class="ic"><svg aria-hidden="true"><use href="#i-wrench"/></svg></span><span><strong data-i18n="p_work_t"></strong><span data-i18n="p_work_s"></span></span></li>
+        <li><span class="ic"><svg aria-hidden="true"><use href="#i-swap"/></svg></span><span><strong data-i18n="p_part_t"></strong><span data-i18n="p_part_s"></span></span></li>
+        <li><span class="ic"><svg aria-hidden="true"><use href="#i-bell"/></svg></span><span><strong data-i18n="pr4_t"></strong><span data-i18n="pr4_s"></span></span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- INSTAGRAM -->
+<section class="sec" id="insta" aria-labelledby="ig-h">
+  <div class="wrap">
+    <h2 class="h2" id="ig-h" data-i18n="ig_t"></h2>
+    <div class="igrow">
+      <a href="https://www.instagram.com/antalyafix/reel/DJKTypLMD-9/" target="_blank" rel="noopener"><span class="sq"><img src="../media/lens.jpg" width="900" height="1498" loading="lazy" decoding="async" alt=""><span class="play" aria-hidden="true"><svg><use href="#i-play"/></svg></span></span><span data-i18n="ig1"></span></a>
+      <a href="https://www.instagram.com/antalyafix/p/DJ2Cs-SsL-p/" target="_blank" rel="noopener"><span class="sq"><img src="../media/after.jpg" width="900" height="1126" loading="lazy" decoding="async" alt=""></span><span data-i18n="ig2"></span></a>
+      <a href="https://www.instagram.com/antalyafix/reel/Dfuz3YWoGMq/" target="_blank" rel="noopener"><span class="sq"><img src="../media/battery.jpg" width="900" height="1600" loading="lazy" decoding="async" alt=""><span class="play" aria-hidden="true"><svg><use href="#i-play"/></svg></span></span><span data-i18n="w_bat_t"></span></a>
+      <a href="https://www.instagram.com/antalyafix/reel/DE_J1OdCswb/" target="_blank" rel="noopener"><span class="sq"><img src="../media/boxes.jpg" width="900" height="1600" loading="lazy" decoding="async" alt=""><span class="play" aria-hidden="true"><svg><use href="#i-play"/></svg></span></span><span data-i18n="ig4"></span></a>
+    </div>
+    <div class="ighead"><img src="logo.jpg" width="40" height="40" loading="lazy" alt=""><b translate="no">@antalyafix</b></div>
+    <div class="send">
+      <a class="btn btn-navy btn-sm" href="https://www.instagram.com/antalyafix/" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-ig"/></svg><span data-i18n="ig_follow"></span></a>
+      <a class="btn btn-line btn-sm" href="https://ig.me/m/antalyafix" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-chat"/></svg><span data-i18n="ig_dm"></span></a>
+    </div>
+  </div>
+</section>
+
+<!-- FIND US -->
+<section class="sec" id="find" aria-labelledby="find-h">
+  <div class="wrap">
+    <h2 class="h2" id="find-h" data-i18n="find_title"></h2>
+    <figure class="photo tc" style="margin-bottom:10px"><img src="../media/terracity-720.jpg" srcset="../media/terracity-720.jpg 720w, ../media/terracity.jpg 1200w" sizes="(min-width:760px) 1080px, 100vw" width="1200" height="832" loading="lazy" decoding="async" data-i18n-attr="alt:tc_alt" alt=""><figcaption><svg aria-hidden="true"><use href="#i-door"/></svg><span data-i18n="f1t"></span></figcaption></figure>
+    <figure class="photo"><img src="../media/store.jpg" width="1000" height="1250" loading="lazy" decoding="async" data-i18n-attr="alt:store_cap" alt=""><figcaption><svg aria-hidden="true"><use href="#i-pin"/></svg><span data-i18n="store_cap"></span></figcaption></figure>
+    <div class="routes" id="routes" style="margin-top:12px">
+      <a class="btn btn-navy btn-sm" id="routeG" href="https://www.google.com/maps/dir/?api=1&amp;destination=36.8521934,30.7578719" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-route"/></svg><span data-i18n="route_g"></span></a>
+      <a class="btn btn-line btn-sm" id="routeY" href="https://yandex.ru/maps/?rtext=~36.852621%2C30.757812&amp;rtt=auto" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-route"/></svg><span data-i18n="route_y"></span></a>
+    </div>
+    <div class="findgrid">
+      <div class="path-card dark">
+        <div class="path">
+          <svg class="route" viewBox="0 0 90 330" aria-hidden="true">
+            <path d="M28 55 C28 110 62 110 62 165 C62 220 28 220 28 275" fill="none" stroke="rgba(185,200,234,.35)" stroke-width="3" stroke-linecap="round" stroke-dasharray="2 9"/>
+            <path id="fpath" d="M28 55 C28 110 62 110 62 165 C62 220 28 220 28 275" fill="none" stroke="#3FE0F0" stroke-width="4" stroke-linecap="round"/>
+            <g color="#0B1C3F">
+              <circle cx="28" cy="55" r="20" fill="#fff"/><use href="#i-door" x="18" y="45" width="20" height="20"/>
+              <circle cx="62" cy="165" r="20" fill="#fff"/><use href="#i-stairs" x="52" y="155" width="20" height="20"/>
+              <circle cx="28" cy="275" r="26" fill="#FFC83D" opacity=".3"><animate class="anim" attributeName="r" values="24;31;24" dur="2.4s" repeatCount="indefinite"/></circle>
+              <circle cx="28" cy="275" r="22" fill="#FFC83D"/><text x="28" y="281" text-anchor="middle" font-family="Unbounded,sans-serif" font-weight="700" font-size="16" fill="#0B1C3F">−2</text>
+            </g>
+            <circle id="fdot" cx="28" cy="55" r="6" fill="#fff" stroke="#0B1C3F" stroke-width="3"/>
+          </svg>
+          <ol class="stops" id="stops">
+            <li><b data-i18n="f1t"></b><span translate="no">Tekelioğlu Cad. No:55, Fener</span></li>
+            <li><b data-i18n="f2t"></b><span data-i18n="f2s"></span></li>
+            <li><b data-i18n="f3t"></b><span data-i18n="f3s"></span></li>
+          </ol>
+        </div>
+      </div>
+      <div>
+        <div class="mapph" id="mapPh"><div><svg aria-hidden="true"><use href="#i-pin"/></svg><p data-i18n="map_ph"></p><button type="button" class="btn btn-cyan btn-sm" id="mapShow" style="width:auto;padding-inline:18px"><span data-i18n="map_show"></span></button></div></div>
+        <div id="mapWrap" hidden>
+          <div class="maptabs" role="tablist" id="mapTabs" data-i18n-attr="aria-label:map_aria">
+            <button role="tab" id="mt-g" aria-selected="true" aria-controls="mapG" data-m="g" data-i18n="map_g"></button>
+            <button role="tab" id="mt-y" aria-selected="false" aria-controls="mapY" data-m="y" tabindex="-1" translate="no">Яндекс Карты</button>
+          </div>
+          <div class="mapbox">
+            <iframe id="mapG" role="tabpanel" aria-labelledby="mt-g" data-src="https://www.google.com/maps?q=36.8521934,30.7578719&amp;z=17&amp;output=embed" referrerpolicy="no-referrer-when-downgrade" data-i18n-attr="title:map_title_g"></iframe>
+            <iframe id="mapY" role="tabpanel" aria-labelledby="mt-y" data-src="https://yandex.ru/map-widget/v1/?oid=157554788738&amp;ll=30.757812%2C36.852621&amp;z=17" hidden data-i18n-attr="title:map_title_y"></iframe>
+          </div>
+        </div>
+        <div class="card info">
+          <div class="row"><span class="ic"><svg aria-hidden="true"><use href="#i-pin"/></svg></span><div><small data-i18n="addr_lbl"></small><div class="v" translate="no">Fener Mah. Tekelioğlu Cad. No:55, TerraCity AVM, Kat −2, 07160 Muratpaşa/Antalya</div><div class="v" style="font-size:14px;color:var(--text-soft)"><span data-i18n="plus_lbl"></span>: <span translate="no">VQ25+V4</span></div></div></div>
+          <div class="row"><span class="ic"><svg aria-hidden="true"><use href="#i-clock"/></svg></span><div><small data-i18n="hours_lbl"></small><div class="v" data-i18n="hours_v"></div><span class="livebadge" data-live data-open="true"><i class="dot" aria-hidden="true"></i><span class="live-t">…</span></span></div></div>
+          <div class="row"><span class="ic"><svg aria-hidden="true"><use href="#i-phone"/></svg></span><div><small data-i18n="phone_lbl"></small><a class="v num" href="tel:+905441121911" translate="no">0544 112 19 11</a></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot dark">
+  <div class="wrap">
+    <div class="row"><span class="wordmark" translate="no">ANTALYA FI<span class="x">X</span></span>
+      <a class="iconbtn" href="https://www.instagram.com/antalyafix/" target="_blank" rel="noopener" data-i18n-attr="aria-label:ig_aria"><svg aria-hidden="true"><use href="#i-ig"/></svg></a></div>
+    <p data-i18n="what_line"></p>
+    <p data-i18n="demo"></p>
+    <p><a href="https://www.instagram.com/antalyafix/" target="_blank" rel="noopener" data-i18n="foot_media"></a></p>
+    <p class="credit"><a href="https://commons.wikimedia.org/wiki/File:Antalya,_Turkey_2022_-_TerraCity.jpg" target="_blank" rel="noopener" data-i18n="tc_credit"></a></p>
+    <p data-i18n="foot_made"></p>
+  </div>
+</footer>
+
+<button type="button" class="totop" id="toTop" hidden data-i18n-attr="aria-label:back_top"><svg aria-hidden="true"><use href="#i-up"/></svg></button>
+<div class="toast" id="toast" role="status" aria-live="polite" hidden><svg aria-hidden="true"><use href="#i-copy"/></svg><span id="toastT"></span></div>
+
+<nav class="bar" data-i18n-attr="aria-label:tabbar_aria">
+  <ul id="barList">
+    <li data-k="wa"><a class="b-wa" id="barWa" href="#" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg><span>WhatsApp</span></a></li>
+    <li data-k="tg"><a class="b-tg" href="https://t.me/+905441121911" target="_blank" rel="noopener" data-tg="general"><svg aria-hidden="true"><use href="#i-tg"/></svg><span>Telegram</span></a></li>
+    <li data-k="call"><a class="b-call" href="tel:+905441121911"><svg aria-hidden="true"><use href="#i-phone"/></svg><span data-i18n="bar_call"></span></a></li>
+    <li data-k="route"><a class="b-route" id="barRoute" href="#" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-route"/></svg><span data-i18n="bar_route"></span></a></li>
+  </ul>
+</nav>
+
+<script>
+"use strict";
+const I18N = {
+tr: {
+  meta_title: "Antalya Fix · TerraCity AVM telefon tamiri",
+  meta_desc: "TerraCity AVM Kat −2'de telefon, tablet ve bilgisayar tamiri. Her gün 10:00–22:00. Fiyatı WhatsApp'tan sorun.",
+  skip: "İçeriğe geç",
+  demo: "Demo · Onaz Studio tarafından Antalya Fix için hazırlanmıştır",
+  lang_btn: "Dili değiştir",
+  ig_aria: "Instagram'da Antalya Fix",
+  tabbar_aria: "Hızlı menü",
+  tiles_aria: "Ne yapmak istiyorsunuz?",
+  st_open: "Şu an açık · 22:00'ye kadar",
+  st_closed_today: "Şu an kapalı · Bugün 10:00'da açıyoruz",
+  st_closed_tom: "Şu an kapalı · Yarın 10:00'da açıyoruz",
+  loc_pill: "TerraCity AVM · Kat −2",
+  hero_title: "Siz keyifli vakit geçirirken telefonunuz hızlıca tamir olsun.",
+  hero_sub: "TerraCity'de gezerken telefonunuz hazır olsun.",
+  j_fix_t: "Telefonumu tamir ettir",
+  j_fix_s: "Ekran, batarya, soket, kamera…",
+  j_sell_t: "Telefonumu sat",
+  j_sell_s: "Fotoğraf gönderin, teklif isteyin",
+  j_buy_t: "Telefon al",
+  j_buy_s: "Sıfır ve kontrollü 2. el",
+  j_pc_t: "Bilgisayar ve veri",
+  j_pc_s: "Laptop tamiri, veri aktarımı",
+  step_pref: "Hangi parça? (isteğe bağlı)",
+  step_note: "Eklemek istediğiniz bir şey var mı? (isteğe bağlı)",
+  model_ph: "ör. iPhone 13…",
+  note_ph: "ör. düştü, ekran hâlâ çalışıyor…",
+  brand_other: "Diğer",
+  brand_tablet: "Tablet",
+  p_screen: "Kırık ekran",
+  p_battery: "Batarya",
+  p_port: "Şarj soketi",
+  p_back: "Arka cam",
+  p_camera: "Kamera",
+  p_water: "Sıvı teması",
+  p_scratch: "Ön cam çizik giderme",
+  p_data: "Veri aktarımı",
+  p_other: "Başka bir şey",
+  pref_unsure: "Emin değilim, siz önerin",
+  pref_lbl: "Parça tercihi",
+  rep_courier: "Adrese teslimatı da sormak istiyorum",
+  preview_lbl: "Mesajınız",
+  send_wa: "WhatsApp'tan gönder",
+  wa_rep: "Merhaba Antalya Fix! {d} cihazımda sorun var: {p}. Ücreti ne olur, ne zaman hazır olur?",
+  wa_courier: "Adrese teslimat da mümkün mü?",
+  device_fallback: "telefon",
+  tl_title: "Nasıl çalışıyoruz",
+  q_title: "Telefonunuza hangi parça takılacak? Siz seçin.",
+  q_sub: "Ekranların farklı kaliteleri var. Başlamadan önce seçenekleri sade bir dille anlatıyoruz.",
+  q_tabs_aria: "Parça kalitesi seçenekleri",
+  q_orig: "Orijinal",
+  q_oled: "OLED muadil",
+  q_lcd: "Ekonomik LCD",
+  q_orig_d: "Üreticinin kendi parçası. Renk, parlaklık ve dokunma hissi ilk günkü gibi.",
+  q_oled_d: "Başka bir üreticinin OLED ekranı: orijinal değil ama aynı teknoloji. Renk ve netlik orijinale yakın.",
+  q_lcd_d: "LCD panel. Günlük kullanımda iş görür; renkler daha soluk, ekran biraz daha kalın olabilir.",
+  q_battery_note: "Bataryada da aynısı: orijinal ya da muadil. Hangisini taktığımızı baştan söylüyoruz.",
+  s_model_other: "Başka model",
+  s_model_ph: "Modeli yazın",
+  s_storage: "Hafıza",
+  s_screen: "Ekran",
+  s_screen_1: "Kusursuz",
+  s_screen_2: "Hafif çizik",
+  s_screen_3: "Kırık",
+  s_body: "Kasa",
+  s_body_1: "Yeni gibi",
+  s_body_2: "Kullanım izi var",
+  s_body_3: "Ezik ya da kırık",
+  s_battery: "Batarya sağlığı",
+  s_box: "Kutu ve şarj aleti",
+  yes: "Evet",
+  no: "Hayır",
+  s_trade: "Bunun yerine yeni telefon almak istiyorum, takası sorayım",
+  wa_sell: "Merhaba Antalya Fix! {d} telefonumu satmak istiyorum. Fotoğraf gönderebilirim, ne kadar teklif edersiniz?",
+  wa_trade: "Yeni bir telefonla takas da yapabilir miyiz?",
+  buy_title: "Telefon al",
+  buy_sub: "Sıfır telefonlar ve kontrol edilmiş 2. el telefonlar. Tek dokunuşla sorun: bu ürün var mı?",
+  tab_new: "Sıfır",
+  tab_used: "Kontrollü 2. el",
+  card_ask: "Var mı? Fiyat sor",
+  badge_checked: "Kontrol edildi",
+  wa_buy: "Merhaba Antalya Fix! {m} {s} ({c}) var mı? Fiyatı nedir?",
+  cond_new: "sıfır",
+  cond_used: "2. el",
+  pc_title: "Bilgisayar ve veri",
+  pc_sub: "Laptop ve masaüstü bilgisayarlar da. Sık gelen işler aşağıda; sizinkini sorun.",
+  pc_type: "Cihaz",
+  pc_laptop: "Laptop",
+  pc_desktop: "Masaüstü",
+  pc_model_lbl: "Marka / model (isteğe bağlı)",
+  pc_model_ph: "ör. Lenovo IdeaPad…",
+  pc_issue: "Sorun ne? (birden fazla seçebilirsiniz)",
+  c_slow: "Yavaş çalışıyor",
+  c_screen: "Ekran",
+  c_keyboard: "Klavye",
+  c_battery: "Batarya",
+  c_windows: "Windows kurulumu",
+  c_clean: "Temizlik ve ısınma",
+  c_other: "Başka bir şey",
+  wa_pc: "Merhaba Antalya Fix! {d} için tamir lazım: {p}. Bakabilir misiniz? Ücreti ne olur?",
+  data_t: "Yeni telefon mu aldınız? Verilerinizi taşıyalım.",
+  data_s: "Rehber, fotoğraflar, WhatsApp: eski telefonunuzdan yenisine.",
+  data_from: "Eski telefon",
+  data_to: "Yeni telefon",
+  wa_data: "Merhaba Antalya Fix! Yeni telefon aldım. Rehberimi, fotoğraflarımı ve WhatsApp'ımı taşıyabilir misiniz? Eski: {a}, yeni: {b}.",
+  rec_t: "Telefonunuz açılmıyor, fotoğraflarınız mı lazım?",
+  rec_s: "Kurtarılıp kurtarılamayacağını bize sorun. Bakıp dürüstçe söyleriz.",
+  wa_rec: "Merhaba Antalya Fix! Telefonum açılmıyor ve fotoğraflarıma ihtiyacım var. Kurtarılabilir mi, bakabilir misiniz?",
+  srv_title: "Ayrıca",
+  sv_scratch: "Ön cam çizik giderme",
+  sv_scratch_s: "Ekrandaki çizikler için",
+  sv_acc: "Aksesuar",
+  sv_acc_s: "Kılıf, ekran koruyucu, şarj aleti",
+  sv_delivery: "Adrese teslimat",
+  sv_delivery_s: "WhatsApp'tan sorun",
+  sv_quick: "Küçük işler, hemen",
+  sv_quick_s: "Saat kayışı takmak gibi ufak işler",
+  wa_acc: "Merhaba Antalya Fix! Telefonuma kılıf ya da ekran koruyucu var mı?",
+  wa_courier_q: "Merhaba Antalya Fix! Adrese teslimat yapıyor musunuz? Bilgi almak istiyorum.",
+  wa_quick: "Merhaba Antalya Fix! Küçük bir işim var, hemen yapılabilir mi?",
+  rev_title: "Bizi ilk kez deneyenler ne yazdı?",
+  rev_show: "Orijinali göster",
+  rev_hide: "Orijinali gizle",
+  rev_summary: "Yorumun özeti · tam metni Google'da",
+  rev_ru_author: "Google yorumu (Rusça)",
+  rev_guide: "Yerel Rehber",
+  rev_prev: "Önceki yorum",
+  rev_next: "Sonraki yorum",
+  rev_all: "Google'da oku",
+  rev_write: "Bizde tamir ettirdiniz mi? Yorum bırakın",
+  rv1: "iPhone 14 Pro Max telefonumu berbat halden harika hale çevirdiler, işlemi 2 saat içerisinde bitirdiler, ekran koruyucu da hediye ettiler.",
+  rv2: "AVM'de gezdiğimiz 2 saat içinde her şey mükemmel yapıldı… orijinal batarya… Ridvan İngilizce konuşuyor.",
+  rv3: "Hediye olarak koruyucu cam taktılar ve kılıfta indirim yaptılar.",
+  rv4: "Dokunmadan telefonumuzu yaptı ve gülümseme ile uğurladılar.",
+  rv5: "Tamir ücretleri neredeyse bedava.",
+  rv6: "Kimsenin takmadığı saat kayışını 1 dakikada taktılar.",
+  lang_s: "Dükkânda Türkçe ve İngilizce konuşuluyor (Rıdvan İngilizce konuşuyor). Bu site ve WhatsApp mesajınız Rusça, Kazakça ve Özbekçe de olabilir.",
+  find_title: "Bizi nasıl bulursunuz?",
+  f1t: "TerraCity'ye girin",
+  f2t: "MediaMarkt tarafındaki merdivenden inin",
+  f2s: "Kat −2'ye kadar inin.",
+  f3t: "Kat −2 · Antalya Fix",
+  f3s: "Geldiniz! Buyurun.",
+  map_aria: "Harita seçimi",
+  map_g: "Google Haritalar",
+  map_title_g: "Google Haritalar'da Antalya Fix",
+  map_title_y: "Yandex Haritalar'da Antalya Fix",
+  route_g: "Yol tarifi al · Google",
+  route_y: "Yol tarifi al · Yandex",
+  addr_lbl: "Adres",
+  hours_lbl: "Çalışma saatleri",
+  hours_v: "Her gün 10:00–22:00, pazar dahil",
+  plus_lbl: "Plus code",
+  phone_lbl: "Telefon / WhatsApp",
+  foot_made: "Site: Onaz Studio",
+  wb_title: "Kendi tezgâhımızdan gerçek işler",
+  reel_aria: "Antalya Fix tezgâhından kısa tamir videosu",
+  ba_title: "iPhone 15 Pro Max · kırık arka cam",
+  ba_hint: "Karşılaştırmak için kaydırın",
+  ba_aria: "Önce ve sonra karşılaştırması",
+  before_lbl: "Önce",
+  after_lbl: "Sonra",
+  before_alt: "Önce: iPhone 15 Pro Max'in kırık arka camı",
+  after_alt: "Sonra: aynı telefon yeni arka camla",
+  st1: "Kırık camı söktük",
+  st2: "Yüzeyi temizledik",
+  st3: "Orijinal camla toparladık",
+  store_cap: "Dükkânımız: TerraCity AVM, Kat −2",
+  boxes_cap: "Dükkânımızdan: kutusunda sıfır iPhone'lar",
+  foot_media: "Fotoğraf ve videolar: @antalyafix",
+  st_short_open: "Açık",
+  st_short_closed: "Kapalı",
+  theme_light: "Açık tema",
+  theme_dark: "Koyu tema",
+  what_line: "Telefon, tablet, bilgisayar tamiri; telefon alım satımı.",
+  tr_google: "Google'da 419 yorum",
+  tr_yandex: "Yandex'te 33 puan",
+  tr_quote: "Temiz iş yapıyorlar, müşteri iletişimlerine bayıldım",
+  tl_1: "Telefonu bırakın",
+  tl_2: "Siz keyfinize bakın",
+  tl_3: "Hazır olunca WhatsApp, Telegram ya da telefonla haber verelim",
+  w_title: "Yaptığımız işler",
+  w_sub: "Her işin altında, o iş için yazılmış gerçek bir müşteri yorumu.",
+  w_back_t: "Arka cam değişimi",
+  w_back_s: "Kırık camı söküyor, yüzeyi temizliyor, yeni camı takıyoruz.",
+  w_bat_t: "Pil değişimi",
+  w_bat_s: "Şişmiş ya da çabuk biten pili değiştiriyoruz.",
+  w_scr_t: "Ekran değişimi",
+  w_scr_s: "Kırık, yeşil çizgili ya da dokunmayı algılamayan ekranı değiştiriyoruz.",
+  w_cam_t: "Kamera camı",
+  w_cam_s: "Çatlayan kamera camını milimetrik değiştiriyoruz.",
+  w_data_s: "Rehber, fotoğraf ve WhatsApp'ı yeni telefona taşıyoruz.",
+  w_ph_t: "Sıfır ve 2. el telefon",
+  w_ph_s: "Sıfır ve kontrollü ikinci el telefonlar; telefonunuzu da alıyoruz.",
+  w_ask: "Bu iş için fiyat sor",
+  w_ig: "Instagram'da izleyin",
+  wa_svc: "Merhaba Antalya Fix! {s} için fiyat öğrenmek istiyorum.",
+  wr1: "…berbat halden harika hale çevirdiler, işlemi 2 saat içerisinde bitirdiler…",
+  wr2: "…AVM'de gezdiğimiz 2 saat içinde her şey mükemmel yapıldı…",
+  rev_google_lbl: "Google yorumu",
+  rev_all_y: "Yandex'te oku",
+  wiz_step: "Adım {n}/{m}",
+  wiz_back: "Geri",
+  wiz_next: "Devam",
+  rw1: "Hangi marka?",
+  rw2: "Hangi model?",
+  rw3: "Sorun ne?",
+  rw4: "Son ayrıntılar",
+  model_skip: "Bilmiyorum / listede yok",
+  model_type: "Ya da modeli yazın (isteğe bağlı)",
+  step_ready: "Telefonunuz hazır olunca nasıl haber verelim?",
+  ready_wa: "WhatsApp'tan yazın",
+  ready_tg: "Telegram'dan yazın",
+  ready_call: "Beni arayın",
+  wa_ready_lbl: "Hazır olunca",
+  wa_rep_generic: "Merhaba Antalya Fix! Telefonum için tamir fiyatını öğrenmek istiyorum.",
+  wa_rep_dev: "Merhaba Antalya Fix! {d} cihazımın tamiri hakkında sorum var.",
+  wa_pc_generic: "Merhaba Antalya Fix! {d} için tamir hakkında sorum var.",
+  wa_sell_generic: "Merhaba Antalya Fix! Telefonumu satmak istiyorum. Ne kadar teklif edersiniz?",
+  send_tg: "Telegram'dan gönder",
+  toast_tg: "Mesajınız kopyalandı, Telegram'da yapıştırıp gönderin.",
+  toast_tg_fail: "Mesaj kopyalanamadı; lütfen Telegram'da kendiniz yazın.",
+  bar_call: "Ara",
+  bar_route: "Yol tarifi",
+  back_top: "Başa dön",
+  sw1: "Telefonunuz hangisi?",
+  sw2: "Hafıza ve pil",
+  sw3: "Durumu nasıl?",
+  pr4_t: "Hazır olunca haber veririz.",
+  pr4_s: "WhatsApp'tan ya da Telegram'dan yazarız veya ararız; siz seçersiniz.",
+  ig_t: "Instagram'da son işlerimiz",
+  ig1: "iPhone 12 Pro Max kamera camı",
+  ig2: "iPhone 15 Pro Max arka cam, A'dan Z'ye",
+  ig4: "Sıfır iPhone'lar",
+  ig_follow: "Takip et",
+  ig_dm: "Instagram'dan yaz",
+  map_show: "Haritayı göster",
+  map_ph: "Harita, dokununca yüklenir.",
+  p_work_t: "Orijinal ve titiz işçilik",
+  p_work_s: "İşimizi Instagram'da adım adım gösteriyoruz.",
+  p_part_t: "Parça seçeneğini size soruyoruz",
+  p_part_s: "Orijinal, OLED muadil ya da ekonomik: farkı sade bir dille anlatıyoruz.",
+  reel_lab: "Kendi tezgâhımızdan",
+  tc_credit: "TerraCity fotoğrafı: Sharon Hahn Darlin, CC BY 2.0",
+  tc_alt: "TerraCity AVM'nin dış cephesi, sarı \"terra city\" tabelası",
+  s_search: "Modelinizi arayın",
+  bat_1: "%100–90",
+  bat_2: "%89–80",
+  bat_3: "%80'in altı",
+  bat_4: "Bilmiyorum",
+  s_wdoc: "Garanti belgesi var mı?",
+  sell_photos: "Fotoğrafları WhatsApp'ta isteyeceğiz.",
+  rt_g_cnt: "419 yorum",
+  rt_y_cnt: "33 puan",
+  rt_y_lbl: "Yandex Haritalar",
+  ask_line: "Fiyat sor: WhatsApp ya da Telegram"
+},
+en: {
+  meta_title: "Antalya Fix · phone repair in TerraCity mall",
+  meta_desc: "Phone, tablet and computer repair in TerraCity mall, floor −2. Open every day 10:00–22:00. Ask the price on WhatsApp.",
+  skip: "Skip to content",
+  demo: "Demo · prepared by Onaz Studio for Antalya Fix",
+  lang_btn: "Change language",
+  ig_aria: "Antalya Fix on Instagram",
+  tabbar_aria: "Quick menu",
+  tiles_aria: "What would you like to do?",
+  st_open: "Open now · until 22:00",
+  st_closed_today: "Closed now · We open today at 10:00",
+  st_closed_tom: "Closed now · We open tomorrow at 10:00",
+  loc_pill: "TerraCity mall · Floor −2",
+  hero_title: "Enjoy your time — we'll fix your phone fast.",
+  hero_sub: "Your phone gets ready while you walk around TerraCity.",
+  j_fix_t: "Get my phone fixed",
+  j_fix_s: "Screen, battery, port, camera…",
+  j_sell_t: "Sell my phone",
+  j_sell_s: "Send photos, request an offer",
+  j_buy_t: "Buy a phone",
+  j_buy_s: "New and checked used",
+  j_pc_t: "Computer & data",
+  j_pc_s: "Laptop repair, data transfer",
+  step_pref: "Which part? (optional)",
+  step_note: "Anything to add? (optional)",
+  model_ph: "e.g. iPhone 13…",
+  note_ph: "e.g. it fell, the screen still works…",
+  brand_other: "Other",
+  brand_tablet: "Tablet",
+  p_screen: "Broken screen",
+  p_battery: "Battery",
+  p_port: "Charging port",
+  p_back: "Back glass",
+  p_camera: "Camera",
+  p_water: "Water damage",
+  p_scratch: "Screen scratch removal",
+  p_data: "Data transfer",
+  p_other: "Something else",
+  pref_unsure: "Not sure, advise me",
+  pref_lbl: "Part preference",
+  rep_courier: "Also ask about delivery to my address",
+  preview_lbl: "Your message",
+  send_wa: "Send on WhatsApp",
+  wa_rep: "Hello Antalya Fix! My {d} has a problem: {p}. How much would it cost, and when would it be ready?",
+  wa_courier: "Could you also deliver it to my address?",
+  device_fallback: "phone",
+  tl_title: "How it works",
+  q_title: "Which part goes into your phone? You choose.",
+  q_sub: "Screens come in different qualities. Before we start, we explain the options in plain words.",
+  q_tabs_aria: "Part quality options",
+  q_orig: "Original",
+  q_oled: "OLED equivalent",
+  q_lcd: "Economy LCD",
+  q_orig_d: "The manufacturer's own part. Colours, brightness and touch feel just like day one.",
+  q_oled_d: "An OLED screen from another maker: not original, but the same technology. Colours and sharpness close to the original.",
+  q_lcd_d: "An LCD panel. Fine for everyday use; colours are less vivid and the screen can be slightly thicker.",
+  q_battery_note: "Same for batteries: original or compatible. We tell you which one before we start.",
+  s_model_other: "Other model",
+  s_model_ph: "Type the model",
+  s_storage: "Storage",
+  s_screen: "Screen",
+  s_screen_1: "Flawless",
+  s_screen_2: "Light scratches",
+  s_screen_3: "Cracked",
+  s_body: "Body",
+  s_body_1: "Like new",
+  s_body_2: "Signs of use",
+  s_body_3: "Dented or cracked",
+  s_battery: "Battery health",
+  s_box: "Box and charger",
+  yes: "Yes",
+  no: "No",
+  s_trade: "I'd rather get a new phone, so I'll ask about a trade-in",
+  wa_sell: "Hello Antalya Fix! I'd like to sell my {d}. I can send photos. What would you offer?",
+  wa_trade: "Could I also trade it in towards a new phone?",
+  buy_title: "Buy a phone",
+  buy_sub: "New phones and checked second-hand ones. One tap to ask: is it in stock?",
+  tab_new: "New",
+  tab_used: "Checked used",
+  card_ask: "In stock? Ask the price",
+  badge_checked: "Checked",
+  wa_buy: "Hello Antalya Fix! Is the {m} {s} ({c}) in stock? What's the price?",
+  cond_new: "new",
+  cond_used: "second-hand",
+  pc_title: "Computer & data",
+  pc_sub: "Laptops and desktops too. Common jobs are below; ask about yours.",
+  pc_type: "Device",
+  pc_laptop: "Laptop",
+  pc_desktop: "Desktop",
+  pc_model_lbl: "Brand / model (optional)",
+  pc_model_ph: "e.g. Lenovo IdeaPad…",
+  pc_issue: "What's wrong? (pick one or more)",
+  c_slow: "Running slow",
+  c_screen: "Screen",
+  c_keyboard: "Keyboard",
+  c_battery: "Battery",
+  c_windows: "Windows installation",
+  c_clean: "Cleaning & overheating",
+  c_other: "Something else",
+  wa_pc: "Hello Antalya Fix! My {d} needs a repair: {p}. Could you take a look? How much would it cost?",
+  data_t: "New phone? We'll move your data.",
+  data_s: "Contacts, photos, WhatsApp: from your old phone to the new one.",
+  data_from: "Old phone",
+  data_to: "New phone",
+  wa_data: "Hello Antalya Fix! I got a new phone. Could you move my contacts, photos and WhatsApp? Old: {a}, new: {b}.",
+  rec_t: "Phone won't turn on and you need your photos?",
+  rec_s: "Ask us whether they can be recovered. We'll take a look and tell you honestly.",
+  wa_rec: "Hello Antalya Fix! My phone won't turn on and I need my photos. Could you check whether they can be recovered?",
+  srv_title: "Also",
+  sv_scratch: "Screen scratch removal",
+  sv_scratch_s: "For scratches on the front glass",
+  sv_acc: "Accessories",
+  sv_acc_s: "Cases, screen protectors, chargers",
+  sv_delivery: "Delivery to your address",
+  sv_delivery_s: "Ask us on WhatsApp",
+  sv_quick: "Small jobs, on the spot",
+  sv_quick_s: "Like fitting a watch strap",
+  wa_acc: "Hello Antalya Fix! Do you have a case or a screen protector for my phone?",
+  wa_courier_q: "Hello Antalya Fix! Do you deliver to an address? I'd like to know more.",
+  wa_quick: "Hello Antalya Fix! I have a small job. Could you do it on the spot?",
+  rev_title: "What did first-time customers write?",
+  rev_show: "Show original",
+  rev_hide: "Hide original",
+  rev_summary: "Summary of the review · full text on Google",
+  rev_ru_author: "Google review (in Russian)",
+  rev_guide: "Local Guide",
+  rev_prev: "Previous review",
+  rev_next: "Next review",
+  rev_all: "Read on Google",
+  rev_write: "Repaired with us? Leave a review",
+  rv1: "They turned my iPhone 14 Pro Max from a wreck into great shape, finished within 2 hours, and gave me a screen protector as a gift.",
+  rv2: "In 2 hours, while we walked around the mall, everything was done perfectly… an original battery… Ridvan speaks English.",
+  rv3: "They fitted a protective glass as a gift and gave us a discount on a case.",
+  rv4: "He fixed our phone without even touching it, and they saw us off with a smile.",
+  rv5: "Repair prices are almost free.",
+  rv6: "They fitted a watch strap in one minute when nobody else would.",
+  lang_s: "In the shop we speak Turkish and English (Rıdvan speaks English). This site and your WhatsApp message can also be in Russian, Kazakh and Uzbek.",
+  find_title: "How to find us",
+  f1t: "Enter TerraCity",
+  f2t: "Take the stairs down on the MediaMarkt side",
+  f2s: "Go down to floor −2.",
+  f3t: "Floor −2 · Antalya Fix",
+  f3s: "You made it! Come on in.",
+  map_aria: "Choose a map",
+  map_g: "Google Maps",
+  map_title_g: "Antalya Fix on Google Maps",
+  map_title_y: "Antalya Fix on Yandex Maps",
+  route_g: "Get directions · Google",
+  route_y: "Get directions · Yandex",
+  addr_lbl: "Address",
+  hours_lbl: "Opening hours",
+  hours_v: "Every day 10:00–22:00, Sundays too",
+  plus_lbl: "Plus code",
+  phone_lbl: "Phone / WhatsApp",
+  foot_made: "Site: Onaz Studio",
+  wb_title: "Real work from our own bench",
+  reel_aria: "Short video of repairs at the Antalya Fix bench",
+  ba_title: "iPhone 15 Pro Max · cracked back glass",
+  ba_hint: "Drag to compare",
+  ba_aria: "Before and after comparison",
+  before_lbl: "Before",
+  after_lbl: "After",
+  before_alt: "Before: the cracked back glass of an iPhone 15 Pro Max",
+  after_alt: "After: the same phone with new back glass",
+  st1: "We removed the cracked glass",
+  st2: "Cleaned the surface",
+  st3: "Finished it with original glass",
+  store_cap: "Our shop: TerraCity mall, floor −2",
+  boxes_cap: "From our shop: new iPhones, still boxed",
+  foot_media: "Photos and videos: @antalyafix",
+  st_short_open: "Open",
+  st_short_closed: "Closed",
+  theme_light: "Light theme",
+  theme_dark: "Dark theme",
+  what_line: "Phone, tablet and computer repair; phones bought and sold.",
+  tr_google: "419 reviews on Google",
+  tr_yandex: "33 ratings on Yandex",
+  tr_quote: "They do clean work, and I loved how they communicate with customers",
+  tl_1: "Drop off your phone",
+  tl_2: "Enjoy your time",
+  tl_3: "When it's ready, we'll let you know on WhatsApp, Telegram or by phone",
+  w_title: "Work we do",
+  w_sub: "Under each job, a real customer review about that kind of job.",
+  w_back_t: "Back glass replacement",
+  w_back_s: "We remove the cracked glass, clean the surface and fit the new glass.",
+  w_bat_t: "Battery replacement",
+  w_bat_s: "We replace swollen or fast-draining batteries.",
+  w_scr_t: "Screen replacement",
+  w_scr_s: "We replace cracked screens, screens with green lines, or ones that stopped responding to touch.",
+  w_cam_t: "Camera lens glass",
+  w_cam_s: "We replace cracked camera lens glass with millimetre precision.",
+  w_data_s: "We move contacts, photos and WhatsApp to your new phone.",
+  w_ph_t: "New and used phones",
+  w_ph_s: "New and checked second-hand phones, and we buy your phone too.",
+  w_ask: "Ask the price for this",
+  w_ig: "Watch on Instagram",
+  wa_svc: "Hello Antalya Fix! I'd like to know the price for {s}.",
+  wr1: "…turned it from a wreck into great shape, finished the job within 2 hours…",
+  wr2: "…in 2 hours, while we walked around the mall, everything was done perfectly…",
+  rev_google_lbl: "Google review",
+  rev_all_y: "Read on Yandex",
+  wiz_step: "Step {n}/{m}",
+  wiz_back: "Back",
+  wiz_next: "Next",
+  rw1: "Which brand?",
+  rw2: "Which model?",
+  rw3: "What's wrong?",
+  rw4: "Last details",
+  model_skip: "Not sure / not listed",
+  model_type: "Or type the model (optional)",
+  step_ready: "How should we let you know when your phone is ready?",
+  ready_wa: "Message me on WhatsApp",
+  ready_tg: "Message me on Telegram",
+  ready_call: "Call me",
+  wa_ready_lbl: "When it's ready",
+  wa_rep_generic: "Hello Antalya Fix! I'd like to know the price of a repair for my phone.",
+  wa_rep_dev: "Hello Antalya Fix! I have a question about repairing my {d}.",
+  wa_pc_generic: "Hello Antalya Fix! I have a question about a repair for my {d}.",
+  wa_sell_generic: "Hello Antalya Fix! I'd like to sell my phone. What would you offer?",
+  send_tg: "Send on Telegram",
+  toast_tg: "Your message is copied. Paste it in Telegram and send.",
+  toast_tg_fail: "We couldn't copy the message; please type it in Telegram.",
+  bar_call: "Call",
+  bar_route: "Directions",
+  back_top: "Back to top",
+  sw1: "Which phone is it?",
+  sw2: "Storage and battery",
+  sw3: "What condition is it in?",
+  pr4_t: "We let you know when it's ready.",
+  pr4_s: "By WhatsApp, Telegram or a call: you choose.",
+  ig_t: "Our latest work on Instagram",
+  ig1: "iPhone 12 Pro Max camera glass",
+  ig2: "iPhone 15 Pro Max back glass, start to finish",
+  ig4: "New iPhones",
+  ig_follow: "Follow",
+  ig_dm: "Message on Instagram",
+  map_show: "Show the map",
+  map_ph: "The map loads when you tap.",
+  p_work_t: "Original quality, meticulous work",
+  p_work_s: "We show our work step by step on Instagram.",
+  p_part_t: "We ask you which part you want",
+  p_part_s: "Original, OLED equivalent or economy: we explain the difference in plain words.",
+  reel_lab: "From our own bench",
+  tc_credit: "TerraCity photo: Sharon Hahn Darlin, CC BY 2.0",
+  tc_alt: "TerraCity mall from outside, with the yellow \"terra city\" sign",
+  s_search: "Search your model",
+  bat_1: "100–90%",
+  bat_2: "89–80%",
+  bat_3: "Below 80%",
+  bat_4: "Not sure",
+  s_wdoc: "Do you have the warranty card?",
+  sell_photos: "We'll ask for photos on WhatsApp.",
+  rt_g_cnt: "419 reviews",
+  rt_y_cnt: "33 ratings",
+  rt_y_lbl: "Yandex Maps",
+  ask_line: "Ask the price: WhatsApp or Telegram"
+},
+ru: {
+  meta_title: "Antalya Fix · ремонт телефонов в ТЦ TerraCity",
+  meta_desc: "Ремонт телефонов, планшетов и компьютеров в ТЦ TerraCity, этаж −2. Каждый день 10:00–22:00. Узнайте цену в WhatsApp.",
+  skip: "Перейти к содержимому",
+  demo: "Демо · подготовлено Onaz Studio для Antalya Fix",
+  lang_btn: "Сменить язык",
+  ig_aria: "Antalya Fix в Instagram",
+  tabbar_aria: "Быстрое меню",
+  tiles_aria: "Что вы хотите сделать?",
+  st_open: "Сейчас открыто · до 22:00",
+  st_closed_today: "Сейчас закрыто · Откроемся сегодня в 10:00",
+  st_closed_tom: "Сейчас закрыто · Откроемся завтра в 10:00",
+  loc_pill: "ТЦ TerraCity · этаж −2",
+  hero_title: "Пока вы приятно проводите время, ваш телефон быстро починят.",
+  hero_sub: "Пока вы гуляете по TerraCity, телефон будет готов.",
+  j_fix_t: "Починить телефон",
+  j_fix_s: "Экран, батарея, разъём, камера…",
+  j_sell_t: "Продать телефон",
+  j_sell_s: "Пришлите фото и запросите оценку",
+  j_buy_t: "Купить телефон",
+  j_buy_s: "Новые и проверенные б/у",
+  j_pc_t: "Компьютер и данные",
+  j_pc_s: "Ремонт ноутбуков, перенос данных",
+  step_pref: "Какую деталь ставить? (необязательно)",
+  step_note: "Хотите что-то добавить? (необязательно)",
+  model_ph: "напр. iPhone 13…",
+  note_ph: "напр. упал, экран ещё работает…",
+  brand_other: "Другая",
+  brand_tablet: "Планшет",
+  p_screen: "Разбит экран",
+  p_battery: "Батарея",
+  p_port: "Разъём зарядки",
+  p_back: "Заднее стекло",
+  p_camera: "Камера",
+  p_water: "Попала вода",
+  p_scratch: "Удаление царапин с экрана",
+  p_data: "Перенос данных",
+  p_other: "Другое",
+  pref_unsure: "Не знаю, посоветуйте",
+  pref_lbl: "Деталь",
+  rep_courier: "Также спросить про доставку по адресу",
+  preview_lbl: "Ваше сообщение",
+  send_wa: "Отправить в WhatsApp",
+  wa_rep: "Здравствуйте, Antalya Fix! У меня {d}, проблема: {p}. Сколько будет стоить и когда будет готово?",
+  wa_courier: "Можно ли доставить его по моему адресу?",
+  device_fallback: "телефон",
+  tl_title: "Как это работает",
+  q_title: "Какую деталь поставить? Решаете вы.",
+  q_sub: "Экраны бывают разного качества. До начала ремонта простыми словами объясним, чем отличаются варианты.",
+  q_tabs_aria: "Варианты качества деталей",
+  q_orig: "Оригинал",
+  q_oled: "OLED-аналог",
+  q_lcd: "Эконом LCD",
+  q_orig_d: "Деталь от самого производителя. Цвета, яркость и отклик — как в первый день.",
+  q_oled_d: "OLED-экран другого производителя: не оригинал, но та же технология. Цвета и чёткость близки к оригиналу.",
+  q_lcd_d: "LCD-панель. Для повседневных задач подходит; цвета бледнее, экран может быть чуть толще.",
+  q_battery_note: "С батареями так же: оригинал или аналог. Какую ставим, говорим заранее.",
+  s_model_other: "Другая модель",
+  s_model_ph: "Напишите модель",
+  s_storage: "Память",
+  s_screen: "Экран",
+  s_screen_1: "Без дефектов",
+  s_screen_2: "Лёгкие царапины",
+  s_screen_3: "Разбит",
+  s_body: "Корпус",
+  s_body_1: "Как новый",
+  s_body_2: "Есть потёртости",
+  s_body_3: "Вмятины или трещины",
+  s_battery: "Состояние батареи",
+  s_box: "Коробка и зарядка",
+  yes: "Да",
+  no: "Нет",
+  s_trade: "Лучше возьму новый телефон — спрошу про обмен",
+  wa_sell: "Здравствуйте, Antalya Fix! Хочу продать свой {d}. Могу прислать фото. Сколько предложите?",
+  wa_trade: "Можно ли сдать его в обмен на новый?",
+  buy_title: "Купить телефон",
+  buy_sub: "Новые телефоны и проверенные б/у. Одно касание — и вопрос «есть в наличии?» отправлен.",
+  tab_new: "Новые",
+  tab_used: "Проверенные б/у",
+  card_ask: "Есть ли? Узнать цену",
+  badge_checked: "Проверен",
+  wa_buy: "Здравствуйте, Antalya Fix! Есть ли в наличии {m} {s} ({c})? Какая цена?",
+  cond_new: "новый",
+  cond_used: "б/у",
+  pc_title: "Компьютер и данные",
+  pc_sub: "Ноутбуки и стационарные ПК тоже. Ниже — частые работы; спросите про свою.",
+  pc_type: "Устройство",
+  pc_laptop: "Ноутбук",
+  pc_desktop: "Стационарный ПК",
+  pc_model_lbl: "Марка / модель (необязательно)",
+  pc_model_ph: "напр. Lenovo IdeaPad…",
+  pc_issue: "Что случилось? (можно выбрать несколько)",
+  c_slow: "Медленно работает",
+  c_screen: "Экран",
+  c_keyboard: "Клавиатура",
+  c_battery: "Батарея",
+  c_windows: "Установка Windows",
+  c_clean: "Чистка и перегрев",
+  c_other: "Другое",
+  wa_pc: "Здравствуйте, Antalya Fix! Нужен ремонт: {d}, проблема: {p}. Можете посмотреть? Сколько будет стоить?",
+  data_t: "Новый телефон? Перенесём ваши данные.",
+  data_s: "Контакты, фото, WhatsApp — со старого телефона на новый.",
+  data_from: "Старый телефон",
+  data_to: "Новый телефон",
+  wa_data: "Здравствуйте, Antalya Fix! У меня новый телефон. Можете перенести контакты, фото и WhatsApp? Старый: {a}, новый: {b}.",
+  rec_t: "Телефон не включается, а нужны фото?",
+  rec_s: "Спросите нас, можно ли их восстановить. Посмотрим и честно ответим.",
+  wa_rec: "Здравствуйте, Antalya Fix! Мой телефон не включается, а мне нужны фото. Можете проверить, получится ли их восстановить?",
+  srv_title: "Ещё",
+  sv_scratch: "Удаление царапин с экрана",
+  sv_scratch_s: "Для царапин на переднем стекле",
+  sv_acc: "Аксессуары",
+  sv_acc_s: "Чехлы, защитные стёкла, зарядки",
+  sv_delivery: "Доставка по адресу",
+  sv_delivery_s: "Спросите в WhatsApp",
+  sv_quick: "Мелочи — сразу",
+  sv_quick_s: "Например, поставить ремешок на часы",
+  wa_acc: "Здравствуйте, Antalya Fix! Есть ли чехол или защитное стекло для моего телефона?",
+  wa_courier_q: "Здравствуйте, Antalya Fix! Вы доставляете по адресу? Хотел(а) бы уточнить.",
+  wa_quick: "Здравствуйте, Antalya Fix! У меня небольшая просьба. Можно сделать сразу?",
+  rev_title: "Что написали те, кто пришёл к нам впервые?",
+  rev_show: "Показать оригинал",
+  rev_hide: "Скрыть оригинал",
+  rev_summary: "Краткий пересказ · полный текст в Google",
+  rev_ru_author: "Отзыв в Google (на русском)",
+  rev_guide: "Местный эксперт",
+  rev_prev: "Предыдущий отзыв",
+  rev_next: "Следующий отзыв",
+  rev_all: "Читать в Google",
+  rev_write: "Чинились у нас? Оставьте отзыв",
+  rv1: "Превратили мой iPhone 14 Pro Max из ужасного состояния в отличное, справились за 2 часа и ещё подарили защитную плёнку на экран.",
+  rv2: "За 2 часа, пока гуляли по ТЦ, все было прекрасно сделано… оригинальный аккумулятор… Ridvan говорит на английском.",
+  rv3: "В подарок установили защитное стекло и сделали скидку на чехол.",
+  rv4: "Починил наш телефон, даже не прикасаясь к нему, и нас проводили с улыбкой.",
+  rv5: "Цены на ремонт — почти даром.",
+  rv6: "Поставили ремешок для часов за минуту, когда больше никто не брался.",
+  lang_s: "В мастерской говорят по-турецки и по-английски (Rıdvan говорит по-английски). Этот сайт и ваше сообщение в WhatsApp могут быть и на русском, казахском или узбекском.",
+  find_title: "Как нас найти",
+  f1t: "Войдите в TerraCity",
+  f2t: "Спуститесь по лестнице со стороны MediaMarkt",
+  f2s: "До этажа −2.",
+  f3t: "Этаж −2 · Antalya Fix",
+  f3s: "Вы на месте. Заходите!",
+  map_aria: "Выбор карты",
+  map_g: "Google Карты",
+  map_title_g: "Antalya Fix на Google Картах",
+  map_title_y: "Antalya Fix на Яндекс Картах",
+  route_g: "Маршрут · Google",
+  route_y: "Маршрут · Яндекс",
+  addr_lbl: "Адрес",
+  hours_lbl: "Часы работы",
+  hours_v: "Каждый день 10:00–22:00, и в воскресенье",
+  plus_lbl: "Plus code",
+  phone_lbl: "Телефон / WhatsApp",
+  foot_made: "Сайт: Onaz Studio",
+  wb_title: "Настоящая работа с нашего стола",
+  reel_aria: "Короткое видео ремонтов в Antalya Fix",
+  ba_title: "iPhone 15 Pro Max · разбитое заднее стекло",
+  ba_hint: "Потяните, чтобы сравнить",
+  ba_aria: "Сравнение до и после",
+  before_lbl: "До",
+  after_lbl: "После",
+  before_alt: "До: разбитое заднее стекло iPhone 15 Pro Max",
+  after_alt: "После: тот же телефон с новым задним стеклом",
+  st1: "Сняли разбитое стекло",
+  st2: "Очистили поверхность",
+  st3: "Поставили оригинальное стекло",
+  store_cap: "Наш магазин: ТЦ TerraCity, этаж −2",
+  boxes_cap: "Из нашего магазина: новые iPhone в коробках",
+  foot_media: "Фото и видео: @antalyafix",
+  st_short_open: "Открыто",
+  st_short_closed: "Закрыто",
+  theme_light: "Светлая тема",
+  theme_dark: "Тёмная тема",
+  what_line: "Ремонт телефонов, планшетов и компьютеров; покупка и продажа телефонов.",
+  tr_google: "419 отзывов в Google",
+  tr_yandex: "33 оценки на Яндексе",
+  tr_quote: "Работают аккуратно, а их общение с клиентами мне очень понравилось",
+  tl_1: "Оставьте телефон",
+  tl_2: "Отдыхайте в своё удовольствие",
+  tl_3: "Когда будет готово, сообщим в WhatsApp, Telegram или по телефону",
+  w_title: "Что мы делаем",
+  w_sub: "Под каждой работой — настоящий отзыв клиента о такой работе.",
+  w_back_t: "Замена заднего стекла",
+  w_back_s: "Снимаем разбитое стекло, очищаем поверхность и ставим новое.",
+  w_bat_t: "Замена батареи",
+  w_bat_s: "Меняем вздувшиеся или быстро садящиеся батареи.",
+  w_scr_t: "Замена экрана",
+  w_scr_s: "Меняем разбитые экраны, экраны с зелёными полосами или переставшие реагировать на касания.",
+  w_cam_t: "Стекло камеры",
+  w_cam_s: "Меняем треснувшее стекло камеры с миллиметровой точностью.",
+  w_data_s: "Переносим контакты, фото и WhatsApp на новый телефон.",
+  w_ph_t: "Новые и б/у телефоны",
+  w_ph_s: "Новые и проверенные б/у телефоны, а ещё покупаем ваш.",
+  w_ask: "Узнать цену",
+  w_ig: "Смотреть в Instagram",
+  wa_svc: "Здравствуйте, Antalya Fix! Хочу узнать цену: {s}.",
+  wr1: "…из ужасного состояния в отличное, справились за 2 часа…",
+  wr2: "…за 2 часа, пока гуляли по ТЦ, все было прекрасно сделано…",
+  rev_google_lbl: "Отзыв в Google",
+  rev_all_y: "Читать на Яндексе",
+  wiz_step: "Шаг {n}/{m}",
+  wiz_back: "Назад",
+  wiz_next: "Далее",
+  rw1: "Какая марка?",
+  rw2: "Какая модель?",
+  rw3: "Что случилось?",
+  rw4: "Последние детали",
+  model_skip: "Не знаю / нет в списке",
+  model_type: "Или напишите модель (необязательно)",
+  step_ready: "Как сообщить вам, когда телефон будет готов?",
+  ready_wa: "Напишите в WhatsApp",
+  ready_tg: "Напишите в Telegram",
+  ready_call: "Позвоните мне",
+  wa_ready_lbl: "Когда будет готово",
+  wa_rep_generic: "Здравствуйте, Antalya Fix! Хочу узнать цену ремонта телефона.",
+  wa_rep_dev: "Здравствуйте, Antalya Fix! У меня вопрос по ремонту: {d}.",
+  wa_pc_generic: "Здравствуйте, Antalya Fix! У меня вопрос по ремонту: {d}.",
+  wa_sell_generic: "Здравствуйте, Antalya Fix! Хочу продать телефон. Сколько предложите?",
+  send_tg: "Отправить в Telegram",
+  toast_tg: "Сообщение скопировано. Вставьте его в Telegram и отправьте.",
+  toast_tg_fail: "Не удалось скопировать сообщение; напишите его в Telegram сами.",
+  bar_call: "Позвонить",
+  bar_route: "Маршрут",
+  back_top: "Наверх",
+  sw1: "Какой у вас телефон?",
+  sw2: "Память и батарея",
+  sw3: "В каком он состоянии?",
+  pr4_t: "Сообщим, когда будет готово.",
+  pr4_s: "Напишем в WhatsApp или Telegram либо позвоним — как вам удобнее.",
+  ig_t: "Наши последние работы в Instagram",
+  ig1: "Стекло камеры iPhone 12 Pro Max",
+  ig2: "Заднее стекло iPhone 15 Pro Max от начала до конца",
+  ig4: "Новые iPhone",
+  ig_follow: "Подписаться",
+  ig_dm: "Написать в Instagram",
+  map_show: "Показать карту",
+  map_ph: "Карта загрузится по нажатию.",
+  p_work_t: "Оригинальное качество и тщательная работа",
+  p_work_s: "Показываем нашу работу шаг за шагом в Instagram.",
+  p_part_t: "Спрашиваем, какую деталь вы хотите",
+  p_part_s: "Оригинал, OLED-аналог или эконом: объясняем разницу простыми словами.",
+  reel_lab: "С нашего рабочего стола",
+  tc_credit: "Фото TerraCity: Sharon Hahn Darlin, CC BY 2.0",
+  tc_alt: "Фасад ТЦ TerraCity с жёлтой вывеской «terra city»",
+  s_search: "Найдите свою модель",
+  bat_1: "100–90 %",
+  bat_2: "89–80 %",
+  bat_3: "Ниже 80 %",
+  bat_4: "Не знаю",
+  s_wdoc: "Есть гарантийный талон?",
+  sell_photos: "Фото попросим в WhatsApp.",
+  rt_g_cnt: "419 отзывов",
+  rt_y_cnt: "33 оценки",
+  rt_y_lbl: "Яндекс Карты",
+  ask_line: "Узнать цену: WhatsApp или Telegram"
+},
+kk: {
+  meta_title: "Antalya Fix · TerraCity-де телефон жөндеу",
+  meta_desc: "TerraCity сауда орталығы, −2 қабат: телефон, планшет және компьютер жөндеу. Күн сайын 10:00–22:00. Бағасын WhatsApp арқылы біліңіз.",
+  skip: "Мазмұнға өту",
+  demo: "Демо · Onaz Studio Antalya Fix үшін дайындаған",
+  lang_btn: "Тілді ауыстыру",
+  ig_aria: "Instagram-дағы Antalya Fix",
+  tabbar_aria: "Жылдам мәзір",
+  tiles_aria: "Не істегіңіз келеді?",
+  st_open: "Қазір ашық · 22:00-ге дейін",
+  st_closed_today: "Қазір жабық · Бүгін 10:00-де ашамыз",
+  st_closed_tom: "Қазір жабық · Ертең 10:00-де ашамыз",
+  loc_pill: "TerraCity СО · −2 қабат",
+  hero_title: "Сіз уақытыңызды көңілді өткізгенше, телефоныңыз тез жөнделеді.",
+  hero_sub: "TerraCity-ді аралап жүргенде телефоныңыз дайын болады.",
+  j_fix_t: "Телефонымды жөндету",
+  j_fix_s: "Экран, батарея, ұя, камера…",
+  j_sell_t: "Телефонды сату",
+  j_sell_s: "Фото жіберіп, ұсыныс сұраңыз",
+  j_buy_t: "Телефон сатып алу",
+  j_buy_s: "Жаңа және тексерілген қолданылған",
+  j_pc_t: "Компьютер және деректер",
+  j_pc_s: "Ноутбук жөндеу, деректерді көшіру",
+  step_pref: "Қандай бөлшек? (міндетті емес)",
+  step_note: "Қосарыңыз бар ма? (міндетті емес)",
+  model_ph: "мыс. iPhone 13…",
+  note_ph: "мыс. құлап қалды, экран әлі жұмыс істейді…",
+  brand_other: "Басқа",
+  brand_tablet: "Планшет",
+  p_screen: "Экран сынған",
+  p_battery: "Батарея",
+  p_port: "Қуаттау ұясы",
+  p_back: "Артқы әйнек",
+  p_camera: "Камера",
+  p_water: "Су кірген",
+  p_scratch: "Экрандағы сызаттарды кетіру",
+  p_data: "Деректерді көшіру",
+  p_other: "Басқа",
+  pref_unsure: "Білмеймін, кеңес беріңіз",
+  pref_lbl: "Бөлшек",
+  rep_courier: "Мекенжайға жеткізу туралы да сұраймын",
+  preview_lbl: "Сіздің хабарламаңыз",
+  send_wa: "WhatsApp-қа жіберу",
+  wa_rep: "Сәлеметсіз бе, Antalya Fix! Менің {d} құрылғымда ақау бар: {p}. Бағасы қанша және қашан дайын болады?",
+  wa_courier: "Оны мекенжайыма жеткізіп беру мүмкін бе?",
+  device_fallback: "телефон",
+  tl_title: "Бұл қалай жұмыс істейді",
+  q_title: "Телефоныңызға қандай бөлшек салынады? Өзіңіз таңдайсыз.",
+  q_sub: "Экрандардың сапасы әртүрлі. Жөндеуді бастамас бұрын нұсқаларды қарапайым тілмен түсіндіреміз.",
+  q_tabs_aria: "Бөлшек сапасының нұсқалары",
+  q_orig: "Түпнұсқа",
+  q_oled: "OLED баламасы",
+  q_lcd: "Үнемді LCD",
+  q_orig_d: "Өндірушінің өз бөлшегі. Түсі, жарықтығы мен сезімталдығы алғашқы күндегідей.",
+  q_oled_d: "Басқа өндірушінің OLED экраны: түпнұсқа емес, бірақ сол технология. Түсі мен анықтығы түпнұсқаға жақын.",
+  q_lcd_d: "LCD панель. Күнделікті қолдануға жарайды; түстері солғындау, экран сәл қалыңдау болуы мүмкін.",
+  q_battery_note: "Батареяда да солай: түпнұсқа не балама. Қайсысын салатынымызды алдын ала айтамыз.",
+  s_model_other: "Басқа модель",
+  s_model_ph: "Модельді жазыңыз",
+  s_storage: "Жад",
+  s_screen: "Экран",
+  s_screen_1: "Мінсіз",
+  s_screen_2: "Аздаған сызат",
+  s_screen_3: "Сынған",
+  s_body: "Корпус",
+  s_body_1: "Жаңа сияқты",
+  s_body_2: "Қолданыс іздері бар",
+  s_body_3: "Майысқан не жарылған",
+  s_battery: "Батарея күйі",
+  s_box: "Қорап пен қуаттағыш",
+  yes: "Иә",
+  no: "Жоқ",
+  s_trade: "Орнына жаңа телефон алғым келеді — айырбас туралы сұраймын",
+  wa_sell: "Сәлеметсіз бе, Antalya Fix! {d} телефонымды сатқым келеді. Фото жібере аламын. Қанша ұсынасыз?",
+  wa_trade: "Оны жаңа телефонға айырбастауға бола ма?",
+  buy_title: "Телефон сатып алу",
+  buy_sub: "Жаңа және тексерілген қолданылған телефондар. Бір рет басып сұраңыз: қолда бар ма?",
+  tab_new: "Жаңа",
+  tab_used: "Тексерілген қолданылған",
+  card_ask: "Бар ма? Бағасын сұрау",
+  badge_checked: "Тексерілген",
+  wa_buy: "Сәлеметсіз бе, Antalya Fix! {m} {s} ({c}) қолда бар ма? Бағасы қанша?",
+  cond_new: "жаңа",
+  cond_used: "қолданылған",
+  pc_title: "Компьютер және деректер",
+  pc_sub: "Ноутбуктер мен стационар компьютерлер де. Төменде жиі кездесетін жұмыстар; өзіңіздікін сұраңыз.",
+  pc_type: "Құрылғы",
+  pc_laptop: "Ноутбук",
+  pc_desktop: "Стационар компьютер",
+  pc_model_lbl: "Бренд / модель (міндетті емес)",
+  pc_model_ph: "мыс. Lenovo IdeaPad…",
+  pc_issue: "Не болды? (бірнешеуін таңдауға болады)",
+  c_slow: "Баяу жұмыс істейді",
+  c_screen: "Экран",
+  c_keyboard: "Пернетақта",
+  c_battery: "Батарея",
+  c_windows: "Windows орнату",
+  c_clean: "Тазалау және қызып кету",
+  c_other: "Басқа",
+  wa_pc: "Сәлеметсіз бе, Antalya Fix! {d} жөндеу керек: {p}. Қарап бере аласыз ба? Бағасы қанша?",
+  data_t: "Жаңа телефон алдыңыз ба? Деректеріңізді көшіреміз.",
+  data_s: "Контактілер, фотолар, WhatsApp — ескі телефоннан жаңасына.",
+  data_from: "Ескі телефон",
+  data_to: "Жаңа телефон",
+  wa_data: "Сәлеметсіз бе, Antalya Fix! Жаңа телефон алдым. Контактілерімді, фотоларымды және WhatsApp-ты көшіріп бере аласыз ба? Ескісі: {a}, жаңасы: {b}.",
+  rec_t: "Телефон қосылмай қалды, ал фотолар керек пе?",
+  rec_s: "Оларды қалпына келтіруге бола ма, бізден сұраңыз. Қарап шығып, шынын айтамыз.",
+  wa_rec: "Сәлеметсіз бе, Antalya Fix! Телефоным қосылмайды, ал маған фотоларым керек. Оларды қалпына келтіруге бола ма, тексеріп бере аласыз ба?",
+  srv_title: "Сондай-ақ",
+  sv_scratch: "Экрандағы сызаттарды кетіру",
+  sv_scratch_s: "Алдыңғы әйнектегі сызаттар үшін",
+  sv_acc: "Аксессуарлар",
+  sv_acc_s: "Қаптар, қорғаныш әйнектер, қуаттағыштар",
+  sv_delivery: "Мекенжайға жеткізу",
+  sv_delivery_s: "WhatsApp арқылы сұраңыз",
+  sv_quick: "Ұсақ жұмыстар — бірден",
+  sv_quick_s: "Мысалы, сағат бауын тағу",
+  wa_acc: "Сәлеметсіз бе, Antalya Fix! Телефоныма қап не қорғаныш әйнек бар ма?",
+  wa_courier_q: "Сәлеметсіз бе, Antalya Fix! Мекенжайға жеткізесіз бе? Толығырақ білгім келеді.",
+  wa_quick: "Сәлеметсіз бе, Antalya Fix! Шағын бір шаруам бар. Бірден істеп бере аласыз ба?",
+  rev_title: "Бізге алғаш келгендер не жазды?",
+  rev_show: "Түпнұсқасын көрсету",
+  rev_hide: "Түпнұсқасын жасыру",
+  rev_summary: "Пікірдің қысқаша мазмұны · толық мәтіні Google-да",
+  rev_ru_author: "Google пікірі (орыс тілінде)",
+  rev_guide: "Жергілікті гид",
+  rev_prev: "Алдыңғы пікір",
+  rev_next: "Келесі пікір",
+  rev_all: "Google-да оқу",
+  rev_write: "Бізде жөндеттіңіз бе? Пікір қалдырыңыз",
+  rv1: "iPhone 14 Pro Max телефонымды нашар күйден керемет күйге келтірді, 2 сағат ішінде бітірді, экран қорғанышын да сыйлады.",
+  rv2: "Сауда орталығын аралап жүрген 2 сағатта бәрі керемет жасалды… түпнұсқа аккумулятор… Ridvan ағылшынша сөйлейді.",
+  rv3: "Сыйлыққа қорғаныш әйнек орнатып, қапқа жеңілдік жасады.",
+  rv4: "Телефонымызды қол тигізбей-ақ жөндеп, күлімдеп шығарып салды.",
+  rv5: "Жөндеу бағасы тегін дерлік.",
+  rv6: "Ешкім қолға алмаған сағат бауын бір минутта тағып берді.",
+  lang_s: "Шеберханада түрікше және ағылшынша сөйлейді (Rıdvan ағылшынша сөйлейді). Бұл сайт пен WhatsApp хабарламаңыз орысша, қазақша және өзбекше де бола алады.",
+  find_title: "Бізді қалай табуға болады",
+  f1t: "TerraCity-ге кіріңіз",
+  f2t: "MediaMarkt жағындағы баспалдақпен түсіңіз",
+  f2s: "−2 қабатқа дейін.",
+  f3t: "−2 қабат · Antalya Fix",
+  f3s: "Келдіңіз! Кіріңіз.",
+  map_aria: "Картаны таңдау",
+  map_g: "Google Карталар",
+  map_title_g: "Google Карталардағы Antalya Fix",
+  map_title_y: "Яндекс Карталардағы Antalya Fix",
+  route_g: "Бағыт алу · Google",
+  route_y: "Бағыт алу · Яндекс",
+  addr_lbl: "Мекенжай",
+  hours_lbl: "Жұмыс уақыты",
+  hours_v: "Күн сайын 10:00–22:00, жексенбіде де",
+  plus_lbl: "Plus code",
+  phone_lbl: "Телефон / WhatsApp",
+  foot_made: "Сайт: Onaz Studio",
+  wb_title: "Өз үстелімізден нағыз жұмыстар",
+  reel_aria: "Antalya Fix шеберханасындағы жөндеу туралы қысқа бейне",
+  ba_title: "iPhone 15 Pro Max · сынған артқы әйнек",
+  ba_hint: "Салыстыру үшін сырғытыңыз",
+  ba_aria: "Дейін және кейін салыстыру",
+  before_lbl: "Дейін",
+  after_lbl: "Кейін",
+  before_alt: "Дейін: iPhone 15 Pro Max-тың сынған артқы әйнегі",
+  after_alt: "Кейін: жаңа артқы әйнегі бар сол телефон",
+  st1: "Сынған әйнекті алдық",
+  st2: "Бетін тазаладық",
+  st3: "Түпнұсқа әйнекпен қалпына келтірдік",
+  store_cap: "Біздің дүкен: TerraCity СО, −2 қабат",
+  boxes_cap: "Біздің дүкеннен: қорабындағы жаңа iPhone-дар",
+  foot_media: "Фото және бейнелер: @antalyafix",
+  st_short_open: "Ашық",
+  st_short_closed: "Жабық",
+  theme_light: "Ашық тақырып",
+  theme_dark: "Қараңғы тақырып",
+  what_line: "Телефон, планшет, компьютер жөндеу; телефон сату және сатып алу.",
+  tr_google: "Google-да 419 пікір",
+  tr_yandex: "Яндексте 33 баға",
+  tr_quote: "Жұмысты таза істейді, клиенттермен сөйлесуі маған қатты ұнады",
+  tl_1: "Телефонды қалдырыңыз",
+  tl_2: "Уақытыңызды көңілді өткізіңіз",
+  tl_3: "Дайын болғанда WhatsApp, Telegram не телефон арқылы хабарлаймыз",
+  w_title: "Біз істейтін жұмыстар",
+  w_sub: "Әр жұмыстың астында — сол жұмыс туралы нағыз клиент пікірі.",
+  w_back_t: "Артқы әйнекті ауыстыру",
+  w_back_s: "Сынған әйнекті алып, бетін тазалап, жаңа әйнек орнатамыз.",
+  w_bat_t: "Батареяны ауыстыру",
+  w_bat_s: "Ісінген не тез отыратын батареяны ауыстырамыз.",
+  w_scr_t: "Экранды ауыстыру",
+  w_scr_s: "Сынған, жасыл сызығы бар не басуды сезбейтін экранды ауыстырамыз.",
+  w_cam_t: "Камера әйнегі",
+  w_cam_s: "Жарылған камера әйнегін миллиметріне дейін дәл ауыстырамыз.",
+  w_data_s: "Контактілерді, фотоларды және WhatsApp-ты жаңа телефонға көшіреміз.",
+  w_ph_t: "Жаңа және қолданылған телефондар",
+  w_ph_s: "Жаңа және тексерілген қолданылған телефондар; сіздің телефоныңызды да сатып аламыз.",
+  w_ask: "Бағасын сұрау",
+  w_ig: "Instagram-да көру",
+  wa_svc: "Сәлеметсіз бе, Antalya Fix! Мына жұмыстың бағасын білгім келеді: {s}.",
+  wr1: "…нашар күйден керемет күйге келтірді, 2 сағат ішінде бітірді…",
+  wr2: "…сауда орталығын аралап жүрген 2 сағатта бәрі керемет жасалды…",
+  rev_google_lbl: "Google пікірі",
+  rev_all_y: "Яндекстен оқу",
+  wiz_step: "{n}/{m}-қадам",
+  wiz_back: "Артқа",
+  wiz_next: "Келесі",
+  rw1: "Қай бренд?",
+  rw2: "Қай модель?",
+  rw3: "Не болды?",
+  rw4: "Соңғы мәліметтер",
+  model_skip: "Білмеймін / тізімде жоқ",
+  model_type: "Немесе модельді жазыңыз (міндетті емес)",
+  step_ready: "Телефон дайын болғанда сізге қалай хабарлайық?",
+  ready_wa: "WhatsApp-қа жазыңыз",
+  ready_tg: "Telegram-ға жазыңыз",
+  ready_call: "Маған қоңырау шалыңыз",
+  wa_ready_lbl: "Дайын болғанда",
+  wa_rep_generic: "Сәлеметсіз бе, Antalya Fix! Телефон жөндеудің бағасын білгім келеді.",
+  wa_rep_dev: "Сәлеметсіз бе, Antalya Fix! {d} құрылғымды жөндеу туралы сұрағым бар.",
+  wa_pc_generic: "Сәлеметсіз бе, Antalya Fix! {d} жөндеу туралы сұрағым бар.",
+  wa_sell_generic: "Сәлеметсіз бе, Antalya Fix! Телефонымды сатқым келеді. Қанша ұсынасыз?",
+  send_tg: "Telegram-ға жіберу",
+  toast_tg: "Хабарламаңыз көшірілді. Telegram-ға қойып, жіберіңіз.",
+  toast_tg_fail: "Хабарламаны көшіру мүмкін болмады; Telegram-да өзіңіз жазыңыз.",
+  bar_call: "Қоңырау",
+  bar_route: "Бағыт",
+  back_top: "Жоғарыға",
+  sw1: "Телефоныңыз қандай?",
+  sw2: "Жад және батарея",
+  sw3: "Күйі қандай?",
+  pr4_t: "Дайын болғанда хабарлаймыз.",
+  pr4_s: "WhatsApp не Telegram арқылы жазамыз немесе қоңырау шаламыз — қалауыңызша.",
+  ig_t: "Instagram-дағы соңғы жұмыстарымыз",
+  ig1: "iPhone 12 Pro Max камера әйнегі",
+  ig2: "iPhone 15 Pro Max артқы әйнегі, басынан аяғына дейін",
+  ig4: "Жаңа iPhone-дар",
+  ig_follow: "Жазылу",
+  ig_dm: "Instagram-да жазу",
+  map_show: "Картаны көрсету",
+  map_ph: "Карта басқанда жүктеледі.",
+  p_work_t: "Түпнұсқа сапа және мұқият жұмыс",
+  p_work_s: "Жұмысымызды Instagram-да қадамма-қадам көрсетеміз.",
+  p_part_t: "Қандай бөлшек керек екенін сізден сұраймыз",
+  p_part_s: "Түпнұсқа, OLED баламасы не үнемді: айырмашылығын қарапайым тілмен түсіндіреміз.",
+  reel_lab: "Өз үстелімізден",
+  tc_credit: "TerraCity фотосы: Sharon Hahn Darlin, CC BY 2.0",
+  tc_alt: "TerraCity сауда орталығының сырты, сары «terra city» жазуы",
+  s_search: "Модельді іздеңіз",
+  bat_1: "100–90%",
+  bat_2: "89–80%",
+  bat_3: "80%-дан төмен",
+  bat_4: "Білмеймін",
+  s_wdoc: "Кепілдік талоны бар ма?",
+  sell_photos: "Фотоларды WhatsApp-та сұраймыз.",
+  rt_g_cnt: "419 пікір",
+  rt_y_cnt: "33 баға",
+  rt_y_lbl: "Яндекс Карталар",
+  ask_line: "Бағасын сұраңыз: WhatsApp не Telegram"
+},
+uz: {
+  meta_title: "Antalya Fix · TerraCity'da telefon taʼmirlash",
+  meta_desc: "TerraCity savdo markazi, −2-qavat: telefon, planshet va kompyuter taʼmirlash. Har kuni 10:00–22:00. Narxini WhatsApp orqali soʻrang.",
+  skip: "Asosiy qismga oʻtish",
+  demo: "Demo · Onaz Studio tomonidan Antalya Fix uchun tayyorlangan",
+  lang_btn: "Tilni oʻzgartirish",
+  ig_aria: "Instagram'dagi Antalya Fix",
+  tabbar_aria: "Tezkor menyu",
+  tiles_aria: "Nima qilmoqchisiz?",
+  st_open: "Hozir ochiq · 22:00 gacha",
+  st_closed_today: "Hozir yopiq · Bugun 10:00 da ochamiz",
+  st_closed_tom: "Hozir yopiq · Ertaga 10:00 da ochamiz",
+  loc_pill: "TerraCity · −2-qavat",
+  hero_title: "Siz vaqtingizni maroqli oʻtkazguningizcha telefoningiz tezda tuzatiladi.",
+  hero_sub: "TerraCity'da aylanib yurganingizda telefoningiz tayyor boʻladi.",
+  j_fix_t: "Telefonimni tuzattirish",
+  j_fix_s: "Ekran, batareya, uya, kamera…",
+  j_sell_t: "Telefonimni sotish",
+  j_sell_s: "Rasm yuboring, taklif soʻrang",
+  j_buy_t: "Telefon sotib olish",
+  j_buy_s: "Yangi va tekshirilgan ishlatilgan",
+  j_pc_t: "Kompyuter va maʼlumotlar",
+  j_pc_s: "Noutbuk taʼmiri, maʼlumot koʻchirish",
+  step_pref: "Qaysi detal? (ixtiyoriy)",
+  step_note: "Qoʻshimcha gapingiz bormi? (ixtiyoriy)",
+  model_ph: "masalan, iPhone 13…",
+  note_ph: "masalan, tushib ketdi, ekran hali ishlayapti…",
+  brand_other: "Boshqa",
+  brand_tablet: "Planshet",
+  p_screen: "Ekran singan",
+  p_battery: "Batareya",
+  p_port: "Quvvatlash uyasi",
+  p_back: "Orqa oyna",
+  p_camera: "Kamera",
+  p_water: "Suv tekkan",
+  p_scratch: "Ekrandagi chiziqlarni ketkazish",
+  p_data: "Maʼlumot koʻchirish",
+  p_other: "Boshqa",
+  pref_unsure: "Bilmayman, maslahat bering",
+  pref_lbl: "Detal",
+  rep_courier: "Manzilga yetkazib berish haqida ham soʻrayman",
+  preview_lbl: "Xabaringiz",
+  send_wa: "WhatsApp'da yuborish",
+  wa_rep: "Assalomu alaykum, Antalya Fix! {d} qurilmamda muammo bor: {p}. Narxi qancha va qachon tayyor boʻladi?",
+  wa_courier: "Uni manzilimga yetkazib berish mumkinmi?",
+  device_fallback: "telefon",
+  tl_title: "Bu qanday ishlaydi",
+  q_title: "Telefoningizga qaysi detal qoʻyiladi? Oʻzingiz tanlaysiz.",
+  q_sub: "Ekranlar turli sifatda boʻladi. Ishni boshlashdan oldin variantlarni oddiy tilda tushuntiramiz.",
+  q_tabs_aria: "Detal sifati variantlari",
+  q_orig: "Original",
+  q_oled: "OLED muqobil",
+  q_lcd: "Ekonom LCD",
+  q_orig_d: "Ishlab chiqaruvchining oʻz detali. Rang, yorqinlik va sezgirlik birinchi kundagidek.",
+  q_oled_d: "Boshqa ishlab chiqaruvchining OLED ekrani: original emas, lekin xuddi shu texnologiya. Rang va tiniqlik originalga yaqin.",
+  q_lcd_d: "LCD panel. Kundalik foydalanish uchun yetarli; ranglar xiraroq, ekran biroz qalinroq boʻlishi mumkin.",
+  q_battery_note: "Batareyada ham shunday: original yoki muqobil. Qaysi birini qoʻyishimizni oldindan aytamiz.",
+  s_model_other: "Boshqa model",
+  s_model_ph: "Modelni yozing",
+  s_storage: "Xotira",
+  s_screen: "Ekran",
+  s_screen_1: "Benuqson",
+  s_screen_2: "Yengil chiziqlar",
+  s_screen_3: "Singan",
+  s_body: "Korpus",
+  s_body_1: "Yangidek",
+  s_body_2: "Ishlatilgan izlari bor",
+  s_body_3: "Ezilgan yoki yorilgan",
+  s_battery: "Batareya holati",
+  s_box: "Quti va zaryadlovchi",
+  yes: "Ha",
+  no: "Yoʻq",
+  s_trade: "Oʻrniga yangi telefon olmoqchiman — almashtirish haqida soʻrayman",
+  wa_sell: "Assalomu alaykum, Antalya Fix! {d} telefonimni sotmoqchiman. Rasm yuborishim mumkin. Qancha taklif qilasiz?",
+  wa_trade: "Uni yangi telefonga almashtirsa boʻladimi?",
+  buy_title: "Telefon sotib olish",
+  buy_sub: "Yangi va tekshirilgan ishlatilgan telefonlar. Bir bosishda soʻrang: sotuvda bormi?",
+  tab_new: "Yangi",
+  tab_used: "Tekshirilgan, ishlatilgan",
+  card_ask: "Bormi? Narxini soʻrash",
+  badge_checked: "Tekshirilgan",
+  wa_buy: "Assalomu alaykum, Antalya Fix! {m} {s} ({c}) sotuvda bormi? Narxi qancha?",
+  cond_new: "yangi",
+  cond_used: "ishlatilgan",
+  pc_title: "Kompyuter va maʼlumotlar",
+  pc_sub: "Noutbuk va statsionar kompyuterlar ham. Quyida koʻp uchraydigan ishlar; oʻzingiznikini soʻrang.",
+  pc_type: "Qurilma",
+  pc_laptop: "Noutbuk",
+  pc_desktop: "Statsionar kompyuter",
+  pc_model_lbl: "Brend / model (ixtiyoriy)",
+  pc_model_ph: "masalan, Lenovo IdeaPad…",
+  pc_issue: "Nima boʻldi? (bir nechtasini tanlash mumkin)",
+  c_slow: "Sekin ishlayapti",
+  c_screen: "Ekran",
+  c_keyboard: "Klaviatura",
+  c_battery: "Batareya",
+  c_windows: "Windows oʻrnatish",
+  c_clean: "Tozalash va qizib ketish",
+  c_other: "Boshqa",
+  wa_pc: "Assalomu alaykum, Antalya Fix! {d} taʼmirlash kerak: {p}. Koʻrib bera olasizmi? Narxi qancha?",
+  data_t: "Yangi telefon oldingizmi? Maʼlumotlaringizni koʻchiramiz.",
+  data_s: "Kontaktlar, rasmlar, WhatsApp — eski telefondan yangisiga.",
+  data_from: "Eski telefon",
+  data_to: "Yangi telefon",
+  wa_data: "Assalomu alaykum, Antalya Fix! Yangi telefon oldim. Kontaktlarim, rasmlarim va WhatsApp'ni koʻchirib bera olasizmi? Eskisi: {a}, yangisi: {b}.",
+  rec_t: "Telefon yonmay qoldi, rasmlar esa kerakmi?",
+  rec_s: "Ularni tiklash mumkinmi, bizdan soʻrang. Koʻrib chiqib, rostini aytamiz.",
+  wa_rec: "Assalomu alaykum, Antalya Fix! Telefonim yonmayapti, rasmlarim esa kerak. Ularni tiklash mumkinmi, tekshirib bera olasizmi?",
+  srv_title: "Shuningdek",
+  sv_scratch: "Ekrandagi chiziqlarni ketkazish",
+  sv_scratch_s: "Old oynadagi chiziqlar uchun",
+  sv_acc: "Aksessuarlar",
+  sv_acc_s: "Gʻiloflar, himoya oynalari, zaryadlovchilar",
+  sv_delivery: "Manzilga yetkazib berish",
+  sv_delivery_s: "WhatsApp'da soʻrang",
+  sv_quick: "Mayda ishlar — darhol",
+  sv_quick_s: "Masalan, soat tasmasini taqish",
+  wa_acc: "Assalomu alaykum, Antalya Fix! Telefonimga gʻilof yoki himoya oynasi bormi?",
+  wa_courier_q: "Assalomu alaykum, Antalya Fix! Manzilga yetkazib berasizmi? Batafsil bilmoqchi edim.",
+  wa_quick: "Assalomu alaykum, Antalya Fix! Kichik bir ishim bor. Darhol qilib bera olasizmi?",
+  rev_title: "Bizga ilk bor kelganlar nima yozdi?",
+  rev_show: "Aslini koʻrsatish",
+  rev_hide: "Aslini yashirish",
+  rev_summary: "Sharhning qisqacha mazmuni · toʻliq matni Google'da",
+  rev_ru_author: "Google sharhi (rus tilida)",
+  rev_guide: "Mahalliy gid",
+  rev_prev: "Oldingi sharh",
+  rev_next: "Keyingi sharh",
+  rev_all: "Google'da oʻqish",
+  rev_write: "Bizda tuzattirdingizmi? Sharh qoldiring",
+  rv1: "iPhone 14 Pro Max telefonimni ayanchli holatdan ajoyib holatga keltirishdi, 2 soat ichida tugatishdi, ekran himoyasini ham sovgʻa qilishdi.",
+  rv2: "Savdo markazida aylanib yurgan 2 soatimiz ichida hammasi aʼlo darajada qilindi… original akkumulyator… Ridvan inglizcha gapiradi.",
+  rv3: "Sovgʻa sifatida himoya oynasini oʻrnatishdi va gʻilofga chegirma qilishdi.",
+  rv4: "Telefonimizni qoʻl tekkizmasdan tuzatib berdi va bizni tabassum bilan kuzatib qoʻyishdi.",
+  rv5: "Taʼmirlash narxlari deyarli tekin.",
+  rv6: "Hech kim taqmagan soat tasmasini bir daqiqada taqib berishdi.",
+  lang_s: "Ustaxonada turkcha va inglizcha gaplashiladi (Rıdvan inglizcha gapiradi). Bu sayt va WhatsApp xabaringiz ruscha, qozoqcha va oʻzbekcha ham boʻlishi mumkin.",
+  find_title: "Bizni qanday topish mumkin",
+  f1t: "TerraCity'ga kiring",
+  f2t: "MediaMarkt tomondagi zinadan tushing",
+  f2s: "−2-qavatgacha.",
+  f3t: "−2-qavat · Antalya Fix",
+  f3s: "Yetib keldingiz! Marhamat, kiring.",
+  map_aria: "Xaritani tanlash",
+  map_g: "Google Xaritalar",
+  map_title_g: "Google Xaritalardagi Antalya Fix",
+  map_title_y: "Yandex Xaritalardagi Antalya Fix",
+  route_g: "Yoʻnalish olish · Google",
+  route_y: "Yoʻnalish olish · Yandex",
+  addr_lbl: "Manzil",
+  hours_lbl: "Ish vaqti",
+  hours_v: "Har kuni 10:00–22:00, yakshanba ham",
+  plus_lbl: "Plus code",
+  phone_lbl: "Telefon / WhatsApp",
+  foot_made: "Sayt: Onaz Studio",
+  wb_title: "Oʻz ustaxonamizdan haqiqiy ishlar",
+  reel_aria: "Antalya Fix ustaxonasidagi taʼmirlar haqida qisqa video",
+  ba_title: "iPhone 15 Pro Max · singan orqa oyna",
+  ba_hint: "Solishtirish uchun suring",
+  ba_aria: "Oldin va keyin solishtiruvi",
+  before_lbl: "Oldin",
+  after_lbl: "Keyin",
+  before_alt: "Oldin: iPhone 15 Pro Max'ning singan orqa oynasi",
+  after_alt: "Keyin: yangi orqa oynali oʻsha telefon",
+  st1: "Singan oynani olib tashladik",
+  st2: "Yuzasini tozaladik",
+  st3: "Original oyna bilan tikladik",
+  store_cap: "Doʻkonimiz: TerraCity savdo markazi, −2-qavat",
+  boxes_cap: "Doʻkonimizdan: qutisidagi yangi iPhone'lar",
+  foot_media: "Rasm va videolar: @antalyafix",
+  st_short_open: "Ochiq",
+  st_short_closed: "Yopiq",
+  theme_light: "Yorugʻ mavzu",
+  theme_dark: "Qorongʻi mavzu",
+  what_line: "Telefon, planshet, kompyuter taʼmiri; telefon oldi-sotdisi.",
+  tr_google: "Google'da 419 ta sharh",
+  tr_yandex: "Yandex'da 33 ta baho",
+  tr_quote: "Ishni toza qilishadi, mijozlar bilan muloqoti menga juda yoqdi",
+  tl_1: "Telefonni qoldiring",
+  tl_2: "Maroqli vaqt oʻtkazing",
+  tl_3: "Tayyor boʻlgach, WhatsApp, Telegram yoki telefon orqali xabar beramiz",
+  w_title: "Biz qiladigan ishlar",
+  w_sub: "Har bir ish ostida — shu ish haqida haqiqiy mijoz sharhi.",
+  w_back_t: "Orqa oynani almashtirish",
+  w_back_s: "Singan oynani olib, yuzasini tozalab, yangi oyna oʻrnatamiz.",
+  w_bat_t: "Batareyani almashtirish",
+  w_bat_s: "Shishgan yoki tez tugaydigan batareyani almashtiramiz.",
+  w_scr_t: "Ekranni almashtirish",
+  w_scr_s: "Singan, yashil chiziqli yoki bosishni sezmaydigan ekranni almashtiramiz.",
+  w_cam_t: "Kamera oynasi",
+  w_cam_s: "Yorilgan kamera oynasini millimetrigacha aniq almashtiramiz.",
+  w_data_s: "Kontaktlar, rasmlar va WhatsApp'ni yangi telefonga koʻchiramiz.",
+  w_ph_t: "Yangi va ishlatilgan telefonlar",
+  w_ph_s: "Yangi va tekshirilgan ishlatilgan telefonlar; telefoningizni ham sotib olamiz.",
+  w_ask: "Narxini soʻrash",
+  w_ig: "Instagram'da koʻrish",
+  wa_svc: "Assalomu alaykum, Antalya Fix! Ushbu ishning narxini bilmoqchiman: {s}.",
+  wr1: "…ayanchli holatdan ajoyib holatga keltirishdi, 2 soat ichida tugatishdi…",
+  wr2: "…savdo markazida aylangan 2 soatimiz ichida hammasi aʼlo qilindi…",
+  rev_google_lbl: "Google sharhi",
+  rev_all_y: "Yandex'da oʻqish",
+  wiz_step: "{n}/{m}-qadam",
+  wiz_back: "Orqaga",
+  wiz_next: "Keyingi",
+  rw1: "Qaysi brend?",
+  rw2: "Qaysi model?",
+  rw3: "Nima boʻldi?",
+  rw4: "Soʻnggi tafsilotlar",
+  model_skip: "Bilmayman / roʻyxatda yoʻq",
+  model_type: "Yoki modelni yozing (ixtiyoriy)",
+  step_ready: "Telefon tayyor boʻlganda sizga qanday xabar beraylik?",
+  ready_wa: "WhatsApp'da yozing",
+  ready_tg: "Telegram'da yozing",
+  ready_call: "Menga qoʻngʻiroq qiling",
+  wa_ready_lbl: "Tayyor boʻlganda",
+  wa_rep_generic: "Assalomu alaykum, Antalya Fix! Telefon taʼmirining narxini bilmoqchiman.",
+  wa_rep_dev: "Assalomu alaykum, Antalya Fix! {d} qurilmamni taʼmirlash haqida savolim bor.",
+  wa_pc_generic: "Assalomu alaykum, Antalya Fix! {d} taʼmiri haqida savolim bor.",
+  wa_sell_generic: "Assalomu alaykum, Antalya Fix! Telefonimni sotmoqchiman. Qancha taklif qilasiz?",
+  send_tg: "Telegram'da yuborish",
+  toast_tg: "Xabaringiz nusxalandi. Telegram'ga qoʻyib, yuboring.",
+  toast_tg_fail: "Xabarni nusxalab boʻlmadi; Telegram'da oʻzingiz yozing.",
+  bar_call: "Qoʻngʻiroq",
+  bar_route: "Yoʻnalish",
+  back_top: "Yuqoriga",
+  sw1: "Telefoningiz qaysi?",
+  sw2: "Xotira va batareya",
+  sw3: "Holati qanday?",
+  pr4_t: "Tayyor boʻlganda xabar beramiz.",
+  pr4_s: "WhatsApp yoki Telegram'da yozamiz yoxud qoʻngʻiroq qilamiz — oʻzingiz tanlaysiz.",
+  ig_t: "Instagram'dagi soʻnggi ishlarimiz",
+  ig1: "iPhone 12 Pro Max kamera oynasi",
+  ig2: "iPhone 15 Pro Max orqa oynasi, boshidan oxirigacha",
+  ig4: "Yangi iPhone'lar",
+  ig_follow: "Kuzatish",
+  ig_dm: "Instagram'da yozish",
+  map_show: "Xaritani koʻrsatish",
+  map_ph: "Xarita bosilganda yuklanadi.",
+  p_work_t: "Original sifat va puxta ishlov",
+  p_work_s: "Ishimizni Instagram'da bosqichma-bosqich koʻrsatamiz.",
+  p_part_t: "Qaysi detal kerakligini sizdan soʻraymiz",
+  p_part_s: "Original, OLED muqobil yoki ekonom: farqini oddiy tilda tushuntiramiz.",
+  reel_lab: "Oʻz ustaxonamizdan",
+  tc_credit: "TerraCity surati: Sharon Hahn Darlin, CC BY 2.0",
+  tc_alt: "TerraCity savdo markazining tashqi koʻrinishi, sariq «terra city» yozuvi",
+  s_search: "Modelingizni qidiring",
+  bat_1: "100–90%",
+  bat_2: "89–80%",
+  bat_3: "80% dan past",
+  bat_4: "Bilmayman",
+  s_wdoc: "Kafolat taloni bormi?",
+  sell_photos: "Rasmlarni WhatsApp'da soʻraymiz.",
+  rt_g_cnt: "419 ta sharh",
+  rt_y_cnt: "33 ta baho",
+  rt_y_lbl: "Yandex Xaritalar",
+  ask_line: "Narxini soʻrang: WhatsApp yoki Telegram"
+}
+};
+
+const LANGS = [["tr","Türkçe"],["en","English"],["ru","Русский"],["kk","Қазақша"],["uz","Oʻzbekcha"]];
+const LOCALE = {tr:"tr-TR",en:"en-GB",ru:"ru-RU",kk:"kk-KZ",uz:"uz-Latn-UZ"};
+const LANG_TR = {tr:"Türkçe",en:"İngilizce",ru:"Rusça",kk:"Kazakça",uz:"Özbekçe"};
+const CIS = ["ru","kk","uz"];
+const WA_NUM = "905441121911", TG_URL = "https://t.me/+905441121911";
+const G_LIST = "https://www.google.com/maps/search/?api=1&query=Antalya+Fix+TerraCity";
+const Y_LIST = "https://yandex.ru/maps/org/antalya_fix/157554788738/";
+const G_ROUTE = "https://www.google.com/maps/dir/?api=1&destination=36.8521934,30.7578719";
+const Y_ROUTE = "https://yandex.ru/maps/?rtext=~36.852621%2C30.757812&rtt=auto";
+const TR = I18N.tr;
+let lang = "tr";
+const t = (k) => (I18N[lang] && I18N[lang][k] != null) ? I18N[lang][k] : (I18N.en[k] != null ? I18N.en[k] : k);
+const fill = (s, o) => s.replace(/\{(\w)\}/g, (m, k) => (o[k] != null ? o[k] : ""));
+const $ = (s, r) => (r || document).querySelector(s);
+const $$ = (s, r) => Array.from((r || document).querySelectorAll(s));
+const lower = (s) => s.charAt(0).toLocaleLowerCase(LOCALE[lang]) + s.slice(1);
+const waURL = (msg) => "https://wa.me/" + WA_NUM + "?text=" + encodeURIComponent(msg);
+const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const icon = (id) => '<svg aria-hidden="true"><use href="#' + id + '"/></svg>';
+const ckIcon = '<svg class="ck" aria-hidden="true"><use href="#i-check"/></svg>';
+const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c]));
+const stars = (n) => icon("i-star").repeat(n || 5);
+const dec = (v) => lang === "en" ? v : v.replace(".", ",");
+const cis = () => CIS.includes(lang);
+
+/* ---------- ratings: Google and Yandex always equal; Yandex first for ru/kk/uz ---------- */
+const G_MARK = '<svg viewBox="0 0 48 48" aria-hidden="true"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.4-.4-3.5z"/><path fill="#FF3D00" d="m6.3 14.7 6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-7.9l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C36.9 39.2 44 34 44 24c0-1.3-.1-2.4-.4-3.5z"/></svg>';
+const Y_MARK = '<svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="22" fill="#FC3F1D"/><path fill="#fff" d="M27.2 12.5h-3.4c-5.2 0-8.1 2.7-8.1 6.8 0 3.5 1.7 5.6 4.8 7.7L15 35.5h4.3l5.5-8.6-1.9-1.3c-2.8-1.9-4.1-3.3-4.1-6.4 0-2.7 1.9-4.6 5.1-4.6h2V35.5h3.9v-23Z"/></svg>';
+function ratingTile(src) {
+  const g = src === "g";
+  return '<a class="rt" href="' + (g ? G_LIST : Y_LIST) + '" target="_blank" rel="noopener">' +
+    '<span class="src"><span class="mk">' + (g ? G_MARK : Y_MARK) + '</span><span>' + esc(t(g ? "map_g" : "rt_y_lbl")) + '</span></span>' +
+    '<b class="score num">' + dec(g ? "4.9" : "5.0") + '</b><span class="stars" aria-hidden="true">' + stars(5) + '</span>' +
+    '<span class="cnt">' + esc(t(g ? "rt_g_cnt" : "rt_y_cnt")) + '</span></a>';
+}
+const order = () => cis() ? ["y", "g"] : ["g", "y"];
+function rlineHTML() {
+  return '<p class="rline">' + order().map((s) => '<span><span class="stars" aria-hidden="true">' + icon("i-star") + '</span><b>' + dec(s === "g" ? "4.9" : "5.0") + '</b> ' + esc(t(s === "g" ? "tr_google" : "tr_yandex")) + '</span>').join('<span aria-hidden="true">·</span>') + '</p>';
+}
+function renderRatings() {
+  $$("[data-rtiles]").forEach((el) => { el.innerHTML = order().map(ratingTile).join(""); });
+  $$("[data-rline]").forEach((el) => { el.innerHTML = rlineHTML(); });
+  const links = $("#revLinks"), lg = $('[data-src="g"]', links), ly = $('[data-src="y"]', links);
+  if (cis()) links.insertBefore(ly, lg); else links.insertBefore(lg, ly);
+}
+
+/* ---------- messages: customer-language line(s) + Turkish block for the owner ---------- */
+function buildMsg(localLines, trLines) {
+  return localLines.filter(Boolean).join("\n") + "\n—\n" + trLines.filter(Boolean).join("\n") + "\n🌐 Müşteri dili: " + LANG_TR[lang];
+}
+const MSG = {};
+function sendHTML(key, waLabel) {
+  return '<a class="btn btn-wa btn-sm" target="_blank" rel="noopener" data-wa="' + key + '" href="' + esc(waURL(MSG[key] || "")) + '">' + icon("i-wa") + '<span>' + esc(waLabel || t("send_wa")) + '</span></a>' +
+    '<a class="btn btn-tg btn-sm" target="_blank" rel="noopener" data-tg="' + key + '" href="' + TG_URL + '">' + icon("i-tg") + '<span>' + esc(t("send_tg")) + '</span></a>';
+}
+function setMsg(key, msg) { MSG[key] = msg; $$('[data-wa="' + key + '"]').forEach((a) => { a.href = waURL(msg); }); }
+function renderSends() { $$("[data-send]").forEach((el) => { el.innerHTML = rlineHTML() + '<div class="send">' + sendHTML(el.dataset.send) + '</div>'; }); }
+let toastTimer = 0;
+function toast(txt) { const el = $("#toast"); $("#toastT").textContent = txt; el.hidden = false; clearTimeout(toastTimer); toastTimer = setTimeout(() => { el.hidden = true; }, 4200); }
+function copyText(txt) {
+  const fallback = () => { try { const ta = document.createElement("textarea"); ta.value = txt; ta.setAttribute("readonly", ""); ta.style.position = "fixed"; ta.style.opacity = "0"; document.body.appendChild(ta); ta.select(); const ok = document.execCommand("copy"); ta.remove(); return ok; } catch (e) { return false; } };
+  if (navigator.clipboard && window.isSecureContext) return navigator.clipboard.writeText(txt).then(() => true, () => fallback());
+  return Promise.resolve(fallback());
+}
+/* Telegram cannot prefill a chat: copy the prepared message, show a toast, then the link opens t.me */
+document.addEventListener("click", (e) => {
+  const a = e.target.closest("[data-tg]"); if (!a) return;
+  copyText(MSG[a.dataset.tg] || MSG.general || "").then((ok) => toast(ok ? t("toast_tg") : t("toast_tg_fail")));
+});
+
+/* ---------- theme: dark by default, saved choice ---------- */
+function syncTheme() {
+  const dark = document.documentElement.dataset.theme !== "light";
+  $("#themeIcon").setAttribute("href", dark ? "#i-sun" : "#i-moon");
+  $("#themeBtn").setAttribute("aria-label", t(dark ? "theme_light" : "theme_dark"));
+  document.querySelector('meta[name="theme-color"]').setAttribute("content", dark ? "#071330" : "#0B1C3F");
+}
+$("#themeBtn").addEventListener("click", () => {
+  const next = document.documentElement.dataset.theme === "light" ? "dark" : "light";
+  document.documentElement.dataset.theme = next;
+  try { localStorage.setItem("af_theme", next); } catch (e) {}
+  syncTheme();
+});
+
+/* ---------- language ---------- */
+function pickInitialLang() {
+  const ok = (l) => I18N[l] ? l : null;
+  try { const q = new URLSearchParams(location.search).get("lang"); if (q && ok(q)) return q; } catch (e) {}
+  try { const s = localStorage.getItem("af_lang"); if (s && ok(s)) return s; } catch (e) {}
+  const nav = (navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || ""]);
+  for (const n of nav) { const b = String(n).toLowerCase().split("-")[0]; if (ok(b)) return b; }
+  return "tr";
+}
+function applyLang(l, push) {
+  lang = I18N[l] ? l : "tr";
+  document.documentElement.lang = lang;
+  $$("[data-i18n]").forEach((el) => { el.textContent = t(el.dataset.i18n); });
+  $$("[data-i18n-attr]").forEach((el) => { el.dataset.i18nAttr.split(";").forEach((pair) => { const [a, k] = pair.split(":"); el.setAttribute(a.trim(), t(k.trim())); }); });
+  $("#langCode").textContent = lang.toUpperCase();
+  try { localStorage.setItem("af_lang", lang); } catch (e) {}
+  if (push) { try { const u = new URL(location.href); u.searchParams.set("lang", lang); history.replaceState(null, "", u); } catch (e) {} }
+  const ul = $("#barList"), wa = $('[data-k="wa"]', ul), tg = $('[data-k="tg"]', ul);
+  if (cis()) ul.insertBefore(tg, wa); else ul.insertBefore(wa, tg);
+  $("#barRoute").href = cis() ? Y_ROUTE : G_ROUTE;
+  const rG = $("#routeG"), rY = $("#routeY");
+  if (cis()) { $("#routes").insertBefore(rY, rG); rY.className = "btn btn-navy btn-sm"; rG.className = "btn btn-line btn-sm"; }
+  else { $("#routes").insertBefore(rG, rY); rG.className = "btn btn-navy btn-sm"; rY.className = "btn btn-line btn-sm"; }
+  buildLangMenu(); syncTheme(); renderAll();
+}
+function buildLangMenu() {
+  const m = $("#langMenu");
+  m.setAttribute("aria-label", t("lang_btn"));
+  m.innerHTML = LANGS.map(([c, n]) => '<button role="menuitemradio" aria-checked="' + (c === lang) + '" data-l="' + c + '" lang="' + c + '"><span>' + n + '</span><span class="code">' + c.toUpperCase() + '</span></button>').join("");
+}
+(function langMenu() {
+  const btn = $("#langBtn"), menu = $("#langMenu");
+  const close = (focus) => { menu.hidden = true; btn.setAttribute("aria-expanded", "false"); if (focus) btn.focus(); };
+  btn.addEventListener("click", (e) => { e.stopPropagation(); const open = menu.hidden; menu.hidden = !open; btn.setAttribute("aria-expanded", String(open)); if (open) { const cur = $('[aria-checked="true"]', menu) || $("button", menu); cur && cur.focus(); } });
+  menu.addEventListener("click", (e) => { const b = e.target.closest("button[data-l]"); if (!b) return; applyLang(b.dataset.l, true); close(true); });
+  menu.addEventListener("keydown", (e) => {
+    const items = $$("button", menu), i = items.indexOf(document.activeElement);
+    if (e.key === "ArrowDown") { e.preventDefault(); items[(i + 1) % items.length].focus(); }
+    if (e.key === "ArrowUp") { e.preventDefault(); items[(i - 1 + items.length) % items.length].focus(); }
+    if (e.key === "Escape") close(true);
+  });
+  document.addEventListener("click", (e) => { if (!menu.hidden && !menu.contains(e.target)) close(false); });
+})();
+
+/* ---------- open / closed (Europe/Istanbul, every day 10–22) ---------- */
+function updateLive() {
+  let h = 12;
+  try { const p = new Intl.DateTimeFormat("en-GB", {timeZone:"Europe/Istanbul", hour:"2-digit", hourCycle:"h23"}).formatToParts(new Date()); h = parseInt(p.find((x) => x.type === "hour").value, 10); } catch (e) {}
+  const open = h >= 10 && h < 22;
+  const txt = open ? t("st_open") : (h < 10 ? t("st_closed_today") : t("st_closed_tom"));
+  $$("[data-live]").forEach((el) => {
+    el.dataset.open = String(open);
+    const lt = $(".live-t", el); if (lt) lt.textContent = txt;
+    const ls = $(".live-s", el); if (ls) { ls.textContent = t(open ? "st_short_open" : "st_short_closed"); el.setAttribute("title", txt); }
+  });
+}
+
+/* ---------- helpers ---------- */
+function chipHTML(id, label, on, cls) { return '<button type="button" class="chip' + (cls ? " " + cls : "") + '" data-id="' + esc(id) + '" aria-pressed="' + (!!on) + '">' + ckIcon + '<span>' + esc(label) + '</span></button>'; }
+function segHTML(items, cur) { return items.map(([id, label]) => '<button type="button" data-id="' + id + '" aria-pressed="' + (id === cur) + '">' + esc(label) + '</button>').join(""); }
+function onPick(container, fn) { container.addEventListener("click", (e) => { const b = e.target.closest("button[data-id]"); if (b) fn(b.dataset.id, b); }); }
+function tablistKeys(list, onSel) {
+  list.addEventListener("keydown", (e) => {
+    if (e.key !== "ArrowRight" && e.key !== "ArrowLeft") return;
+    const tabs = $$("[role=tab]", list), i = tabs.indexOf(document.activeElement); if (i < 0) return;
+    const n = tabs[(i + (e.key === "ArrowRight" ? 1 : tabs.length - 1)) % tabs.length]; n.focus(); onSel(n);
+  });
+}
+/* step-by-step forms: "Adım 2/4", Back, Next */
+function Wizard(root, n) {
+  let cur = 1;
+  const show = (k, focus) => {
+    cur = k;
+    $$(".wstep", root).forEach((s) => { s.hidden = +s.dataset.step !== k; });
+    $(".wiz-n", root).textContent = fill(t("wiz_step"), {n: k, m: n});
+    $(".wiz-bar i", root).style.width = (k / n * 100) + "%";
+    $("[data-back]", root).hidden = k === 1;
+    if (focus) {
+      const h = $('.wstep[data-step="' + k + '"] .h3', root); if (h) h.focus({preventScroll: true});
+      if (root.getBoundingClientRect().top < 60) root.scrollIntoView({behavior: reduceMotion ? "auto" : "smooth", block: "start"});
+    }
+  };
+  $("[data-back]", root).addEventListener("click", () => show(Math.max(1, cur - 1), true));
+  $$("[data-next]", root).forEach((b) => b.addEventListener("click", () => show(Math.min(n, cur + 1), true)));
+  return {show, next: () => show(Math.min(n, cur + 1), true), get cur() { return cur; }};
+}
+
+/* ---------- journeys: panel swap ---------- */
+const JOURNEYS = ["repair","sell","buy","pc"];
+function openJourney(j, scroll) {
+  if (!JOURNEYS.includes(j)) return;
+  JOURNEYS.forEach((k) => { const on = k === j; document.getElementById(k).hidden = !on; const card = $('.jtile-grid [data-j="' + k + '"]'); if (card) card.setAttribute("aria-expanded", on); });
+  if (scroll) document.getElementById(j).scrollIntoView({behavior: reduceMotion ? "auto" : "smooth", block: "start"});
+}
+$$("[data-j]").forEach((a) => a.addEventListener("click", (e) => {
+  e.preventDefault();
+  if (a.dataset.preset) { rep.problem = a.dataset.preset; renderRepair(); repWiz.show(4, false); }
+  openJourney(a.dataset.j, true); history.replaceState(null, "", "#" + a.dataset.j);
+}));
+window.addEventListener("hashchange", () => { const j = location.hash.slice(1); if (JOURNEYS.includes(j)) openJourney(j, true); });
+
+/* ---------- repair wizard ---------- */
+const BRANDS = [["apple","iPhone"],["samsung","Samsung"],["xiaomi","Xiaomi"],["huawei","Huawei"],["oppo","Oppo"],["tablet",null],["other",null]];
+const MODELS = {
+  apple:["iPhone 16 Pro Max","iPhone 16 Pro","iPhone 16","iPhone 15 Pro Max","iPhone 15 Pro","iPhone 15","iPhone 14 Pro Max","iPhone 14 Pro","iPhone 14","iPhone 13","iPhone 12","iPhone 11"],
+  samsung:["Galaxy S24 Ultra","Galaxy S24","Galaxy S23","Galaxy A55","Galaxy A54","Galaxy A35","Galaxy A15"],
+  xiaomi:["Redmi Note 13 Pro","Redmi Note 13","Redmi Note 12","Xiaomi 14","Poco X6"],
+  huawei:["P30","P40","Nova 11"], oppo:["Reno 11","A78"], tablet:["iPad","iPad Air","Galaxy Tab"], other:[]
+};
+const PROBLEMS = ["screen","battery","port","back","camera","water","scratch","data","other"];
+const PREFS = [["orig","q_orig"],["oled","q_oled"],["lcd","q_lcd"],["unsure","pref_unsure"]];
+const READY = [["wa","ready_wa","WhatsApp"],["tg","ready_tg","Telegram"],["call","ready_call","Arayın"]];
+const rep = {brand:null, model:"", problem:null, pref:null, ready:null};
+const repWiz = Wizard($("#repWiz"), 4);
+const brandLabel = (id, dict) => { const b = BRANDS.find((x) => x[0] === id); if (!b) return ""; return b[1] || (dict ? dict["brand_" + id] : t("brand_" + id)); };
+function repModelText() { return $("#repModel").value.trim() || (rep.model !== "__skip" ? rep.model : ""); }
+function deviceName(dict) {
+  const model = repModelText(), bl = rep.brand ? brandLabel(rep.brand, dict) : "";
+  if (!model) return bl || (dict ? dict.device_fallback : t("device_fallback"));
+  if (!bl || rep.brand === "other" || model.toLowerCase().includes(bl.toLowerCase())) return model;
+  return bl + " " + model;
+}
+function renderRepair() {
+  $("#repBrands").innerHTML = BRANDS.map(([id]) => chipHTML(id, brandLabel(id), rep.brand === id)).join("");
+  $("#repModels").innerHTML = (MODELS[rep.brand] || []).map((m) => chipHTML(m, m, rep.model === m)).join("") + chipHTML("__skip", t("model_skip"), rep.model === "__skip", "ghost");
+  $("#repProblems").innerHTML = PROBLEMS.map((p) => chipHTML(p, t("p_" + p), rep.problem === p)).join("");
+  $("#repPrefs").innerHTML = PREFS.map(([id, k]) => chipHTML(id, t(k), rep.pref === id)).join("");
+  $("#repReady").innerHTML = READY.map(([id, k]) => chipHTML(id, t(k), rep.ready === id)).join("");
+  repWiz.show(repWiz.cur, false);
+  updateRepair();
+}
+function updateRepair() {
+  const courier = $("#repCourier").checked, note = $("#repNote").value.trim();
+  const prefK = rep.pref ? PREFS.find((x) => x[0] === rep.pref)[1] : null;
+  const rd = rep.ready ? READY.find((x) => x[0] === rep.ready) : null;
+  const touched = rep.brand || rep.problem || repModelText();
+  let first;
+  if (!touched) first = t("wa_rep_generic");
+  else if (!rep.problem) first = fill(t("wa_rep_dev"), {d: deviceName()});
+  else first = fill(t("wa_rep"), {d: deviceName(), p: lower(t("p_" + rep.problem))});
+  const msg = buildMsg(
+    [first, prefK ? t("pref_lbl") + ": " + t(prefK) + "." : "", rd ? t("wa_ready_lbl") + ": " + t(rd[1]) + "." : "", courier ? t("wa_courier") : "", note],
+    ["🔔 TALEP: Tamir",
+     "📱 " + (touched ? deviceName(TR) : "—") + " · Arıza: " + (rep.problem ? TR["p_" + rep.problem] : "belirtilmedi") + " · Parça tercihi: " + (prefK ? TR[prefK] : "belirtilmedi"),
+     rd ? "📣 Hazır olunca: " + rd[2] : "", courier ? "🚗 Adrese teslimat soruyor" : "", note ? "📝 Müşteri notu: yukarıda, müşterinin dilinde" : ""]);
+  setMsg("repair", msg);
+  $("#repPreview").hidden = !rep.brand;
+  $("#repBubble").innerHTML = esc(msg) + '<span class="meta">' + new Intl.DateTimeFormat(LOCALE[lang], {hour:"2-digit", minute:"2-digit"}).format(new Date()) + " " + icon("i-dcheck") + '</span>';
+}
+onPick($("#repBrands"), (id) => { if (rep.brand !== id) rep.model = ""; rep.brand = id; renderRepair(); repWiz.show(MODELS[id].length ? 2 : 2, true); });
+onPick($("#repModels"), (id) => { rep.model = id; renderRepair(); repWiz.show(3, true); });
+onPick($("#repProblems"), (id) => { rep.problem = id; renderRepair(); repWiz.show(4, true); });
+onPick($("#repPrefs"), (id) => { rep.pref = rep.pref === id ? null : id; renderRepair(); });
+onPick($("#repReady"), (id) => { rep.ready = rep.ready === id ? null : id; renderRepair(); });
+["input","change"].forEach((ev) => { $("#repModel").addEventListener(ev, updateRepair); $("#repNote").addEventListener(ev, updateRepair); });
+$("#repCourier").addEventListener("change", updateRepair);
+
+/* ---------- sell wizard: estimator (demo formula) + photo request ---------- */
+const SELL = {
+  apple:["iPhone 16 Pro Max","iPhone 16 Pro","iPhone 16","iPhone 15 Pro Max","iPhone 15 Pro","iPhone 15","iPhone 14 Pro Max","iPhone 14 Pro","iPhone 14","iPhone 13","iPhone 12","iPhone 11"],
+  samsung:["Galaxy S24 Ultra","Galaxy S24","Galaxy S23 Ultra","Galaxy S23","Galaxy A55","Galaxy A54","Galaxy A35"],
+  xiaomi:["Xiaomi 14","Redmi Note 13 Pro","Redmi Note 13","Redmi Note 12"],
+  other:[]
+};
+const STORAGE = [["64","64 GB"],["128","128 GB"],["256","256 GB"],["512","512 GB"],["1024","1 TB"]];
+const BAT = [["1","bat_1"],["2","bat_2"],["3","bat_3"],["4","bat_4"]];
+const BAT_TR = {"1":"%100–90", "2":"%89–80", "3":"%80 altı", "4":"bilmiyor"};
+const sell = {brand:null, model:"", storage:null, bat:null, screen:null, body:null, box:null, doc:null};
+const PRE = {apple:"iPhone", samsung:"Samsung", xiaomi:"Xiaomi", other:""};
+const sellWiz = Wizard($("#sellWiz"), 3);
+const needText = () => sell.brand && (!SELL[sell.brand].length || sell.model === "__other");
+function sellModelName() {
+  if (!sell.brand) return "";
+  if (needText()) { const typed = $("#sModelOther").value.trim(), pre = PRE[sell.brand]; if (!typed) return pre; return pre && !typed.toLowerCase().includes(pre.toLowerCase()) ? pre + " " + typed : typed; }
+  return sell.model;
+}
+function renderSellModels() {
+  const list = sell.brand ? SELL[sell.brand] : [], q = $("#sSearch").value.trim().toLowerCase();
+  $("#sModels").innerHTML = list.filter((m) => !q || m.toLowerCase().includes(q)).map((m) => chipHTML(m, m, sell.model === m)).join("") + chipHTML("__other", t("s_model_other"), sell.model === "__other", "ghost");
+}
+function renderSell() {
+  $("#sBrands").innerHTML = [["apple","iPhone"],["samsung","Samsung"],["xiaomi","Xiaomi"],["other",t("brand_other")]].map(([id, l]) => chipHTML(id, l, sell.brand === id)).join("");
+  $("#sModelsWrap").hidden = !(sell.brand && SELL[sell.brand].length);
+  renderSellModels();
+  $("#sStorage").innerHTML = STORAGE.map(([id, l]) => chipHTML(id, l, sell.storage === id)).join("");
+  $("#sBat").innerHTML = BAT.map(([id, k]) => chipHTML(id, t(k), sell.bat === id)).join("");
+  $("#sScreen").innerHTML = segHTML([["1",t("s_screen_1")],["2",t("s_screen_2")],["3",t("s_screen_3")]], sell.screen);
+  $("#sBody").innerHTML = segHTML([["1",t("s_body_1")],["2",t("s_body_2")],["3",t("s_body_3")]], sell.body);
+  $("#sBox").innerHTML = segHTML([["yes",t("yes")],["no",t("no")]], sell.box);
+  $("#sDoc").innerHTML = segHTML([["yes",t("yes")],["no",t("no")],["unk",t("bat_4")]], sell.doc);
+  sellWiz.show(sellWiz.cur, false);
+  updateSell();
+}
+const trS = {"1":"s_screen_1", "2":"s_screen_2", "3":"s_screen_3"}, trB = {"1":"s_body_1", "2":"s_body_2", "3":"s_body_3"};
+function sellSummaryTR() {
+  const st = sell.storage ? STORAGE.find((x) => x[0] === sell.storage)[1] : "";
+  return "📱 " + [sellModelName() || "—", st, sell.bat ? "Pil: " + BAT_TR[sell.bat] : "", sell.screen ? "Ekran: " + TR[trS[sell.screen]] : "", sell.body ? "Kasa: " + TR[trB[sell.body]] : "",
+    sell.box ? "Kutu/şarj: " + (sell.box === "yes" ? "var" : "yok") : "", sell.doc ? "Garanti belgesi: " + ({yes:"var", no:"yok", unk:"bilmiyor"}[sell.doc]) : ""].filter(Boolean).join(" · ");
+}
+function updateSell() {
+  $("#sModelOtherWrap").hidden = !needText();
+  const st = sell.storage ? STORAGE.find((x) => x[0] === sell.storage)[1] : "";
+  const name = sellModelName(), trade = $("#sTrade").checked;
+  setMsg("sell", buildMsg([name ? fill(t("wa_sell"), {d: name + (st ? ", " + st : "")}) : t("wa_sell_generic"), trade ? t("wa_trade") : ""],
+    ["🔔 TALEP: Telefon satış teklifi", sellSummaryTR(), trade ? "🔁 Yeni telefonla takas soruyor" : "", "📷 Fotoğrafları WhatsApp'tan isteyin"]));
+}
+onPick($("#sBrands"), (id) => { sell.brand = id; sell.model = SELL[id].length ? "" : "__other"; $("#sSearch").value = ""; renderSell(); });
+onPick($("#sModels"), (id) => { sell.model = id; renderSell(); if (id !== "__other") sellWiz.show(2, true); });
+$("#sSearch").addEventListener("input", renderSellModels);
+onPick($("#sStorage"), (id) => { sell.storage = id; renderSell(); });
+onPick($("#sBat"), (id) => { sell.bat = id; renderSell(); });
+onPick($("#sScreen"), (id) => { sell.screen = id; renderSell(); });
+onPick($("#sBody"), (id) => { sell.body = id; renderSell(); });
+onPick($("#sBox"), (id) => { sell.box = id; renderSell(); });
+onPick($("#sDoc"), (id) => { sell.doc = id; renderSell(); });
+$("#sModelOther").addEventListener("input", updateSell);
+$("#sTrade").addEventListener("change", updateSell);
+
+/* ---------- buy: real photo above plain rows, one-tap stock question ---------- */
+const CAT = {
+  new: [{m:"iPhone 16", s:["128 GB","256 GB"]}, {m:"iPhone 15", s:["128 GB","256 GB"]}, {m:"Galaxy S24", s:["128 GB","256 GB"]}, {m:"Redmi Note 13 Pro", s:["256 GB"]}],
+  used: [{m:"iPhone 15 Pro", s:["128 GB","256 GB"]}, {m:"iPhone 14", s:["128 GB"]}, {m:"iPhone 13", s:["128 GB","256 GB"]}, {m:"Galaxy A54", s:["128 GB"]}]
+};
+let catSel = "new";
+const catStore = {};
+function catMsg(p, s) {
+  const used = catSel === "used";
+  return buildMsg([fill(t("wa_buy"), {m:p.m, s:s, c: used ? t("cond_used") : t("cond_new")})], ["🔔 TALEP: Stok sorusu", "📱 " + p.m + " · " + s + " · " + (used ? "2. el" : "Sıfır")]);
+}
+function renderCatalog() {
+  $$("#bTabs [role=tab]").forEach((b) => { const on = b.dataset.c === catSel; b.setAttribute("aria-selected", on); b.tabIndex = on ? 0 : -1; });
+  $("#catalog").setAttribute("aria-labelledby", "bt-" + catSel);
+  $("#catalog").innerHTML = CAT[catSel].map((p, i) => {
+    const key = "buy:" + catSel + i, s = catStore[key] || p.s[0];
+    MSG[key] = catMsg(p, s);
+    const meta = catSel === "used" ? '<span class="m"><b>' + esc(t("badge_checked")) + '</b></span>' : '<span class="m">' + esc(t("cond_new")) + '</span>';
+    return '<article class="prow" data-k="' + key + '" data-i="' + i + '"><div class="t"><h4 class="h3" style="margin:0;font-family:var(--f-body);font-weight:700" translate="no">' + p.m + '</h4>' + meta + '</div>' +
+      '<div class="st" role="group" aria-label="' + esc(t("s_storage")) + '">' + p.s.map((x) => '<button type="button" aria-pressed="' + (x === s) + '" data-s="' + x + '">' + x + '</button>').join("") + '</div>' +
+      '<div class="send stack">' + sendHTML(key, t("card_ask")) + '</div></article>';
+  }).join("");
+}
+$("#bTabs").addEventListener("click", (e) => { const b = e.target.closest("[role=tab]"); if (b) { catSel = b.dataset.c; renderCatalog(); } });
+tablistKeys($("#bTabs"), (b) => { catSel = b.dataset.c; renderCatalog(); });
+$("#catalog").addEventListener("click", (e) => {
+  const b = e.target.closest("button[data-s]"); if (!b) return;
+  const row = b.closest(".prow"), key = row.dataset.k; catStore[key] = b.dataset.s;
+  $$("button[data-s]", row).forEach((x) => x.setAttribute("aria-pressed", x === b));
+  setMsg(key, catMsg(CAT[catSel][+row.dataset.i], b.dataset.s));
+});
+
+/* ---------- computer + data ---------- */
+const PC_ISSUES = ["slow","screen","keyboard","battery","windows","clean","other"];
+const pc = {type:"laptop", issues:new Set()};
+const dt = {from:"iphone", to:"iphone"};
+const DLABEL = {iphone:"iPhone", android:"Android"};
+function renderPC() {
+  $("#pcType").innerHTML = segHTML([["laptop",t("pc_laptop")],["desktop",t("pc_desktop")]], pc.type);
+  $("#pcIssues").innerHTML = PC_ISSUES.map((i) => chipHTML(i, t("c_" + i), pc.issues.has(i))).join("");
+  $("#dFrom").innerHTML = ["iphone","android"].map((x) => chipHTML(x, DLABEL[x], dt.from === x)).join("");
+  $("#dTo").innerHTML = ["iphone","android"].map((x) => chipHTML(x, DLABEL[x], dt.to === x)).join("");
+  updatePC();
+}
+function updatePC() {
+  const model = $("#pcModel").value.trim(), issues = PC_ISSUES.filter((i) => pc.issues.has(i));
+  const d = t("pc_" + pc.type) + (model ? " (" + model + ")" : "");
+  const first = issues.length ? fill(t("wa_pc"), {d: d, p: issues.map((i) => lower(t("c_" + i))).join(", ")}) : fill(t("wa_pc_generic"), {d: d});
+  setMsg("pc", buildMsg([first], ["🔔 TALEP: Bilgisayar tamiri", "💻 " + TR["pc_" + pc.type] + (model ? " · " + model : "") + " · Sorun: " + (issues.length ? issues.map((i) => TR["c_" + i]).join(", ") : "belirtilmedi")]));
+  setMsg("data", buildMsg([fill(t("wa_data"), {a: DLABEL[dt.from], b: DLABEL[dt.to]})], ["🔔 TALEP: Veri aktarımı", "📲 Eski: " + DLABEL[dt.from] + " → Yeni: " + DLABEL[dt.to] + " (rehber, fotoğraflar, WhatsApp)"]));
+  setMsg("rec", buildMsg([t("wa_rec")], ["🔔 TALEP: Veri kurtarma sorusu", "📵 Telefon açılmıyor, fotoğraflar lazım (kurtarılabilir mi?)"]));
+}
+onPick($("#pcType"), (id) => { pc.type = id; renderPC(); });
+onPick($("#pcIssues"), (id) => { pc.issues.has(id) ? pc.issues.delete(id) : pc.issues.add(id); renderPC(); });
+onPick($("#dFrom"), (id) => { dt.from = id; renderPC(); });
+onPick($("#dTo"), (id) => { dt.to = id; renderPC(); });
+$("#pcModel").addEventListener("input", updatePC);
+
+/* ---------- other links ---------- */
+function renderLinks() {
+  setMsg("acc", buildMsg([t("wa_acc")], ["🔔 TALEP: Aksesuar sorusu (kılıf / ekran koruyucu)"]));
+  setMsg("courier", buildMsg([t("wa_courier_q")], ["🔔 TALEP: Adrese teslimat / kurye sorusu"]));
+  setMsg("quick", buildMsg([t("wa_quick")], ["🔔 TALEP: Küçük iş (hemen yapılabilir mi?)"]));
+  setMsg("general", buildMsg([t("wa_rep_generic")], ["🔔 TALEP: Fiyat sorusu (genel)"]));
+  $("#svAcc").href = waURL(MSG.acc); $("#svCourier").href = waURL(MSG.courier); $("#svQuick").href = waURL(MSG.quick); $("#barWa").href = waURL(MSG.general);
+}
+
+/* ---------- work + matching real review ---------- */
+const WORK = [
+  {id:"back", img:"after.jpg", w:900, h:1126, link:"#proof", t:"w_back_t", s:"w_back_s", rv:{k:"wr1", o:"tr", who:"Asena Ö.", dev:"iPhone 14 Pro Max", text:"…berbat halden harika hale çevirdiler, işlemi 2 saat içerisinde bitirdiler…"}},
+  {id:"bat", img:"battery2.jpg", w:900, h:1600, t:"w_bat_t", s:"w_bat_s", rv:{k:"wr2", o:"ru", who:null, dev:"iPhone 15 Pro", text:"…за 2 часа, пока гуляли по ТЦ, все было прекрасно сделано…"}},
+  {id:"scr", img:"reel.jpg", w:720, h:900, t:"w_scr_t", s:"w_scr_s", rv:{k:"rv3", o:"ru", who:null, dev:"iPhone 14 Pro", text:"…в подарок установили защитное стекло и сделали скидку на чехол."}},
+  {id:"cam", img:"lens.jpg", w:900, h:1498, t:"w_cam_t", s:"w_cam_s", ig:"https://www.instagram.com/antalyafix/reel/DJKTypLMD-9/"},
+  {id:"data", img:"transfer.jpg", w:900, h:1600, t:"p_data", s:"w_data_s"},
+  {id:"phones", img:"boxes.jpg", w:900, h:1600, t:"w_ph_t", s:"w_ph_s", ig:"https://www.instagram.com/antalyafix/reel/DE_J1OdCswb/"}
+];
+const openOrig = new Set();
+function quoteBlock(r, uid) {
+  const same = r.o === lang, body = same ? r.text : t(r.k);
+  let h = '<div class="wq"><span class="stars" aria-hidden="true">' + stars(5) + '</span><q' + (same ? ' lang="' + r.o + '"' : "") + '>' + esc(body) + '</q><span class="by">' + esc(r.who || t("rev_ru_author")) + " · " + esc(t("rev_google_lbl")) + (r.dev ? ' · <span translate="no">' + r.dev + '</span>' : "") + '</span>';
+  if (!same) { const open = openOrig.has(uid); h += '<span class="orig" id="o-' + uid + '" lang="' + r.o + '"' + (open ? "" : " hidden") + '>' + esc(r.text) + '</span><button type="button" class="tgl" aria-expanded="' + open + '" aria-controls="o-' + uid + '" data-o="' + uid + '">' + esc(open ? t("rev_hide") : t("rev_show")) + '</button>'; }
+  return h + '</div>';
+}
+function renderWork() {
+  $("#wkRail").innerHTML = WORK.map((w) => {
+    const key = "svc:" + w.id, title = t(w.t);
+    MSG[key] = buildMsg([fill(t("wa_svc"), {s: lower(title)})], ["🔔 TALEP: Fiyat sorusu · " + TR[w.t]]);
+    const pic = '<img src="../media/' + w.img + '" width="' + w.w + '" height="' + w.h + '" loading="lazy" decoding="async" alt="">';
+    return '<article class="wk">' +
+      (w.link ? '<a class="pic" href="' + w.link + '">' + pic + '<span class="tag">' + icon("i-lr") + esc(t("before_lbl") + " / " + t("after_lbl")) + '</span></a>' : '<div class="pic">' + pic + '</div>') +
+      '<div class="body"><h3 class="h3" style="margin:0">' + esc(title) + '</h3><p>' + esc(t(w.s)) + '</p>' +
+      (w.rv ? quoteBlock(w.rv, "w" + w.id) : "") +
+      (w.ig ? '<a class="iglink" href="' + w.ig + '" target="_blank" rel="noopener">' + icon("i-ig") + esc(t("w_ig")) + '</a>' : "") +
+      '<div class="send">' + sendHTML(key, t("w_ask")) + '</div></div></article>';
+  }).join("");
+  dotsFor("wkRail", "wkDots", WORK.length);
+}
+
+/* ---------- reviews (verbatim originals, translation shown first) ---------- */
+const REVIEWS = [
+  {k:"rv1", o:"tr", who:"Asena Ö.", dev:"iPhone 14 Pro Max", text:"iPhone 14 Pro Max telefonumu berbat halden harika hale çevirdiler, işlemi 2 saat içerisinde bitirdiler, ekran koruyucu da hediye ettiler."},
+  {k:"rv2", o:"ru", who:null, dev:"iPhone 15 Pro", text:"…за 2 часа, пока гуляли по ТЦ, все было прекрасно сделано… оригинальный аккумулятор… Ridvan говорит на английском."},
+  {k:"rv3", o:"ru", who:null, dev:"iPhone 14 Pro", text:"…в подарок установили защитное стекло и сделали скидку на чехол."},
+  {k:"rv4", o:"tr", who:"Selim D.", dev:null, text:"Dokunmadan telefonumuzu yaptı ve gülümseme ile uğurladılar."},
+  {k:"rv5", o:"tr", who:"Aktan V.", guide:true, dev:null, text:"…tamir ücretleri neredeyse bedava."},
+  {k:"rv6", o:null, who:"Cansu Ç. T.", dev:null, text:null}
+];
+function renderReviews() {
+  $("#revRail").innerHTML = REVIEWS.map((r, i) => {
+    const same = r.o === lang, body = same ? r.text : t(r.k), uid = "r" + i;
+    let extra = "";
+    if (!r.o) extra = '<span class="sumtag">' + esc(t("rev_summary")) + '</span>';
+    else if (!same) { const open = openOrig.has(uid); extra = '<p class="orig" id="o-' + uid + '" lang="' + r.o + '"' + (open ? "" : " hidden") + '>' + esc(r.text) + '</p><button type="button" class="tgl" aria-expanded="' + open + '" aria-controls="o-' + uid + '" data-o="' + uid + '">' + esc(open ? t("rev_hide") : t("rev_show")) + '</button>'; }
+    return '<article class="rev"><div class="top"><span class="stars" aria-label="5/5">' + stars(5) + '</span>' + (r.dev ? '<span class="dev" translate="no">' + r.dev + '</span>' : "") + '</div>' +
+      '<blockquote' + (same ? ' lang="' + r.o + '"' : "") + '>“' + esc(body) + '”</blockquote>' + extra +
+      '<div class="who"><span class="av" aria-hidden="true">' + esc(r.who ? r.who.charAt(0) : "G") + '</span><div><b>' + esc(r.who || t("rev_ru_author")) + '</b><span>' + esc(t("rev_google_lbl")) + (r.guide ? " · " + esc(t("rev_guide")) : "") + '</span></div></div></article>';
+  }).join("");
+  dotsFor("revRail", "revDots", REVIEWS.length);
+}
+document.addEventListener("click", (e) => {
+  const b = e.target.closest(".tgl"); if (!b) return;
+  const uid = b.dataset.o; openOrig.has(uid) ? openOrig.delete(uid) : openOrig.add(uid);
+  const open = openOrig.has(uid); document.getElementById("o-" + uid).hidden = !open; b.setAttribute("aria-expanded", open); b.textContent = open ? t("rev_hide") : t("rev_show");
+});
+function dotsFor(railId, dotsId, n) { $("#" + dotsId).innerHTML = Array.from({length: n}, (_, i) => '<i class="' + (i === 0 ? "on" : "") + '"></i>').join(""); syncDots(railId, dotsId); }
+function syncDots(railId, dotsId) {
+  const rail = document.getElementById(railId), first = rail.firstElementChild; if (!first) return;
+  const i = Math.round(rail.scrollLeft / (first.getBoundingClientRect().width + 12));
+  $$("#" + dotsId + " i").forEach((d, k) => d.classList.toggle("on", k === Math.min(i, rail.children.length - 1)));
+}
+[["wkRail","wkDots"],["revRail","revDots"]].forEach(([r, d]) => { let raf = 0; document.getElementById(r).addEventListener("scroll", () => { cancelAnimationFrame(raf); raf = requestAnimationFrame(() => syncDots(r, d)); }, {passive:true}); });
+$$("[data-rail]").forEach((b) => b.addEventListener("click", () => {
+  const rail = document.getElementById(b.dataset.rail), first = rail.firstElementChild; if (!first) return;
+  rail.scrollBy({left: +b.dataset.dir * (first.getBoundingClientRect().width + 12), behavior: reduceMotion ? "auto" : "smooth"});
+}));
+
+/* ---------- reel (first screen, muted autoplay, pausable) + before/after ---------- */
+(function reel() {
+  const v = $("#reel");
+  if (reduceMotion) return;
+  let loaded = false;
+  const load = () => { if (!loaded) { v.src = v.dataset.src; loaded = true; } };
+  if (!("IntersectionObserver" in window)) { load(); v.play().catch(() => {}); return; }
+  new IntersectionObserver((en) => { if (en[0].isIntersecting) { load(); v.play().catch(() => {}); } else if (!v.paused) v.pause(); }, {threshold:.25}).observe(v);
+})();
+(function heroVideo() {
+  const v = $("#heroVid"), wide = window.matchMedia("(min-width:900px)").matches, base = wide ? v.dataset.d : v.dataset.m;
+  v.poster = base + ".jpg"; if (wide) { v.width = 1280; v.height = 720; }
+  if (reduceMotion) return;
+  v.src = base + ".mp4"; const go = () => v.play().catch(() => {}); go();
+  document.addEventListener("visibilitychange", () => { if (!document.hidden) go(); });
+})();
+(function beforeAfter() { const box = $("#ba"), r = $("#baRange"); const set = () => box.style.setProperty("--p", r.value + "%"); r.addEventListener("input", set); set(); })();
+
+/* ---------- part quality tabs ---------- */
+function renderQuality() {}
+
+/* ---------- map loads on tap ---------- */
+function showMap(m) {
+  [["g", $("#mapG")], ["y", $("#mapY")]].forEach(([k, fr]) => {
+    const on = k === m; fr.hidden = !on;
+    if (on && !fr.getAttribute("src")) fr.setAttribute("src", fr.dataset.src);
+    const tab = document.getElementById("mt-" + k); tab.setAttribute("aria-selected", on); tab.tabIndex = on ? 0 : -1;
+  });
+}
+$("#mapShow").addEventListener("click", () => { $("#mapPh").hidden = true; $("#mapWrap").hidden = false; const m = cis() ? "y" : "g"; showMap(m); $("#mt-" + m).focus(); });
+$("#mapTabs").addEventListener("click", (e) => { const b = e.target.closest("[role=tab]"); if (b) showMap(b.dataset.m); });
+tablistKeys($("#mapTabs"), (b) => showMap(b.dataset.m));
+
+/* ---------- route path: the one authored animation ---------- */
+(function route() {
+  const path = $("#fpath"), dot = $("#fdot"), stops = $$("#stops li"), L = path.getTotalLength();
+  const setAt = (f) => { const pt = path.getPointAtLength(L * f); dot.setAttribute("cx", pt.x); dot.setAttribute("cy", pt.y); path.style.strokeDasharray = L; path.style.strokeDashoffset = L * (1 - f); stops.forEach((s, i) => s.classList.toggle("on", f >= i / 2 - .02)); };
+  if (reduceMotion || !("IntersectionObserver" in window)) { setAt(1); $$(".anim").forEach((a) => a.remove()); return; }
+  setAt(0);
+  const io = new IntersectionObserver((en) => {
+    if (!en.some((e) => e.isIntersecting)) return; io.disconnect();
+    const t0 = performance.now(), D = 2400, ease = (x) => x < .5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2;
+    const tick = (now) => { const f = Math.min(1, (now - t0) / D); setAt(ease(f)); if (f < 1) requestAnimationFrame(tick); };
+    requestAnimationFrame(tick);
+  }, {threshold:.4});
+  io.observe($(".path-card"));
+})();
+
+/* ---------- back to top ---------- */
+(function toTop() {
+  const b = $("#toTop");
+  const go = (e) => { if (e) e.preventDefault(); window.scrollTo({top: 0, behavior: reduceMotion ? "auto" : "smooth"}); };
+  b.addEventListener("click", go); $("#logoTop").addEventListener("click", go);
+  let raf = 0;
+  window.addEventListener("scroll", () => { cancelAnimationFrame(raf); raf = requestAnimationFrame(() => { b.hidden = window.scrollY < window.innerHeight * 1.5; }); }, {passive:true});
+})();
+
+function renderAll() {
+  renderRatings(); renderSends(); renderRepair(); renderSell(); renderCatalog(); renderPC(); renderLinks(); renderWork(); renderReviews(); renderQuality(); updateLive();
+}
+applyLang(pickInitialLang(), false);
+(function initialHash() { const j = location.hash.slice(1); if (JOURNEYS.includes(j)) openJourney(j, true); })();
+setInterval(updateLive, 30000);
+</script>
+</body>
+</html>
