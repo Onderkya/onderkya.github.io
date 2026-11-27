@@ -11,7 +11,7 @@
   function SRC(e) { e = pick(e); if (/^px:/.test(e)) return 'https://videos.pexels.com/video-files/' + e.slice(3) + '.mp4'; return /^https?:/.test(e) ? e : MK(e); }
   function PST(e) { e = pick(e); if (/^px:/.test(e)) { var n = e.slice(3).split('/')[0]; return 'https://images.pexels.com/videos/' + n + '/pexels-photo-' + n + '.jpeg?auto=compress&cs=tinysrgb&w=1280'; } return /^\d+$/.test(e) ? MP(e) : ''; }
   /* Pexels büyük kapak yoksa küçük önizlemeye düş */
-  function pfix(img) { img.addEventListener('error', function () { var m = img.src.match(/videos\/(\d+)\/pexels-photo/); if (m) img.src = 'https://images.pexels.com/videos/' + m[1] + '/pictures/preview-0.jpg'; }); }
+  function pfix(img) { img.addEventListener('error', function () { var m = img.src.match(/videos\/(\d+)\/pexels-photo/); if (m) img.src = 'https://images.pexels.com/videos/' + m[1] + '/pictures/preview-0.jpg'; else img.style.visibility = 'hidden'; }); img.addEventListener('load', function () { img.style.visibility = ''; }); }
   var reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
   var css = '.reel{position:relative;overflow:hidden;background:#111;isolation:isolate}.reel>video,.reel>img.reel__p{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}' +
     '.reel>video{opacity:0;transition:opacity 1.1s cubic-bezier(.4,0,.2,1),transform 6s linear,clip-path 1.1s cubic-bezier(.7,0,.2,1)}.reel>video.on{opacity:1;z-index:1}' +
