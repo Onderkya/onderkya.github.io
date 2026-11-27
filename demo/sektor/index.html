@@ -50,7 +50,7 @@ var D = [
   ['guzellik', 'Güzellik merkezi', 'La Beauté', true],
   ['cicekci', 'Çiçekçi', 'Flower Farm Antalya', true],
   ['kuru-temizleme', 'Kuru temizleme', 'Kardelen Organik', true],
-  ['telefon', 'Telefon tamiri', 'Cep Atölyesi', false]
+  ['telefon', 'Telefon tamiri', 'Cep Atölyesi', true]
 ];
 document.getElementById('grid').innerHTML = D.map(function (d) {
   return '<a class="card' + (d[3] ? '' : ' soon') + '" href="' + (d[3] ? d[0] + '/' : '#') + '"><img src="_prev/' + d[0] + '.jpg" alt="" loading="lazy" width="390" height="844" onerror="this.remove()"><span class="card__b"><small>' + d[2] + '</small><strong>' + d[1] + '</strong><i>' + (d[3] ? 'Demoyu aç' : 'Hazırlanıyor') + '</i></span></a>';
