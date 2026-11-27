@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="ru" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#FFF4F0">
+<title>La Beauté · Konyaaltı</title>
+<meta name="description" content="">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://assets.mixkit.co">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="https://assets.mixkit.co/videos/7167/7167-thumb-720-0.jpg">
+<link rel="preconnect" href="https://videos.pexels.com"><link rel="preconnect" href="https://images.pexels.com">
+<link rel="stylesheet" href="../_kit/kit.css">
+<style>
+:root{--k-bg:#FFF4F0;--k-fg:#3A1E2A;--k-muted:#80606C;--k-surface:#FFFFFF;--k-line:#F1DCD6;--k-acc:#B4245A;--k-acc-fg:#FFF4F0;--gold:#C98B6B;--k-font:'Raleway',system-ui,sans-serif;--k-display:'Cormorant Garamond',Georgia,serif;--k-dock-bg:rgba(255,244,240,.92);--k-btn-radius:99px;--ease:cubic-bezier(.16,1,.3,1)}
+[data-theme=dark]{--k-bg:#26161D;--k-fg:#FBEAF0;--k-muted:#C9A9B5;--k-surface:#331E27;--k-line:#4A2E3A;--k-acc:#F07AA2;--k-acc-fg:#26161D;--gold:#E2AE8E;--k-dock-bg:rgba(38,22,29,.92)}
+::selection{background:var(--k-acc);color:var(--k-acc-fg)}
+.wrap{width:min(1200px,100% - 32px);margin-inline:auto}
+h1,h2,h3{font-family:var(--k-display);font-weight:500;margin:0;letter-spacing:-.01em}
+/* hero: tırnak videoları (telefonda çerçeveli kart, masaüstünde tam ekran) */
+.hero{position:relative;display:flex;flex-direction:column;isolation:isolate;color:var(--k-fg);overflow-x:clip}
+.hero__reel{position:relative;height:56svh;min-height:340px;margin:0 12px;border-radius:30px;overflow:hidden;box-shadow:0 30px 60px -30px rgba(58,30,42,.55)}
+.top{padding:12px 0;position:relative;z-index:3}
+.top .wrap{display:flex;align-items:center;gap:10px}
+.brand{margin-right:auto;text-decoration:none;color:inherit;min-height:44px;display:flex;align-items:center;font:600 26px/1 var(--k-display)}
+.hero__in{position:relative;z-index:2;padding:22px 0 36px}
+.hero h1{font-size:clamp(74px,23vw,280px);line-height:.8;letter-spacing:-.04em;font-weight:500}
+.hero h1 i{font-style:italic;color:var(--k-acc)}
+.hero p{font-size:15px;margin:14px 0 20px;color:var(--k-muted);letter-spacing:.02em}
+.hero__cta{display:flex;gap:10px;flex-wrap:wrap}
+.btn-w{display:inline-flex;align-items:center;gap:10px;min-height:54px;padding:0 24px;border-radius:99px;background:var(--k-acc);color:var(--k-acc-fg);font-weight:700;text-decoration:none}
+.btn-o{display:inline-flex;align-items:center;gap:10px;min-height:54px;padding:0 20px;border-radius:99px;border:1.5px solid var(--k-line);color:var(--k-fg);font-weight:600;text-decoration:none}
+.drop3d{position:absolute;right:-30px;top:calc(56svh - 150px);width:min(42vw,210px);aspect-ratio:1;z-index:4;pointer-events:none;filter:drop-shadow(0 24px 30px rgba(58,30,42,.35))}
+.hero .reel__dots{top:16px;bottom:auto;right:16px}.hero .reel__narr{font-size:clamp(26px,4.4vw,48px);max-width:13ch}@media(min-width:900px){.hero .reel__narr{left:auto;right:clamp(24px,5vw,72px);bottom:auto;top:44svh;text-align:right;max-width:11ch}.hero .reel__narr small{margin-left:auto}}.hero .reel__narr small{font-size:max(14px,.34em)}
+.hero .k-photo-tag{top:auto;bottom:14px;right:14px}
+@media(min-width:900px){
+  .hero{min-height:100svh;color:#FFF7F3}
+  .hero .hero__reel{position:absolute;inset:0;height:auto;min-height:0;margin:0;border-radius:0;box-shadow:none;z-index:-2}
+  .hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(40,14,24,.5),rgba(40,14,24,0) 30%,rgba(40,14,24,.1) 55%,rgba(40,14,24,.8));pointer-events:none}
+  .hero__in{flex:1;display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:112px}
+  .hero h1 i{color:inherit}.hero p{color:#FFF7F3;opacity:.92}
+  .btn-w{background:#FFF7F3;color:#3A1E2A}.btn-o{border-color:rgba(255,255,255,.65);color:#fff}
+  .top .brand{color:#fff}.hero .k-langs{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.3)}.hero .k-langs button{color:#fff}.hero .k-langs button[aria-pressed=true]{background:#fff;color:#3A1E2A}
+  .hero .k-theme{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.3);color:#fff}
+  .drop3d{right:4%;top:12%;width:min(22vw,300px)}
+  .hero .reel__dots{top:84px}
+}
+/* işlem haritası */
+section{padding:84px 0}
+.h2{font-size:clamp(40px,8vw,86px);line-height:.95;text-wrap:balance}
+.sub{color:var(--k-muted);margin:10px 0 0;font-size:16px}
+.map{position:relative;display:grid;grid-template-columns:minmax(0,1fr);gap:18px;margin-top:34px;align-items:center}
+.map>*{min-width:0}
+.stage{position:relative;aspect-ratio:3/4;max-width:460px;width:100%;margin-inline:auto;border-radius:999px 999px 28px 28px;overflow:hidden;box-shadow:0 40px 80px -40px rgba(58,30,42,.6)}
+.stage .reel{position:absolute;inset:0}
+.stage__info{position:absolute;left:12px;right:12px;bottom:12px;z-index:4;background:rgba(255,247,243,.9);color:#3A1E2A;border-radius:20px;padding:14px 16px;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.stage__info b{display:block;font:600 24px/1.1 var(--k-display)}
+.stage__info span{font-size:14px;color:#80606C}
+.procs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.proc{display:flex;align-items:center;gap:10px;min-height:56px;padding:8px 12px 8px 8px;border-radius:99px;border:1.5px solid var(--k-line);background:var(--k-surface);cursor:pointer;text-align:left;font-weight:600;font-size:14px;transition:transform .4s var(--ease),border-color .3s}
+.proc img{width:40px;height:40px;border-radius:50%;object-fit:cover;flex:none}
+.proc[aria-pressed=true]{border-color:var(--k-acc);transform:translateY(-2px);box-shadow:0 10px 24px -14px var(--k-acc)}
+@media(min-width:980px){.map{grid-template-columns:1fr minmax(0,440px) 1fr}.procs{display:contents}.col{display:flex;flex-direction:column;gap:12px}.col--l{align-items:flex-end}.col--l .proc{flex-direction:row-reverse;text-align:right;padding:8px 8px 8px 16px}.proc{min-width:240px}}
+.note{font-size:12px;color:var(--k-muted);text-align:center;margin-top:14px}
+/* randevu */
+.desk{display:grid;grid-template-columns:minmax(0,1fr);gap:18px;margin-top:30px}
+.desk>*{min-width:0}
+.card{background:var(--k-surface);border:1px solid var(--k-line);border-radius:28px;padding:20px}
+.lab{font-size:12px;font-weight:700;color:var(--k-muted);letter-spacing:.06em;margin:16px 0 8px}
+.lab:first-child{margin-top:0}
+.pills{display:flex;flex-wrap:wrap;gap:8px}
+.pills button{min-height:46px;padding:0 16px;border-radius:99px;border:1.5px solid var(--k-line);background:transparent;font-weight:600;font-size:14px;cursor:pointer;display:inline-flex;align-items:center;gap:8px}
+.pills button[aria-pressed=true]{background:var(--k-fg);color:var(--k-bg);border-color:var(--k-fg)}
+.dot{width:16px;height:16px;border-radius:50%;box-shadow:0 0 0 1.5px rgba(0,0,0,.08)}
+.days{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px}
+.days button{flex:none;width:66px;min-height:78px;border-radius:20px;border:1.5px solid var(--k-line);background:transparent;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;line-height:1.1}
+.days b{font:600 24px var(--k-display)}.days small{font-size:11px;color:var(--k-muted);font-weight:600;text-transform:capitalize}
+.days button[aria-pressed=true]{background:var(--k-fg);color:var(--k-bg)}.days button[aria-pressed=true] small{color:inherit}
+.slip{background:var(--k-fg);color:var(--k-bg);border-radius:28px;padding:22px}
+.slip h3{font-size:30px;font-style:italic}
+.slip ul{list-style:none;padding:0;margin:12px 0 16px;display:grid;gap:8px;font-size:14px}
+.slip li{display:flex;justify-content:space-between;gap:10px;border-bottom:1px solid color-mix(in srgb,var(--k-bg) 18%,transparent);padding-bottom:7px}
+.slip li span:first-child{opacity:.65}.slip li span:last-child{font-weight:600;text-align:right}
+.slip .k-btn{width:100%;background:var(--k-bg);color:var(--k-fg)}
+@media(min-width:960px){.desk{grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);align-items:start}.slip{position:sticky;top:20px}}
+.voice{padding:26px 0;border-block:1px solid var(--k-line);font:italic 500 clamp(28px,5vw,44px)/1.1 var(--k-display);--k-mq-speed:28s}
+.voice small{font:600 12px var(--k-font);font-style:normal;color:var(--k-muted)}
+.voice b{font-weight:500;color:var(--k-acc)}
+.find{display:grid;gap:14px;margin-top:26px}
+.find__map{border-radius:28px;overflow:hidden;min-height:300px;border:1px solid var(--k-line)}
+.find__row{display:flex;flex-wrap:wrap;gap:10px}
+.find__row .k-btn{flex:1 1 180px;background:var(--k-surface);border:1.5px solid var(--k-line);color:var(--k-fg)}
+.find__row .k-btn--main{background:var(--k-acc);color:var(--k-acc-fg);border:0}
+footer{padding:30px 0;border-top:1px solid var(--k-line)}
+footer .wrap{display:flex;flex-direction:column;gap:4px}
+@media(min-width:900px){footer{padding-bottom:110px}}
+</style>
+</head>
+<body>
+<div class="hero" id="top">
+  <header class="top"><div class="wrap">
+    <a class="brand" href="#top">La Beauté</a>
+    <div class="k-langs" role="group" data-ta="aria-label:k_lang"><button type="button" data-setlang="ru">RU</button><button type="button" data-setlang="tr">TR</button><button type="button" data-setlang="en">EN</button></div>
+    <button type="button" class="k-theme" data-theme-toggle data-ta="aria-label:k_theme"><svg class="k-i-moon"><use href="#k-moon"/></svg><svg class="k-i-sun"><use href="#k-sun"/></svg></button>
+  </div></header>
+  <div class="hero__reel" id="nails" data-slow="0.7" data-grade="cine" data-reel="7167,7412,13088,23384,13087,36905,22417,7166,24761,15125,13084,24786" data-every="2600" data-fx="zoom" data-dots data-narr="hn1,hn1,hn1,hn1,hn2,hn2,hn2,hn2,hn3,hn3,hn3,hn3"><span class="k-photo-tag" data-t="tag_v"></span></div>
+  <div class="drop3d" data-3d="drop" data-color="#B3122B" id="drop"></div>
+  <main class="hero__in"><div class="wrap">
+    <h1>La <i>Beauté</i></h1>
+    <p data-t="hero_p"></p>
+    <div class="hero__cta"><a class="btn-w" href="#book" data-t="cta"></a><a class="btn-o" data-link="wa"><svg width="20" height="20"><use href="#k-wa"/></svg>WhatsApp</a></div>
+  </div></main>
+</div>
+
+<section id="care" aria-labelledby="h-care">
+  <div class="wrap">
+    <h2 class="h2" id="h-care" data-t="care_h"></h2>
+    <p class="sub" data-t="care_p"></p>
+    <div class="map">
+      <div class="col col--l procs" id="colL"></div>
+      <div class="stage"><div id="stage" data-slow="0.7" data-grade="cine" data-reel="9193" data-fx="fade"></div><div class="stage__info" aria-live="polite"><b id="pi-t"></b><span id="pi-d"></span></div></div>
+      <div class="col procs" id="colR"></div>
+    </div>
+    <p class="note" data-t="note"></p>
+  </div>
+</section>
+
+<div class="voice" data-ticker></div>
+
+<section id="book" aria-labelledby="h-book">
+  <div class="wrap">
+    <h2 class="h2" id="h-book" data-t="book_h"></h2>
+    <div class="desk">
+      <div class="card">
+        <p class="lab" data-t="f_svc"></p><div class="pills" data-g="svc" id="svcs"></div>
+        <div id="colorbox"><p class="lab" data-t="f_color"></p><div class="pills" data-g="color" id="colors"></div></div>
+        <p class="lab" data-t="f_day"></p><div class="days" id="days"></div>
+        <p class="lab" data-t="f_time"></p><div class="pills" data-g="time"><button type="button" data-v="o_morning" data-t="o_morning"></button><button type="button" data-v="o_noon" data-t="o_noon"></button><button type="button" data-v="o_evening" data-t="o_evening"></button></div>
+      </div>
+      <aside class="slip" aria-live="polite"><h3 data-t="slip_h"></h3><ul id="slip"></ul><button type="button" class="k-btn" id="send" data-t="send"></button></aside>
+    </div>
+  </div>
+</section>
+
+  <section data-night></section>
+
+<section id="find" aria-labelledby="h-find" style="padding-top:0">
+  <div class="wrap">
+    <h2 class="h2" id="h-find" data-t="find_h"></h2>
+    <div class="find">
+      <div class="find__map"><iframe class="k-map" data-map loading="lazy"></iframe></div>
+      <div class="find__row"><a class="k-btn" data-link="y" data-t="k_map_y"></a><a class="k-btn" data-link="g" data-t="k_map_g"></a><a class="k-btn k-btn--main" data-link="tel">+90 506 929 07 00</a></div>
+    </div>
+  </div>
+</section>
+<footer><div class="wrap"><span class="k-demo" data-t="k_demo"></span><span class="k-demo" data-t="credits"></span></div></footer>
+<nav class="k-dock" id="k-dock" aria-label="contact"></nav>
+<button type="button" class="k-up" id="k-up" data-ta="aria-label:k_top"></button>
+<script>
+/* ===== CONFIG ===== */
+window.SITE = {
+  id: 'labeaute', theme: 'light',
+  cfg: { name: 'La Beauté', phone: '905069290700', telegram: null, address: 'Arapsuyu, Konyaaltı, Antalya', langs: ['ru', 'tr', 'en'], defaultLang: 'ru', hours: null, mapsYandex: 'https://yandex.com.tr/maps/?text=La%20Beaut%C3%A9%20Arapsuyu%20Antalya' },
+  /* tırnak videolarına eşlik eden lake rengi (3D damla) */
+  nailColors: ['#B3122B', '#2F5FC4', '#D2452C', '#E7B7A6', '#C4436E', '#D9A441', '#C2185B', '#8E1446', '#E05A6B', '#F1C9C0', '#A3164A', '#E25E7A'],
+  /* işlem: anahtar, video, küçük resim için aynı video */
+  procs: [['p_lift', 52159], ['p_facial', 24701], ['p_laser', 52153], ['p_led', 52163], ['p_lash', 4718], ['p_mask', 52169], ['p_wax', 24657], ['p_makeup', 40541]],
+  quotes: [{ orig: 'до сих пор ни одного скола', lang: 'ru', tr: 'hâlâ hiç atma yok', en: 'still not a single chip', who: 'q_who' }],
+  tickerExtra: ['tk1'],
+  services: ['o_mani', 'o_pedi', 'o_cosm', 'o_hair'],
+  colors: [['c_red', '#B3122B'], ['c_nude', '#D6A28C'], ['c_berry', '#7E1240'], ['c_rose', '#E07A9A'], ['c_blue', '#2F5FC4'], ['c_milk', '#F1E4DE'], ['o_insalon', null]],
+  flows: {},
+  night: { href: '#book', tr: ['🔔 TALEP: Randevu', '💅 İşlem: Manikür + kalıcı oje', '🎨 Renk: Kiraz kırmızısı', '📅 Gün: Cumartesi öğleden sonra', '🌐 Müşteri dili: Rusça'] },
+  i18n: {
+    tr: {
+      night_msg: 'Cumartesi öğleden sonra manikür ve kalıcı oje için randevu istiyorum. Renk: kiraz kırmızısı.',
+      page_title: 'La Beauté · Konyaaltı', page_desc: 'Manikür, pedikür, kozmetoloji ve kuaför · Arapsuyu, Konyaaltı.',
+      tag_v: 'Temsili video', hero_p: 'Manikür · Kozmetoloji · Kuaför — Arapsuyu', hn1: 'Manikür.|Oje, nail art, bakım', hn2: 'Rengini seç.|Her videoda başka bir ton', hn3: 'Randevunu al.|WhatsApp ya da Telegram ile', cta: 'Randevu al',
+      care_h: 'Yüzünüz için', care_p: 'Bir işleme dokunun, nasıl yapıldığını görün.', note: 'Videolar temsilidir; işlem listesi salonla netleşir.',
+      p_lift: 'Lifting masajı', p_lift_d: 'Yüz hatlarını toparlayan masaj.', p_facial: 'Cilt bakımı', p_facial_d: 'Temizlik, nem ve ışıltı.', p_laser: 'Lazer', p_laser_d: 'Cilt tonu ve doku için.', p_led: 'LED maske', p_led_d: 'Işıkla cilt yenileme.',
+      p_lash: 'Kirpik', p_lash_d: 'Uzatma ve lifting.', p_mask: 'Maske', p_mask_d: 'Yoğun nem maskesi.', p_wax: 'Ağda', p_wax_d: 'Pürüzsüz cilt.', p_makeup: 'Makyaj', p_makeup_d: 'Özel gün makyajı.',
+      book_h: 'Randevu', f_svc: 'HİZMET', f_color: 'RENK', f_day: 'GÜN', f_time: 'SAAT',
+      o_mani: 'Manikür', o_pedi: 'Pedikür', o_cosm: 'Kozmetoloji', o_hair: 'Kuaför', o_morning: 'Sabah', o_noon: 'Öğle', o_evening: 'Akşam',
+      c_red: 'Kırmızı', c_nude: 'Nude', c_berry: 'Vişne', c_rose: 'Pembe', c_blue: 'Mavi', c_milk: 'Süt beyazı', o_insalon: 'Salonda seçerim',
+      slip_h: 'Fişiniz', send: 'Gönder', q_who: "Yandex · Diana'nın manikürü", tk1: 'Rusça konuşan ekip',
+      find_h: "Arapsuyu'ndayız", credits: 'Videolar Mixkit (temsili).',
+      m_title: 'Güzellik randevusu', m_line: 'Randevu almak istiyorum: {list}.', wa_hello: 'Merhaba! Randevu almak istiyorum.'
+    },
+    ru: {
+      night_msg: 'Хочу записаться на маникюр с гель-лаком в субботу после обеда. Цвет — вишнёвый.',
+      page_title: 'La Beauté · Коньяалты', page_desc: 'Маникюр, педикюр, косметология и парикмахер · Арапсую, Коньяалты.',
+      tag_v: 'Иллюстративное видео', hero_p: 'Маникюр · Косметология · Парикмахер — Арапсую', hn1: 'Маникюр.|Лак, нейл-арт, уход', hn2: 'Выберите цвет.|В каждом видео — новый оттенок', hn3: 'Запишитесь.|Через WhatsApp или Telegram', cta: 'Записаться',
+      care_h: 'Для вашего лица', care_p: 'Коснитесь процедуры — и посмотрите, как она проходит.', note: 'Видео иллюстративные; список процедур уточняется с салоном.',
+      p_lift: 'Лифтинг-массаж', p_lift_d: 'Массаж, подтягивающий овал лица.', p_facial: 'Уход за кожей', p_facial_d: 'Очищение, увлажнение, сияние.', p_laser: 'Лазер', p_laser_d: 'Для тона и текстуры кожи.', p_led: 'LED-маска', p_led_d: 'Обновление кожи светом.',
+      p_lash: 'Ресницы', p_lash_d: 'Наращивание и ламинирование.', p_mask: 'Маска', p_mask_d: 'Интенсивное увлажнение.', p_wax: 'Восковая депиляция', p_wax_d: 'Гладкая кожа.', p_makeup: 'Макияж', p_makeup_d: 'Макияж к событию.',
+      book_h: 'Запись', f_svc: 'УСЛУГА', f_color: 'ЦВЕТ', f_day: 'ДЕНЬ', f_time: 'ВРЕМЯ',
+      o_mani: 'Маникюр', o_pedi: 'Педикюр', o_cosm: 'Косметология', o_hair: 'Парикмахер', o_morning: 'Утро', o_noon: 'День', o_evening: 'Вечер',
+      c_red: 'Красный', c_nude: 'Нюд', c_berry: 'Вишня', c_rose: 'Розовый', c_blue: 'Синий', c_milk: 'Молочный', o_insalon: 'Выберу в салоне',
+      slip_h: 'Ваша запись', send: 'Отправить', q_who: 'Яндекс · маникюр у Дианы', tk1: 'Говорим по-русски',
+      find_h: 'Мы в Арапсую', credits: 'Видео Mixkit (иллюстративные).',
+      m_title: 'Запись в салон', m_line: 'Хочу записаться: {list}.', wa_hello: 'Здравствуйте! Хочу записаться.'
+    },
+    en: {
+      night_msg: 'I would like a manicure with gel polish on Saturday afternoon. Colour: cherry red.',
+      page_title: 'La Beauté · Konyaaltı', page_desc: 'Manicure, pedicure, cosmetology and hair · Arapsuyu, Konyaaltı.',
+      tag_v: 'Illustrative video', hero_p: 'Manicure · Cosmetology · Hair — Arapsuyu', hn1: 'Manicure.|Polish, nail art, care', hn2: 'Pick your colour.|A new shade in every clip', hn3: 'Book your visit.|Via WhatsApp or Telegram', cta: 'Book now',
+      care_h: 'For your face', care_p: 'Tap a treatment to see how it is done.', note: 'Videos are illustrative; the treatment list will be confirmed with the salon.',
+      p_lift: 'Lifting massage', p_lift_d: 'A massage that firms the face contour.', p_facial: 'Facial', p_facial_d: 'Cleanse, hydrate, glow.', p_laser: 'Laser', p_laser_d: 'For skin tone and texture.', p_led: 'LED mask', p_led_d: 'Skin renewal with light.',
+      p_lash: 'Lashes', p_lash_d: 'Extensions and lifting.', p_mask: 'Mask', p_mask_d: 'Intense hydration.', p_wax: 'Waxing', p_wax_d: 'Smooth skin.', p_makeup: 'Make-up', p_makeup_d: 'Make-up for your day.',
+      book_h: 'Booking', f_svc: 'SERVICE', f_color: 'COLOUR', f_day: 'DAY', f_time: 'TIME',
+      o_mani: 'Manicure', o_pedi: 'Pedicure', o_cosm: 'Cosmetology', o_hair: 'Hair', o_morning: 'Morning', o_noon: 'Midday', o_evening: 'Evening',
+      c_red: 'Red', c_nude: 'Nude', c_berry: 'Cherry', c_rose: 'Pink', c_blue: 'Blue', c_milk: 'Milky', o_insalon: 'Choose in salon',
+      slip_h: 'Your booking', send: 'Send', q_who: "Yandex · Diana's manicure", tk1: 'We speak Russian',
+      find_h: 'We are in Arapsuyu', credits: 'Videos Mixkit (illustrative).',
+      m_title: 'Salon booking', m_line: 'I would like to book: {list}.', wa_hello: 'Hello! I would like to book.'
+    }
+  },
+  onReady: function (K) {
+    var $ = K.$, $$ = K.$$, S = SITE, st = { svc: 'o_mani', color: 'c_red', day: null, time: 'o_evening', proc: null };
+    var drop = $('#drop'), nails = $('#nails');
+    nails.addEventListener('reel:change', function (e) { drop.setAttribute('data-color', S.nailColors[e.detail % S.nailColors.length]); });
+    function procs() {
+      var h = S.procs.map(function (p) { return '<button type="button" class="proc" data-proc="' + p[0] + '"><img src="' + MKP(p[1]) + '" alt="" width="40" height="40" loading="lazy">' + K.esc(K.t(p[0])) + '</button>'; });
+      $('#colL').innerHTML = h.slice(0, 4).join(''); $('#colR').innerHTML = h.slice(4).join('');
+      info();
+    }
+    function info() {
+      $$('.proc').forEach(function (b) { b.setAttribute('aria-pressed', b.dataset.proc === st.proc ? 'true' : 'false'); });
+      $('#pi-t').textContent = st.proc ? K.t(st.proc) : 'La Beauté'; $('#pi-d').textContent = st.proc ? K.t(st.proc + '_d') : K.t('care_p');
+    }
+    document.addEventListener('click', function (e) {
+      var p = e.target.closest('[data-proc]'); if (p) { st.proc = p.dataset.proc; var v = S.procs.find(function (x) { return x[0] === st.proc; })[1]; $('#stage')._reelSet([String(v), '9193']); info(); return; }
+      var g = e.target.closest('[data-g] button'); if (g) { st[g.parentNode.dataset.g] = g.dataset.v; paint(); return; }
+      var d = e.target.closest('#days [data-day]'); if (d) { st.day = d.dataset.day; paint(); }
+    });
+    function book() {
+      $('#svcs').innerHTML = S.services.map(function (s) { return '<button type="button" data-v="' + s + '">' + K.esc(K.t(s)) + '</button>'; }).join('');
+      $('#colors').innerHTML = S.colors.map(function (c) { return '<button type="button" data-v="' + c[0] + '">' + (c[1] ? '<span class="dot" style="background:' + c[1] + '"></span>' : '') + K.esc(K.t(c[0])) + '</button>'; }).join('');
+      var ds = K.dayList(14); if (!st.day) st.day = ds[1].iso;
+      $('#days').innerHTML = ds.map(function (d) { return '<button type="button" data-day="' + d.iso + '"><small>' + K.esc(d.wd) + '</small><b>' + d.d + '</b><small>' + K.esc(d.mo) + '</small></button>'; }).join('');
+      paint();
+    }
+    function rows(l) { var r = [[K.t('f_svc', null, l), K.t(st.svc, null, l)]]; if (st.svc === 'o_mani' || st.svc === 'o_pedi') r.push([K.t('f_color', null, l), K.t(st.color, null, l)]); r.push([K.t('f_day', null, l), K.fmtDay(st.day, l)], [K.t('f_time', null, l), K.t(st.time, null, l)]); return r; }
+    function paint() {
+      $$('[data-g]').forEach(function (g) { $$('button', g).forEach(function (b) { b.setAttribute('aria-pressed', b.dataset.v === st[g.dataset.g] ? 'true' : 'false'); }); });
+      $$('#days button').forEach(function (b) { b.setAttribute('aria-pressed', b.dataset.day === st.day ? 'true' : 'false'); });
+      $('#colorbox').hidden = !(st.svc === 'o_mani' || st.svc === 'o_pedi');
+      $('#slip').innerHTML = rows().map(function (r) { return '<li><span>' + K.esc(r[0]) + '</span><span>' + K.esc(r[1]) + '</span></li>'; }).join('');
+    }
+    $('#send').addEventListener('click', function () {
+      var c = K.t('k_hello') + ' ' + K.t('m_line', { list: rows().map(function (r) { return r[1]; }).join(' · ') });
+      K.handoff(c, ['🔔 TALEP: ' + K.t('m_title', null, 'tr')].concat(rows('tr').map(function (r) { return '▫️ ' + r[0] + ': ' + r[1]; })));
+    });
+    function all() { procs(); book(); }
+    document.addEventListener('kit:lang', all); all();
+  }
+};
+</script>
+<script src="../_kit/reel.js"></script>
+<script src="../_kit/kit.js"></script>
+<script type="module" src="../_kit/kit3d.js"></script>
+</body>
+</html>

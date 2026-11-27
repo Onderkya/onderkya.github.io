@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="tr" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#F4EDE3">
+<title>Erdal Usta Mobilya Tamir · Bahçelievler, Antalya</title>
+<meta name="description" content="">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://videos.pexels.com"><link rel="preconnect" href="https://images.pexels.com">
+<link href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,500;7..72,700;7..72,800&family=Mulish:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../_kit/kit.css">
+<style>
+:root{--k-bg:#F4EDE3;--k-fg:#2A1D14;--k-muted:#6F5E50;--k-surface:#FFFAF3;--k-line:#E2D3C0;--k-acc:#B05A2A;--k-acc-fg:#FFF8F0;--walnut:#3B2416;--k-font:'Mulish',system-ui,sans-serif;--k-display:'Literata',Georgia,serif;--k-dock-bg:rgba(244,237,227,.92);--k-btn-radius:14px;--ease:cubic-bezier(.16,1,.3,1)}
+[data-theme=dark]{--k-bg:#15100C;--k-fg:#F2E8DC;--k-muted:#B6A391;--k-surface:#1F1812;--k-line:#3A2D22;--k-acc:#DB8A50;--k-acc-fg:#1A0F07;--k-dock-bg:rgba(21,16,12,.92)}
+::selection{background:var(--k-acc);color:var(--k-acc-fg)}
+.wrap{width:min(1180px,100% - 32px);margin-inline:auto}
+h1,h2,h3{font-family:var(--k-display);font-weight:700;margin:0;letter-spacing:-.02em}
+section{padding:80px 0}
+.h2{font-size:clamp(34px,6.6vw,70px);line-height:1;max-width:15ch;text-wrap:balance}
+.sub{color:var(--k-muted);font-size:17px;max-width:48ch;margin:14px 0 0}
+/* üst */
+.top{position:absolute;left:0;right:0;top:0;z-index:6;padding:12px 0;color:#F6EEE4}
+.top .wrap{display:flex;align-items:center;gap:10px}
+.brand{margin-right:auto;text-decoration:none;color:inherit;display:flex;flex-direction:column;line-height:1;min-height:44px;justify-content:center}
+.brand b{font:800 22px/1 var(--k-display);letter-spacing:-.01em}
+.brand{min-width:0}.brand small{font-size:10px;letter-spacing:.1em;opacity:.8;margin-top:4px;line-height:1.25}
+.top .k-langs{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.22)}.top .k-langs button{color:#F6EEE4}.top .k-langs button[aria-pressed=true]{background:#F6EEE4;color:#2A1D14}
+.top .k-theme{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.22);color:#F6EEE4}
+/* giriş: atölye hikâyesi */
+.hero{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;color:#F6EEE4;background:#120c08;isolation:isolate;padding:0}
+.hero .hero__reel{position:absolute;inset:0;z-index:-1}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(180deg,rgba(18,12,8,.55),transparent 30%,transparent 45%,rgba(18,12,8,.92))}
+.hero .reel__bars{top:84px}
+.hero__in{padding:0 0 46px}
+.hero h1{font-size:clamp(46px,11vw,128px);line-height:.92;max-width:10ch;text-wrap:balance}
+.hero h1 em{font-style:italic;font-weight:500;color:#F0B27D}
+.hero p.reel__narr{color:#F6EEE4;margin:16px 0 22px}
+.hero .reel__narr small{color:#D9C7B5}
+.hero__cta{display:flex;flex-wrap:wrap;gap:10px}
+.k-btn--ghost{background:transparent;border:1.5px solid rgba(255,255,255,.35);color:#F6EEE4}
+@media(min-width:900px){.hero__in{padding-bottom:96px}}
+/* imza: koltuğu yenile */
+.renew{background:var(--k-bg);position:relative;overflow:hidden}
+.renew__grid{display:grid;gap:22px;margin-top:26px}
+.stage{position:relative;height:min(62svh,560px);min-height:360px;border-radius:30px;background:radial-gradient(90% 80% at 50% 30%,#fffaf2,#e9dccb);border:1px solid var(--k-line);overflow:hidden}
+[data-theme=dark] .stage{background:radial-gradient(90% 80% at 50% 30%,#2b2119,#140f0b)}
+.stage__sofa{position:absolute;inset:0}
+.stage__tag{position:absolute;left:16px;top:14px;z-index:3;font-size:12px;font-weight:600;padding:6px 10px;border-radius:99px;background:rgba(0,0,0,.06);color:var(--k-muted)}
+.stage__state{position:absolute;right:16px;top:12px;z-index:3;font:700 14px var(--k-display);padding:7px 12px;border-radius:99px;background:var(--k-fg);color:var(--k-bg);transition:background .4s}
+.ctrl{display:flex;flex-direction:column;gap:18px}
+.slide{display:grid;gap:10px}
+.slide__lab{display:flex;justify-content:space-between;font-weight:700;font-size:14px;color:var(--k-muted)}
+.slide input{appearance:none;-webkit-appearance:none;width:100%;height:46px;background:transparent;cursor:pointer;touch-action:pan-y}
+.slide input::-webkit-slider-runnable-track{height:10px;border-radius:99px;background:linear-gradient(90deg,#9c8f80,var(--k-acc))}
+.slide input::-moz-range-track{height:10px;border-radius:99px;background:linear-gradient(90deg,#9c8f80,var(--k-acc))}
+.slide input::-webkit-slider-thumb{-webkit-appearance:none;width:36px;height:36px;margin-top:-13px;border-radius:50%;background:var(--k-surface);border:3px solid var(--k-acc);box-shadow:0 6px 16px rgba(0,0,0,.25)}
+.slide input::-moz-range-thumb{width:32px;height:32px;border-radius:50%;background:var(--k-surface);border:3px solid var(--k-acc)}
+.slide input:focus-visible{outline:3px solid var(--k-acc);outline-offset:4px;border-radius:12px}
+.sw{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px}
+.sw button{position:relative;aspect-ratio:1;min-height:44px;border-radius:16px;border:2px solid transparent;background:var(--c);cursor:pointer;box-shadow:inset 0 0 0 1px rgba(0,0,0,.08);background-image:repeating-linear-gradient(45deg,rgba(255,255,255,.07) 0 2px,transparent 2px 4px)}
+.sw button[aria-pressed=true]{border-color:var(--k-fg);box-shadow:0 0 0 3px var(--k-bg) inset}
+.sw__name{font-weight:700;font-size:15px;margin:0}
+.ctrl .k-btn{align-self:flex-start}
+.ctrl__note{font-size:13px;color:var(--k-muted);margin:0}
+@media(min-width:960px){.renew__grid{grid-template-columns:1.5fr 1fr;align-items:center}.stage{height:min(70svh,620px)}}
+/* ne yapıyoruz */
+.jobs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:28px}
+.job{position:relative;border-radius:22px;overflow:hidden;min-height:230px;background:#000;color:#fff;display:flex;align-items:flex-end;isolation:isolate}
+.job>div[data-reel]{position:absolute;inset:0;z-index:-1}
+.job::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,transparent 45%,rgba(0,0,0,.82));pointer-events:none}
+.job b{display:block;padding:14px;font:700 clamp(17px,2vw,22px)/1.15 var(--k-display);position:relative;z-index:2}
+@media(min-width:900px){.jobs{grid-template-columns:repeat(4,1fr)}.job{min-height:340px}}
+.small-note{font-size:13px;color:var(--k-muted);margin-top:10px}
+/* puan + bulun */
+.score{display:inline-flex;align-items:center;gap:12px;margin-top:22px;min-height:44px;color:inherit;text-decoration:none}
+.score b{font:800 46px/1 var(--k-display)}
+.score span{font-weight:600;color:var(--k-muted)}
+.find{display:grid;gap:14px;margin-top:26px}
+.find__map{border-radius:26px;overflow:hidden;min-height:300px;border:1px solid var(--k-line)}
+.find__row{display:flex;flex-wrap:wrap;gap:10px}.find__row .k-btn{flex:1 1 180px}
+.k-btn--line{background:var(--k-surface);border:1.5px solid var(--k-line);color:var(--k-fg)}
+footer{padding:30px 0 100px;border-top:1px solid var(--k-line)}
+footer .wrap{display:flex;flex-direction:column;gap:4px}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="brand" href="#top"><b>Erdal Usta</b><small data-t="brand_sub"></small></a>
+  <div class="k-langs" role="group" data-ta="aria-label:k_lang"><button type="button" data-setlang="tr">TR</button><button type="button" data-setlang="ru">RU</button><button type="button" data-setlang="en">EN</button></div>
+  <button type="button" class="k-theme" data-theme-toggle data-ta="aria-label:k_theme"><svg class="k-i-moon"><use href="#k-moon"/></svg><svg class="k-i-sun"><use href="#k-sun"/></svg></button>
+</div></header>
+<main id="top">
+  <section class="hero" aria-labelledby="h1">
+    <div class="hero__reel" data-reel="px:4480571/4480571-hd_1280_720_30fps,px:6789582/6789582-hd_1280_720_25fps,px:7776736/7776736-hd_1366_720_25fps,px:5973223/5973223-hd_1280_720_25fps" data-every="5600" data-fx="fade" data-slow="0.65" data-grade="cine" data-bars data-steps data-narr="st1,st2,st3,st4" data-narr-target="#hnarr"></div>
+    <div class="wrap hero__in">
+      <h1 id="h1" data-th="hero_h1"></h1>
+      <p id="hnarr"></p>
+      <div class="hero__cta"><button type="button" class="k-btn k-btn--main" data-flow="fix"><svg width="20" height="20"><use href="#k-wa"/></svg><span data-t="cta"></span></button><a class="k-btn k-btn--ghost" href="#renew" data-t="cta2"></a></div>
+    </div>
+    <span class="k-photo-tag" data-t="tag_v"></span>
+  </section>
+
+  <section class="renew" id="renew" aria-labelledby="h-renew">
+    <div class="wrap">
+      <h2 class="h2" id="h-renew" data-t="rn_h"></h2>
+      <p class="sub" data-t="rn_p"></p>
+      <div class="renew__grid">
+        <div class="stage">
+          <span class="stage__tag" data-t="rn_tag"></span><span class="stage__state" id="state"></span>
+          <div class="stage__sofa" id="sofa" data-3d="sofa" data-age="1" data-color="#2F5D50"></div>
+        </div>
+        <div class="ctrl">
+          <div class="slide"><div class="slide__lab"><span data-t="rn_old"></span><span data-t="rn_new"></span></div><input type="range" id="age" min="0" max="100" value="0" data-ta="aria-label:rn_slider"></div>
+          <div><p class="sw__name" id="swname"></p><div class="sw" id="sw" role="group" data-ta="aria-label:rn_fabric"></div></div>
+          <button type="button" class="k-btn k-btn--main" id="rn-send"><svg width="20" height="20"><use href="#k-wa"/></svg><span data-t="rn_send"></span></button>
+          <p class="ctrl__note" data-t="rn_note"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0" aria-labelledby="h-jobs">
+    <div class="wrap">
+      <h2 class="h2" id="h-jobs" data-t="jobs_h"></h2>
+      <div class="jobs">
+        <div class="job"><div data-reel="px:7776736/7776736-hd_1366_720_25fps"></div><b data-t="j1"></b></div>
+        <div class="job"><div data-reel="px:6789582/6789582-hd_1280_720_25fps"></div><b data-t="j2"></b></div>
+        <div class="job"><div data-reel="px:5973223/5973223-hd_1280_720_25fps"></div><b data-t="j3"></b></div>
+        <div class="job"><div data-reel="px:4480571/4480571-hd_1280_720_30fps"></div><b data-t="j4"></b></div>
+      </div>
+      <p class="small-note" data-t="jobs_note"></p>
+    </div>
+  </section>
+
+  <section data-night></section>
+
+  <section aria-labelledby="h-find">
+    <div class="wrap">
+      <h2 class="h2" id="h-find" data-t="find_h"></h2>
+      <a class="score" href="https://www.google.com/maps/search/?api=1&query=Erdal%20Usta%20Mobilya%20Tamir%20Antalya" target="_blank" rel="noopener"><b>5,0</b><span data-t="score"></span></a>
+      <div class="find">
+        <div class="find__map"><iframe class="k-map" data-map loading="lazy"></iframe></div>
+        <div class="find__row"><a class="k-btn k-btn--line" data-link="g" data-t="k_map_g"></a><a class="k-btn k-btn--line" data-link="y" data-t="k_map_y"></a><a class="k-btn k-btn--main" data-link="tel">0535 341 62 25</a></div>
+      </div>
+    </div>
+  </section>
+</main>
+<footer><div class="wrap"><strong>Erdal Usta Mobilya Tamir</strong><span class="k-demo" data-t="k_demo"></span><span class="k-demo" data-t="credits"></span></div></footer>
+<nav class="k-dock" id="k-dock" aria-label="contact"></nav>
+<button type="button" class="k-up" id="k-up" data-ta="aria-label:k_top"></button>
+<script>
+/* ===== CONFIG: başka bir döşeme/mobilya tamircisi için cfg, kumaşlar ve sözlükteki işletmeye özel satırlar değişir ===== */
+window.SITE = {
+  id: 'erdalusta', theme: 'light',
+  cfg: { name: 'Erdal Usta Mobilya Tamir', phone: '905353416225', telegram: null, address: 'Bahçelievler, Muratpaşa, Antalya', langs: ['tr', 'ru', 'en'], defaultLang: 'tr', hours: null },
+  fabrics: [['fb1', '#2F5D50'], ['fb2', '#C9962E'], ['fb3', '#24324F'], ['fb4', '#D8CBB5'], ['fb5', '#A0462B'], ['fb6', '#3A3836']],
+  night: { flow: 'fix', tr: ['🔔 TALEP: Mobilya tamiri', '🛋️ Eşya: 3’lü koltuk', '🔧 Sorun: Sünger çöktü, kumaş eskidi', '🎨 Kumaş: Zümrüt kadife', '📷 Fotoğraf WhatsApp’ta', '🌐 Müşteri dili: Rusça'] },
+  flows: { fix: { title: 'm_title', msg: 'm_line', steps: [
+    { id: 'item', q: 'f_item', opts: ['it1', 'it2', 'it3', 'it4', 'it5', 'it6'], icon: '🛋️' },
+    { id: 'issue', q: 'f_issue', opts: ['is1', 'is2', 'is3', 'is4', 'is5', 'is6'], multi: true, icon: '🔧' },
+    { id: 'fabric', q: 'f_fabric', opts: ['fa1', 'fa2', 'fa3'], cols: 1, icon: '🎨' },
+    { id: 'where', q: 'f_where', opts: ['wh1', 'wh2', 'wh3'], cols: 1, icon: '📍' },
+    { id: 'note', q: 'f_note', type: 'text', ph: 'f_note_ph', icon: '✍️' } ] } },
+  i18n: {
+    tr: {
+      page_title: 'Erdal Usta Mobilya Tamir · Bahçelievler, Antalya', page_desc: 'Koltuk döşeme, sünger değişimi, ahşap onarım ve cila · Bahçelievler, Muratpaşa. Fotoğraf gönderin, WhatsApp’tan konuşalım.',
+      brand_sub: 'MOBİLYA TAMİR · DÖŞEME', tag_v: 'Temsili video', wa_hello: 'Merhaba Erdal Usta! Mobilya tamiri için yazıyorum.',
+      hero_h1: 'Eski koltuk, <em>yeni hayat.</em>', cta: 'Fotoğraf gönder, sor', cta2: 'Koltuğu yenile',
+      st1: 'Önce usta bakar.|Neyi değişecek, neyi kalacak', st2: 'İskelet onarılır.|Gıcırtı, çatlak, gevşek ayak', st3: 'Yeni kumaş dikilir.|Sünger, astar, döşeme', st4: 'Ahşaba cila.|Çizikler gider, damar görünür',
+      rn_h: 'Kaydırın, koltuk yenilensin.', rn_p: 'Çökmüş minder, solmuş kumaş, yırtık. Çubuğu sürükleyin, bir kumaş seçin: koltuğunuzun yeni hali.', rn_tag: 'Örnek görselleştirme',
+      rn_old: 'Bugünkü hali', rn_new: 'Ustadan sonra', rn_slider: 'Eskiden yeniye', rn_fabric: 'Kumaş rengi', rn_send: 'Bu kumaşla fiyat sor', rn_note: 'Gerçek kumaş kartelası ustada. Fotoğrafınızı WhatsApp’ta ekleyin.',
+      st_old: 'Eski', st_new: 'Yenilendi',
+      fb1: 'Zümrüt kadife', fb2: 'Hardal kadife', fb3: 'Gece mavisi', fb4: 'Bej keten', fb5: 'Kiremit', fb6: 'Antrasit',
+      jobs_h: 'Atölyede neler yapılır?', j1: 'Döşeme ve kumaş', j2: 'İskelet ve ayak onarımı', j3: 'Cila ve boya', j4: 'Sandalye, masa, dolap', jobs_note: 'Örnek hizmetlerdir; işinize göre usta söyler.',
+      find_h: 'Atölye Bahçelievler’de.', score: 'Google puanı · 273 yorum',
+      m_title: 'Mobilya tamiri', m_line: 'Mobilya tamiri için yazıyorum: {list}. Fotoğrafı ekliyorum.',
+      f_item: 'Ne tamir olacak?', it1: 'Koltuk takımı', it2: 'Tekli koltuk / berjer', it3: 'Sandalye', it4: 'Masa', it5: 'Dolap / ahşap', it6: 'Yatak başlığı',
+      f_issue: 'Sorun ne?', is1: 'Kumaş eskidi / yırtık', is2: 'Sünger çöktü', is3: 'Gıcırdıyor / sallanıyor', is4: 'Ayak / kol kırık', is5: 'Çizik, cila gitti', is6: 'Emin değilim, bakılsın',
+      f_fabric: 'Kumaş?', fa1: 'Aynı renk kalsın', fa2: 'Yeni renk istiyorum', fa3: 'Ustaya danışayım',
+      f_where: 'Nasıl görüşelim?', wh1: 'Önce fotoğrafla bakılsın', wh2: 'Atölyeye getirebilirim', wh3: 'Yerinde bakılabilir mi?',
+      f_note: 'Eklemek istediğiniz?', f_note_ph: 'Örn. 3+2+1 takım, kahverengi deri',
+      night_msg: 'Koltuğumun süngeri çöktü, kumaşı da eskidi. Fotoğrafı ekledim; ne yapılabilir?',
+      credits: 'Videolar Pexels (temsili). 3D koltuk örnek görselleştirmedir.'
+    },
+    ru: {
+      page_title: 'Erdal Usta · ремонт мебели · Бахчелиэвлер, Анталья', page_desc: 'Перетяжка диванов, замена поролона, ремонт дерева и лакировка · Бахчелиэвлер, Муратпаша. Пришлите фото — обсудим в WhatsApp.',
+      brand_sub: 'РЕМОНТ МЕБЕЛИ', tag_v: 'Иллюстративное видео', wa_hello: 'Здравствуйте, Эрдал-уста! Пишу по поводу ремонта мебели.',
+      hero_h1: 'Старый диван, <em>новая жизнь.</em>', cta: 'Отправить фото', cta2: 'Обновить диван',
+      st1: 'Сначала смотрит мастер.|Что менять, что оставить', st2: 'Ремонт каркаса.|Скрип, трещины, шатающиеся ножки', st3: 'Новая ткань.|Поролон, подкладка, обивка', st4: 'Лак по дереву.|Царапины уходят, видна текстура',
+      rn_h: 'Сдвиньте — и диван обновится.', rn_p: 'Продавленные подушки, выцветшая ткань, дыра. Двигайте ползунок и выберите ткань: так будет выглядеть ваш диван.', rn_tag: 'Пример визуализации',
+      rn_old: 'Сейчас', rn_new: 'После мастера', rn_slider: 'От старого к новому', rn_fabric: 'Цвет ткани', rn_send: 'Узнать цену с этой тканью', rn_note: 'Настоящие образцы тканей — у мастера. Фото добавьте в WhatsApp.',
+      st_old: 'Старый', st_new: 'Обновлён',
+      fb1: 'Изумрудный велюр', fb2: 'Горчичный велюр', fb3: 'Тёмно-синий', fb4: 'Бежевый лён', fb5: 'Терракота', fb6: 'Антрацит',
+      jobs_h: 'Что делают в мастерской?', j1: 'Перетяжка и ткань', j2: 'Ремонт каркаса и ножек', j3: 'Лак и покраска', j4: 'Стулья, столы, шкафы', jobs_note: 'Примеры услуг; мастер подскажет по вашей вещи.',
+      find_h: 'Мастерская в Бахчелиэвлер.', score: 'Оценка в Google · 273 отзыва',
+      m_title: 'Ремонт мебели', m_line: 'Пишу по поводу ремонта мебели: {list}. Прикладываю фото.',
+      f_item: 'Что ремонтируем?', it1: 'Диванный комплект', it2: 'Кресло', it3: 'Стул', it4: 'Стол', it5: 'Шкаф / дерево', it6: 'Изголовье кровати',
+      f_issue: 'В чём проблема?', is1: 'Ткань износилась / порвана', is2: 'Поролон продавлен', is3: 'Скрипит / шатается', is4: 'Сломана ножка / подлокотник', is5: 'Царапины, сошёл лак', is6: 'Не уверен(а), пусть посмотрят',
+      f_fabric: 'Ткань?', fa1: 'Оставить тот же цвет', fa2: 'Хочу новый цвет', fa3: 'Посоветуюсь с мастером',
+      f_where: 'Как удобнее?', wh1: 'Сначала по фото', wh2: 'Могу привезти в мастерскую', wh3: 'Можно посмотреть на месте?',
+      f_note: 'Что добавить?', f_note_ph: 'Напр. комплект 3+2+1, коричневая кожа',
+      night_msg: 'У дивана продавился поролон и износилась ткань. Фото приложил(а) — что можно сделать?',
+      credits: 'Видео Pexels (иллюстрации). 3D-диван — пример визуализации.'
+    },
+    en: {
+      page_title: 'Erdal Usta Furniture Repair · Bahçelievler, Antalya', page_desc: 'Sofa reupholstery, foam replacement, wood repair and varnish · Bahçelievler, Muratpaşa. Send a photo and chat on WhatsApp.',
+      brand_sub: 'FURNITURE REPAIR', tag_v: 'Illustrative video', wa_hello: 'Hello Erdal Usta! I am writing about a furniture repair.',
+      hero_h1: 'Old sofa, <em>new life.</em>', cta: 'Send a photo', cta2: 'Renew the sofa',
+      st1: 'First, the master looks.|What to replace, what to keep', st2: 'The frame is repaired.|Creaks, cracks, loose legs', st3: 'New fabric goes on.|Foam, lining, upholstery', st4: 'Varnish on the wood.|Scratches go, the grain shows',
+      rn_h: 'Slide, and the sofa renews.', rn_p: 'Sagging cushions, faded fabric, a tear. Drag the slider and pick a fabric: this is your sofa, renewed.', rn_tag: 'Example visualisation',
+      rn_old: 'As it is now', rn_new: 'After the workshop', rn_slider: 'From old to new', rn_fabric: 'Fabric colour', rn_send: 'Ask a price with this fabric', rn_note: 'The real fabric samples are at the workshop. Add your photo on WhatsApp.',
+      st_old: 'Old', st_new: 'Renewed',
+      fb1: 'Emerald velvet', fb2: 'Mustard velvet', fb3: 'Midnight blue', fb4: 'Beige linen', fb5: 'Terracotta', fb6: 'Charcoal',
+      jobs_h: 'What happens in the workshop?', j1: 'Upholstery and fabric', j2: 'Frame and leg repair', j3: 'Varnish and paint', j4: 'Chairs, tables, cabinets', jobs_note: 'Example services; the master will advise on your piece.',
+      find_h: 'The workshop is in Bahçelievler.', score: 'Google rating · 273 reviews',
+      m_title: 'Furniture repair', m_line: 'I am writing about a furniture repair: {list}. Photo attached.',
+      f_item: 'What needs repair?', it1: 'Sofa set', it2: 'Armchair', it3: 'Chair', it4: 'Table', it5: 'Cabinet / wood', it6: 'Headboard',
+      f_issue: 'What is wrong?', is1: 'Fabric worn / torn', is2: 'Foam has sunk', is3: 'Creaks / wobbles', is4: 'Broken leg / arm', is5: 'Scratches, varnish gone', is6: 'Not sure, please check',
+      f_fabric: 'Fabric?', fa1: 'Keep the same colour', fa2: 'I want a new colour', fa3: 'I will ask the master',
+      f_where: 'How shall we meet?', wh1: 'Look at the photo first', wh2: 'I can bring it to the workshop', wh3: 'Could you check on site?',
+      f_note: 'Anything to add?', f_note_ph: 'E.g. 3+2+1 set, brown leather',
+      night_msg: 'My sofa foam has sunk and the fabric is worn. Photo attached. What can be done?',
+      credits: 'Videos Pexels (illustrative). The 3D sofa is an example visualisation.'
+    }
+  },
+  onReady: function (K) {
+    var $ = K.$, sofa = $('#sofa'), age = $('#age'), sw = $('#sw'), state = $('#state'), S = SITE, cur = S.fabrics[0], touched = false;
+    function paintSw() {
+      sw.innerHTML = S.fabrics.map(function (f) { return '<button type="button" style="--c:' + f[1] + '" data-fab="' + f[0] + '" aria-pressed="' + (f === cur) + '" aria-label="' + K.t(f[0]) + '"></button>'; }).join('');
+      $('#swname').textContent = K.t(cur[0]);
+    }
+    function setAge(v) { age.value = v; sofa.setAttribute('data-age', (1 - v / 100).toFixed(3)); state.textContent = K.t(v > 55 ? 'st_new' : 'st_old'); }
+    age.addEventListener('input', function () { touched = true; setAge(+age.value); });
+    sw.addEventListener('click', function (e) {
+      var b = e.target.closest('[data-fab]'); if (!b) return;
+      cur = S.fabrics.filter(function (f) { return f[0] === b.dataset.fab; })[0]; sofa.setAttribute('data-color', cur[1]); paintSw();
+      if (+age.value < 80) setAge(100);
+    });
+    $('#rn-send').addEventListener('click', function () {
+      K.openFlow('fix', { fabric: 'fa2', note: K.t(cur[0]) });
+    });
+    /* görünür olunca eski → yeni kendiliğinden geçsin; dokunulmadıysa ara ara tekrarlasın */
+    var running = false;
+    function play(from, to, ms, done) {
+      if (K.reduced) { setAge(to); return; }
+      var t0 = performance.now(); running = true;
+      (function f(now) { var p = Math.min(1, (now - t0) / ms), e = p < .5 ? 2 * p * p : 1 - Math.pow(-2 * p + 2, 2) / 2; if (!touched) setAge(from + (to - from) * e); if (p < 1 && !touched) requestAnimationFrame(f); else { running = false; if (done) done(); } })(t0);
+    }
+    var loop = null;
+    new IntersectionObserver(function (es) {
+      if (es[0].isIntersecting && !running && !touched) {
+        play(0, 100, 2600);
+        clearInterval(loop); loop = setInterval(function () { if (touched || running) return; play(100, 0, 1400, function () { setTimeout(function () { play(0, 100, 2200); }, 700); }); }, 9000);
+      } else if (!es[0].isIntersecting) clearInterval(loop);
+    }, { threshold: 0.4 }).observe(sofa);
+    setAge(0); paintSw();
+    document.addEventListener('kit:lang', function () { paintSw(); setAge(+age.value); });
+  }
+};
+</script>
+<script src="../_kit/reel.js"></script>
+<script src="../_kit/kit.js"></script>
+<script type="module" src="../_kit/kit3d.js"></script>
+</body>
+</html>

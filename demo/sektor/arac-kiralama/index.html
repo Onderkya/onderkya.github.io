@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="ru" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#0A0A0B">
+<title>Hascar Rent A Car · Lara, Antalya</title>
+<meta name="description" content="">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://images.unsplash.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@700;800&family=Manrope:wght@400;600;700;800&family=Unbounded:wght@600;800&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://videos.pexels.com"><link rel="preconnect" href="https://images.pexels.com">
+<link rel="stylesheet" href="../_kit/kit.css">
+<style>
+:root{--k-bg:#FBF3E8;--k-fg:#132A36;--k-muted:#5E6B70;--k-surface:#FFFDF9;--k-line:#EADBC6;--k-acc:#1D4F91;--k-acc-fg:#FFFFFF;--flap:#16191E;--flapfg:#FFCC33;--paper:#FFFDF8;--k-font:'Manrope',system-ui,sans-serif;--k-display:'Unbounded','Manrope',sans-serif;--mono:'JetBrains Mono',ui-monospace,monospace;--k-dock-bg:rgba(255,255,255,.9);--ease:cubic-bezier(.16,1,.3,1)}
+[data-theme=dark]{--k-bg:#0A0A0B;--k-fg:#EEEAE3;--k-muted:#A39D93;--k-surface:#141416;--k-line:#27272B;--k-acc:#E3B04B;--k-acc-fg:#120E06;--paper:#F4F1E8;--k-dock-bg:rgba(10,10,11,.9)}
+::selection{background:var(--flapfg);color:#16191E}
+.wrap{width:min(1180px,100% - 32px);margin-inline:auto}
+h1,h2,h3{font-family:var(--k-display);margin:0;letter-spacing:-.02em}
+.top{padding:12px 0}
+.top .wrap{display:flex;align-items:center;gap:10px}
+.brand{margin-right:auto;text-decoration:none;display:flex;align-items:center;gap:10px;min-height:44px}
+.brand i{width:34px;height:34px;border-radius:9px;background:var(--k-acc);color:var(--k-acc-fg);display:grid;place-items:center;font:800 15px var(--k-display);font-style:normal}
+.brand b{font:800 18px/1 var(--k-display)}
+.brand small{display:block;font-size:12px;color:var(--k-muted);font-weight:700;margin-top:3px;white-space:nowrap}
+.nav{display:none}
+@media(min-width:980px){.nav{display:flex;gap:2px;margin-right:10px}.nav a{text-decoration:none;font-weight:700;font-size:15px;padding:11px 12px;border-radius:10px}.nav a:hover{background:var(--k-surface)}}
+
+/* ===== vitrin: dikey araç sütunları (hep koyu) ===== */
+.top{background:#0A0A0B;color:#EEEAE3}
+.top .k-langs{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.16)}.top .k-langs button{color:#EEEAE3}.top .k-langs button[aria-pressed=true]{background:#EEEAE3;color:#0A0A0B}
+.top .k-theme{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.16);color:#EEEAE3}.top .nav a{color:#EEEAE3}.top .nav a:hover{background:rgba(255,255,255,.08)}.top .brand small{color:#A39D93}
+.show{position:relative;background:#0A0A0B;color:#EEEAE3;padding:18px 0 34px;overflow:hidden}
+.show::before{content:"";position:absolute;left:50%;top:-30%;width:120%;height:70%;transform:translateX(-50%);background:radial-gradient(50% 50% at 50% 50%,rgba(227,176,75,.10),transparent 70%);pointer-events:none}
+.show h1{font-size:clamp(30px,7.4vw,58px);line-height:.98;font-weight:800;max-width:15ch;text-wrap:balance}
+.show__sub{margin:12px 0 0;color:#A39D93;font-size:17px;max-width:46ch}
+.cols{display:flex;gap:8px;margin-top:22px;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 16px 8px;scrollbar-width:none}
+.cols::-webkit-scrollbar{display:none}
+.col{position:relative;flex:none;width:58vw;max-width:300px;height:min(64svh,620px);min-height:420px;border:0;padding:0;border-radius:14px;overflow:hidden;background:#000;color:#fff;text-align:left;cursor:pointer;scroll-snap-align:center;box-shadow:0 40px 60px -30px rgba(0,0,0,.9),inset 0 0 0 1px rgba(255,255,255,.06);transition:flex-grow .9s var(--ease),transform .6s var(--ease)}
+.col .col__v{position:absolute;inset:0}
+.col::after{content:"";position:absolute;inset:0;z-index:2;background:linear-gradient(180deg,rgba(0,0,0,.35),transparent 25%,transparent 55%,rgba(0,0,0,.88));pointer-events:none}
+.col__t{position:absolute;z-index:4;left:16px;right:16px;bottom:16px;display:flex;flex-direction:column;gap:4px}
+.col__t b{font:800 clamp(19px,1.9vw,27px)/1.05 var(--k-display);letter-spacing:-.02em;overflow-wrap:break-word}
+.col__t small{font-size:14px;color:#D6D1C8}
+.col__t i{font-style:normal;align-self:flex-start;margin-top:8px;font-size:13px;font-weight:700;padding:7px 12px;border-radius:99px;background:rgba(255,255,255,.12);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.col--suv video{object-position:22% 50%}.col--mid video{object-position:38% 50%}.col--lux video{scale:1.55;transform-origin:50% 88%}.col--lux .reel__p{object-position:50% 90%}
+.col:focus-visible{outline:3px solid var(--k-acc);outline-offset:3px}
+.perks{list-style:none;display:flex;flex-wrap:wrap;gap:8px 22px;margin:22px 0 0;padding:0;color:#EEEAE3;font-weight:700}
+.perks li{display:flex;align-items:center;gap:10px;min-height:32px}
+.perks li::before{content:"";width:8px;height:8px;border-radius:50%;background:#E3B04B;box-shadow:0 0 12px rgba(227,176,75,.8)}
+.show .k-photo-tag{top:auto;bottom:10px;right:16px}
+@media(min-width:900px){.show .wrap:first-child{display:flex;align-items:flex-end;justify-content:space-between;gap:30px}.show__sub{max-width:34ch;text-align:right}.cols{overflow:visible;padding:0;margin-inline:auto;width:min(1180px,100% - 32px)}.col{flex:1 1 0;width:auto;max-width:none;height:max(440px,calc(100svh - 300px))}.col:hover,.col:focus-visible{flex-grow:1.7}}
+/* ===== 3 adım: WhatsApp / Telegram ===== */
+.flow3{list-style:none;margin:34px 0 0;padding:0;display:grid;gap:10px}
+.flow3 li{display:grid;grid-template-columns:44px 1fr;gap:2px 14px;padding:16px;border-radius:18px;background:var(--k-surface);border:1px solid var(--k-line)}
+.flow3 li>span{grid-row:span 2;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;font:800 16px var(--k-display);background:var(--k-acc);color:var(--k-acc-fg)}
+.flow3 b{font-size:17px}.flow3 p{margin:0;color:var(--k-muted);font-size:15px}
+@media(min-width:900px){.flow3{grid-template-columns:repeat(3,1fr)}}
+/* ===== tabela ===== */
+.hero{padding:40px 0 40px;position:relative;isolation:isolate}
+.hero__bg{position:absolute;left:0;right:0;top:-80px;height:min(78svh,720px);z-index:-1;overflow:hidden;-webkit-mask-image:linear-gradient(#000 70%,transparent);mask-image:linear-gradient(#000 70%,transparent)}
+.hero__bg img{width:100%;height:100%;object-fit:cover;animation:drift 30s ease-in-out infinite alternate}
+@keyframes drift{to{transform:scale(1.1) translate(-2%,1%)}}
+.hero__bg::after{z-index:1;content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(251,243,232,.05) 0%,rgba(251,243,232,.25) 50%,var(--k-bg) 100%)}
+[data-theme=dark] .hero__bg::after{z-index:1;background:linear-gradient(180deg,rgba(12,26,36,.25) 0%,rgba(12,26,36,.5) 45%,var(--k-bg) 100%)}
+.hero__bg .k-photo-tag{top:90px;bottom:auto;z-index:2}
+.top{position:relative;z-index:2}
+.board{background:var(--flap);border-radius:22px;padding:16px 14px 18px;box-shadow:0 30px 60px -30px rgba(10,20,30,.6),inset 0 1px 0 rgba(255,255,255,.06);color:#d8dde3}
+.board__head{display:flex;justify-content:space-between;align-items:center;font:700 11px/1 var(--mono);letter-spacing:.08em;color:#8a95a1;margin:0 2px 12px}
+.board__head span:last-child{display:flex;align-items:center;gap:6px}
+.board__head span:last-child::before{content:"";width:7px;height:7px;border-radius:50%;background:#3ddc84;box-shadow:0 0 8px #3ddc84;animation:blink 1.6s steps(2) infinite}
+@keyframes blink{50%{opacity:.25}}
+.row{display:grid;grid-template-columns:repeat(10,1fr);gap:3px}
+.row__lab{font:700 11px/1 var(--mono);letter-spacing:.08em;color:#8a95a1;margin:0 2px 6px}
+.cell{position:relative;aspect-ratio:.72;border-radius:4px;background:linear-gradient(#262b33 0 49.5%,#1d2128 50.5% 100%);display:grid;place-items:center;font:800 clamp(17px,5.4vw,40px)/1 var(--mono);color:var(--flapfg);overflow:hidden;box-shadow:inset 0 -1px 0 rgba(0,0,0,.6)}
+.cell::after{content:"";position:absolute;left:0;right:0;top:50%;height:1px;background:rgba(0,0,0,.65)}
+.cell.flip{animation:flip .09s linear}
+@keyframes flip{0%{transform:rotateX(0)}50%{transform:rotateX(70deg);filter:brightness(.6)}100%{transform:rotateX(0)}}
+.row--b .cell{color:#fff}
+.hero h1{font-size:clamp(38px,10.5vw,104px);line-height:.95;font-weight:800;margin:28px 0 14px;text-wrap:balance;max-width:14ch}
+.hero__p{font-size:18px;color:var(--k-muted);max-width:40ch;margin:0}
+.hero .reel__narr--flow{color:var(--k-fg);text-shadow:none;margin:0}.hero .reel__narr--flow small{color:var(--k-muted)}
+@media(min-width:1000px){.hero{padding-top:56px}.hero__grid{display:grid;grid-template-columns:1.05fr 1fr;gap:48px;align-items:start}.hero h1{margin-top:28px;font-size:clamp(48px,5.4vw,80px)}.board{padding:22px 22px 26px}.cell{font-size:30px}}
+
+/* ===== biniş kartı ===== */
+.pass{position:relative;margin-top:26px;filter:drop-shadow(0 26px 40px rgba(15,34,48,.22));transition:transform .9s var(--ease)}
+.pass__main,.pass__stub{background:var(--paper);color:#13222d}
+.pass__main{border-radius:20px 20px 0 0;padding:18px 18px 22px;-webkit-mask:radial-gradient(circle 13px at 0 100%,#0000 98%,#000) left/51% 100% no-repeat,radial-gradient(circle 13px at 100% 100%,#0000 98%,#000) right/51% 100% no-repeat;mask:radial-gradient(circle 13px at 0 100%,#0000 98%,#000) left/51% 100% no-repeat,radial-gradient(circle 13px at 100% 100%,#0000 98%,#000) right/51% 100% no-repeat}
+.pass__stub{border-radius:0 0 20px 20px;padding:16px 18px 18px;border-top:2px dashed #c9c2b2;-webkit-mask:radial-gradient(circle 13px at 0 0,#0000 98%,#000) left/51% 100% no-repeat,radial-gradient(circle 13px at 100% 0,#0000 98%,#000) right/51% 100% no-repeat;mask:radial-gradient(circle 13px at 0 0,#0000 98%,#000) left/51% 100% no-repeat,radial-gradient(circle 13px at 100% 0,#0000 98%,#000) right/51% 100% no-repeat;transition:transform .9s var(--ease),opacity .9s}
+.pass.is-torn .pass__stub{transform:translate(30px,40px) rotate(7deg);opacity:0}
+.pass__top{display:flex;justify-content:space-between;align-items:center;font:700 12px/1 var(--mono);letter-spacing:.06em;color:#6b7680}
+.pass__top b{color:#1D4F91;font-family:var(--k-display);letter-spacing:0;font-size:15px}
+.pass__route{display:grid;grid-template-columns:1fr auto 1fr;align-items:end;gap:10px;margin:16px 0 14px}
+.pass__route small{display:block;font:700 11px/1 var(--mono);color:#6b7680;letter-spacing:.06em;margin-bottom:6px}
+.pass__route strong{font:800 24px/1 var(--k-display);letter-spacing:-.02em}
+.pass__route .to{text-align:right}
+.pass__plane{width:38px;height:38px;color:#1D4F91}
+.seg{display:flex;flex-wrap:wrap;gap:6px}
+.seg button{min-height:44px;padding:0 14px;border-radius:99px;border:1.5px solid #d8d1c2;background:#fff;font-weight:700;font-size:14px;cursor:pointer;color:#13222d}
+.seg button[aria-pressed=true]{background:#13222d;color:#fff;border-color:#13222d}
+.fld{display:grid;gap:6px;margin-top:14px}
+.fld>span{font:700 11px/1 var(--mono);letter-spacing:.06em;color:#6b7680}
+.fld2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.fld input{min-height:48px;border-radius:12px;border:1.5px solid #d8d1c2;background:#fff;padding:0 12px;font-size:16px;color:#13222d;width:100%;min-width:0}
+.pass__stub .k-btn{width:100%}
+.pass__note{margin:10px 0 0;font-size:13px;color:#6b7680;text-align:center}
+.barcode{height:34px;margin-bottom:12px;background:repeating-linear-gradient(90deg,#13222d 0 2px,transparent 2px 4px,#13222d 4px 5px,transparent 5px 9px,#13222d 9px 12px,transparent 12px 14px);opacity:.85;border-radius:2px}
+@media(min-width:1000px){.pass{margin-top:0}}
+
+/* ===== kapılar (araç tipleri) ===== */
+section{padding:72px 0}
+.h2{font-size:clamp(30px,6vw,60px);line-height:1;font-weight:800;max-width:16ch;text-wrap:balance}
+.lede{color:var(--k-muted);font-size:17px;max-width:52ch;margin:14px 0 0}
+.gates{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px 16px 18px;margin:28px -16px 0;scrollbar-width:none}
+.gates::-webkit-scrollbar{display:none}
+.gate{flex:none;width:min(78vw,360px);scroll-snap-align:start;border-radius:22px;overflow:hidden;background:var(--k-surface);border:1px solid var(--k-line)}
+.gate__img{position:relative;aspect-ratio:4/3}
+.gate__img img{width:100%;height:100%;object-fit:cover}
+.gate__no{position:absolute;left:12px;top:12px;font:800 13px/1 var(--mono);background:var(--flap);color:var(--flapfg);padding:7px 9px;border-radius:6px;letter-spacing:.06em}
+.gate__b{padding:16px 18px 18px}
+.gate h3{font-size:22px}
+.gate p{margin:6px 0 12px;color:var(--k-muted);font-size:15px}
+.gate button{min-height:46px;padding:0 16px;border-radius:99px;border:1.5px solid var(--k-line);background:transparent;font-weight:700;cursor:pointer}
+@media(min-width:1100px){.gates{margin:28px 0 0;padding:6px 0 18px;display:grid;grid-template-columns:repeat(4,1fr)}.gate{width:auto}}
+.small-note{font-size:13px;color:var(--k-muted);margin-top:6px}
+
+/* ===== bilgi panosu ===== */
+.info{background:var(--flap);color:#e3e7ec}
+.info__list{margin:30px 0 0;padding:0;list-style:none;border-top:1px solid #2a3038}
+.info__list li{display:grid;grid-template-columns:64px 1fr;gap:4px 16px;padding:20px 0;border-bottom:1px solid #2a3038}
+.info__list li>span{font:800 15px/1.2 var(--mono);color:var(--flapfg);letter-spacing:.06em;padding-top:4px;grid-row:span 2}
+.info__list b{font-size:20px;font-family:var(--k-display);font-weight:600}
+.info__list p{margin:4px 0 0;color:#9aa6b2}
+.ticker{margin-top:44px;padding:18px 0;border-block:1px solid #2a3038;font-size:20px;--k-mq-speed:30s;color:#fff}
+.ticker small{color:#9aa6b2}
+.info .ya-link{display:inline-flex;align-items:center;gap:10px;margin-top:18px;min-height:44px;color:#c9d2da;font-size:14px}
+@media(min-width:900px){.info__list{display:grid;grid-template-columns:repeat(3,1fr);gap:0 30px;border:0}.info__list li{border-top:1px solid #2a3038;border-bottom:0}}
+.ya{display:inline-grid;place-items:center;width:24px;height:24px;border-radius:50%;background:#fc3f1d;color:#fff;font:800 14px/1 Arial,sans-serif;flex:none}
+
+/* ===== bul ===== */
+.find__grid{display:grid;gap:16px;margin-top:28px}
+.find__map{border-radius:22px;overflow:hidden;border:1px solid var(--k-line);min-height:320px}
+.find__info{display:flex;flex-direction:column;gap:10px;justify-content:center}
+.find__addr{font:800 26px/1.15 var(--k-display);letter-spacing:-.02em}
+.k-btn--line{background:var(--k-surface);border:1.5px solid var(--k-line);color:var(--k-fg)}
+@media(min-width:900px){.find__grid{grid-template-columns:1.4fr 1fr}.find__map{min-height:420px}}
+footer{padding:36px 0 30px;border-top:1px solid var(--k-line)}
+footer .wrap{display:flex;flex-direction:column;gap:6px}
+footer strong{font:800 18px var(--k-display)}
+@media(min-width:900px){footer{padding-bottom:110px}}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top"><i>H</i><span><b>Hascar</b><small data-t="brand_sub"></small></span></a>
+    <nav class="nav" aria-label="menu"><a href="#book" data-t="nav_book"></a><a href="#show" data-t="nav_fleet"></a><a href="#info" data-t="nav_info"></a><a href="#find" data-t="nav_find"></a></nav>
+    <div class="k-langs" role="group" data-ta="aria-label:k_lang"><button type="button" data-setlang="ru">RU</button><button type="button" data-setlang="tr">TR</button><button type="button" data-setlang="en">EN</button></div>
+    <button type="button" class="k-theme" data-theme-toggle data-ta="aria-label:k_theme"><svg class="k-i-moon"><use href="#k-moon"/></svg><svg class="k-i-sun"><use href="#k-sun"/></svg></button>
+  </div>
+</header>
+<main id="top">
+  <section class="show" id="show" aria-labelledby="h1">
+    <div class="wrap"><h1 id="h1" data-t="hero_h1"></h1><p class="show__sub" data-t="show_sub"></p></div>
+    <div class="cols">
+      <button type="button" class="col col--lux" data-pick="o_lux"><div class="col__v" data-reel="px:8345037/8345037-hd_720_1280_25fps" data-slow="0.7" data-grade="cine"></div><span class="col__t"><b data-t="o_lux"></b><small data-t="o_lux_s"></small><i data-t="pick"></i></span></button>
+      <button type="button" class="col col--suv" data-pick="o_suv"><div class="col__v" data-slow="0.7" data-reel="px:8562464/8562464-hd_1280_720_60fps@0.5" data-grade="cine"></div><span class="col__t"><b data-t="o_suv"></b><small data-t="o_suv_s"></small><i data-t="pick"></i></span></button>
+      <button type="button" class="col col--mid" data-pick="o_mid"><div class="col__v" data-reel="px:8865763/8865763-hd_1366_720_25fps" data-slow="0.7" data-grade="cine"></div><span class="col__t"><b data-t="o_mid"></b><small data-t="o_mid_s"></small><i data-t="pick"></i></span></button>
+      <button type="button" class="col" data-pick="o_big"><div class="col__v" data-reel="px:6873503/6873503-hd_720_1280_25fps" data-slow="0.7" data-grade="cine"></div><span class="col__t"><b data-t="o_big"></b><small data-t="o_big_s"></small><i data-t="pick"></i></span></button>
+    </div>
+    <div class="wrap"><ul class="perks"><li data-t="pk1"></li><li data-t="pk2"></li><li data-t="pk3"></li><li data-t="pk4"></li></ul></div>
+    <span class="k-photo-tag" data-t="tag_v"></span>
+  </section>
+
+  <section class="hero" aria-labelledby="pass-h">
+    <div class="wrap hero__grid">
+      <div>
+        <div class="board" role="img" data-ta="aria-label:board_alt">
+          <div class="board__head"><span data-t="board_h"></span><span>HASCAR · LARA</span></div>
+          <div class="row__lab" data-t="board_r1"></div><div class="row" id="r1"></div>
+          <div class="row__lab" data-t="board_r2" style="margin-top:12px"></div><div class="row row--b" id="r2"></div>
+        </div>
+      </div>
+      <form class="pass" id="book" autocomplete="off" aria-labelledby="pass-h">
+        <div class="pass__main">
+          <div class="pass__top"><b>Hascar</b><span id="pass-h" data-t="pass_h"></span></div>
+          <div class="pass__route">
+            <div><small data-t="p_from"></small><strong>LARA</strong></div>
+            <svg class="pass__plane" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M3 15c0-2 1-3 3-3.5L9 7c.6-.8 1.5-1 2.5-1h3c1.5 0 2.5.6 3.3 1.6L19.5 10c1.5.4 2.5 1.3 2.5 3v3H3Z"/><circle cx="7" cy="16.5" r="2" fill="currentColor"/><circle cx="17" cy="16.5" r="2" fill="currentColor"/></svg>
+            <div class="to"><small data-t="p_to"></small><strong id="p-to-v"></strong></div>
+          </div>
+          <div class="fld"><span data-t="p_where"></span><div class="seg" data-seg="where"><button type="button" data-v="o_hotel" data-t="o_hotel"></button><button type="button" data-v="o_office" data-t="o_office"></button><button type="button" data-v="o_other" data-t="o_other"></button></div></div>
+          <div class="fld2">
+            <label class="fld"><span data-t="k_from"></span><input type="date" id="d1"></label>
+            <label class="fld"><span data-t="k_to"></span><input type="date" id="d2"></label>
+          </div>
+          <div class="fld"><span data-t="p_cls"></span><div class="seg" data-seg="cls"><button type="button" data-v="o_lux" data-t="o_lux"></button><button type="button" data-v="o_eco" data-t="o_eco"></button><button type="button" data-v="o_mid" data-t="o_mid"></button><button type="button" data-v="o_suv" data-t="o_suv"></button><button type="button" data-v="o_big" data-t="o_big"></button></div></div>
+          <div class="fld"><span data-t="p_gear"></span><div class="seg" data-seg="gear"><button type="button" data-v="o_auto" data-t="o_auto"></button><button type="button" data-v="o_manual" data-t="o_manual"></button></div></div>
+          <label class="fld"><span data-t="p_hotel"></span><input type="text" id="hotel" maxlength="80" data-ta="placeholder:p_hotel_ph"></label>
+        </div>
+        <div class="pass__stub">
+          <div class="barcode" aria-hidden="true"></div>
+          <button type="submit" class="k-btn k-btn--main" data-t="p_send"></button>
+          <p class="pass__note" data-t="p_note"></p>
+        </div>
+      </form>
+    </div>
+    <div class="wrap"><ol class="flow3"><li><span>1</span><b data-t="fl1"></b><p data-t="fl1d"></p></li><li><span>2</span><b data-t="fl2"></b><p data-t="fl2d"></p></li><li><span>3</span><b data-t="fl3"></b><p data-t="fl3d"></p></li></ol></div>
+  </section>
+
+  <section class="info" id="info" aria-labelledby="h-info" style="position:relative;overflow:hidden;padding-top:0">
+    <div data-3d="road" data-side="#2A3238" data-line="#FFCC33" style="height:180px;position:relative;margin-bottom:40px"></div>
+    <div class="wrap">
+      <h2 class="h2" id="h-info" data-t="info_h"></h2>
+      <ul class="info__list">
+        <li><span>RU</span><b data-t="i1"></b><p data-t="i1d"></p></li>
+        <li><span>HTL</span><b data-t="i2"></b><p data-t="i2d"></p></li>
+        <li><span>LRA</span><b data-t="i3"></b><p data-t="i3d"></p></li>
+      </ul>
+      <div class="ticker" data-ticker></div>
+      <a class="ya-link" href="https://yandex.com.tr/maps/?text=Antalya%20Hascar%20Rent%20A%20Car" target="_blank" rel="noopener"><span class="ya" aria-hidden="true">Я</span><span data-t="score_txt"></span></a>
+    </div>
+  </section>
+
+  <section data-night></section>
+
+  <section id="find" aria-labelledby="h-find">
+    <div class="wrap">
+      <h2 class="h2" id="h-find" data-t="find_h"></h2>
+      <div class="find__grid">
+        <div class="find__map"><iframe class="k-map" data-map loading="lazy"></iframe></div>
+        <div class="find__info">
+          <div class="find__addr">Lara Cd. 196<br>Güzeloba, Muratpaşa</div>
+          <a class="k-btn k-btn--line" data-link="y"><span class="ya" aria-hidden="true">Я</span><span data-t="k_map_y"></span></a>
+          <a class="k-btn k-btn--line" data-link="g"><b aria-hidden="true" style="color:#4285F4;font:800 18px Arial">G</b><span data-t="k_map_g"></span></a>
+          <a class="k-btn k-btn--main" data-link="tel"><svg width="20" height="20"><use href="#k-call"/></svg>+90 535 290 55 15</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<footer><div class="wrap"><strong>Hascar Rent A Car</strong><span class="k-demo" data-t="k_demo"></span><span class="k-demo" data-t="k_photos"></span></div></footer>
+<nav class="k-dock" id="k-dock" aria-label="contact"></nav>
+<button type="button" class="k-up" id="k-up" data-ta="aria-label:k_top"></button>
+<script>
+/* ===== CONFIG: başka bir kiralama firması için cfg, quotes, board ve sözlükteki işletmeye özel satırlar değişir ===== */
+window.SITE = {
+  id: 'hascar', theme: 'dark',
+  cfg: { name: 'Hascar Rent A Car', phone: '905352905515', telegram: null, address: 'Lara Cd. 196, Güzeloba, Muratpaşa, Antalya', langs: ['ru', 'tr', 'en'], defaultLang: 'ru', hours: null },
+  quotes: [
+    { orig: 'Говорит по-русски', lang: 'ru', tr: 'Rusça konuşuyor', en: 'Speaks Russian', who: 'q_who' },
+    { orig: 'Диалог строился на русском', lang: 'ru', tr: 'Konuşmamız baştan sona Rusçaydı', en: 'The whole conversation was in Russian', who: 'q_who' }
+  ],
+  board: {
+    tr: { r1: ['OTELİNİZ', 'KEMER', 'SİDE', 'KAŞ', 'OLİMPOS', 'BELEK', 'KONYAALTI'], r2: ['SUV', 'SEDAN', 'EKONOMİK', 'AİLE', 'OTOMATİK'] },
+    ru: { r1: ['ВАШ ОТЕЛЬ', 'КЕМЕР', 'СИДЕ', 'КАШ', 'ОЛИМПОС', 'БЕЛЕК', 'КОНЬЯАЛТЫ'], r2: ['ВНЕДОРОЖН', 'СЕДАН', 'ЭКОНОМ', 'СЕМЕЙНАЯ', 'АВТОМАТ'] },
+    en: { r1: ['YOUR HOTEL', 'KEMER', 'SIDE', 'KAS', 'OLYMPOS', 'BELEK', 'KONYAALTI'], r2: ['SUV', 'SEDAN', 'ECONOMY', 'FAMILY', 'AUTOMATIC'] }
+  },
+  flows: {},
+  night: { href: '#book', tr: ['🔔 TALEP: Araç kiralama', '📅 Tarih: 12 → 19 Haziran', '🚗 Sınıf: 7 kişilik SUV', '⚙️ Vites: Otomatik', '📍 Teslim: Otel, Lara', '🌐 Müşteri dili: Rusça'] },
+  i18n: {
+    tr: {
+      night_msg: '12–19 Haziran için 7 kişilik otomatik bir SUV lazım. Lara’daki otelimize getirebilir misiniz?',
+      page_title: 'Hascar Rent A Car · Lara, Antalya', page_desc: "Lara Güzeloba'da araç kiralama. Aracınızı otelinize getiriyoruz.",
+      brand_sub: 'Rent A Car', nav_book: 'Rezervasyon', nav_fleet: 'Araçlar', nav_info: 'Neden biz', nav_find: 'Bizi bulun', tag: 'Temsili görsel', tag_v: 'Temsili video',
+      board_alt: 'Varış tabelası: rota ve araç tipi değişiyor', board_h: 'BUGÜN NEREYE?', board_r1: 'ROTA', board_r2: 'ARAÇ',
+      show_sub: 'Lüksten orta segmente, 7 kişiye kadar. Bir araç seçin, gerisini WhatsApp’tan konuşalım.', o_lux: 'Lüks', o_lux_s: 'Sedan, şoför koltuğunda konfor', o_suv_s: 'Yüksek, geniş, dağ yoluna hazır', o_mid_s: 'Hesaplı ve rahat', o_big_s: 'Üç sıra koltuk, geniş bagaj', pk1: '7 koltuğa kadar araçlar', pk2: 'Sigortalı araçlar', pk3: 'Otelinize teslim', pk4: 'Rusça konuşuyoruz', fl1: 'Kartı gönderin', fl1d: 'Tarih, otel, araç sınıfı. WhatsApp ya da Telegram’a tek mesaj.', fl2: 'Araç ve fiyat gelsin', fl2d: 'Uygun aracı ve toplam tutarı aynı yazışmada yazarız.', fl3: 'Teslimden önce hatırlatma', fl3d: 'Bir gün önce saat ve yer mesajla gelir.', hero_h1: 'Arabanız otelinizin kapısında.', hero_p: 'Lara Güzeloba · Rusça da konuşuyoruz', hn1: 'Lara, Güzeloba.|Rusça da konuşuyoruz', hn2: 'Sahil yolu sizin.|Tatilin ilk günü kendi aracınızla', hn3: 'Biniş kartını doldurun.|WhatsApp ya da Telegram ile gönderin',
+      pass_h: 'BİNİŞ KARTI', p_from: 'NEREDEN', p_to: 'TESLİM', p_where: 'TESLİM YERİ', p_cls: 'ARAÇ SINIFI', p_gear: 'VİTES', p_hotel: 'OTEL ADI (İSTEĞE BAĞLI)', p_hotel_ph: 'Örn. otelinizin adı',
+      p_send: 'Kartı gönder', p_note: 'WhatsApp ya da Telegram’a gider; uygun araçların fotoğraflarını size yazarak göndeririz.',
+      to_o_hotel: 'OTEL', to_o_office: 'OFİS', to_o_other: 'DİĞER',
+      fleet_h: 'Kapınızı seçin', fleet_p: 'Bir sınıf seçin; biniş kartınıza eklenir.', pick: 'Karta ekle', fleet_note: 'Fotoğraflar temsilidir. Gerçek filo sizin onayınızla eklenir.',
+      c1_alt: 'Beyaz sedan, palmiyeli sokakta', c2_alt: 'Islak zeminde koyu renkli sedan', c3_alt: 'Asfalt yolda beyaz SUV', c4_alt: 'Beyaz binanın önünde mavi station wagon',
+      o_eco: 'Ekonomik', o_eco_d: 'Şehir içi ve kısa yollar için küçük, az yakan araç.', o_mid: 'Orta segment', o_mid_d: 'Bavullu tatil ve uzun yol için rahat bagaj.',
+      o_suv: 'SUV', o_suv_d: 'Dağ yolları ve uzun geziler için yüksek araç.', o_big: '7 kişilik SUV', o_big_d: 'Çocuklu aile ve çok bavul için geniş iç hacim.',
+      o_hotel: 'Otelime', o_office: 'Ofisten alırım', o_other: 'Başka yer', o_auto: 'Otomatik', o_manual: 'Manuel',
+      info_h: 'Müşterilerimizin anlattığı üç şey',
+      i1: 'Rusça konuşuyoruz', i1d: 'Yandex yorumlarının çoğu Rusça; derdinizi kendi dilinizde anlatırsınız.', i2: 'Otelinize getiriyoruz', i2d: 'Müşterilerimiz aracın otele teslim edilmesini anlatıyor.', i3: 'Lara Caddesi’ndeyiz', i3d: 'Ofisimiz Güzeloba’da, Lara Caddesi 196 numarada.',
+      q_who: 'Yandex yorumu', score_txt: "Yandex'te 5,0 · 72 puan, 48 yorum",
+      find_h: 'Ofisimiz Lara Caddesi üzerinde',
+      m_title: 'Araç kiralama', m_line: 'Araç kiralamak istiyorum: {list}.', m_hotel: 'Otel: {v}',
+      wa_hello: 'Merhaba! Araç kiralamak istiyorum.'
+    },
+    ru: {
+      night_msg: 'Нужен 7-местный SUV на автомате с 12 по 19 июня. Сможете привезти к нашему отелю в Ларе?',
+      page_title: 'Hascar Rent A Car · прокат авто в Ларе', page_desc: 'Прокат автомобилей в Ларе (Гюзелоба). Привезём машину к вашему отелю.',
+      brand_sub: "Прокат авто", nav_book: 'Бронь', nav_fleet: 'Машины', nav_info: 'Почему мы', nav_find: 'Как нас найти', tag: 'Иллюстративное фото', tag_v: 'Иллюстративное видео',
+      board_alt: 'Табло: меняются маршрут и тип машины', board_h: 'КУДА СЕГОДНЯ?', board_r1: 'МАРШРУТ', board_r2: 'МАШИНА',
+      show_sub: 'От люкса до среднего класса, до 7 мест. Выберите машину — остальное обсудим в WhatsApp.', o_lux: 'Люкс', o_lux_s: 'Седан, комфорт за рулём', o_suv_s: 'Высокий, просторный, для гор', o_mid_s: 'Выгодно и удобно', o_big_s: 'Три ряда сидений, большой багажник', pk1: 'Машины до 7 мест', pk2: 'Застрахованные машины', pk3: 'Доставка к отелю', pk4: 'Говорим по-русски', fl1: 'Отправьте талон', fl1d: 'Даты, отель, класс машины. Одно сообщение в WhatsApp или Telegram.', fl2: 'Получите машину и цену', fl2d: 'Подходящую машину и итоговую сумму напишем в той же переписке.', fl3: 'Напоминание перед выдачей', fl3d: 'За день придёт сообщение со временем и местом.', hero_h1: 'Машина приедет к вашему отелю.', hero_p: 'Лара, Гюзелоба · говорим по-русски', hn1: 'Лара, Гюзелоба.|Говорим по-русски', hn2: 'Прибрежная дорога ваша.|С первого дня отпуска — на своей машине', hn3: 'Заполните посадочный талон.|Отправьте в WhatsApp или Telegram',
+      pass_h: 'ПОСАДОЧНЫЙ', p_from: 'ОТКУДА', p_to: 'КУДА', p_where: 'МЕСТО ПОДАЧИ', p_cls: 'КЛАСС', p_gear: 'КОРОБКА', p_hotel: 'ОТЕЛЬ (ПО ЖЕЛАНИЮ)', p_hotel_ph: 'Например, название отеля',
+      p_send: 'Отправить талон', p_note: 'Уйдёт в WhatsApp или Telegram; мы пришлём вам фото подходящих машин.',
+      to_o_hotel: 'ОТЕЛЬ', to_o_office: 'ОФИС', to_o_other: 'ДРУГОЕ',
+      fleet_h: 'Выберите свой выход', fleet_p: 'Выберите класс, и он попадёт в посадочный талон.', pick: 'В талон', fleet_note: 'Фото иллюстративные. Настоящий автопарк появится здесь с вашего согласия.',
+      c1_alt: 'Белый седан на улице с пальмами', c2_alt: 'Тёмный седан на мокром асфальте', c3_alt: 'Белый внедорожник на дороге', c4_alt: 'Синий универсал у белого здания',
+      o_eco: 'Эконом', o_eco_d: 'Небольшая экономичная машина для города.', o_mid: 'Средний класс', o_mid_d: 'Удобный багажник для отпуска и дальних поездок.',
+      o_suv: 'Внедорожник', o_suv_d: 'Высокая машина для горных дорог и дальних поездок.', o_big: 'SUV на 7 мест', o_big_d: 'Просторно для семьи с детьми и багажа.',
+      o_hotel: 'К отелю', o_office: 'Заберу в офисе', o_other: 'Другое место', o_auto: 'Автомат', o_manual: 'Механика',
+      info_h: 'Три вещи, о которых пишут клиенты',
+      i1: 'Говорим по-русски', i1d: 'Большинство отзывов на Яндексе на русском: объясните всё на своём языке.', i2: 'Привозим к отелю', i2d: 'Клиенты пишут о доставке машины к отелю.', i3: 'Мы на улице Лара', i3d: 'Офис в Гюзелобе, Lara Caddesi, дом 196.',
+      q_who: 'Отзыв на Яндексе', score_txt: '5,0 на Яндексе · 72 оценки, 48 отзывов',
+      find_h: 'Наш офис на улице Лара',
+      m_title: 'Аренда авто', m_line: 'Хочу арендовать машину: {list}.', m_hotel: 'Отель: {v}',
+      wa_hello: 'Здравствуйте! Хочу арендовать машину.'
+    },
+    en: {
+      night_msg: 'We need a 7-seat automatic SUV from 12 to 19 June. Could you bring it to our hotel in Lara?',
+      page_title: 'Hascar Rent A Car · Lara, Antalya', page_desc: 'Car rental in Lara (Güzeloba). We bring the car to your hotel.',
+      brand_sub: 'Rent A Car', nav_book: 'Booking', nav_fleet: 'Cars', nav_info: 'Why us', nav_find: 'Find us', tag: 'Illustrative photo', tag_v: 'Illustrative video',
+      board_alt: 'Departure board: route and car type change', board_h: 'WHERE TO TODAY?', board_r1: 'ROUTE', board_r2: 'CAR',
+      show_sub: 'From luxury to mid-size, up to 7 seats. Pick a car, we sort the rest on WhatsApp.', o_lux: 'Luxury', o_lux_s: 'Sedan, comfort behind the wheel', o_suv_s: 'High, roomy, ready for mountain roads', o_mid_s: 'Good value, comfortable', o_big_s: 'Three rows of seats, big boot', pk1: 'Cars with up to 7 seats', pk2: 'Insured cars', pk3: 'Delivered to your hotel', pk4: 'We speak Russian', fl1: 'Send the pass', fl1d: 'Dates, hotel, car class. One message on WhatsApp or Telegram.', fl2: 'Get the car and price', fl2d: 'We reply with a suitable car and the total in the same chat.', fl3: 'Reminder before pick-up', fl3d: 'A day before, a message with the time and place.', hero_h1: 'Your car, at your hotel door.', hero_p: 'Lara Güzeloba · we speak Russian', hn1: 'Lara, Güzeloba.|We speak Russian too', hn2: 'The coast road is yours.|Your own car from day one', hn3: 'Fill in the boarding pass.|Send it via WhatsApp or Telegram',
+      pass_h: 'BOARDING PASS', p_from: 'FROM', p_to: 'TO', p_where: 'DELIVERY', p_cls: 'CAR CLASS', p_gear: 'GEARBOX', p_hotel: 'HOTEL (OPTIONAL)', p_hotel_ph: 'e.g. your hotel name',
+      p_send: 'Send the pass', p_note: 'It goes to WhatsApp or Telegram; we reply with photos of suitable cars.',
+      to_o_hotel: 'HOTEL', to_o_office: 'OFFICE', to_o_other: 'OTHER',
+      fleet_h: 'Choose your gate', fleet_p: 'Pick a class and it goes onto your boarding pass.', pick: 'Add to pass', fleet_note: 'Photos are illustrative. The real fleet goes here once you approve.',
+      c1_alt: 'White sedan on a street with palm trees', c2_alt: 'Dark sedan on wet ground', c3_alt: 'White SUV on a paved road', c4_alt: 'Blue estate car in front of a white building',
+      o_eco: 'Economy', o_eco_d: 'Small, fuel-saving car for town.', o_mid: 'Mid-size', o_mid_d: 'A roomy boot for holiday luggage and longer drives.',
+      o_suv: 'SUV', o_suv_d: 'A higher car for mountain roads and long trips.', o_big: '7-seat SUV', o_big_d: 'Room for a family with children and luggage.',
+      o_hotel: 'My hotel', o_office: 'I will pick it up', o_other: 'Elsewhere', o_auto: 'Automatic', o_manual: 'Manual',
+      info_h: 'Three things customers mention',
+      i1: 'We speak Russian', i1d: 'Most Yandex reviews are in Russian: explain everything in your language.', i2: 'We bring it to your hotel', i2d: 'Customers mention the car being delivered to their hotel.', i3: 'We are on Lara Street', i3d: 'Our office is in Güzeloba, Lara Caddesi no. 196.',
+      q_who: 'Yandex review', score_txt: '5.0 on Yandex · 72 ratings, 48 reviews',
+      find_h: 'Our office is on Lara Street',
+      m_title: 'Car rental', m_line: 'I would like to rent a car: {list}.', m_hotel: 'Hotel: {v}',
+      wa_hello: 'Hello! I would like to rent a car.'
+    }
+  },
+  onReady: function (K) {
+    var $ = K.$, $$ = K.$$, B = SITE.board, timers = [];
+    /* split-flap */
+    var CH = 'ABCDEFGHIJKLMNOPRSTUVYZÇĞİÖŞÜАБВГДЕЖЗИКЛМНОПРСТУФХЦЧШЭЮЯ0123456789';
+    function makeRow(el) { el.innerHTML = ''; for (var i = 0; i < 10; i++) { var c = document.createElement('span'); c.className = 'cell'; c.textContent = ' '; el.appendChild(c); } }
+    function setWord(el, w) {
+      w = (w + '          ').slice(0, 10);
+      Array.prototype.forEach.call(el.children, function (c, i) {
+        var target = w[i], n = K.reduced ? 0 : 3 + Math.floor(Math.random() * 5), k = 0;
+        (function tick() {
+          c.classList.remove('flip'); void c.offsetWidth; c.classList.add('flip');
+          c.textContent = k < n ? CH[Math.floor(Math.random() * CH.length)] : (target === ' ' ? ' ' : target);
+          if (k++ < n) timers.push(setTimeout(tick, 70 + i * 6));
+        })();
+      });
+    }
+    var r1 = $('#r1'), r2 = $('#r2'); makeRow(r1); makeRow(r2);
+    var i1 = 0, i2 = 0, loop;
+    function start() {
+      timers.forEach(clearTimeout); timers = []; clearInterval(loop);
+      var b = B[K.lang()]; i1 = 0; i2 = 0; setWord(r1, b.r1[0]); setTimeout(function () { setWord(r2, b.r2[0]); }, 400);
+      if (K.reduced) return;
+      loop = setInterval(function () { var b2 = B[K.lang()]; i1 = (i1 + 1) % b2.r1.length; setWord(r1, b2.r1[i1]); setTimeout(function () { i2 = (i2 + 1) % b2.r2.length; setWord(r2, b2.r2[i2]); }, 500); }, 3600);
+    }
+    start(); document.addEventListener('kit:lang', start);
+
+    /* biniş kartı */
+    var state = { where: 'o_hotel', cls: 'o_eco', gear: 'o_auto' }, form = $('#book');
+    function iso(off) { var d = new Date(Date.now() + off * 864e5); return d.toISOString().slice(0, 10); }
+    $('#d1').min = $('#d2').min = iso(0); $('#d1').value = iso(1); $('#d2').value = iso(8);
+    function paint() {
+      $$('[data-seg]').forEach(function (g) { $$('button', g).forEach(function (b) { b.setAttribute('aria-pressed', b.dataset.v === state[g.dataset.seg] ? 'true' : 'false'); }); });
+      $('#p-to-v').textContent = K.t('to_' + state.where);
+    }
+    form.addEventListener('click', function (e) { var b = e.target.closest('[data-seg] button'); if (!b) return; state[b.parentNode.dataset.seg] = b.dataset.v; paint(); });
+    $$('[data-pick]').forEach(function (b) { b.addEventListener('click', function () { state.cls = b.dataset.pick; paint(); form.scrollIntoView({ behavior: K.reduced ? 'auto' : 'smooth', block: 'center' }); }); });
+    document.addEventListener('kit:lang', paint); paint();
+    function fd(v) { var p = v.split('-'); return p[2] + '.' + p[1] + '.' + p[0]; }
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var d1 = $('#d1').value, d2 = $('#d2').value, hotel = $('#hotel').value.trim();
+      var list = [fd(d1) + ' → ' + fd(d2), K.t(state.where), K.t(state.cls), K.t(state.gear)].join(' · ');
+      var c = K.t('k_hello') + ' ' + K.t('m_line', { list: list }) + (hotel ? '\n' + K.t('m_hotel', { v: hotel }) : '');
+      var tr = ['🔔 TALEP: ' + K.t('m_title', null, 'tr'), '📅 Tarihler: ' + fd(d1) + ' → ' + fd(d2), '📍 Teslim: ' + K.t(state.where, null, 'tr'), '🚗 Sınıf: ' + K.t(state.cls, null, 'tr'), '⚙️ Vites: ' + K.t(state.gear, null, 'tr')];
+      if (hotel) tr.push('🏨 Otel: ' + hotel);
+      form.classList.add('is-torn');
+      setTimeout(function () { K.handoff(c, tr); form.classList.remove('is-torn'); }, K.reduced ? 0 : 650);
+    });
+  }
+};
+</script>
+<script src="../_kit/reel.js"></script>
+<script src="../_kit/kit.js"></script>
+<script type="module" src="../_kit/kit3d.js"></script>
+</body>
+</html>
