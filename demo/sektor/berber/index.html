@@ -103,6 +103,13 @@ section{padding:80px 0}
 .chips{display:flex;flex-wrap:wrap;gap:8px}
 .chips button{min-height:46px;padding:0 14px;border-radius:4px;border:1px solid var(--k-line);background:transparent;font-weight:600;font-size:15px;cursor:pointer;display:inline-flex;align-items:center;gap:8px}
 .chips button[aria-pressed=true]{background:var(--k-fg);color:var(--k-bg);border-color:var(--k-fg)}
+.masters{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.masters button{display:flex;flex-direction:column;align-items:center;gap:6px;padding:10px 4px 12px;min-height:96px;border-radius:6px;border:1px solid var(--k-line);background:transparent;color:inherit;cursor:pointer;font-weight:600;font-size:14px}
+.masters i{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;font-style:normal;font:400 20px var(--k-display);background:linear-gradient(145deg,#2a2c30,#141518);color:#E8E2D6;box-shadow:inset 0 0 0 1px rgba(201,160,99,.5)}
+.masters button[data-v=m_any] i{background:transparent;box-shadow:inset 0 0 0 1px var(--k-line);color:var(--k-muted)}
+.masters button[aria-pressed=true]{border-color:var(--k-fg);background:color-mix(in srgb,var(--k-fg) 8%,transparent)}
+.masters button[aria-pressed=true] i{box-shadow:inset 0 0 0 2px #C9A063}
+.m-note{font-size:12px;color:var(--k-muted);margin:6px 0 0}
 .chips svg{width:18px;height:22px}
 .result{display:none;border:1px solid var(--k-line);border-radius:6px;padding:18px}
 .result.on{display:block;animation:rise .7s var(--ease)}
@@ -284,6 +291,9 @@ footer strong{font:400 24px var(--k-display);letter-spacing:.12em}
       <form class="book__card" id="bookform">
         <p class="lab" data-t="b_style"></p>
         <p class="book__sel" id="b-sel"></p>
+        <p class="lab" data-t="f_master"></p>
+        <div class="masters" data-g="master"><button type="button" data-v="m1"><i>M</i><span data-t="m1"></span></button><button type="button" data-v="m2"><i>E</i><span data-t="m2"></span></button><button type="button" data-v="m3"><i>K</i><span data-t="m3"></span></button><button type="button" data-v="m_any"><i>✂</i><span data-t="m_any"></span></button></div>
+        <p class="m-note" data-t="m_note"></p>
         <p class="lab" data-t="f_who"></p>
         <div class="chips" data-g="who"><button type="button" data-v="o_me" data-t="o_me"></button><button type="button" data-v="o_mekid" data-t="o_mekid"></button><button type="button" data-v="o_kidonly" data-t="o_kidonly"></button></div>
         <p class="lab" data-t="f_extra"></p>
@@ -375,7 +385,7 @@ window.SITE = {
       reel_h: 'Ustanın elinden', r1: 'Ense ve kontur', r2: 'Makineyle çizgi', r3: 'Sakallı kesim', r4: 'Hazırlık',
       q1_who: 'Her ay çocuklarını getiren müşteri · Yandex', q2_who: 'Yandex yorumu',
       book_h: 'Sıra fişi', b_style: 'Seçtiğiniz kesim', b_none: 'Henüz seçmediniz; koltukta birlikte karar verelim',
-      f_who: 'Kimin için?', o_me: 'Benim için', o_mekid: 'Ben + çocuğum', o_kidonly: 'Sadece çocuğum', f_extra: 'Ek', o_beard: 'Sakal', o_wash: 'Yıkama',
+      f_master: 'Usta', m1: 'Mert', m2: 'Emre', m3: 'Kerem', m_any: 'Fark etmez', m_with: 'usta: {m}', m_note: 'Usta adları örnektir; gerçek ekip işletmeyle birlikte eklenir.', f_who: 'Kimin için?', o_me: 'Benim için', o_mekid: 'Ben + çocuğum', o_kidonly: 'Sadece çocuğum', f_extra: 'Ek', o_beard: 'Sakal', o_wash: 'Yıkama',
       f_day: 'Hangi gün?', f_time: 'Hangi saatler?', o_morning: 'Sabah', o_noon: 'Öğleden sonra', o_evening: 'Akşam', f_note: 'Not', f_note_ph: 'Usta tercihi, çocuğun yaşı…', b_send: 'Fişi gönder',
       find_h: "Şirinyalı'dayız", rate_txt: "Yandex'te 5,0 · 96 puan, 30 yorum",
       credits: 'Fotoğraflar Unsplash, videolar Mixkit (temsili). Kendi fotoğraf ve videolarınızla değişir.',
@@ -412,7 +422,7 @@ window.SITE = {
       reel_h: 'Из рук мастера', r1: 'Шея и контур', r2: 'Линия машинкой', r3: 'Стрижка с бородой', r4: 'Подготовка',
       q1_who: 'Клиент, который каждый месяц приводит детей · Яндекс', q2_who: 'Отзыв на Яндексе',
       book_h: 'Талон записи', b_style: 'Выбранная стрижка', b_none: 'Пока не выбрана — решим вместе в кресле',
-      f_who: 'Для кого?', o_me: 'Для меня', o_mekid: 'Я + ребёнок', o_kidonly: 'Только ребёнок', f_extra: 'Дополнительно', o_beard: 'Борода', o_wash: 'Мытьё головы',
+      f_master: 'Мастер', m1: 'Мерт', m2: 'Эмре', m3: 'Керем', m_any: 'Не важно', m_with: 'мастер: {m}', m_note: 'Имена мастеров — пример; настоящую команду добавим вместе с барбершопом.', f_who: 'Для кого?', o_me: 'Для меня', o_mekid: 'Я + ребёнок', o_kidonly: 'Только ребёнок', f_extra: 'Дополнительно', o_beard: 'Борода', o_wash: 'Мытьё головы',
       f_day: 'Какой день?', f_time: 'Какое время?', o_morning: 'Утро', o_noon: 'После обеда', o_evening: 'Вечер', f_note: 'Заметка', f_note_ph: 'Мастер, возраст ребёнка…', b_send: 'Отправить талон',
       find_h: 'Мы в Ширинъялы', rate_txt: '5,0 на Яндексе · 96 оценок, 30 отзывов',
       credits: 'Фото Unsplash, видео Mixkit (иллюстративные). Их заменят ваши собственные.',
@@ -449,7 +459,7 @@ window.SITE = {
       reel_h: 'From the barber’s hands', r1: 'Neck and outline', r2: 'Clipper line', r3: 'Cut with beard', r4: 'Getting ready',
       q1_who: 'A customer who brings his kids every month · Yandex', q2_who: 'Yandex review',
       book_h: 'Your ticket', b_style: 'Chosen cut', b_none: 'Not chosen yet — we decide together in the chair',
-      f_who: 'Who is it for?', o_me: 'For me', o_mekid: 'Me + my child', o_kidonly: 'Only my child', f_extra: 'Extra', o_beard: 'Beard', o_wash: 'Hair wash',
+      f_master: 'Barber', m1: 'Mert', m2: 'Emre', m3: 'Kerem', m_any: 'Any barber', m_with: 'barber: {m}', m_note: 'Barber names are examples; the real team is added with the shop.', f_who: 'Who is it for?', o_me: 'For me', o_mekid: 'Me + my child', o_kidonly: 'Only my child', f_extra: 'Extra', o_beard: 'Beard', o_wash: 'Hair wash',
       f_day: 'Which day?', f_time: 'What time?', o_morning: 'Morning', o_noon: 'Afternoon', o_evening: 'Evening', f_note: 'Note', f_note_ph: 'Preferred barber, child’s age…', b_send: 'Send the ticket',
       find_h: 'We are in Şirinyalı', rate_txt: '5.0 on Yandex · 96 ratings, 30 reviews',
       credits: 'Photos Unsplash, videos Mixkit (illustrative). They will be replaced with your own.',
@@ -459,7 +469,7 @@ window.SITE = {
   },
   onReady: function (K) {
     var $ = K.$, $$ = K.$$, S = SITE, U = function (id, w, h) { return 'https://images.unsplash.com/' + id + '?auto=format&fit=crop&w=' + w + '&h=' + h + '&q=65'; };
-    var st = { style: null, shape: null, hair: null, who: 'o_me', extra: [], day: null, time: 'o_evening' };
+    var st = { style: null, shape: null, hair: null, master: 'm_any', who: 'o_me', extra: [], day: null, time: 'o_evening' };
     /* video: azaltılmış harekette durdur; aşağıdaki videolar görününce yüklensin */
     var io = new IntersectionObserver(function (es) { es.forEach(function (e) { var v = e.target; if (e.isIntersecting) { var s = v.querySelector('source'); if (s.dataset.src && !s.src) { s.src = s.dataset.src; v.load(); } if (!K.reduced) v.play().catch(function () {}); } else v.pause(); }); }, { rootMargin: '200px' });
     $$('[data-lazyv]').forEach(function (v) { io.observe(v); });
@@ -543,9 +553,9 @@ window.SITE = {
     /* gönder */
     $('#bookform').addEventListener('submit', function (e) {
       e.preventDefault(); var note = $('#bnote').value.trim();
-      var parts = [st.style ? K.t(st.style) : K.t('b_none'), K.t(st.who)].concat(st.extra.map(function (x) { return K.t(x); })).concat([K.fmtDay(st.day), K.t(st.time)]);
+      var parts = [st.style ? K.t(st.style) : K.t('b_none'), K.t('m_with', { m: K.t(st.master) }), K.t(st.who)].concat(st.extra.map(function (x) { return K.t(x); })).concat([K.fmtDay(st.day), K.t(st.time)]);
       var c = K.t('k_hello') + ' ' + K.t('m_line', { list: parts.join(' · ') }) + (st.shape ? '\n' + K.t('m_face', { v: K.t('shape_' + st.shape) }) : '') + (note ? '\n' + note : '');
-      var tr = ['🔔 TALEP: ' + K.t('m_title', null, 'tr'), '✂️ Kesim: ' + (st.style ? K.t(st.style, null, 'tr') : 'seçilmedi'), '👤 Kimin için: ' + K.t(st.who, null, 'tr')];
+      var tr = ['🔔 TALEP: ' + K.t('m_title', null, 'tr'), '✂️ Kesim: ' + (st.style ? K.t(st.style, null, 'tr') : 'seçilmedi'), '💈 Usta: ' + K.t(st.master, null, 'tr'), '👤 Kimin için: ' + K.t(st.who, null, 'tr')];
       if (st.extra.length) tr.push('➕ Ek: ' + st.extra.map(function (x) { return K.t(x, null, 'tr'); }).join(', '));
       if (st.shape) tr.push('🙂 Yüz şekli (tahmin): ' + K.t('shape_' + st.shape, null, 'tr') + (st.hair ? ' · saç: ' + K.t(st.hair, null, 'tr') : ''));
       tr.push('📅 ' + K.fmtDay(st.day, 'tr') + ' · ' + K.t(st.time, null, 'tr'));

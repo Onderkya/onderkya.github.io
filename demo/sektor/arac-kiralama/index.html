@@ -50,6 +50,22 @@ h1,h2,h3{font-family:var(--k-display);margin:0;letter-spacing:-.02em}
 .perks li{display:flex;align-items:center;gap:10px;min-height:32px}
 .perks li::before{content:"";width:8px;height:8px;border-radius:50%;background:#E3B04B;box-shadow:0 0 12px rgba(227,176,75,.8)}
 .show .k-photo-tag{top:auto;bottom:10px;right:16px}
+/* telefon: yatay kaydırma yok; 4 sütun ekrana sığar, sırayla açılır, dokunulan büyür */
+@media(max-width:899px){
+  .cols{overflow:visible;scroll-snap-type:none;gap:6px;padding:0 16px}
+  .col{flex:1 1 0;width:auto;max-width:none;min-width:0;height:min(50svh,430px);min-height:300px;scroll-snap-align:none;transition:flex-grow .8s var(--ease)}
+  .col.on{flex-grow:3.4}
+  .col__t{left:10px;right:10px;bottom:12px}
+  .col__t small,.col__t i{opacity:0;max-height:0;overflow:hidden;margin:0;padding:0;transition:opacity .4s}
+  .col.on .col__t small{opacity:1;max-height:3em}
+  .col.on .col__t i{opacity:1;max-height:3em;padding:7px 12px;margin-top:8px}
+  .col:not(.on) .col__t{left:50%;right:auto;bottom:14px;transform:translateX(-50%)}
+  .col:not(.on) .col__t b{writing-mode:vertical-rl;transform:rotate(180deg);font-size:16px;white-space:nowrap}
+  .col.on .col__t b{font-size:22px}
+  .show h1{font-size:clamp(30px,8.4vw,44px)}
+  .show__sub{font-size:15px}
+  .perks{gap:6px 16px;font-size:14px}
+}
 @media(min-width:900px){.show .wrap:first-child{display:flex;align-items:flex-end;justify-content:space-between;gap:30px}.show__sub{max-width:34ch;text-align:right}.cols{overflow:visible;padding:0;margin-inline:auto;width:min(1180px,100% - 32px)}.col{flex:1 1 0;width:auto;max-width:none;height:max(440px,calc(100svh - 300px))}.col:hover,.col:focus-visible{flex-grow:1.7}}
 /* ===== 3 adım: WhatsApp / Telegram ===== */
 .flow3{list-style:none;margin:34px 0 0;padding:0;display:grid;gap:10px}
@@ -378,5 +394,25 @@ window.SITE = {
 <script src="../_kit/reel.js"></script>
 <script src="../_kit/kit.js"></script>
 <script type="module" src="../_kit/kit3d.js"></script>
+<script>
+/* telefonda araç sütunları: sırayla kendiliğinden açılır; kapalı sütuna dokununca o açılır, açık olana dokununca karta eklenir */
+(function () {
+  var mq = matchMedia('(max-width: 899px)'), wrap = document.querySelector('.cols'), cols = [].slice.call(document.querySelectorAll('.col')), i = 0, timer = null, hold = 0;
+  if (!wrap) return;
+  function set(k) { i = k; cols.forEach(function (c, n) { c.classList.toggle('on', n === k); }); }
+  function auto() {
+    clearInterval(timer);
+    if (!mq.matches) { cols.forEach(function (c) { c.classList.remove('on'); }); return; }
+    set(i);
+    if (!matchMedia('(prefers-reduced-motion: reduce)').matches) timer = setInterval(function () { if (Date.now() < hold || document.hidden) return; set((i + 1) % cols.length); }, 3200);
+  }
+  wrap.addEventListener('click', function (e) {
+    if (!mq.matches) return; var c = e.target.closest('.col'); if (!c || c.classList.contains('on')) return;
+    e.preventDefault(); e.stopImmediatePropagation(); set(cols.indexOf(c)); hold = Date.now() + 9000;
+  }, true);
+  if (mq.addEventListener) mq.addEventListener('change', auto);
+  auto();
+})();
+</script>
 </body>
 </html>

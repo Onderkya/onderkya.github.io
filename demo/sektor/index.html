@@ -19,7 +19,7 @@ header span{font-size:13px;color:var(--mut)}
 h1{font:800 clamp(38px,8vw,92px)/.95 'Unbounded',sans-serif;letter-spacing:-.03em;margin:34px 0 14px;max-width:12ch}
 .lede{color:var(--mut);font-size:17px;max-width:46ch;margin:0 0 34px}
 .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;padding-bottom:70px}
-.card{position:relative;display:block;border-radius:22px;overflow:hidden;background:#000;color:#fff;text-decoration:none;aspect-ratio:9/15;isolation:isolate;box-shadow:0 30px 60px -30px rgba(0,0,0,.9),inset 0 0 0 1px rgba(255,255,255,.06)}
+.card{position:relative;display:block;border-radius:22px;overflow:hidden;background:radial-gradient(120% 80% at 30% 20%,#2b2a35,#0b0b0e);color:#fff;text-decoration:none;aspect-ratio:9/15;isolation:isolate;box-shadow:0 30px 60px -30px rgba(0,0,0,.9),inset 0 0 0 1px rgba(255,255,255,.06)}
 .card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;z-index:-2;transition:transform 1.2s var(--ease)}
 .card::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,.88))}
 .card:hover img,.card:focus-visible img{transform:scale(1.05)}
@@ -49,10 +49,11 @@ var D = [
   ['berber', 'Erkek kuaförü', 'Tiga Kuaför', true],
   ['guzellik', 'Güzellik merkezi', 'La Beauté', true],
   ['cicekci', 'Çiçekçi', 'Flower Farm Antalya', true],
-  ['kuru-temizleme', 'Kuru temizleme', 'Kardelen Organik', true]
+  ['kuru-temizleme', 'Kuru temizleme', 'Kardelen Organik', true],
+  ['telefon', 'Telefon tamiri', 'Cep Atölyesi', false]
 ];
 document.getElementById('grid').innerHTML = D.map(function (d) {
-  return '<a class="card' + (d[3] ? '' : ' soon') + '" href="' + (d[3] ? d[0] + '/' : '#') + '"><img src="_prev/' + d[0] + '.jpg" alt="" loading="lazy" width="390" height="844"><span class="card__b"><small>' + d[2] + '</small><strong>' + d[1] + '</strong><i>' + (d[3] ? 'Demoyu aç' : 'Hazırlanıyor') + '</i></span></a>';
+  return '<a class="card' + (d[3] ? '' : ' soon') + '" href="' + (d[3] ? d[0] + '/' : '#') + '"><img src="_prev/' + d[0] + '.jpg" alt="" loading="lazy" width="390" height="844" onerror="this.remove()"><span class="card__b"><small>' + d[2] + '</small><strong>' + d[1] + '</strong><i>' + (d[3] ? 'Demoyu aç' : 'Hazırlanıyor') + '</i></span></a>';
 }).join('');
 </script>
 </body>

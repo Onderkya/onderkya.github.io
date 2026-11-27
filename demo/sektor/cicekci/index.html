@@ -18,9 +18,28 @@
 ::selection{background:var(--tone);color:#24312A}
 .wrap{width:min(1200px,100% - 32px);margin-inline:auto}
 h1,h2,h3{font-family:var(--k-display);font-weight:500;margin:0;letter-spacing:-.01em}
-.top{padding:12px 0;position:relative;z-index:5}
+.top{padding:12px 0;position:absolute;left:0;right:0;top:0;z-index:8;color:#fff}.top .brand{color:#fff}.top .k-langs{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.22)}.top .k-langs button{color:#fff}.top .k-langs button[aria-pressed=true]{background:#fff;color:#111}.top .k-theme{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.22);color:#fff}
 .top .wrap{display:flex;align-items:center;gap:10px}
 .brand{margin-right:auto;text-decoration:none;min-height:44px;display:flex;align-items:center;font:italic 500 24px/1 var(--k-display)}
+/* giriş: papatya + ürün yaprakları */
+.hero.dz{min-height:100svh;padding:0;background:#040404;color:#fff;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;isolation:isolate}
+.dz .dz__v{position:absolute;left:0;top:0;width:100%;height:100%;z-index:-2;-webkit-mask-image:radial-gradient(closest-side,#000 72%,transparent);mask-image:radial-gradient(closest-side,#000 72%,transparent)}
+
+.dz::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(180deg,rgba(0,0,0,.35),transparent 22%,transparent 62%,rgba(0,0,0,.9))}
+.ring{position:absolute;inset:0;z-index:5;pointer-events:none}
+.ring__glow{position:absolute;height:30px;margin-top:-15px;transform-origin:0 50%;border-radius:50%;background:linear-gradient(90deg,rgba(255,255,255,0) 15%,rgba(255,255,255,.16) 60%,rgba(255,255,255,0));opacity:0;transition:opacity .9s var(--ease),background .4s}
+.ring.is-in .ring__glow{opacity:1}
+.ring__glow.hot{background:linear-gradient(90deg,rgba(255,255,255,0) 10%,rgba(255,238,200,.5) 60%,rgba(255,255,255,0))}
+.pet{position:absolute;left:0;top:0;pointer-events:auto;display:flex;align-items:center;justify-content:center;text-align:center;max-width:96px;min-height:44px;min-width:44px;padding:8px 12px;border-radius:99px;border:1px solid rgba(255,255,255,.32);background:rgba(10,10,10,.38);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);color:#fff;font:600 13px/1.15 var(--k-font);cursor:pointer;opacity:0;transition:opacity .7s var(--ease),background .3s,color .3s,box-shadow .3s;will-change:transform}
+.ring.is-in .pet{opacity:1}
+.pet:hover,.pet:focus-visible{background:#fff;color:#141414;box-shadow:0 0 0 6px rgba(255,255,255,.12)}
+.pet:focus-visible{outline:2px solid #fff;outline-offset:3px}
+.dz .hero__in{position:relative;z-index:6;padding:0 0 30px}
+.dz h1{font-size:clamp(40px,10vw,104px);line-height:.95;max-width:12ch;text-wrap:balance}@media(min-width:900px){.dz h1{font-size:clamp(56px,5.6vw,92px);max-width:8ch}.dz .hero__in{padding-bottom:30vh}}
+.dz .hero__in p{color:#D9D4CC;margin:12px 0 0;font-size:16px}
+.dz .k-photo-tag{z-index:6}
+.petals{opacity:.75}
+@media(min-width:900px){.dz .hero__in{padding-bottom:90px}.pet{max-width:150px;font-size:15px;padding:10px 16px}}
 /* hero */
 .hero{position:relative;padding-bottom:30px;overflow-x:clip}
 .hero__reel{position:relative;height:62svh;min-height:360px;margin:0 12px;border-radius:32px;overflow:hidden}
@@ -52,7 +71,10 @@ section{padding:72px 0}
 @media(min-width:900px){.tone-stage{grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);align-items:stretch}.tone-reel{height:auto;min-height:560px}}
 /* asistan */
 .ai{background:linear-gradient(160deg,color-mix(in srgb,var(--tone) 30%,var(--k-bg)),var(--k-bg));border-block:1px solid var(--k-line)}
-.chat{max-width:760px;margin:26px auto 0;background:var(--k-surface);border:1px solid var(--k-line);border-radius:28px;padding:16px;box-shadow:0 30px 60px -40px rgba(36,49,42,.5)}
+.chat__top{display:flex;align-items:center;gap:12px;padding:4px 4px 14px;border-bottom:1px solid var(--k-line);margin-bottom:12px}.chat__ava{width:46px;height:46px;border-radius:50%;flex:none;background:radial-gradient(circle at 50% 50%,#F6C445 0 18%,#fff 19% 100%);box-shadow:0 0 0 3px var(--k-bg),0 0 0 4px var(--k-line);position:relative}.chat__ava::after{content:"";position:absolute;right:0;bottom:2px;width:11px;height:11px;border-radius:50%;background:#2DBE6C;box-shadow:0 0 0 2px var(--k-surface)}.chat__who b{display:block;font:500 20px/1.1 var(--k-display)}.chat__who small{color:var(--k-muted);font-size:13px}
+.typing{display:inline-flex;gap:4px;padding:14px 16px}.typing i{width:7px;height:7px;border-radius:50%;background:var(--k-muted);animation:tdot 1s infinite}.typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}@keyframes tdot{0%,60%,100%{opacity:.25;transform:none}30%{opacity:1;transform:translateY(-3px)}}
+.msg__tip{display:block;margin-top:6px;color:var(--k-muted);font-size:14px}
+.chat{max-width:780px;margin:26px auto 0;background:var(--k-surface);border:1px solid var(--k-line);border-radius:28px;padding:16px;box-shadow:0 30px 60px -40px rgba(36,49,42,.5)}
 .chat__log{display:flex;flex-direction:column;gap:10px;min-height:120px;max-height:520px;overflow-y:auto;padding:4px}
 .msg{max-width:86%;padding:12px 14px;border-radius:18px;font-size:15px;line-height:1.45;animation:pop .35s var(--ease)}
 @keyframes pop{from{opacity:0;transform:translateY(8px)}}
@@ -63,9 +85,9 @@ section{padding:72px 0}
 .mini img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:14px;display:block}
 .mini b{display:block;font-size:12px;margin-top:5px;line-height:1.25}
 .mini small{font-size:11px;color:#2E8B57;font-weight:700}
-.chat__sugs{display:flex;gap:8px;overflow-x:auto;padding:10px 2px;scrollbar-width:none}
+.chat__sugs{display:flex;flex-wrap:wrap;gap:8px;padding:12px 2px}
 .chat__sugs::-webkit-scrollbar{display:none}
-.chat__sugs button{flex:none;min-height:44px;padding:0 14px;border-radius:99px;border:1.5px solid var(--k-line);background:transparent;font-weight:600;font-size:13px;cursor:pointer}
+.chat__sugs button{min-height:44px;padding:8px 14px;border-radius:18px 18px 18px 6px;border:1.5px solid var(--k-line);background:var(--k-bg);font-weight:600;font-size:14px;cursor:pointer;text-align:left;color:var(--k-fg)}.chat__sugs button:hover{border-color:var(--k-acc)}
 .chat__in{display:flex;gap:8px}
 .chat__in input{flex:1;min-width:0;min-height:52px;border-radius:99px;border:1.5px solid var(--k-line);background:var(--k-bg);padding:0 18px;font-size:16px}
 .chat__in button{min-width:52px;min-height:52px;border-radius:50%;border:0;background:var(--k-acc);color:var(--k-acc-fg);cursor:pointer;font-size:20px}
@@ -95,12 +117,15 @@ footer .wrap{display:flex;flex-direction:column;gap:4px}
   <button type="button" class="k-theme" data-theme-toggle data-ta="aria-label:k_theme"><svg class="k-i-moon"><use href="#k-moon"/></svg><svg class="k-i-sun"><use href="#k-sun"/></svg></button>
 </div></header>
 <main id="top">
-  <section class="hero" style="padding-top:0" aria-labelledby="h1">
-    <div class="hero__reel" data-slow="0.7" data-grade="cine" data-reel="px:6184404/6184404-hd_720_1280_30fps,px:35990842/15261180_720_1280_25fps,px:10026929/10026929-hd_1280_720_25fps" data-every="5600" data-fx="zoom" data-bars data-narr="hero_h1,hn2,hn3"><span class="k-photo-tag" data-t="tag_v"></span><h1 id="h1" class="sr" data-t="hero_h1s"></h1></div>
+  <section class="hero dz" aria-labelledby="h1">
+    <div class="dz__v" data-reel="px:5647343/5647343-hd_1920_1080_25fps" data-slow="0.6" data-fx="fade"></div>
     <div class="petals" data-3d="petals" id="petals" data-colors="#F4A7B9,#FFFFFF,#E8577F,#FFD3A5"></div>
+    <div class="ring" id="ring" role="group" data-ta="aria-label:d_ring"></div>
     <div class="wrap hero__in">
-      <p data-t="hero_p"></p>
+      <h1 id="h1" data-t="d_h1"></h1>
+      <p data-t="d_p"></p>
     </div>
+    <span class="k-photo-tag" data-t="tag_v"></span>
   </section>
 
   <section id="tones" aria-labelledby="h-t" style="padding-top:30px">
@@ -118,6 +143,7 @@ footer .wrap{display:flex;flex-direction:column;gap:4px}
     <div class="wrap">
       <h2 class="h2" id="h-ai" data-t="ai_h" style="text-align:center;margin-inline:auto"></h2>
       <div class="chat">
+        <div class="chat__top"><span class="chat__ava" aria-hidden="true"></span><span class="chat__who"><b data-t="ai_name"></b><small data-t="ai_role"></small></span></div>
         <div class="chat__log" id="log" aria-live="polite"></div>
         <div class="chat__sugs" id="sugs"></div>
         <form class="chat__in" id="ask"><input id="q" type="text" maxlength="160" autocomplete="off" data-ta="placeholder:ai_ph;aria-label:ai_ph"><button type="submit" aria-label="→">↑</button></form>
@@ -166,24 +192,31 @@ window.SITE = {
   ],
   /* demo stok: anahtar, foto, ton, günler, boy */
   stock: [
-    ['b1', 'photo-1560583035-79c3e11ae176', 'tn_pink', ['o_love', 'o_bday'], 'o_l'], ['b2', 'photo-1616148037989-4c3a9946a514', 'tn_pink', ['o_mom', 'o_thanks', 'o_love'], 'o_m'],
-    ['b3', 'photo-1780892057871-a58ab617718f', 'tn_mix', ['o_bday', 'o_thanks'], 'o_m'], ['b4', 'photo-1491994336086-44f5d76dd8f2', 'tn_mix', ['o_bday', 'o_getwell', 'o_mom'], 'o_l'],
-    ['b5', 'photo-1560582591-f6939a30b5f2', 'tn_red', ['o_love', 'o_wedding'], 'o_l'], ['b6', 'photo-1587317996237-eddd7e834d84', 'tn_white', ['o_getwell', 'o_thanks', 'o_sorry'], 'o_s'],
-    ['b7', 'photo-1560256608-43f0b6f7588e', 'tn_pink', ['o_mom', 'o_baby'], 'o_m'], ['b8', 'photo-1567696153798-9111f9cd3d0d', 'tn_white', ['o_baby', 'o_thanks'], 'o_s'],
-    ['b9', 'photo-1579664872746-55e2a805d705', 'tn_pink', ['o_sorry', 'o_love'], 'o_s'], ['b10', 'photo-1540635352372-c21b523a29c6', 'tn_pink', ['o_love', 'o_bday', 'o_wedding'], 'o_l'],
-    ['b11', 'photo-1608656218680-e8be81ce71d7', 'tn_purple', ['o_getwell', 'o_baby', 'o_mom'], 'o_m'], ['b12', 'photo-1586973698216-0c4c285d7afd', 'tn_red', ['o_bday', 'o_sorry'], 'o_m']
+    ['b1', 'photo-1560583035-79c3e11ae176', 'tn_pink', ['o_love', 'o_bday'], 'o_l', 'p_bouquet'], ['b2', 'photo-1616148037989-4c3a9946a514', 'tn_pink', ['o_mom', 'o_thanks', 'o_love'], 'o_m', 'p_rose'],
+    ['b3', 'photo-1780892057871-a58ab617718f', 'tn_mix', ['o_bday', 'o_thanks'], 'o_m', 'p_bouquet'], ['b4', 'photo-1491994336086-44f5d76dd8f2', 'tn_mix', ['o_bday', 'o_getwell', 'o_mom'], 'o_l', 'p_bouquet'],
+    ['b5', 'photo-1560582591-f6939a30b5f2', 'tn_red', ['o_love', 'o_wedding'], 'o_l', 'p_rose'], ['b6', 'photo-1587317996237-eddd7e834d84', 'tn_white', ['o_getwell', 'o_thanks', 'o_sorry'], 'o_s', 'p_bouquet'],
+    ['b7', 'photo-1560256608-43f0b6f7588e', 'tn_pink', ['o_mom', 'o_baby'], 'o_m', 'p_arr'], ['b8', 'photo-1567696153798-9111f9cd3d0d', 'tn_white', ['o_baby', 'o_thanks'], 'o_s', 'p_bouquet'],
+    ['b9', 'photo-1579664872746-55e2a805d705', 'tn_pink', ['o_sorry', 'o_love'], 'o_s', 'p_bouquet'], ['b10', 'photo-1540635352372-c21b523a29c6', 'tn_pink', ['o_love', 'o_bday', 'o_wedding'], 'o_l', 'p_bouquet'],
+    ['b11', 'photo-1608656218680-e8be81ce71d7', 'tn_purple', ['o_getwell', 'o_baby', 'o_mom'], 'o_m', 'p_bouquet'], ['b12', 'photo-1586973698216-0c4c285d7afd', 'tn_red', ['o_bday', 'o_sorry'], 'o_m', 'p_rose'],
+    ['b13', 'photo-1583846712268-a77d97b7fd68', 'tn_white', ['o_getwell', 'o_thanks', 'o_mom'], 'o_m', 'p_orchid'], ['b14', 'photo-1730719500373-c30e3956f14d', 'tn_purple', ['o_getwell', 'o_thanks', 'o_mom'], 'o_m', 'p_pot'],
+    ['b15', 'photo-1660885900184-fe13ca69392c', 'tn_pink', ['o_bday', 'o_love', 'o_mom'], 'o_m', 'p_box'], ['b16', 'photo-1706897071321-abb716ef9521', 'tn_pink', ['o_bday', 'o_thanks', 'o_mom'], 'o_m', 'p_arr'],
+    ['b17', 'photo-1525258946800-98cfd641d0de', 'tn_white', ['o_wedding'], 'o_m', 'p_wedding'], ['b18', 'photo-1741969494307-55394e3e4071', 'tn_pink', ['o_bday', 'o_baby'], 'o_l', 'p_cake'],
+    ['b19', 'photo-1559779080-6970e0186790', 'tn_red', ['o_love', 'o_wedding', 'o_sorry'], 'o_l', 'p_rose']
   ],
   /* asistanın anladığı sözcükler (TR/RU/EN) */
+  prefer: { o_getwell: ['p_pot', 'p_orchid'], o_wedding: ['p_wedding', 'p_rose'], o_bday: ['p_box', 'p_cake'], o_love: ['p_rose', 'p_box'], o_mom: ['p_box', 'p_orchid'], o_thanks: ['p_orchid', 'p_arr'], o_baby: ['p_cake'], o_sorry: ['p_rose'] },
+  petals: ['p_rose', 'p_orchid', 'p_bouquet', 'p_arr', 'p_pot', 'p_box', 'p_wedding', 'p_cake'],
   words: {
     o_bday: 'doğum gün|dogum gun|yaş günü|bday|birthday|день рожд|др ', o_love: 'sevgil|aşk|ask|eşim|esim|karım|love|wife|girlfriend|любим|жене|девушк|романт',
     o_mom: 'anne|mom|mother|мам|матер', o_thanks: 'teşekkür|tesekkur|thank|спасибо|благодар', o_getwell: 'geçmiş olsun|gecmis olsun|hastane|get well|hospital|выздор|больниц',
     o_baby: 'bebek|yeni doğan|yenidoğan|baby|newborn|новорожд|малыш|роддом', o_sorry: 'özür|ozur|sorry|apolog|прости|извин', o_wedding: 'düğün|dugun|nişan|nisan|gelin|wedding|bride|engage|свадьб|помолв|невест',
     tn_pink: 'pembe|pink|розов', tn_white: 'beyaz|white|бел', tn_red: 'kırmızı|kirmizi|red|красн|бордо', tn_purple: 'mor|lila|purple|lilac|фиолет|сирен|лаванд', tn_yellow: 'sarı|sari|turuncu|yellow|orange|желт|оранж', tn_mix: 'renkli|karışık|karisik|colorful|mix|bright|ярк|разноцвет|микс',
+    p_rose: 'gül|gul|rose|роз', p_orchid: 'orkide|orchid|орхид', p_pot: 'saksı|saksi|potted|pot plant|plant|горшк|горшоч|комнатн', p_box: 'kutu|box|короб|шляпн', p_arr: 'aranjman|arrangement|sepet|basket|композиц|корзин', p_wedding: 'gelin buketi|bridal|свадебн', p_cake: 'pasta|balon|cake|balloon|торт|шар', p_bouquet: 'buket|bouquet|букет',
     o_l: 'büyük|buyuk|kocaman|big|large|huge|больш|огромн', o_s: 'küçük|kucuk|mini|small|little|маленьк|небольш'
   },
   quotes: [{ orig: 'Наталья — суперфлорист!', lang: 'ru', tr: 'Natalya süper bir florist!', en: 'Natalya is a super florist!', who: 'q_src' }],
   flows: { order: { title: 'm_title', msg: 'm_line', steps: [
-    { id: 'bq', q: 'f_bq', opts: ['b1', 'b2', 'b3', 'b4', 'b5', 'b6', 'b7', 'b8', 'b9', 'b10', 'b11', 'b12'], icon: '💐' },
+    { id: 'bq', q: 'f_bq', opts: ['b1', 'b2', 'b3', 'b4', 'b5', 'b6', 'b7', 'b8', 'b9', 'b10', 'b11', 'b12', 'b13', 'b14', 'b15', 'b16', 'b17', 'b18', 'b19'], icon: '💐' },
     { id: 'extra', q: 'f_extra', opts: ['x1', 'x2', 'x3', 'o_none'], multi: true, icon: '➕' },
     { id: 'how', q: 'f_how', opts: ['o_deliver', 'o_pickup'], cols: 1, icon: '🚚' },
     { id: 'day', q: 'f_day', type: 'days', n: 10, icon: '📅' },
@@ -194,11 +227,11 @@ window.SITE = {
     tr: {
       night_msg: 'Yarın annemin doğum günü. Pastel tonlarda orta boy bir buket istiyorum, kartına bir not yazacağım.',
       page_title: 'Flower Farm Antalya · Konyaaltı', page_desc: 'Konyaaltı’nda çiçek: her ton, her gün için buket. Natalya’nın atölyesi.',
-      tag_v: 'Temsili video', hero_h1: 'Her duyguya bir renk.|Pastel, kırmızı, beyaz: tonunu seç', hero_h1s: 'Her duyguya bir renk', fs1: 'Renk seçilir.|Tonunuza göre, tek tek', fs2: 'Buket kurulur.|Sap sap, elde', fs3: 'Paketlenir.|Kâğıt, kurdele, kartınız', hn2: 'Elde sarılır.|Kurdelesi ve kartıyla', hn3: 'Birini mutlu et.|Notunu yaz, gerisini çiçekçi düşünsün', hero_p: 'Çiçek · pasta · balon — Öğretmenevleri, Konyaaltı',
+      d_h1: 'Her duyguya bir çiçek.', d_p: 'Bir yaprağa dokunun. Öğretmenevleri, Konyaaltı.', d_ring: 'Ürünler', p_rose: 'Gül', p_orchid: 'Orkide', p_bouquet: 'Buket', p_arr: 'Aranjman', p_pot: 'Saksı çiçeği', p_box: 'Kutuda çiçek', p_wedding: 'Düğün ve nişan', p_cake: 'Pasta ve balon', b13: 'Beyaz orkide', b14: 'Saksıda mor çiçek', b15: 'Kutuda pastel', b16: 'Lale sepeti', b17: 'Gelin buketi', b18: 'Balon ve pasta', b19: 'Kırmızı güller', ai_name: 'Çiçek asistanı', ai_role: 'Flower Farm · demo, stoktan önerir', ai_cat: '{c}: stoktan seçtiklerim.', tip_o_getwell: 'Hastane ziyareti için kokusu hafif çiçekler ya da saksıda bir bitki daha uygun olur.', tip_o_mom: 'Anneler için yumuşak tonlar ve vazoya hazır bir buket sık seçilir.', tip_o_bday: 'Doğum günü için canlı renkler; isterseniz yanına balon ya da pasta eklenir.', tip_o_love: 'Romantik bir an için kırmızı ve pembe güller.', tip_o_baby: 'Yeni doğan için pastel, kokusu hafif seçimler.', tip_o_wedding: 'Düğün ve nişan için beyaz ve pastel tonlar; gelin buketini birlikte planlarız.', tip_o_thanks: 'Teşekkür için zarif, küçük bir seçim yeter.', tip_o_sorry: 'Gönül almak için sade ve içten bir buket.', tag_v: 'Temsili video', hero_h1: 'Her duyguya bir renk.|Pastel, kırmızı, beyaz: tonunu seç', hero_h1s: 'Her duyguya bir renk', fs1: 'Renk seçilir.|Tonunuza göre, tek tek', fs2: 'Buket kurulur.|Sap sap, elde', fs3: 'Paketlenir.|Kâğıt, kurdele, kartınız', hn2: 'Elde sarılır.|Kurdelesi ve kartıyla', hn3: 'Birini mutlu et.|Notunu yaz, gerisini çiçekçi düşünsün', hero_p: 'Çiçek · pasta · balon — Öğretmenevleri, Konyaaltı',
       t_h: 'Tonunuzu seçin', tn_pink: 'Pembe', tn_white: 'Beyaz', tn_red: 'Kırmızı', tn_purple: 'Mor', tn_yellow: 'Sarı', tn_mix: 'Renkli',
-      ai_h: 'Ne için çiçek arıyorsunuz?', ai_ph: 'Ör. annem için doğum günü, pembe, büyük', ai_note: 'Demo asistan: gerçek sürümde dükkânın güncel stoğuna bağlanır.',
-      ai_hi: 'Merhaba! Kime ve ne için çiçek aradığınızı yazın; stoktan size uyanları göstereyim.', ai_found: '{n} buket buldum{why}:', ai_none: 'Tam eşleşen bulamadım; size en yakınları:', ai_pick: 'Birine dokunun, siparişi birlikte tamamlayalım.',
-      s1: 'Annem için doğum günü', s2: 'Sevgilime kırmızı', s3: 'Geçmiş olsun, sade', s4: 'Yeni bebek', s5: 'Renkli ve büyük', in_stock: 'stokta',
+      ai_h: 'Çiçek asistanına sorun', ai_ph: 'Ör. annem için doğum günü, pembe, büyük', ai_note: 'Demo asistan: gerçek sürümde dükkânın güncel stoğuna bağlanır.',
+      ai_hi: 'Merhaba, ben Flower Farm’ın çiçek asistanıyım. Kime, hangi gün için çiçek arıyorsunuz? Stoktan birlikte seçelim.', ai_found: '{n} öneri buldum{why}:', ai_none: 'Tam eşleşen bulamadım; size en yakınları:', ai_pick: 'Birine dokunun, siparişi birlikte tamamlayalım.',
+      s1: 'Annemin doğum günü için ne alayım?', s2: 'Hastane ziyaretine ne uygun?', s3: 'Sevgilime romantik bir şey', s4: 'Yeni doğan bebek için', s5: 'Düğün için gelin buketi', in_stock: 'stokta',
       o_bday: 'doğum günü', o_love: 'sevgiliye', o_mom: 'anneye', o_thanks: 'teşekkür', o_getwell: 'geçmiş olsun', o_baby: 'yeni bebek', o_sorry: 'özür', o_wedding: 'düğün',
       b1: 'Pembe şakayık demeti', b2: 'Vazoda pembe güller', b3: 'Renkli mevsim buketi', b4: 'Bahar laleleri', b5: 'Pembe ve kırmızı demet', b6: 'Beyaz sadelik', b7: 'Pastel vazo', b8: 'Kraft mini buket', b9: 'Üç şakayık', b10: 'Romantik pembe', b11: 'Kır çiçekleri', b12: 'Kırmızı ve beyaz',
       q_src: 'Müşteri yorumu · Yandex', x1: 'Pasta', x2: 'Balon', x3: 'Animatör', x4: 'Kart notu', o_none: 'Ek yok',
@@ -210,11 +243,11 @@ window.SITE = {
     ru: {
       night_msg: 'Завтра у мамы день рождения. Хочу букет среднего размера в пастельных тонах, на открытке будет пара слов.',
       page_title: 'Flower Farm Antalya · Коньяалты', page_desc: 'Цветы в Коньяалты: букет любого оттенка к любому поводу. Мастерская Натальи.',
-      tag_v: 'Иллюстративное видео', hero_h1: 'Каждому чувству — свой цвет.|Пастель, красный, белый: выберите тон', hero_h1s: 'Каждому чувству — свой цвет', fs1: 'Выбираем цвет.|Под ваш тон, по одному цветку', fs2: 'Собираем букет.|Стебель за стеблем, вручную', fs3: 'Упаковываем.|Бумага, лента, ваша открытка', hn2: 'Собираем вручную.|С лентой и открыткой', hn3: 'Порадуйте человека.|Напишите пару слов — остальное сделает флорист', hero_p: 'Цветы · торты · шары — Огретменевлери, Коньяалты',
+      d_h1: 'Каждому чувству — свой цветок.', d_p: 'Коснитесь лепестка. Огретменевлери, Коньяалты.', d_ring: 'Товары', p_rose: 'Розы', p_orchid: 'Орхидеи', p_bouquet: 'Букеты', p_arr: 'Композиции', p_pot: 'В горшке', p_box: 'Цветы в коробке', p_wedding: 'Свадьба и помолвка', p_cake: 'Торт и шары', b13: 'Белая орхидея', b14: 'Фиолетовые в горшке', b15: 'Пастель в коробке', b16: 'Корзина тюльпанов', b17: 'Букет невесты', b18: 'Шары и торт', b19: 'Красные розы', ai_name: 'Цветочный помощник', ai_role: 'Flower Farm · демо, подбирает из наличия', ai_cat: '{c}: вот что есть в наличии.', tip_o_getwell: 'В больницу уместнее цветы с лёгким ароматом или растение в горшке.', tip_o_mom: 'Маме часто выбирают нежные тона и букет, готовый для вазы.', tip_o_bday: 'На день рождения — яркие цвета; можно добавить шары или торт.', tip_o_love: 'Для романтики — красные и розовые розы.', tip_o_baby: 'Для новорождённого — пастельные цветы с лёгким ароматом.', tip_o_wedding: 'Для свадьбы и помолвки — белые и пастельные тона; букет невесты продумаем вместе.', tip_o_thanks: 'Чтобы поблагодарить, хватит небольшого изящного букета.', tip_o_sorry: 'Чтобы помириться — простой и искренний букет.', tag_v: 'Иллюстративное видео', hero_h1: 'Каждому чувству — свой цвет.|Пастель, красный, белый: выберите тон', hero_h1s: 'Каждому чувству — свой цвет', fs1: 'Выбираем цвет.|Под ваш тон, по одному цветку', fs2: 'Собираем букет.|Стебель за стеблем, вручную', fs3: 'Упаковываем.|Бумага, лента, ваша открытка', hn2: 'Собираем вручную.|С лентой и открыткой', hn3: 'Порадуйте человека.|Напишите пару слов — остальное сделает флорист', hero_p: 'Цветы · торты · шары — Огретменевлери, Коньяалты',
       t_h: 'Выберите оттенок', tn_pink: 'Розовый', tn_white: 'Белый', tn_red: 'Красный', tn_purple: 'Фиолетовый', tn_yellow: 'Жёлтый', tn_mix: 'Яркий микс',
-      ai_h: 'Для чего ищете цветы?', ai_ph: 'Напр. маме на день рождения, розовые, большой', ai_note: 'Демо-ассистент: в рабочей версии подключается к актуальному наличию в магазине.',
-      ai_hi: 'Здравствуйте! Напишите, кому и по какому поводу цветы, — покажу, что есть в наличии.', ai_found: 'Нашла {n} букета{why}:', ai_none: 'Точного совпадения нет; вот самые близкие:', ai_pick: 'Коснитесь букета, и оформим заказ.',
-      s1: 'Маме на день рождения', s2: 'Любимой, красные', s3: 'Выздоравливай, нежные', s4: 'Новорождённый', s5: 'Яркий и большой', in_stock: 'в наличии',
+      ai_h: 'Спросите цветочного помощника', ai_ph: 'Напр. маме на день рождения, розовые, большой', ai_note: 'Демо-ассистент: в рабочей версии подключается к актуальному наличию в магазине.',
+      ai_hi: 'Здравствуйте! Напишите, кому и по какому поводу цветы, — покажу, что есть в наличии.', ai_found: 'Вот что подойдёт ({n}){why}:', ai_none: 'Точного совпадения нет; вот самые близкие:', ai_pick: 'Коснитесь букета, и оформим заказ.',
+      s1: 'Что подарить маме на день рождения?', s2: 'Что уместно в больницу?', s3: 'Что-то романтичное для любимой', s4: 'Для новорождённого', s5: 'Букет невесты на свадьбу', s5x: 'Яркий и большой', in_stock: 'в наличии',
       o_bday: 'день рождения', o_love: 'любимой', o_mom: 'маме', o_thanks: 'спасибо', o_getwell: 'выздоравливай', o_baby: 'новорождённый', o_sorry: 'прости', o_wedding: 'свадьба',
       b1: 'Охапка розовых пионов', b2: 'Розовые розы в вазе', b3: 'Яркий сезонный букет', b4: 'Весенние тюльпаны', b5: 'Розовое и красное', b6: 'Белая простота', b7: 'Пастель в вазе', b8: 'Мини-букет в крафте', b9: 'Три пиона', b10: 'Романтичный розовый', b11: 'Полевые цветы', b12: 'Красное и белое',
       q_src: 'Отзыв клиента · Яндекс', x1: 'Торт', x2: 'Шары', x3: 'Аниматор', x4: 'Открытка', o_none: 'Без дополнений',
@@ -226,11 +259,11 @@ window.SITE = {
     en: {
       night_msg: 'It is my mum’s birthday tomorrow. I would like a medium bouquet in pastel tones, with a short note on the card.',
       page_title: 'Flower Farm Antalya · Konyaaltı', page_desc: 'Flowers in Konyaaltı: a bouquet in every tone, for every occasion. Natalya’s studio.',
-      tag_v: 'Illustrative video', hero_h1: 'A colour for every feeling.|Pastel, red, white: pick your tone', hero_h1s: 'A colour for every feeling', fs1: 'Colours are chosen.|Stem by stem, to your tone', fs2: 'The bouquet takes shape.|By hand', fs3: 'Then it is wrapped.|Paper, ribbon, your card', hn2: 'Wrapped by hand.|With ribbon and a card', hn3: 'Make someone smile.|Write your note, the florist does the rest', hero_p: 'Flowers · cakes · balloons — Öğretmenevleri, Konyaaltı',
+      d_h1: 'A flower for every feeling.', d_p: 'Touch a petal. Öğretmenevleri, Konyaaltı.', d_ring: 'Products', p_rose: 'Roses', p_orchid: 'Orchids', p_bouquet: 'Bouquets', p_arr: 'Arrangements', p_pot: 'Potted plants', p_box: 'Flower boxes', p_wedding: 'Wedding & engagement', p_cake: 'Cake & balloons', b13: 'White orchid', b14: 'Purple in a pot', b15: 'Pastel flower box', b16: 'Tulip basket', b17: 'Bridal bouquet', b18: 'Balloons and cake', b19: 'Red roses', ai_name: 'Flower assistant', ai_role: 'Flower Farm · demo, suggests from stock', ai_cat: '{c}: here is what is in stock.', tip_o_getwell: 'For a hospital visit, flowers with a light scent or a potted plant work better.', tip_o_mom: 'For mums, soft tones and a vase-ready bouquet are a popular choice.', tip_o_bday: 'For a birthday, bright colours; balloons or a cake can be added.', tip_o_love: 'For a romantic moment, red and pink roses.', tip_o_baby: 'For a newborn, pastel flowers with a light scent.', tip_o_wedding: 'For weddings and engagements, white and pastel tones; we plan the bridal bouquet together.', tip_o_thanks: 'To say thank you, a small elegant choice is enough.', tip_o_sorry: 'To make up, a simple, heartfelt bouquet.', tag_v: 'Illustrative video', hero_h1: 'A colour for every feeling.|Pastel, red, white: pick your tone', hero_h1s: 'A colour for every feeling', fs1: 'Colours are chosen.|Stem by stem, to your tone', fs2: 'The bouquet takes shape.|By hand', fs3: 'Then it is wrapped.|Paper, ribbon, your card', hn2: 'Wrapped by hand.|With ribbon and a card', hn3: 'Make someone smile.|Write your note, the florist does the rest', hero_p: 'Flowers · cakes · balloons — Öğretmenevleri, Konyaaltı',
       t_h: 'Pick your tone', tn_pink: 'Pink', tn_white: 'White', tn_red: 'Red', tn_purple: 'Purple', tn_yellow: 'Yellow', tn_mix: 'Colourful',
-      ai_h: 'What are the flowers for?', ai_ph: 'e.g. mum’s birthday, pink, large', ai_note: 'Demo assistant: the live version connects to the shop’s current stock.',
-      ai_hi: 'Hello! Tell me who the flowers are for and why, and I will show what is in stock.', ai_found: 'I found {n} bouquets{why}:', ai_none: 'No exact match; here are the closest:', ai_pick: 'Tap one and we will finish the order.',
-      s1: 'Mum’s birthday', s2: 'Red, for my love', s3: 'Get well, soft', s4: 'New baby', s5: 'Colourful and big', in_stock: 'in stock',
+      ai_h: 'Ask the flower assistant', ai_ph: 'e.g. mum’s birthday, pink, large', ai_note: 'Demo assistant: the live version connects to the shop’s current stock.',
+      ai_hi: 'Hello! Tell me who the flowers are for and why, and I will show what is in stock.', ai_found: 'Here are {n} ideas{why}:', ai_none: 'No exact match; here are the closest:', ai_pick: 'Tap one and we will finish the order.',
+      s1: 'What should I get for my mum’s birthday?', s2: 'What suits a hospital visit?', s3: 'Something romantic for my love', s4: 'For a newborn baby', s5: 'A bridal bouquet for a wedding', in_stock: 'in stock',
       o_bday: 'birthday', o_love: 'for my love', o_mom: 'for mum', o_thanks: 'thank you', o_getwell: 'get well', o_baby: 'new baby', o_sorry: 'sorry', o_wedding: 'wedding',
       b1: 'Armful of pink peonies', b2: 'Pink roses in a vase', b3: 'Bright seasonal bouquet', b4: 'Spring tulips', b5: 'Pink and red bunch', b6: 'White simplicity', b7: 'Pastel vase', b8: 'Kraft mini bouquet', b9: 'Three peonies', b10: 'Romantic pink', b11: 'Wildflowers', b12: 'Red and white',
       q_src: 'Customer review · Yandex', x1: 'Cake', x2: 'Balloons', x3: 'Entertainer', x4: 'Card', o_none: 'No extras',
@@ -262,22 +295,26 @@ window.SITE = {
     var log = $('#log');
     function say(html, me) { var d = document.createElement('div'); d.className = 'msg ' + (me ? 'msg--me' : 'msg--bot'); d.innerHTML = html; log.appendChild(d); log.scrollTop = log.scrollHeight; }
     function parse(q) {
-      q = ' ' + q.toLowerCase() + ' '; var f = { occ: [], tone: [], size: null };
-      Object.keys(S.words).forEach(function (k) { if (new RegExp(S.words[k]).test(q)) { if (k.indexOf('tn_') === 0) f.tone.push(k); else if (k === 'o_l' || k === 'o_s') f.size = k; else f.occ.push(k); } });
+      q = ' ' + q.toLowerCase() + ' '; var f = { occ: [], tone: [], size: null, cat: [] };
+      Object.keys(S.words).forEach(function (k) { if (new RegExp(S.words[k]).test(q)) { if (k.indexOf('tn_') === 0) f.tone.push(k); else if (k.indexOf('p_') === 0) f.cat.push(k); else if (k === 'o_l' || k === 'o_s') f.size = k; else f.occ.push(k); } });
       return f;
     }
     function answer(q) {
       say(K.esc(q), true);
-      var f = parse(q), scored = S.stock.map(function (b) { var s = 0; f.occ.forEach(function (o) { if (b[3].indexOf(o) > -1) s += 2; }); f.tone.forEach(function (t) { if (b[2] === t) s += 3; }); if (f.size && b[4] === f.size) s += 1; return [s, b]; }).sort(function (a, b) { return b[0] - a[0]; });
+      var f = parse(q), scored = S.stock.map(function (b) { var s = 0; f.cat.forEach(function (c) { if (b[5] === c) s += 4; }); f.occ.forEach(function (o) { if (S.prefer[o] && S.prefer[o].indexOf(b[5]) > -1 && b[3].indexOf(o) > -1) s += 1.5; }); f.occ.forEach(function (o) { if (b[3].indexOf(o) > -1) s += 2; }); f.tone.forEach(function (t) { if (b[2] === t) s += 3; }); if (f.size && b[4] === f.size) s += 1; return [s, b]; }).sort(function (a, b) { return b[0] - a[0]; });
       var hits = scored.filter(function (x) { return x[0] > 0; }).slice(0, 3).map(function (x) { return x[1]; });
       var why = f.occ.concat(f.tone).map(function (k) { return K.t(k).toLowerCase(); }).join(', ');
+      var typing = document.createElement('div'); typing.className = 'msg msg--bot typing'; typing.innerHTML = '<i></i><i></i><i></i>'; log.appendChild(typing); log.scrollTop = log.scrollHeight;
       setTimeout(function () {
+        typing.remove();
         var head = hits.length ? K.t('ai_found', { n: hits.length, why: why ? ' (' + why + ')' : '' }) : K.t('ai_none');
         if (!hits.length) hits = S.stock.slice(0, 3);
         if (f.tone[0]) setTone(f.tone[0]);
-        say(K.esc(head) + '<div class="msg__cards">' + hits.map(function (b) { return '<button type="button" class="mini" data-pick="' + b[0] + '" data-occ="' + (f.occ[0] || '') + '"><img src="' + U(b[1], 240, 320) + '" alt="" width="240" height="320"><b>' + K.esc(K.t(b[0])) + '</b><small>● ' + K.esc(K.t('in_stock')) + '</small></button>'; }).join('') + '</div>');
+        var tip = f.occ[0] ? '<span class="msg__tip">' + K.esc(K.t('tip_' + f.occ[0])) + '</span>' : '';
+        if (f.cat.length && !f.occ.length) head = K.t('ai_cat', { c: K.t(f.cat[0]) });
+        say(K.esc(head) + tip + '<div class="msg__cards">' + hits.map(function (b) { return '<button type="button" class="mini" data-pick="' + b[0] + '" data-occ="' + (f.occ[0] || '') + '"><img src="' + U(b[1], 240, 320) + '" alt="" width="240" height="320"><b>' + K.esc(K.t(b[0])) + '</b><small>● ' + K.esc(K.t('in_stock')) + '</small></button>'; }).join('') + '</div>');
         setTimeout(function () { say(K.esc(K.t('ai_pick'))); }, 500);
-      }, K.reduced ? 0 : 650);
+      }, K.reduced ? 0 : 900);
     }
     function sugs() { $('#sugs').innerHTML = ['s1', 's2', 's3', 's4', 's5'].map(function (k) { return '<button type="button" data-sug="' + k + '">' + K.esc(K.t(k)) + '</button>'; }).join(''); }
     function hello() { log.innerHTML = ''; say(K.esc(K.t('ai_hi'))); }
@@ -287,7 +324,34 @@ window.SITE = {
       var s = e.target.closest('[data-sug]'); if (s) { answer(K.t(s.dataset.sug)); return; }
       var p = e.target.closest('[data-pick]'); if (p) { K.openFlow('order', { bq: p.dataset.pick }); }
     });
-    function all() { tones(); sugs(); hello(); }
+    /* papatya: ürünler yaprakların üstünde, halka yavaşça döner; dokununca asistan o ürünü stoktan gösterir */
+    var ring = $('#ring'), hero = $('.dz'), vbox = $('.dz__v'), VW = 1920, VH = 1080, FX = 0.47, FY = 0.45, FR = 0.2, off = -Math.PI / 2, paused = false, last = 0;
+    function pets() {
+      ring.innerHTML = S.petals.map(function (c, i) { return '<i class="ring__glow" data-g="' + i + '"></i><button type="button" class="pet" data-cat="' + c + '" style="transition-delay:' + (300 + i * 120) + 'ms">' + K.esc(K.t(c)) + '</button>'; }).join('');
+      setTimeout(function () { ring.classList.add('is-in'); }, 60); place();
+    }
+    function place() {
+      var cw = hero.clientWidth, ch = hero.clientHeight, wide = cw >= 900, sc = wide ? ch * 0.84 / (2 * FR * VW) : Math.min(Math.max(cw / VW, ch / VH), Math.min(cw * 0.96, ch * 0.8) / (2 * FR * VW)), W = VW * sc, H = VH * sc, ccx = wide ? cw * 0.67 : cw / 2, ccy = ch * (wide ? 0.5 : 0.42), dx = ccx - FX * W, dy = ccy - FY * H;
+      vbox.style.width = W + 'px'; vbox.style.height = H + 'px'; vbox.style.left = dx + 'px'; vbox.style.top = dy + 'px';
+      var cx = ccx, cy = ccy, R = FR * VW * sc, r = wide ? R * 0.7 : Math.min(Math.max(R * 0.72, 120), cw / 2 - 56, ch * 0.3), n = S.petals.length;
+      var gl = ring.querySelectorAll('.ring__glow'), bt = ring.querySelectorAll('.pet');
+      for (var i = 0; i < n; i++) {
+        var a = off + i * 2 * Math.PI / n, x = cx + Math.cos(a) * r, y = cy + Math.sin(a) * r;
+        if (bt[i]) bt[i].style.transform = 'translate(-50%,-50%) translate(' + x.toFixed(1) + 'px,' + y.toFixed(1) + 'px)';
+        if (gl[i]) { gl[i].style.left = cx + 'px'; gl[i].style.top = cy + 'px'; gl[i].style.width = (r * 1.35) + 'px'; gl[i].style.transform = 'rotate(' + (a * 180 / Math.PI).toFixed(2) + 'deg)'; }
+      }
+    }
+    function spin(t) { if (!paused && last) { off += (t - last) * 0.000045; place(); } last = t; requestAnimationFrame(spin); }
+    ring.addEventListener('pointerover', function (e) { var b = e.target.closest('.pet'); paused = !!b; ring.querySelectorAll('.ring__glow').forEach(function (g, i) { g.classList.toggle('hot', !!b && ring.querySelectorAll('.pet')[i] === b); }); });
+    ring.addEventListener('pointerleave', function () { paused = false; ring.querySelectorAll('.ring__glow').forEach(function (g) { g.classList.remove('hot'); }); });
+    ring.addEventListener('click', function (e) {
+      var b = e.target.closest('.pet'); if (!b) return;
+      $('#ai').scrollIntoView({ behavior: K.reduced ? 'auto' : 'smooth', block: 'start' });
+      setTimeout(function () { answer(K.t(b.dataset.cat)); }, K.reduced ? 0 : 500);
+    });
+    new ResizeObserver(place).observe(hero);
+    if (!K.reduced) requestAnimationFrame(spin);
+    function all() { tones(); sugs(); hello(); pets(); }
     document.addEventListener('kit:lang', all); all();
   }
 };

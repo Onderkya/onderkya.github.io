@@ -35,6 +35,23 @@ h1,h2,h3{font-family:var(--k-display);font-weight:500;margin:0;letter-spacing:-.
 .drop3d{position:absolute;right:-30px;top:calc(56svh - 150px);width:min(42vw,210px);aspect-ratio:1;z-index:4;pointer-events:none;filter:drop-shadow(0 24px 30px rgba(58,30,42,.35))}
 .hero .reel__dots{top:16px;bottom:auto;right:16px}.hero .reel__narr{font-size:clamp(26px,4.4vw,48px);max-width:13ch}@media(min-width:900px){.hero .reel__narr{left:auto;right:clamp(24px,5vw,72px);bottom:auto;top:44svh;text-align:right;max-width:11ch}.hero .reel__narr small{margin-left:auto}}.hero .reel__narr small{font-size:max(14px,.34em)}
 .hero .k-photo-tag{top:auto;bottom:14px;right:14px}
+/* telefonda: tam ekran; video kırpılmaz, yanları aynı videonun bulanık kopyası doldurur */
+@media(max-width:899px){
+  .hero{min-height:100svh;color:#FFF7F3;background:#1c0f15}
+  .hero .hero__reel{position:absolute;inset:0;height:auto;min-height:0;margin:0;border-radius:0;box-shadow:none;z-index:-2;--amb-y:44%}
+  .hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(40,14,24,.45),rgba(40,14,24,0) 22%,rgba(40,14,24,0) 58%,rgba(40,14,24,.85));pointer-events:none}
+  .top{position:absolute;left:0;right:0;top:0}
+  .hero__in{flex:1;display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:92px}
+  .hero h1{font-size:clamp(64px,20vw,110px)}
+  .hero h1 i{color:inherit}.hero p{color:#FFF7F3;opacity:.92}
+  .btn-w{background:#FFF7F3;color:#3A1E2A}.btn-o{border-color:rgba(255,255,255,.65);color:#fff}
+  .top .brand{color:#fff}.hero .k-langs{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.3)}.hero .k-langs button{color:#fff}.hero .k-langs button[aria-pressed=true]{background:#fff;color:#3A1E2A}
+  .hero .k-theme{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.3);color:#fff}
+  .drop3d{right:-18px;top:58svh;width:min(30vw,150px)}
+  .hero .reel__dots{top:78px}
+  .hero .reel__narr{top:13svh;bottom:auto;font-size:clamp(26px,7vw,40px)}
+  .hero .reel__shade{display:none}
+}
 @media(min-width:900px){
   .hero{min-height:100svh;color:#FFF7F3}
   .hero .hero__reel{position:absolute;inset:0;height:auto;min-height:0;margin:0;border-radius:0;box-shadow:none;z-index:-2}
@@ -105,7 +122,7 @@ footer .wrap{display:flex;flex-direction:column;gap:4px}
     <div class="k-langs" role="group" data-ta="aria-label:k_lang"><button type="button" data-setlang="ru">RU</button><button type="button" data-setlang="tr">TR</button><button type="button" data-setlang="en">EN</button></div>
     <button type="button" class="k-theme" data-theme-toggle data-ta="aria-label:k_theme"><svg class="k-i-moon"><use href="#k-moon"/></svg><svg class="k-i-sun"><use href="#k-sun"/></svg></button>
   </div></header>
-  <div class="hero__reel" id="nails" data-slow="0.7" data-grade="cine" data-reel="7167,7412,13088,23384,13087,36905,22417,7166,24761,15125,13084,24786" data-every="2600" data-fx="zoom" data-dots data-narr="hn1,hn1,hn1,hn1,hn2,hn2,hn2,hn2,hn3,hn3,hn3,hn3"><span class="k-photo-tag" data-t="tag_v"></span></div>
+  <div class="hero__reel" id="nails" data-ambient="mobile" data-slow="0.7" data-grade="cine" data-reel="7167,7412,13088,23384,13087,36905,22417,7166,24761,15125,13084,24786" data-every="2600" data-fx="zoom" data-dots data-narr="hn1,hn1,hn1,hn1,hn2,hn2,hn2,hn2,hn3,hn3,hn3,hn3"><span class="k-photo-tag" data-t="tag_v"></span></div>
   <div class="drop3d" data-3d="drop" data-color="#B3122B" id="drop"></div>
   <main class="hero__in"><div class="wrap">
     <h1>La <i>Beauté</i></h1>

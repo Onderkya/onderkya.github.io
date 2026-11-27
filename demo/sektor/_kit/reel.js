@@ -25,6 +25,7 @@
     '.reel__bars{position:absolute;z-index:4;top:18px;left:clamp(18px,5vw,64px);right:clamp(18px,5vw,64px);display:flex;gap:6px;pointer-events:none}.reel__bars i{flex:1;height:3px;border-radius:3px;background:rgba(255,255,255,.3);overflow:hidden}.reel__bars i::after{content:"";display:block;height:100%;width:100%;background:#fff;transform:scaleX(0);transform-origin:left}.reel__bars i.done::after{transform:scaleX(1)}.reel__bars i.on::after{animation:reelbar var(--every) linear forwards}@keyframes reelbar{to{transform:scaleX(1)}}' +
     '.reel__shade{position:absolute;inset:0;z-index:3;pointer-events:none;background:linear-gradient(180deg,rgba(0,0,0,.28),transparent 22%,transparent 48%,rgba(0,0,0,.62))}' +
     'p.reel__narr.reel__narr--flow{position:relative;left:auto;right:auto;bottom:auto;z-index:auto;font-size:clamp(24px,3.4vw,36px);max-width:22ch;margin:14px 0 22px;text-shadow:0 2px 18px rgba(0,0,0,.5);min-height:2.3em}' +
+    '.reel--amb>video,.reel--amb>img.reel__p{object-fit:contain;object-position:50% var(--amb-y,46%);-webkit-mask-image:linear-gradient(180deg,transparent var(--amb-a,0%),#000 var(--amb-b,0%),#000 var(--amb-c,100%),transparent var(--amb-d,100%));mask-image:linear-gradient(180deg,transparent var(--amb-a,0%),#000 var(--amb-b,0%),#000 var(--amb-c,100%),transparent var(--amb-d,100%))}.reel__amb{position:absolute;left:-10%;top:-10%;width:120%;height:120%;z-index:0;filter:blur(26px) saturate(1.35) brightness(.8);pointer-events:none}.reel--amb>video.on{z-index:1}' +
     '.reel--cine>video{filter:contrast(1.12) saturate(.9) brightness(.93)}' +
     '.reel__vig{position:absolute;inset:0;z-index:2;pointer-events:none;background:radial-gradient(120% 95% at 50% 42%,transparent 42%,rgba(0,0,0,.6) 100%)}' +
     '.reel__light{position:absolute;top:-20%;bottom:-20%;left:-30%;width:60%;z-index:2;pointer-events:none;background:linear-gradient(105deg,transparent 30%,rgba(255,236,210,.13) 50%,transparent 70%);mix-blend-mode:screen;transform:translateX(-100%);animation:reellight 11s cubic-bezier(.45,0,.2,1) infinite}' +
@@ -40,6 +41,8 @@
     var narr = (el.getAttribute('data-narr') || '').split(',').filter(Boolean), nEl = null, bars = null;
     var slow = +el.getAttribute('data-slow') || 1, steps = el.hasAttribute('data-steps');
     el.classList.add('reel');
+    var ambA = el.getAttribute('data-ambient'), amb = null, actx = null;
+    if (ambA !== null && (ambA !== 'mobile' || matchMedia('(max-width: 899px)').matches)) { el.classList.add('reel--amb'); amb = document.createElement('canvas'); amb.className = 'reel__amb'; amb.width = 48; amb.height = 80; amb.setAttribute('aria-hidden', 'true'); actx = amb.getContext('2d'); el.prepend(amb); }
     if (el.getAttribute('data-grade') === 'cine') { el.classList.add('reel--cine'); var vg = document.createElement('i'); vg.className = 'reel__vig'; el.appendChild(vg); var lt = document.createElement('i'); lt.className = 'reel__light'; el.appendChild(lt); } if (!el.getAttribute('data-fx')) el.setAttribute('data-fx', 'fade');
     var poster = document.createElement('img'); poster.className = 'reel__p'; poster.alt = ''; poster.src = el.getAttribute('data-poster') || PST(ids[0]); poster.decoding = 'async'; pfix(poster); el.prepend(poster);
     var cap = null, dots = null;
@@ -53,7 +56,7 @@
     if (reduced) { setCap(0); return; }
     var A = vid(), B = vid(); el.insertBefore(A, poster.nextSibling); el.insertBefore(B, A.nextSibling);
     var i = 0, cur = A, nxt = B, timer = null, visible = false, started = false;
-    function vid() { var v = document.createElement('video'); v.muted = true; v.loop = true; v.playsInline = true; v.setAttribute('playsinline', ''); v.setAttribute('muted', ''); v.preload = 'none'; v.setAttribute('aria-hidden', 'true'); return v; }
+    function vid() { var v = document.createElement('video'); if (amb) v.crossOrigin = 'anonymous'; v.muted = true; v.loop = true; v.playsInline = true; v.setAttribute('playsinline', ''); v.setAttribute('muted', ''); v.preload = 'none'; v.setAttribute('aria-hidden', 'true'); return v; }
     function setCap(k) {
       if (cap) { var key = labels[k % labels.length]; cap.textContent = window.KIT ? KIT.t(key) : key; cap.setAttribute('data-k', key); }
       if (dots) Array.prototype.forEach.call(dots.children, function (d, n) { d.classList.toggle('on', n === k); });
@@ -74,7 +77,18 @@
     function start() {
       if (!started) { started = true; load(cur, 0); var c0 = cur; c0.addEventListener('playing', function h() { c0.removeEventListener('playing', h); c0.classList.add('on'); }); cur.play().catch(function () {}); setCap(0); el.dispatchEvent(new CustomEvent('reel:change', { detail: 0 })); }
       else cur.play().catch(function () {});
+      if (amb && !ambRaf) ambRaf = requestAnimationFrame(ambDraw);
       if (ids.length > 1 && !timer) timer = setInterval(function () { if (visible && !document.hidden) show((i + 1) % ids.length); }, every);
+    }
+    var ambRaf = 0;
+    function ambDraw() {
+      if (!amb || !visible) { ambRaf = 0; return; }
+      var v = cur; if (v.readyState >= 2 && v.videoWidth && v.videoWidth !== el._ambW) {
+        el._ambW = v.videoWidth; var W = el.clientWidth, H = el.clientHeight, k = Math.min(W / v.videoWidth, H / v.videoHeight), bh = v.videoHeight * k / H * 100, ay = parseFloat(getComputedStyle(el).getPropertyValue('--amb-y')) || 46, top = (100 - bh) * ay / 100, f = Math.min(6, bh / 6);
+        if (bh < 99) { el.style.setProperty('--amb-a', top + '%'); el.style.setProperty('--amb-b', (top + f) + '%'); el.style.setProperty('--amb-c', (top + bh - f) + '%'); el.style.setProperty('--amb-d', (top + bh) + '%'); }
+      }
+      if (v.readyState >= 2 && v.videoWidth) { var cw = amb.width, ch = amb.height, sc = Math.max(cw / v.videoWidth, ch / v.videoHeight), w = v.videoWidth * sc, h = v.videoHeight * sc; try { actx.drawImage(v, (cw - w) / 2, (ch - h) / 2, w, h); } catch (e) {} }
+      ambRaf = requestAnimationFrame(ambDraw);
     }
     function stop() { cur.pause(); clearInterval(timer); timer = null; }
     new IntersectionObserver(function (es) { visible = es[0].isIntersecting; if (visible) start(); else if (started) stop(); }, { rootMargin: '120px' }).observe(el);
