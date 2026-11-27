@@ -30,8 +30,8 @@
     function place() {
       var cw = box.clientWidth, ch = box.clientHeight, narrow = cw < 600, z = (T.zoom || [1, 1])[narrow ? 1 : 0];
       var s = Math.max(cw / T.w, ch / T.h) * z, W = T.w * s, H = T.h * s;
-      var dx = cw * 0.5 - (T.fx || 0.5) * W, dy = ch * (narrow ? 0.46 : 0.5) - (T.fy || 0.5) * H;
-      dx = Math.min(0, Math.max(cw - W, dx)); dy = Math.min(0, Math.max(ch - H, dy));
+      var dx = cw * 0.5 - (T.fx || 0.5) * W, dy = ch * (T.cy ? T.cy[narrow ? 1 : 0] : (narrow ? 0.46 : 0.5)) - (T.fy || 0.5) * H;
+      dx = Math.min(0, Math.max(cw - W, dx)); dy = Math.min(ch * (T.topRoom || 0), Math.max(ch - H, dy));
       M.s = s; M.dy = dy; M.W = W; M.H = H; if (!T.follow || !M.init) M.dx = dx;
       v.style.width = W + 'px'; v.style.height = H + 'px'; v.style.left = '0px'; v.style.top = dy + 'px'; v.style.transform = 'translate3d(' + M.dx + 'px,0,0)';
     }
@@ -66,8 +66,8 @@
       function lab(tx, x, y, k, anchor) { tx.setAttribute('x', x); tx.setAttribute('y', y); tx.setAttribute('text-anchor', anchor || 'start'); tx.style.opacity = pr[k] > 0.6 ? 1 : 0; }
       lab(G.tLen, lenX + (narrow ? 8 : 10), narrow ? chin[1] - 10 : (top[1] + chin[1]) / 2, 0);
       lab(G.tFh, fr[0] + 12, fr[1] - 8, 1);
-      lab(G.tCk, narrow ? cl[0] - 10 : cr[0] + 14, cr[1] + 4, 2, narrow ? 'end' : 'start');
-      if (narrow) lab(G.tJw, chin[0], chin[1] + 22, 3, 'middle'); else lab(G.tJw, jr[0] + 12, jr[1] + 16, 3);
+      if (narrow) lab(G.tCk, (cl[0] + cr[0]) / 2, Math.min(cl[1], cr[1]) - 10, 2, 'middle'); else lab(G.tCk, cr[0] + 14, cr[1] + 4, 2);
+      if (narrow) lab(G.tJw, jr[0] - 6, jr[1] - 12, 3, 'end'); else lab(G.tJw, jr[0] + 12, jr[1] + 16, 3);
       [top, chin, cl, cr, jl, jr, fl, fr, P[10]].forEach(function (p, k) { dots[k].setAttribute('cx', p[0]); dots[k].setAttribute('cy', p[1]); dots[k].style.opacity = pr[0] > 0 ? 0.9 : 0; });
       var ph = 0; PH.forEach(function (q, k) { if (t >= q[0]) ph = k; });
       if (ph !== lastPh) { lastPh = ph; say(PH[ph][1]); }
